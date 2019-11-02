@@ -16,9 +16,9 @@ Once we have assembled the working group, we will list the members here.
 
 One of our goals is to collect information about accessibility and create documentation to empower the Jupyter community to help us make our software accessible. Please use this section to begin to aggregate relevant third party standards, guides, and documentation related to this:
 
-* Resource 1
-* Resource 2
-* ...
+* [Web Content Accessibility Guidelines 2.1](https://www.w3.org/TR/WCAG21/) - W3C Recommendation
+* [The A11 Project](https://a11yproject.com/)
+* [18F Accessibility Guide](https://accessibility.18f.gov/)
 
 ## Link to accessibilty related issue on GitHub
 
