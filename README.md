@@ -22,6 +22,7 @@ One of our goals is to collect information about accessibility and create docume
 * [Web Content Accessibility Guidelines 2.1](https://www.w3.org/TR/WCAG21/) - W3C Recommendation
 * [The A11 Project](https://a11yproject.com/)
 * [18F Accessibility Guide](https://accessibility.18f.gov/)
+* [Jupyter Notebook a11y toolbar](https://github.com/uclixnjupyternbaccessibility/jupyter_contrib_nbextensions/tree/master/src/jupyter_contrib_nbextensions/nbextensions/accessibility_toolbar) (from Microsoft research)
 
 ## Links to accessibility related issues on GitHub
 
