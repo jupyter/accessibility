@@ -8,6 +8,9 @@ Welcome to the Github repository for the accessibility working group of of [Proj
 
 To be clear, as of March 2019 this software is not accessible. Significant work will be required to reach that goal.
 
+[**Check out the accessibility section of the community forum**](https://discourse.jupyter.org/c/special-topics/accessibility) for
+ongoing conversations and brainstorms around accessibility in the Jupyter ecosystem.
+
 ## Working Group Members
 
 Once we have assembled the working group, we will list the members here.
@@ -16,11 +19,11 @@ Once we have assembled the working group, we will list the members here.
 
 One of our goals is to collect information about accessibility and create documentation to empower the Jupyter community to help us make our software accessible. Please use this section to begin to aggregate relevant third party standards, guides, and documentation related to this:
 
-* Resource 1
-* Resource 2
-* ...
+* [Web Content Accessibility Guidelines 2.1](https://www.w3.org/TR/WCAG21/) - W3C Recommendation
+* [The A11 Project](https://a11yproject.com/)
+* [18F Accessibility Guide](https://accessibility.18f.gov/)
 
-## Links to accessibility related issue on GitHub
+## Links to accessibility related issues on GitHub
 
 A number of open issue related to accessibility are already open on the repos above. Please help us to aggregate links to those here. The preferred way to do this is for each repo to have a unique GitHub label for accessibility, and then to link to the GitHub issue search that automatically lists those issues:
 
