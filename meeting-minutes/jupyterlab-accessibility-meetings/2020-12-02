@@ -1,0 +1,101 @@
+## 12.02.20 Meeting Minutes
+### Attendees
+tony @tonyfast
+Max @telamonian 
+Jason @jasongrout 
+Alex @ajbozarth 
+Karla @karlaspuldaro
+Gonzalo @goanpeca 
+Martha @marthacryan 
+Thomas @manfromjupyter 
+Darian @afshin 
+Isabela @isabela-pf 
+
+### Notes
+
+- There are overlap in infrastructure needs for an accessible 
+JupyterLab and mobile/tablet support for JupyterLab. Maybe this 
+is an opportunity to get more people involved in this work since 
+there have been a lot of requests for mobile/tablet support.
+
+Triage of existing accessibility issues
+**This will be cross-referenced, updated with #9399, and stored 
+in this [project](https://github.com/orgs/jupyterlab/projects/1) 
+from here on out.**
+- Reviewed from [diagram-codesprint/phosphor](https://github.com/diagram-codesprint/phosphor), 
+[diagram-codesprint/jupyterlab](https://github.com/diagram-codesprint/jupyterlab), 
+[phosphorjs/phosphor](https://github.com/phosphorjs/phosphor/), 
+[jupyterlab/lumino](https://github.com/jupyterlab/lumino/), and 
+[jupyterlab/jupyterlab](https://github.com/jupyterlab/jupyterlab/labels/tag%3AAccessibility) 
+([jupyter/accessibility](https://github.com/jupyter/accessibility/issues) has been more organizing focused).
+- Isabela proposes continuing to focus on what was found in Hack4All first.
+    - [#6577](https://github.com/jupyterlab/jupyterlab/issues/6577)
+    - [#6578](https://github.com/jupyterlab/jupyterlab/issues/6578)
+    - [#6579](https://github.com/jupyterlab/jupyterlab/issues/6579)
+    - [#6580](https://github.com/jupyterlab/jupyterlab/issues/6580)
+    - [#6581](https://github.com/jupyterlab/jupyterlab/issues/6581)
+    - [#6582](https://github.com/jupyterlab/jupyterlab/issues/6582)
+    - [#9365](https://github.com/jupyterlab/jupyterlab/issues/9365) Follow up for jupyterlab/lumino #129 that applies isToggleable to JLab now that it is possible with Lumino (Martha started this!)
+    
+- Issues Isabela wants to look into more
+    - JLab [#6575](https://github.com/jupyterlab/jupyterlab/issues/6575) 
+    (update of diagram-codesprint/jupyterlab #8) Has merged PR #6359, but 
+    didn’t close the issue.
+    - JLab [#6576](https://github.com/jupyterlab/jupyterlab/issues/6576) 
+    (update of diagram-codesprint/jupyterlab #9) and [#6404](https://github.com/jupyterlab/jupyterlab/issues/6404) Looks like a reference for UX of these accessibility changes and proposed solutions.
+    - JLab [#1095](https://github.com/jupyterlab/jupyterlab/issues/1095) 
+    Visual/additional/any cues for running commands (this was to be put 
+    to phosphor, review if it was already done or not)
+    - JLab [#911](https://github.com/jupyterlab/jupyterlab/issues/911) 
+    An audit issue about what seems to be the first JLab 
+    accessibility review. I need to check if they are or need to be 
+    represented in other issues.
+    - diagram-codesprint/phosphor [#2](https://github.com/diagram-codesprint/phosphor/pull/2) 
+    and [#3](https://github.com/diagram-codesprint/phosphor/pull/3) 
+    status. Did they get merged into Phosphor ever?
+    - diagram-codesprint/jupyterlab [#4](https://github.com/diagram-codesprint/jupyterlab/pull/4) 
+    and [#11](https://github.com/diagram-codesprint/jupyterlab/pull/11) status. 
+    Did they ever get merged into JupyterLab?
+
+- Other issues
+    - [#6573](https://github.com/jupyterlab/jupyterlab/issues/6573) 
+    NVDA tests on JLab. (Not explicitly tied to Hack4All, but seems 
+    like it was part of it.)
+    - [#4878](https://github.com/jupyterlab/jupyterlab/issues/4878) 
+    Older screen reader evaluation with good discussion. Has been 
+    mentioned in a few issues and PRs so it would probably be good 
+    to brush up on.
+
+#### What are people working on?
+- Max and Jason
+    - [jupyterlab/lumino#132](https://github.com/jupyterlab/lumino/pull/132) 
+    still needs review.
+- Thomas
+    - Opened [#9399](https://github.com/jupyterlab/jupyterlab/issues/9399)
+    - This is a full review of JupyterLab accessibility, can be 
+    broken up into other issues as we go.
+    - Evaluation is on JLab v.2.26 This should catch a lot of 
+    what holds over to 3.0, but we will be facing new problems 
+    with virtual notebook.
+    - We started discussing how we pull this apart to tackle it
+        - Tabs/tab order are the blockers that prevent further 
+        evaluation, so they should be high up on our list
+        - Order top to bottom should work in order of what are 
+        most critical and/or rely on one another
+    - This is a great review! Thank you so much!
+- Isabela
+   - Collecting and triaging existing issues as listed above.
+
+#### Next Steps
+- Max created a project to track JupyterLab accessibility work 
+https://github.com/orgs/jupyterlab/projects/1. This will be how 
+we organize and keep track of work in the future.
+- Isabela and Tony will compare and consolidate #9399 with 
+pre-existing issues.
+    - Isabela also needs to check for duplicate issues and 
+    close/update as needed.
+    - Triage marking by WCAG standard and maybe level of complexity?
+- Martha #9365 applying isToggleable to JLab now that it is 
+possible in Lumino is still happening. This will be her next step.
+- Time to reach out to experts and say we want to meet in the 
+future (also gives us a deadline for some of the commitments)
