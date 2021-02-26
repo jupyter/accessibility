@@ -1,1 +1,6 @@
-doit
+doit list --all --status
+
+# modify repositories to test here
+doit \
+    jupterlab/jupterlab@master \
+    jupterlab/lumino@master

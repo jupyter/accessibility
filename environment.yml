@@ -1,0 +1,13 @@
+# this defines the base environment to BUILD a11y testing binders
+# across different development versions.
+name: a11y
+channels:
+- conda-forge
+- nodefaults
+dependencies:
+- nodejs>=12,<15,!=13.*
+- python>=3.7,<3.10
+- yarn<2
+- doit
+- pip
+- pip: {}
