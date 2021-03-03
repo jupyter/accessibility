@@ -1,6 +1,6 @@
 #!/usr/bin/env doit -f
-"""https://github.com/jupyterlab/jupyterlab@master
-https://github.com/jupyterlab/lumino@master
+"""https://github.com/jupyterlab/jupyterlab@408f30f
+https://github.com/jupyterlab/lumino@a6fdb77
 """
 import pathlib
 import doit
@@ -14,23 +14,23 @@ def repo_to_path(x):
 def task_clone():
     """clone all the repos defined in the doc string"""
     for repo in repos:
+        repo, _, branch = repo.rpartition("@")
+        path = pathlib.Path(repo.rpartition("/")[2])
         yield dict(
             name=f"clone_{repo}",
-            actions=[f"git clone {repo}"],
-            targets=[repo_to_path(repo) / "package.json"]
+            actions=[] if path.exists() else [f"git clone --depth 1 {repo}"],
+            targets=[path / "package.json"]
         )
 
 def task_build():
     """ensure a working build of live development builds"""
-    print(repos)
     for dep in [repo_to_path(x) / "package.json" for x in repos]:
         print(dep)
         yield dict(
             name=f"install_{dep}",
             file_dep=[dep],
             actions=[
-                f"""cd {dep.parent} 
-                && jlpm --prefer-offline --ignore-optional"""
+                f"""cd {dep.parent} && jlpm --prefer-offline --ignore-optional"""
             ], 
             targets=[dep.parent / "node_modules/.yarn-integrity"]
         )
@@ -38,8 +38,7 @@ def task_build():
             name=f"build_{dep}",
             file_dep=[dep.parent / "node_modules/.yarn-integrity"],
             actions=[
-                f"""cd {dep.parent}
-                && jlpm build"""
+                f"""cd {dep.parent} && jlpm build"""
             ], 
             targets=list(dep.parent.rglob("packages/*/lib/*.js"))
         )
@@ -56,20 +55,20 @@ def task_link_lumino():
                 pkg.parent.parent.parent / "node_modules/.yarn-integrity"
             ],         
             actions=f"""
-                cd lumino/packages/{pkg.parent.name}
-                && jlpm link
-                && touch ../build/link.lumino.{pkg.parent.name}.ok
-                """.strip().splitlines(),
-            targets=[f"build/link.lumino.{pkg.parent.name}.ok"]
+                cd lumino/packages/{pkg.parent.name} \
+                && jlpm link 
+                
+                """.strip().splitlines(),#&& touch ../../build/link.lumino.{pkg.parent.name}.ok
+            targets=[]# [f"build/link.lumino.{pkg.parent.name}.ok"]
         )
         yield dict(
             name=f"link_lab_{pkg.parent.name}",
-            file_dep=[f"build/link.lumino.{pkg.parent.name}.ok"],         
+            file_dep=[],#[f"build/link.lumino.{pkg.parent.name}.ok"],         
             actions=f"""
-                cd jupyterlab
-                && jlpm link @lumino/{pkg.parent.name}
-                && touch ../build/link.lab.{pkg.parent.name}.ok
-                """.strip().splitlines(),
+                cd jupyterlab \
+                && jlpm link @lumino/{pkg.parent.name} 
+                
+                """.strip().splitlines(), #&& touch ../build/link.lab.{pkg.parent.name}.ok
             targets=[f"build/link.lab.{pkg.parent.name}.ok"]
         )
 
@@ -77,8 +76,8 @@ def task_config():
     """merge config"""
     # hoist the configurations from the existing repos like jupyterlab.
     # we'll use their start to begin with.
-    return dict(actions="""cp jupyterlab/jupyterlab/binder/start .
-        cp jupyterlab/jupyterlab/binder/jupyter_notebook_config.py .""".splitlines())
+    return dict(actions="""cp jupyterlab/binder/start .
+        cp jupyterlab/binder/jupyter_notebook_config.py .""".splitlines())
 
 # def task_postBuild():
 #     """recursively invoke all postBuilds"""
