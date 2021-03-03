@@ -5,20 +5,28 @@ https://github.com/jupyterlab/lumino@09aec10
 # change the urls above to link different jupyter references.
 
 
+import pathlib
+import doit
+
 DOIT_CONFIG = {
     "backend": "sqlite3",
     "verbosity": 2,
     "par_type": "thread",
 }
 
+HERE = pathlib.Path(__file__).parent
 
-import pathlib
-import doit
 repos = list(filter(bool, __doc__.splitlines()))
 
-def repo_to_path(x):
-    """extract the local checkout name"""
-    return pathlib.Path(x.rpartition("@")[0].rpartition("/")[2])
+
+def task_lint():
+    all_py = HERE.glob("*.py")
+    yield dict(
+        name="py",
+        file_dep=[*all_py],
+        actions=[["black", "--silent", *all_py]]
+    )
+
 
 # add targets to the docstring to include in the dev build.
 def task_clone():
@@ -35,7 +43,6 @@ def task_clone():
 def task_build():
     """ensure a working build of live development builds"""
     for dep in [repo_to_path(x) / "package.json" for x in repos]:
-        print(dep)
         yield dict(
             name=f"install_{dep}",
             file_dep=[dep],
@@ -100,3 +107,9 @@ def task_config():
 #                     doit.CmdAction([], shell=False, cwd=postBuild.parent)
 #                 ]
 #             )
+
+# utilities
+
+def repo_to_path(x):
+    """extract the local checkout name"""
+    return pathlib.Path(x.rpartition("@")[0].rpartition("/")[2])
