@@ -103,5 +103,12 @@ venv.bak/
 # mypy
 .mypy_cache/
 
-#doit
-.doit.db*
+# doit
+.doit*
+
+# yarn
+.yarn-links/
+node_modules/
+
+# repos
+repos/
