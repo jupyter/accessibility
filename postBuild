@@ -1,4 +1,7 @@
 doit list --all --status
 
-# modify repositories to test here
 doit
+
+set -euo pipefail
+
+cd jupyterlab && pip install -e . && jlpm && jlpm build
