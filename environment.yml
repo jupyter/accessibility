@@ -2,18 +2,18 @@
 # across different development versions.
 name: a11y
 channels:
-- conda-forge
-- nodefaults
+  - conda-forge
+  - nodefaults
 dependencies:
-- nodejs>=12,<15,!=13.*
-- python>=3.7,<3.10
-- jupyter-server-proxy
-- matplotlib-base
-- numpy
-- pip
-- vega_datasets
-- xeus-python
-- yarn<2
-- doit
-- pip
-- pip: {}
+  - black
+  - doit
+  - git
+  - jupyter-server-proxy
+  - matplotlib-base
+  - nodejs>=12,<15,!=13.*
+  - numpy
+  - pip
+  - python>=3.7,<3.10
+  - vega_datasets
+  - xeus-python
+  - yarn<2
