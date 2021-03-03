@@ -1,0 +1,10 @@
+# these are some repos we want to check out and test against:
+repos:
+  jupyterlab:
+    origin: https://github.com/jupyterlab/jupyterlab
+    ref: pull/9622/head
+    commit: "408f30f"
+  lumino:
+    origin: https://github.com/jupyterlab/lumino
+    ref: pull/149/head
+    commit: "09aec10"

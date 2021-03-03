@@ -1,10 +1,4 @@
-#!/usr/bin/env doit -f
-"""https://github.com/jupyterlab/jupyterlab@408f30f
-https://github.com/jupyterlab/lumino@09aec10
-"""
-# change the urls above to link different jupyter references.
-
-
+# change the URLs in `./repos.yml`
 import os
 import pathlib
 import doit.tools
@@ -12,6 +6,7 @@ import json
 import shutil
 import sys
 import subprocess
+from yaml import safe_load
 
 DOIT_CONFIG = {
     "backend": "sqlite3",
@@ -41,7 +36,8 @@ APP_STATIC = APP_DIR / "static"
 APP_INDEX = APP_STATIC / "index.html"
 
 
-URLS = list(filter(bool, __doc__.splitlines()))
+COMMITS = safe_load((HERE / "repos.yml").read_text())["repos"]
+REPOS = {name: HERE / name for name in COMMITS}
 
 
 def task_lint():
@@ -52,24 +48,46 @@ def task_lint():
 # add targets to the docstring to include in the dev build.
 def task_clone():
     """clone all the repos defined in the doc string"""
-    for url in URLS:
-        path = url_to_path(url)
+    for name, spec in COMMITS.items():
+        path = HERE / name
+        config = path / ".git/config"
+        head = path / ".git/HEAD"
+
         yield dict(
-            name=path.name,
-            actions=[] if path.exists() else [do("git", "clone", "--depth=1", url)],
-            targets=[path / "package.json"],
+            name=f"init:{name}",
+            uptodate=[doit.tools.config_changed(spec)],
+            actions=[]
+            if path.exists()
+            else [
+                (doit.tools.create_folder, [path]),
+                do("git", "init", cwd=path),
+                do("git", "remote", "add", "origin", spec["origin"], cwd=path),
+            ],
+            targets=[config],
+        )
+
+        yield dict(
+            name=f"""fetch:{name}:{spec["ref"]}""",
+            file_dep=[config],
+            actions=[
+                do("git", "fetch", "origin", spec["ref"], cwd=path),
+                do("git", "checkout", spec["commit"], cwd=path),
+                do("git", "log", "--name-status", "HEAD^..HEAD", cwd=path),
+            ],
+            targets=[head],
         )
 
 
 def task_setup():
     """ensure a working build of live development builds"""
-    for repo in map(url_to_path, URLS):
+    for repo in REPOS.values():
+        head = repo / ".git/HEAD"
         pkg_json = repo / "package.json"
 
         if pkg_json.exists():
             yield dict(
                 name=f"yarn:install:{repo.name}",
-                file_dep=[pkg_json],
+                file_dep=[pkg_json, head],
                 actions=[do(*YARN, cwd=repo)],
                 targets=yarn_integrity(repo),
             )
@@ -77,7 +95,9 @@ def task_setup():
         setup_py = repo / "setup.py"
 
         if setup_py.exists():
-            py_deps = [setup_py] + ([pkg_json] if pkg_json.exists() else [])
+            py_deps = [head, setup_py] + (
+                yarn_integrity(repo) if pkg_json.exists() else []
+            )
             yield dict(
                 name=f"pip:install:{repo.name}",
                 file_dep=py_deps,
@@ -87,31 +107,12 @@ def task_setup():
                     do(*PIP, "check"),
                 ],
             )
-            if repo == get_jupyterlab():
+            if repo == REPOS.get("jupyterlab"):
                 yield dict(
                     name=f"server:{repo.name}",
                     file_dep=py_deps,
                     task_dep=[f"setup:pip:install:{repo.name}"],
-                    actions=sum(
-                        [
-                            [
-                                do(
-                                    "jupyter",
-                                    *app,
-                                    "enable",
-                                    "--py",
-                                    repo.name,
-                                    "--sys-prefix",
-                                ),
-                                do("jupyter", *app, "list"),
-                            ]
-                            for app in [
-                                ["serverextension"],
-                                ["server", "extension"],
-                            ]
-                        ],
-                        [],
-                    ),
+                    actions=server_extensions(repo),
                 )
 
         if pkg_json.exists():
@@ -131,8 +132,8 @@ def task_setup():
 def task_link():
     """link yarn packages across the repos"""
     # go to the direction and links the packages.
-    lumino = get_lumino()
-    lab = get_jupyterlab()
+    lumino = REPOS.get("lumino")
+    lab = REPOS.get("jupyterlab")
 
     if not (lumino and lab):
         return
@@ -167,7 +168,7 @@ def task_link():
 
 
 def task_app():
-    lab = get_jupyterlab()
+    lab = REPOS.get("jupyterlab")
 
     if not lab:
         return
@@ -177,15 +178,12 @@ def task_app():
     dev_index = dev_static / "index.html"
 
     yield dict(
-        name="dev:prod",
+        name="build",
         file_dep=[
             *LINKS.glob("*/package.json"),
             *LINKS.glob("*/*/package.json"),
             *sum(
-                [
-                    [*repo.glob("packages/*/lib/*.js")]
-                    for repo in map(url_to_path, URLS)
-                ],
+                [[*repo.glob("packages/*/lib/*.js")] for repo in REPOS.values()],
                 [],
             ),
         ],
@@ -194,7 +192,7 @@ def task_app():
     )
 
     yield dict(
-        name="dev:copy",
+        name="deploy",
         file_dep=[dev_index],
         actions=[
             lambda: [shutil.rmtree(APP_DIR, ignore_errors=True), None][-1],
@@ -214,7 +212,7 @@ def task_start():
         print("set the environment variable NOT_ON_BINDER to start")
         return
 
-    if get_jupyterlab():
+    if "jupyterlab" in REPOS:
         yield dict(
             name="lab",
             uptodate=[lambda: False],
@@ -224,11 +222,6 @@ def task_start():
 
 
 # utilities
-
-
-def url_to_path(x):
-    """extract the local checkout name"""
-    return pathlib.Path(x.rpartition("@")[0].rpartition("/")[2])
 
 
 def do(*args, cwd=HERE, **kwargs):
@@ -241,24 +234,19 @@ def yarn_integrity(repo):
     return [repo / "node_modules/.yarn-integrity"]
 
 
-def get_lumino():
-    try:
-        return [url_to_path(u) for u in URLS if "jupyterlab/lumino" in u][0]
-    except:
-        print("lumino is not included")
+def server_extensions(repo):
+    enable = ["enable", "--py", repo.name, "--sys-prefix"]
+    apps = ["serverextension"], ["server", "extension"]
+    return sum(
+        [[do("jupyter", *app, *enable), do("jupyter", *app, "list")] for app in apps],
+        [],
+    )
 
 
-def get_jupyterlab():
-    try:
-        return [url_to_path(u) for u in URLS if "jupyterlab/jupyterlab" in u][0]
-    except:
-        print("jupyterlab is not included")
-
-
-def run_lab(extra_args=None):
+def run_lab():
     def lab():
-        args = ["jupyter", "lab", "--debug", "--no-browser", *(extra_args or [])]
-        proc = subprocess.Popen(list(map(str, args)), stdin=subprocess.PIPE)
+        args = ["jupyter", "lab", "--debug", "--no-browser"]
+        proc = subprocess.Popen(args, stdin=subprocess.PIPE)
 
         try:
             proc.wait()

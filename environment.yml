@@ -17,6 +17,7 @@ dependencies:
   - numpy
   - pip
   - python>=3.7,<3.10
+  - pyyaml
   - twine
   - vega_datasets
   - wheel
