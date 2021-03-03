@@ -24,7 +24,7 @@ def task_lint():
     yield dict(
         name="py",
         file_dep=[*all_py],
-        actions=[["black", "--silent", *all_py]]
+        actions=[["black", "--quiet", *all_py]]
     )
 
 
