@@ -7,6 +7,12 @@ channels:
 dependencies:
 - nodejs>=12,<15,!=13.*
 - python>=3.7,<3.10
+- jupyter-server-proxy
+- matplotlib-base
+- numpy
+- pip
+- vega_datasets
+- xeus-python
 - yarn<2
 - doit
 - pip
