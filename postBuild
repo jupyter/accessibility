@@ -1,5 +1,6 @@
+#!/usr/bin/env bash
 doit list --all --status
 
-doit
+doit || doit || doit
 
-cd jupyterlab && pip install -e . && jlpm && jlpm build
+doit list --all --status

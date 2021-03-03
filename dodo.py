@@ -9,6 +9,9 @@ import os
 import pathlib
 import doit.tools
 import json
+import shutil
+import sys
+import subprocess
 
 DOIT_CONFIG = {
     "backend": "sqlite3",
@@ -32,6 +35,11 @@ HERE = pathlib.Path(__file__).parent
 LINKS = (HERE / ".yarn-links").resolve()
 YARN = ["yarn", "--link-folder", LINKS]
 PIP = ["python", "-m", "pip"]
+
+APP_DIR = pathlib.Path(sys.prefix) / "share/jupyter/lab"
+APP_STATIC = APP_DIR / "static"
+APP_INDEX = APP_STATIC / "index.html"
+
 
 URLS = list(filter(bool, __doc__.splitlines()))
 
@@ -69,15 +77,42 @@ def task_setup():
         setup_py = repo / "setup.py"
 
         if setup_py.exists():
+            py_deps = [setup_py] + ([pkg_json] if pkg_json.exists() else [])
             yield dict(
                 name=f"pip:install:{repo.name}",
-                file_dep=[setup_py] + ([pkg_json] if pkg_json.exists() else []),
+                file_dep=py_deps,
                 actions=[
                     do(*PIP, "uninstall", "-y", repo.name, cwd=repo),
                     do(*PIP, "install", "-e", ".", cwd=repo),
                     do(*PIP, "check"),
                 ],
             )
+            if repo == get_jupyterlab():
+                yield dict(
+                    name=f"server:{repo.name}",
+                    file_dep=py_deps,
+                    task_dep=[f"setup:pip:install:{repo.name}"],
+                    actions=sum(
+                        [
+                            [
+                                do(
+                                    "jupyter",
+                                    *app,
+                                    "enable",
+                                    "--py",
+                                    repo.name,
+                                    "--sys-prefix",
+                                ),
+                                do("jupyter", *app, "list"),
+                            ]
+                            for app in [
+                                ["serverextension"],
+                                ["server", "extension"],
+                            ]
+                        ],
+                        [],
+                    ),
+                )
 
         if pkg_json.exists():
             yield dict(
@@ -131,44 +166,62 @@ def task_link():
         )
 
 
-def task_rebuild():
+def task_app():
     lab = get_jupyterlab()
 
     if not lab:
         return
 
     dev_mode = lab / "dev_mode"
-    pkg_static = dev_mode / "static/package.json"
+    dev_static = dev_mode / "static"
+    dev_index = dev_static / "index.html"
 
     yield dict(
         name="dev:prod",
-        task_dep=["link"],
+        file_dep=[
+            *LINKS.glob("*/package.json"),
+            *LINKS.glob("*/*/package.json"),
+            *sum(
+                [
+                    [*repo.glob("packages/*/lib/*.js")]
+                    for repo in map(url_to_path, URLS)
+                ],
+                [],
+            ),
+        ],
         actions=[do(*YARN, "build:prod", cwd=dev_mode)],
-        targets=[pkg_static],
+        targets=[dev_index],
+    )
+
+    yield dict(
+        name="dev:copy",
+        file_dep=[dev_index],
+        actions=[
+            lambda: [shutil.rmtree(APP_DIR, ignore_errors=True), None][-1],
+            (doit.tools.create_folder, [APP_DIR]),
+            lambda: [
+                shutil.copytree(dev_mode / subdir, APP_DIR / subdir)
+                for subdir in ["static", "schemas", "templates", "themes"]
+            ]
+            and None,
+        ],
+        targets=[APP_INDEX],
     )
 
 
-def task_config():
-    """merge config"""
-    # hoist the configurations from the existing repos like jupyterlab.
-    # we'll use their start to begin with.
-    return dict(
-        actions="""cp jupyterlab/binder/start .
-        cp jupyterlab/binder/jupyter_notebook_config.py .""".splitlines()
-    )
+def task_start():
+    if os.environ.get("NOT_ON_BINDER") is None:
+        print("set the environment variable NOT_ON_BINDER to start")
+        return
 
+    if get_jupyterlab():
+        yield dict(
+            name="lab",
+            uptodate=[lambda: False],
+            file_dep=[APP_INDEX],
+            actions=[run_lab()],
+        )
 
-# def task_postBuild():
-#     """recursively invoke all postBuilds"""
-#     for repo in repos:
-#         for postBuild in [*repo.rglob("postBuild")]:
-#             yield dict(
-#                 name=repo + str(postBuild),
-#                 file_dep=[postBuild],
-#                 actions=[
-#                     doit.CmdAction([], shell=False, cwd=postBuild.parent)
-#                 ]
-#             )
 
 # utilities
 
@@ -200,3 +253,20 @@ def get_jupyterlab():
         return [url_to_path(u) for u in URLS if "jupyterlab/jupyterlab" in u][0]
     except:
         print("jupyterlab is not included")
+
+
+def run_lab(extra_args=None):
+    def lab():
+        args = ["jupyter", "lab", "--debug", "--no-browser", *(extra_args or [])]
+        proc = subprocess.Popen(list(map(str, args)), stdin=subprocess.PIPE)
+
+        try:
+            proc.wait()
+        except KeyboardInterrupt:
+            proc.terminate()
+            proc.communicate(b"y\n")
+
+        proc.wait()
+        return True
+
+    return doit.tools.PythonInteractiveAction(lab)
