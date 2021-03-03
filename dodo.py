@@ -31,9 +31,9 @@ LINKS = (HERE / "repos/.yarn-links").resolve()
 YARN = ["yarn", "--link-folder", LINKS]
 PIP = ["python", "-m", "pip"]
 
-APP_DIR = pathlib.Path(sys.prefix) / "share/jupyter/lab"
-APP_STATIC = APP_DIR / "static"
-APP_INDEX = APP_STATIC / "index.html"
+LAB_APP_DIR = pathlib.Path(sys.prefix) / "share/jupyter/lab"
+LAB_APP_STATIC = LAB_APP_DIR / "static"
+LAB_APP_INDEX = LAB_APP_STATIC / "index.html"
 
 
 REPOS_YML = HERE / "repos.yml"
@@ -48,7 +48,7 @@ def task_lint():
 
 # add targets to the docstring to include in the dev build.
 def task_clone():
-    """clone all the repos defined in the doc string"""
+    """clone all the repos defined in `repos.yml`"""
     for name, spec in REPOS.items():
         path = PATHS[name]
         config = path / ".git/config"
@@ -88,7 +88,7 @@ def task_clone():
 
 
 def task_setup():
-    """ensure a working build of live development builds"""
+    """ensure a working build of repos"""
     for path in PATHS.values():
         head = path / ".git/HEAD"
         pkg_json = path / "package.json"
@@ -177,56 +177,56 @@ def task_link():
 
 
 def task_app():
+    """rebuild apps with live modifications"""
     lab = PATHS.get("jupyterlab")
 
-    if not lab:
-        return
+    if lab:
+        dev_mode = lab / "dev_mode"
+        dev_static = dev_mode / "static"
+        dev_index = dev_static / "index.html"
 
-    dev_mode = lab / "dev_mode"
-    dev_static = dev_mode / "static"
-    dev_index = dev_static / "index.html"
+        yield dict(
+            name="build",
+            file_dep=[
+                *LINKS.glob("*/package.json"),
+                *LINKS.glob("*/*/package.json"),
+                *sum(
+                    [[*repo.glob("packages/*/lib/*.js")] for repo in PATHS.values()],
+                    [],
+                ),
+            ],
+            actions=[do(*YARN, "build", cwd=dev_mode)],
+            targets=[dev_index],
+        )
 
-    yield dict(
-        name="build",
-        file_dep=[
-            *LINKS.glob("*/package.json"),
-            *LINKS.glob("*/*/package.json"),
-            *sum(
-                [[*repo.glob("packages/*/lib/*.js")] for repo in PATHS.values()],
-                [],
-            ),
-        ],
-        actions=[do(*YARN, "build", cwd=dev_mode)],
-        targets=[dev_index],
-    )
-
-    yield dict(
-        name="deploy",
-        file_dep=[dev_index],
-        actions=[
-            lambda: [shutil.rmtree(APP_DIR, ignore_errors=True), None][-1],
-            (doit.tools.create_folder, [APP_DIR]),
-            lambda: [
-                shutil.copytree(dev_mode / subdir, APP_DIR / subdir)
-                for subdir in ["static", "schemas", "templates", "themes"]
-            ]
-            and None,
-        ],
-        targets=[APP_INDEX],
-    )
+        yield dict(
+            name="deploy",
+            file_dep=[dev_index],
+            actions=[
+                lambda: [shutil.rmtree(LAB_APP_DIR, ignore_errors=True), None][-1],
+                (doit.tools.create_folder, [LAB_APP_DIR]),
+                lambda: [
+                    shutil.copytree(dev_mode / subdir, LAB_APP_DIR / subdir)
+                    for subdir in ["static", "schemas", "templates", "themes"]
+                ]
+                and None,
+            ],
+            targets=[LAB_APP_INDEX],
+        )
 
 
 def task_start():
+    """start applications"""
     if os.environ.get("NOT_ON_BINDER") is None:
         print("set the environment variable NOT_ON_BINDER to start")
         return
 
     if "jupyterlab" in REPOS:
         yield dict(
-            name="lab",
+            name="jupyterlab",
             uptodate=[lambda: False],
-            file_dep=[APP_INDEX],
-            actions=[run_lab()],
+            file_dep=[LAB_APP_INDEX],
+            actions=[run_jupyterlab()],
         )
 
 
@@ -239,11 +239,12 @@ def do(*args, cwd=HERE, **kwargs):
 
 
 def yarn_integrity(repo):
-    """the file created after yarn install"""
+    """get the file created after yarn install"""
     return [repo / "node_modules/.yarn-integrity"]
 
 
 def server_extensions(repo):
+    """enable server( )extensions in a repo"""
     enable = ["enable", "--py", repo.name, "--sys-prefix"]
     apps = ["serverextension"], ["server", "extension"]
     return sum(
@@ -252,8 +253,10 @@ def server_extensions(repo):
     )
 
 
-def run_lab():
-    def lab():
+def run_jupyterlab():
+    """start a jupyterlab application"""
+
+    def jupyterlab():
         args = ["jupyter", "lab", "--debug", "--no-browser"]
         proc = subprocess.Popen(args, stdin=subprocess.PIPE)
 
@@ -266,4 +269,4 @@ def run_lab():
         proc.wait()
         return True
 
-    return doit.tools.PythonInteractiveAction(lab)
+    return doit.tools.PythonInteractiveAction(jupyterlab)
