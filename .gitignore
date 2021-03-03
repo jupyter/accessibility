@@ -104,4 +104,4 @@ venv.bak/
 .mypy_cache/
 
 #doit
-.doit.db*
+.doit*

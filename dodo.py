@@ -4,6 +4,14 @@ https://github.com/jupyterlab/lumino@09aec10
 """
 # change the urls above to link different jupyter references.
 
+
+DOIT_CONFIG = {
+    "backend": "sqlite3",
+    "verbosity": 2,
+    "par_type": "thread",
+}
+
+
 import pathlib
 import doit
 repos = list(filter(bool, __doc__.splitlines()))
@@ -33,7 +41,7 @@ def task_build():
             file_dep=[dep],
             actions=[
                 f"""cd {dep.parent} && jlpm --prefer-offline --ignore-optional"""
-            ], 
+            ],
             targets=[dep.parent / "node_modules/.yarn-integrity"]
         )
         yield dict(
@@ -41,7 +49,7 @@ def task_build():
             file_dep=[dep.parent / "node_modules/.yarn-integrity"],
             actions=[
                 f"""cd {dep.parent} && jlpm build"""
-            ], 
+            ],
             targets=list(dep.parent.rglob("packages/*/lib/*.js"))
         )
 
@@ -53,23 +61,23 @@ def task_link_lumino():
         yield dict(
             name=f"link_lumino_{pkg.parent.name}",
             file_dep=[
-                pkg, 
+                pkg,
                 pkg.parent.parent.parent / "node_modules/.yarn-integrity"
-            ],         
+            ],
             actions=f"""
                 cd lumino/packages/{pkg.parent.name} \
-                && jlpm link 
-                
+                && jlpm link
+
                 """.strip().splitlines(),#&& touch ../../build/link.lumino.{pkg.parent.name}.ok
             targets=[]# [f"build/link.lumino.{pkg.parent.name}.ok"]
         )
         yield dict(
             name=f"link_lab_{pkg.parent.name}",
-            file_dep=[],#[f"build/link.lumino.{pkg.parent.name}.ok"],         
+            file_dep=[],#[f"build/link.lumino.{pkg.parent.name}.ok"],
             actions=f"""
                 cd jupyterlab \
-                && jlpm link @lumino/{pkg.parent.name} 
-                
+                && jlpm link @lumino/{pkg.parent.name}
+
                 """.strip().splitlines(), #&& touch ../build/link.lab.{pkg.parent.name}.ok
             targets=[f"build/link.lab.{pkg.parent.name}.ok"]
         )
