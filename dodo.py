@@ -56,19 +56,22 @@ def task_clone():
 def task_setup():
     """ensure a working build of live development builds"""
     for repo in map(url_to_path, URLS):
-        yield dict(
-            name=f"{repo.name}:yarn",
-            file_dep=[repo / "package.json"],
-            actions=[do(*YARN, cwd=repo)],
-            targets=yarn_integrity(repo),
-        )
+        pkg_json = repo / "package.json"
+
+        if pkg_json.exists():
+            yield dict(
+                name=f"yarn:install:{repo.name}",
+                file_dep=[pkg_json],
+                actions=[do(*YARN, cwd=repo)],
+                targets=yarn_integrity(repo),
+            )
 
         setup_py = repo / "setup.py"
 
         if setup_py.exists():
             yield dict(
-                name=f"{repo.name}:pip",
-                file_dep=yarn_integrity(repo),
+                name=f"pip:install:{repo.name}",
+                file_dep=[setup_py] + ([pkg_json] if pkg_json.exists() else []),
                 actions=[
                     do(*PIP, "uninstall", "-y", repo.name, cwd=repo),
                     do(*PIP, "install", "-e", ".", cwd=repo),
@@ -76,13 +79,18 @@ def task_setup():
                 ],
             )
 
-        yield dict(
-            name=f"{repo.name}:build",
-            file_dep=yarn_integrity(repo),
-            actions=[do(*YARN, "build", cwd=repo)],
-            targets=list(repo.glob("packages/*/lib/*.js")),
-            **(dict(task_dep=[f"setup:{repo.name}:pip"]) if setup_py.exists() else {}),
-        )
+        if pkg_json.exists():
+            yield dict(
+                name=f"yarn:build:{repo.name}",
+                file_dep=yarn_integrity(repo),
+                actions=[do(*YARN, "build", cwd=repo)],
+                targets=list(repo.glob("packages/*/lib/*.js")),
+                **(
+                    dict(task_dep=[f"setup:pip:install:{repo.name}"])
+                    if setup_py.exists()
+                    else {}
+                ),
+            )
 
 
 def task_link():
