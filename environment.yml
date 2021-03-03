@@ -10,7 +10,6 @@ dependencies:
   - git
   - jupyter_server
   - jupyter-packaging
-  - jupyter-server-proxy
   - jupyterlab_server
   - matplotlib-base
   - nbclassic

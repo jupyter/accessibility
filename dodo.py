@@ -17,12 +17,13 @@ DOIT_CONFIG = {
 }
 
 os.environ.update(
-    PYTHONUNBUFFERED="1",
-    PYTHONIOENCODING="utf-8",
-    PIP_NO_DEPS="1",
-    PIP_NO_BUILD_ISOLATION="1",
+    NODE_OPTS="--max-old-space-size=4096",
     PIP_DISABLE_PIP_VERSION_CHECK="1",
-    PIP_IGNORE_INSTALLED="1"
+    PIP_IGNORE_INSTALLED="1",
+    PIP_NO_BUILD_ISOLATION="1",
+    PIP_NO_DEPENDENCIES="1",
+    PYTHONIOENCODING="utf-8",
+    PYTHONUNBUFFERED="1",
 )
 
 HERE = pathlib.Path(__file__).parent
@@ -36,12 +37,8 @@ URLS = list(filter(bool, __doc__.splitlines()))
 
 
 def task_lint():
-    all_py = HERE.glob("*.py")
-    yield dict(
-        name="py",
-        file_dep=[*all_py],
-        actions=[["black", "--quiet", *all_py]]
-    )
+    all_py = [*HERE.glob("*.py")]
+    yield dict(name="py", file_dep=[*all_py], actions=[do("black", *all_py)])
 
 
 # add targets to the docstring to include in the dev build.
@@ -52,7 +49,7 @@ def task_clone():
         yield dict(
             name=path.name,
             actions=[] if path.exists() else [do("git", "clone", "--depth=1", url)],
-            targets=[path / "package.json"]
+            targets=[path / "package.json"],
         )
 
 
@@ -63,7 +60,7 @@ def task_setup():
             name=f"{repo.name}:yarn",
             file_dep=[repo / "package.json"],
             actions=[do(*YARN, cwd=repo)],
-            targets=yarn_integrity(repo)
+            targets=yarn_integrity(repo),
         )
 
         setup_py = repo / "setup.py"
@@ -75,28 +72,27 @@ def task_setup():
                 actions=[
                     do(*PIP, "uninstall", "-y", repo.name, cwd=repo),
                     do(*PIP, "install", "-e", ".", cwd=repo),
-                    do(*PIP, "check")
-                ]
+                    do(*PIP, "check"),
+                ],
             )
 
         yield dict(
             name=f"{repo.name}:build",
             file_dep=yarn_integrity(repo),
-            actions=[
-                do(*YARN, "build", cwd=repo)
-            ],
+            actions=[do(*YARN, "build", cwd=repo)],
             targets=list(repo.glob("packages/*/lib/*.js")),
-            **(
-                dict(task_dep=[f"setup:{repo.name}:pip"]) if setup_py.exists() else {}
-            )
+            **(dict(task_dep=[f"setup:{repo.name}:pip"]) if setup_py.exists() else {}),
         )
 
 
 def task_link():
     """link yarn packages across the repos"""
     # go to the direction and links the packages.
-    lumino = [url_to_path(u) for u in URLS if "jupyterlab/lumino" in u][0]
-    lab = [url_to_path(u) for u in URLS if "jupyterlab/jupyterlab" in u][0]
+    lumino = get_lumino()
+    lab = get_jupyterlab()
+
+    if not (lumino and lab):
+        return
 
     for pkg_json in lumino.glob("packages/*/package.json"):
         pkg = pkg_json.parent
@@ -107,30 +103,52 @@ def task_link():
         yield dict(
             name=pkg_name,
             file_dep=[*yarn_integrity(lumino), *yarn_integrity(lab), pkg_json],
-            actions=[
-                (doit.tools.create_folder, [LINKS]),
-                do(*YARN, "link", cwd=pkg)
-            ],
-            targets=[out_link]
+            actions=[(doit.tools.create_folder, [LINKS]), do(*YARN, "link", cwd=pkg)],
+            targets=[out_link],
         )
 
         yield dict(
             name=f"lab:{pkg_name}",
-            uptodate=[doit.tools.config_changed({
-                pkg_name: (
-                    in_link.exists() and in_link.resolve() == pkg_json.resolve()
+            uptodate=[
+                doit.tools.config_changed(
+                    {
+                        pkg_name: (
+                            in_link.exists() and in_link.resolve() == pkg_json.resolve()
+                        )
+                    }
                 )
-            })],
+            ],
             file_dep=[out_link],
-            actions=[do(*YARN, "link", pkg_name, cwd=lab)]
+            actions=[do(*YARN, "link", pkg_name, cwd=lab)],
         )
+
+
+def task_rebuild():
+    lab = get_jupyterlab()
+
+    if not lab:
+        return
+
+    dev_mode = lab / "dev_mode"
+    pkg_static = dev_mode / "static/package.json"
+
+    yield dict(
+        name="dev:prod",
+        task_dep=["link"],
+        actions=[do(*YARN, "build:prod", cwd=dev_mode)],
+        targets=[pkg_static],
+    )
+
 
 def task_config():
     """merge config"""
     # hoist the configurations from the existing repos like jupyterlab.
     # we'll use their start to begin with.
-    return dict(actions="""cp jupyterlab/binder/start .
-        cp jupyterlab/binder/jupyter_notebook_config.py .""".splitlines())
+    return dict(
+        actions="""cp jupyterlab/binder/start .
+        cp jupyterlab/binder/jupyter_notebook_config.py .""".splitlines()
+    )
+
 
 # def task_postBuild():
 #     """recursively invoke all postBuilds"""
@@ -146,14 +164,31 @@ def task_config():
 
 # utilities
 
+
 def url_to_path(x):
     """extract the local checkout name"""
     return pathlib.Path(x.rpartition("@")[0].rpartition("/")[2])
+
 
 def do(*args, cwd=HERE, **kwargs):
     """wrap a CmdAction for consistency"""
     return doit.tools.CmdAction(list(args), shell=False, cwd=str(pathlib.Path(cwd)))
 
+
 def yarn_integrity(repo):
     """the file created after yarn install"""
     return [repo / "node_modules/.yarn-integrity"]
+
+
+def get_lumino():
+    try:
+        return [url_to_path(u) for u in URLS if "jupyterlab/lumino" in u][0]
+    except:
+        print("lumino is not included")
+
+
+def get_jupyterlab():
+    try:
+        return [url_to_path(u) for u in URLS if "jupyterlab/jupyterlab" in u][0]
+    except:
+        print("jupyterlab is not included")
