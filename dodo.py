@@ -27,7 +27,7 @@ os.environ.update(
 HERE = pathlib.Path(__file__).parent
 
 # don't pollute the global state
-LINKS = (HERE / ".yarn-links").resolve()
+LINKS = (HERE / "repos/.yarn-links").resolve()
 YARN = ["yarn", "--link-folder", LINKS]
 PIP = ["python", "-m", "pip"]
 
@@ -36,8 +36,9 @@ APP_STATIC = APP_DIR / "static"
 APP_INDEX = APP_STATIC / "index.html"
 
 
-COMMITS = safe_load((HERE / "repos.yml").read_text())["repos"]
-REPOS = {name: HERE / name for name in COMMITS}
+REPOS_YML = HERE / "repos.yml"
+REPOS = safe_load(REPOS_YML.read_text())["repos"]
+PATHS = {name: HERE / "repos" / name for name in REPOS}
 
 
 def task_lint():
@@ -48,14 +49,16 @@ def task_lint():
 # add targets to the docstring to include in the dev build.
 def task_clone():
     """clone all the repos defined in the doc string"""
-    for name, spec in COMMITS.items():
-        path = HERE / name
+    for name, spec in REPOS.items():
+        path = PATHS[name]
         config = path / ".git/config"
         head = path / ".git/HEAD"
 
+        uptodate = doit.tools.config_changed({name: spec})
+
         yield dict(
             name=f"init:{name}",
-            uptodate=[doit.tools.config_changed(spec)],
+            file_dep=[REPOS_YML],
             actions=[]
             if path.exists()
             else [
@@ -66,63 +69,69 @@ def task_clone():
             targets=[config],
         )
 
-        yield dict(
-            name=f"""fetch:{name}:{spec["ref"]}""",
-            file_dep=[config],
-            actions=[
-                do("git", "fetch", "origin", spec["ref"], cwd=path),
-                do("git", "checkout", spec["commit"], cwd=path),
-                do("git", "log", "--name-status", "HEAD^..HEAD", cwd=path),
-            ],
-            targets=[head],
-        )
+        for i, ref in enumerate(spec["refs"]):
+            task_dep = []
+            actions = [do("git", "fetch", "origin", ref["ref"], cwd=path)]
+            if i:
+                task_dep += [f"""clone:fetch:{name}:{i-1}:{ref["refs"][i - 1]}"""]
+                actions += [do("git", "merge", f"""origin/{ref["commit"]}""")]
+            else:
+                actions += [do("git", "checkout", "-f", ref["commit"], cwd=path)]
+
+            yield dict(
+                name=f"""fetch:{name}:{i}:{ref["ref"]}:{ref["commit"]}""",
+                file_dep=[config],
+                targets=[head],
+                task_dep=task_dep,
+                actions=actions,
+            )
 
 
 def task_setup():
     """ensure a working build of live development builds"""
-    for repo in REPOS.values():
-        head = repo / ".git/HEAD"
-        pkg_json = repo / "package.json"
+    for path in PATHS.values():
+        head = path / ".git/HEAD"
+        pkg_json = path / "package.json"
 
         if pkg_json.exists():
             yield dict(
-                name=f"yarn:install:{repo.name}",
+                name=f"yarn:install:{path.name}",
                 file_dep=[pkg_json, head],
-                actions=[do(*YARN, cwd=repo)],
-                targets=yarn_integrity(repo),
+                actions=[do(*YARN, cwd=path)],
+                targets=yarn_integrity(path),
             )
 
-        setup_py = repo / "setup.py"
+        setup_py = path / "setup.py"
 
         if setup_py.exists():
             py_deps = [head, setup_py] + (
-                yarn_integrity(repo) if pkg_json.exists() else []
+                yarn_integrity(path) if pkg_json.exists() else []
             )
             yield dict(
-                name=f"pip:install:{repo.name}",
+                name=f"pip:install:{path.name}",
                 file_dep=py_deps,
                 actions=[
-                    do(*PIP, "uninstall", "-y", repo.name, cwd=repo),
-                    do(*PIP, "install", "-e", ".", cwd=repo),
+                    do(*PIP, "uninstall", "-y", path.name, cwd=path),
+                    do(*PIP, "install", "-e", ".", cwd=path),
                     do(*PIP, "check"),
                 ],
             )
-            if repo == REPOS.get("jupyterlab"):
+            if path == REPOS.get("jupyterlab"):
                 yield dict(
-                    name=f"server:{repo.name}",
+                    name=f"server:{path.name}",
                     file_dep=py_deps,
-                    task_dep=[f"setup:pip:install:{repo.name}"],
-                    actions=server_extensions(repo),
+                    task_dep=[f"setup:pip:install:{path.name}"],
+                    actions=server_extensions(path),
                 )
 
         if pkg_json.exists():
             yield dict(
-                name=f"yarn:build:{repo.name}",
-                file_dep=yarn_integrity(repo),
-                actions=[do(*YARN, "build", cwd=repo)],
-                targets=list(repo.glob("packages/*/lib/*.js")),
+                name=f"yarn:build:{path.name}",
+                file_dep=yarn_integrity(path),
+                actions=[do(*YARN, "build", cwd=path)],
+                targets=list(path.glob("packages/*/lib/*.js")),
                 **(
-                    dict(task_dep=[f"setup:pip:install:{repo.name}"])
+                    dict(task_dep=[f"setup:pip:install:{path.name}"])
                     if setup_py.exists()
                     else {}
                 ),
@@ -132,8 +141,8 @@ def task_setup():
 def task_link():
     """link yarn packages across the repos"""
     # go to the direction and links the packages.
-    lumino = REPOS.get("lumino")
-    lab = REPOS.get("jupyterlab")
+    lumino = PATHS.get("lumino")
+    lab = PATHS.get("jupyterlab")
 
     if not (lumino and lab):
         return
@@ -168,7 +177,7 @@ def task_link():
 
 
 def task_app():
-    lab = REPOS.get("jupyterlab")
+    lab = PATHS.get("jupyterlab")
 
     if not lab:
         return
@@ -183,7 +192,7 @@ def task_app():
             *LINKS.glob("*/package.json"),
             *LINKS.glob("*/*/package.json"),
             *sum(
-                [[*repo.glob("packages/*/lib/*.js")] for repo in REPOS.values()],
+                [[*repo.glob("packages/*/lib/*.js")] for repo in PATHS.values()],
                 [],
             ),
         ],

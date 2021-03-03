@@ -111,5 +111,4 @@ venv.bak/
 node_modules/
 
 # repos
-jupyterlab/
-lumino/
+repos/
