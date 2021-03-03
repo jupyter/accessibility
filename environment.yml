@@ -8,12 +8,18 @@ dependencies:
   - black
   - doit
   - git
+  - jupyter_server
+  - jupyter-packaging
   - jupyter-server-proxy
+  - jupyterlab_server
   - matplotlib-base
+  - nbclassic
   - nodejs>=12,<15,!=13.*
   - numpy
   - pip
   - python>=3.7,<3.10
+  - twine
   - vega_datasets
+  - wheel
   - xeus-python
   - yarn<2
