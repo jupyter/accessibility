@@ -3,3 +3,4 @@ import nox
 def build(session):
     session.install("doit")
     session.run("doit", *session.posargs)
+

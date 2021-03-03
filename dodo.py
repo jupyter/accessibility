@@ -1,7 +1,9 @@
 #!/usr/bin/env doit -f
 """https://github.com/jupyterlab/jupyterlab@408f30f
-https://github.com/jupyterlab/lumino@a6fdb77
+https://github.com/jupyterlab/lumino@09aec10
 """
+# change the urls above to link different jupyter references.
+
 import pathlib
 import doit
 repos = list(filter(bool, __doc__.splitlines()))
