@@ -11,6 +11,8 @@ To be clear, as of March 2019 this software is not accessible. Significant work 
 [**Check out the accessibility section of the community forum**](https://discourse.jupyter.org/c/special-topics/accessibility) for
 ongoing conversations and brainstorms around accessibility in the Jupyter ecosystem.
 
+[**Join our JupyterLab accessibility meetings from the community calendar**](https://jupyter.readthedocs.io/en/latest/community/content-community.html#jupyter-community-meetings)
+
 ## Working Group Members
 
 Once we have assembled the working group, we will list the members here.
