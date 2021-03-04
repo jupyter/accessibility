@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-doit list --all --status
-
-time doit clone |& tee doit.clone.log
-time doit setup |& tee doit.setup.log
-time doit link |& tee doit.link.log
-time doit app |& tee doit.app.log
-
-doit list --all --status

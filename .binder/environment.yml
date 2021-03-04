@@ -10,16 +10,17 @@ dependencies:
   - git
   - jupyter_server
   - jupyter-packaging
-  - jupyterlab_server
+  - jupyterlab >=3.0.9
+  - jupyterlab_server >=2.3,<2.4
   - matplotlib-base
   - nbclassic
-  - nodejs>=12,<15,!=13.*
+  - nodejs >=12,<15,!=13.*
   - numpy
   - pip
-  - python>=3.7,<3.10
+  - python >=3.7,<3.10
   - pyyaml
   - twine
   - vega_datasets
   - wheel
   - xeus-python
-  - yarn<2
+  - yarn <2

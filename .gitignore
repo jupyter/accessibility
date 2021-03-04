@@ -112,3 +112,6 @@ node_modules/
 
 # repos
 repos/
+
+# logs
+logs/

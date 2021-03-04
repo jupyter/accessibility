@@ -63,25 +63,34 @@ def task_clone():
             if path.exists()
             else [
                 (doit.tools.create_folder, [path]),
-                do("git", "init", cwd=path),
+                do("git", "init", "-b", "work", cwd=path),
                 do("git", "remote", "add", "origin", spec["origin"], cwd=path),
+                do("git", "config", "user.email", "a11y@jupyter.org", cwd=path),
+                do("git", "config", "advice.detachedHead", "false", cwd=path),
             ],
             targets=[config],
         )
 
-        for i, ref in enumerate(spec["refs"]):
+        refs = spec["refs"]
+        for i, ref in enumerate(refs):
             task_dep = []
             actions = [do("git", "fetch", "origin", ref["ref"], cwd=path)]
-            if i:
-                task_dep += [f"""clone:fetch:{name}:{i-1}:{ref["refs"][i - 1]}"""]
-                actions += [do("git", "merge", f"""origin/{ref["commit"]}""")]
+            commit = ref.get("commit") or ref["ref"]
+            targets = []
+            if i == 0:
+                actions += [do("git", "checkout", "-f", commit, cwd=path)]
             else:
-                actions += [do("git", "checkout", "-f", ref["commit"], cwd=path)]
+                prev = refs[i - 1]
+                task_dep += [f"""clone:fetch:{name}:{i-1}:{prev["ref"]}"""]
+                actions += [do("git", "merge", "--commit", commit, cwd=path)]
+
+            if i == len(refs) - 1:
+                targets = [head]
 
             yield dict(
-                name=f"""fetch:{name}:{i}:{ref["ref"]}:{ref["commit"]}""",
+                name=f"""fetch:{name}:{i}:{ref["ref"]}""",
                 file_dep=[config],
-                targets=[head],
+                targets=targets,
                 task_dep=task_dep,
                 actions=actions,
             )
@@ -116,7 +125,7 @@ def task_setup():
                     do(*PIP, "check"),
                 ],
             )
-            if path == REPOS.get("jupyterlab"):
+            if path == PATHS.get("jupyterlab"):
                 yield dict(
                     name=f"server:{path.name}",
                     file_dep=py_deps,
@@ -195,7 +204,7 @@ def task_app():
                     [],
                 ),
             ],
-            actions=[do(*YARN, "build", cwd=dev_mode)],
+            actions=[do(*YARN, "clean", cwd=dev_mode), do(*YARN, "build:prod", cwd=dev_mode)],
             targets=[dev_index],
         )
 

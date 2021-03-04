@@ -7,9 +7,11 @@ repos:
     origin: https://github.com/jupyterlab/jupyterlab
     # an ordered list of refs to attempt merging: must be fast-forward
     refs:
-      - # the upstream ref, found with `git ls-remote`
-        ref: pull/9622/head
-        # the specific committish, available in the ref
+      - # the upstream ref, PRs found with `git ls-remote`
+        ref: 3.0.x
+        # specific committish, available in the ref (or empty for `head`)
+        commit:
+      - ref: pull/9622/head
         commit: "408f30f"
 
   lumino:
