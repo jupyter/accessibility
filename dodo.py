@@ -7,6 +7,10 @@ import json
 import shutil
 import time
 import sys
+import random
+import hashlib
+import http.cookiejar
+import urllib.request
 import subprocess
 from yaml import safe_load
 
@@ -46,6 +50,7 @@ REPOS = safe_load(REPOS_YML.read_text())["repos"]
 PATHS = {name: HERE / "repos" / name for name in REPOS}
 HOST = "127.0.0.1"
 PORT = 8080
+LAB_PORT = 9999
 
 
 MISSING_LUMINO_DOCS = [
@@ -404,6 +409,30 @@ def task_report():
             targets=[lab_docs_report_html],
         )
 
+        lab_app_reports = REPORTS / "jupyterlab/app"
+        lab_app_report_json = lab_app_reports / "pa11y-ci-jupyterlab-app.json"
+        lab_app_report_html = lab_app_reports / "index.html"
+
+        yield dict(
+            name="jupyterlab:app:pa11y-ci:json",
+            file_dep=[LAB_APP_INDEX],
+            actions=[
+                (doit.tools.create_folder, [lab_app_reports]),
+                (run_pa11y_jupyterlab, [lab_app_report_json]),
+            ],
+            targets=[lab_app_report_json],
+        )
+
+        yield dict(
+            name="jupyterlab:app:pa11y-ci:html",
+            file_dep=[lab_app_report_json],
+            actions=[
+                (doit.tools.create_folder, [lab_app_report_html.parent]),
+                (run_pa11y_html, [lab_app_report_json, lab_app_report_html.parent]),
+            ],
+            targets=[lab_app_report_html],
+        )
+
 
 def task_start():
     """start applications"""
@@ -506,6 +535,85 @@ def run_pa11y_static(root, html_files, json_report):
         pa11y.terminate()
         server.terminate()
         server.wait()
+
+
+def run_pa11y_jupyterlab(json_report):
+    report_root = json_report.parent
+    token = hashlib.sha1(
+        "-".join(["T", str(random.random()), "KEN"]).encode("utf-8")
+    ).hexdigest()
+    lab_args = [
+        "jupyter",
+        "lab",
+        "--no-browser",
+        f"--ServerApp.token={token}",
+        f"--ServerApp.port={LAB_PORT}",
+        "--debug",
+    ]
+
+    lab = subprocess.Popen(lab_args, stdin=subprocess.PIPE)
+
+    cj = http.cookiejar.CookieJar()
+    opener = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(cj))
+
+    # just want the side-effect
+    retries = 10
+    while retries:
+        try:
+            time.sleep(0.5)
+            res = opener.open(f"http://{HOST}:{LAB_PORT}/lab/?reset&token={token}")
+            break
+        except urllib.error.URLError:
+            retries -= 1
+
+    # TODO: merge these defaults with a YAML/TOML file
+    pa11y_config = dict(
+        urls=[
+            dict(
+                headers=dict(Cookie=res.headers["Set-Cookie"]),
+                url=f"http://{HOST}:{LAB_PORT}/lab/",
+                actions=[
+                    "wait for element .jp-Launcher to be visible",
+                    f"screen capture {report_root}/lab.png",
+                ],
+            )
+        ]
+    )
+
+    pa11y_config_json = report_root / f"{json_report.stem}-config.json"
+
+    pa11y_config_json.write_text(json.dumps(pa11y_config, indent=2), encoding="utf-8")
+
+    pa11y_args = [
+        *YARN,
+        "--silent",
+        "pa11y-ci",
+        "--json",
+        "--config",
+        pa11y_config_json,
+    ]
+
+    pa11y = None
+
+    try:
+        # use shell redirection, because very large :(
+        pa11y = subprocess.Popen(
+            "{} > {}".format(" ".join(map(str, pa11y_args)), json_report),
+            shell=True,
+            cwd=str(PA11Y),
+            stdout=subprocess.PIPE,
+        )
+
+        pa11y.wait()
+
+    finally:
+        if pa11y is not None:
+            pa11y.terminate()
+            pa11y.wait()
+        if lab is not None:
+            lab.terminate()
+            lab.communicate(b"y\n")
+            lab.wait()
 
 
 def run_pa11y_html(json_report, output_dir):
