@@ -186,7 +186,7 @@ def task_setup():
                     name=f"server:{path.name}",
                     file_dep=py_deps,
                     task_dep=[f"setup:{name}:pip:install"],
-                    actions=server_extensions(path),
+                    actions=enable_server_extensions(path),
                 )
 
         if pkg_json.exists():
@@ -303,10 +303,9 @@ def task_docs():
 
             lab_docs = path / "docs"
             lab_docs_src = lab_docs / "source"
-            conf_py = lab_docs_src / "conf.py"
             yield dict(
                 name="jupyterlab:html:sphinx",
-                doc="build JupyterLab docs (with a sitemap)",
+                doc="build JupyterLab docs",
                 file_dep=[
                     tsdoc_index,
                     *lab_docs_src.rglob("*.rst"),
@@ -314,7 +313,6 @@ def task_docs():
                     *lab_docs_src.rglob("*.js"),
                 ],
                 actions=[
-                    (patch_sphinx_sitemap, [conf_py]),
                     do(
                         "sphinx-build",
                         "-b",
@@ -327,7 +325,6 @@ def task_docs():
                 targets=[
                     path / "docs/build/html/.buildinfo",
                     path / "docs/build/html/index.html",
-                    path / "docs/build/html/sitemap.xml",
                 ],
             )
 
@@ -458,7 +455,7 @@ def yarn_integrity(repo):
     return [repo / "node_modules/.yarn-integrity"]
 
 
-def server_extensions(repo):
+def enable_server_extensions(repo):
     """enable server( )extensions in a repo"""
     enable = ["enable", "--py", repo.name, "--sys-prefix"]
     apps = ["serverextension"], ["server", "extension"]
@@ -487,9 +484,30 @@ def run_jupyterlab():
     return doit.tools.PythonInteractiveAction(jupyterlab)
 
 
-def run_pa11y_static(root, html_files, json_report):
-    report_root = json_report.parent
+def make_pa11y_process(json_report, pa11y_config):
+    pa11y_config_json = json_report.parent / f"{json_report.stem}-config.json"
 
+    pa11y_config_json.write_text(json.dumps(pa11y_config, indent=2), encoding="utf-8")
+
+    pa11y_args = [
+        *YARN,
+        "--silent",
+        "pa11y-ci",
+        "--json",
+        "--config",
+        pa11y_config_json,
+    ]
+
+    # use shell redirection, because very large :(
+    return subprocess.Popen(
+        "{} > {}".format(" ".join(map(str, pa11y_args)), json_report),
+        shell=True,
+        cwd=str(PA11Y),
+        stdout=subprocess.PIPE,
+    )
+
+
+def run_pa11y_static(root, html_files, json_report):
     server_args = [
         "python",
         str(PA11Y / "serve.py"),
@@ -504,41 +522,22 @@ def run_pa11y_static(root, html_files, json_report):
         ],
     )
 
-    pa11y_config_json = report_root / f"{json_report.stem}-config.json"
-
-    pa11y_config_json.write_text(json.dumps(pa11y_config, indent=2), encoding="utf-8")
-
-    pa11y_args = [
-        *YARN,
-        "--silent",
-        "pa11y-ci",
-        "--json",
-        "--config",
-        pa11y_config_json,
-    ]
-
     try:
         server = subprocess.Popen(server_args)
         time.sleep(1)
-
-        # use shell redirection, because very large :(
-        pa11y = subprocess.Popen(
-            "{} > {}".format(" ".join(map(str, pa11y_args)), json_report),
-            shell=True,
-            cwd=str(PA11Y),
-            stdout=subprocess.PIPE,
-        )
-
+        pa11y = make_pa11y_process(json_report, pa11y_config)
         pa11y.wait()
-
     finally:
         pa11y.terminate()
         server.terminate()
         server.wait()
 
 
-def run_pa11y_jupyterlab(json_report):
-    report_root = json_report.parent
+def make_lab_cookie_url_stop(cwd=HERE):
+    """run jupyterlab, with the URL, extracted cookie, and cleanup
+
+    These gymastics are required to not pollute the generated URLs
+    """
     token = hashlib.sha1(
         "-".join(["T", str(random.random()), "KEN"]).encode("utf-8")
     ).hexdigest()
@@ -551,27 +550,48 @@ def run_pa11y_jupyterlab(json_report):
         "--debug",
     ]
 
-    lab = subprocess.Popen(lab_args, stdin=subprocess.PIPE)
+    url = f"http://{HOST}:{LAB_PORT}/lab/"
+    cookie = None
+    lab = subprocess.Popen(lab_args, stdin=subprocess.PIPE, cwd=cwd)
 
-    cj = http.cookiejar.CookieJar()
-    opener = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(cj))
+    def stop():
+        lab.terminate()
+        lab.communicate(b"y\n")
+        lab.wait()
 
-    # just want the side-effect
-    retries = 10
-    while retries:
-        try:
-            time.sleep(0.5)
-            res = opener.open(f"http://{HOST}:{LAB_PORT}/lab/?reset&token={token}")
-            break
-        except urllib.error.URLError:
-            retries -= 1
+    try:
+        cj = http.cookiejar.CookieJar()
+        opener = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(cj))
+        retries = 10
+        while retries:
+            try:
+                time.sleep(0.5)
+                res = opener.open(f"{url}?reset&token={token}")
+                break
+            except urllib.error.URLError:
+                retries -= 1
+        cookie = res.headers["Set-Cookie"]
+    except Exception:
+        stop()
+
+    return lab, cookie, url, stop
+
+
+def run_pa11y_jupyterlab(json_report):
+    """running pa11y on jupyterlab"""
+    report_root = json_report.parent
+
+    lab, cookie, url, stop_lab = make_lab_cookie_url_stop()
+
+    if cookie is None:
+        return False
 
     # TODO: merge these defaults with a YAML/TOML file
     pa11y_config = dict(
         urls=[
             dict(
-                headers=dict(Cookie=res.headers["Set-Cookie"]),
-                url=f"http://{HOST}:{LAB_PORT}/lab/",
+                headers=dict(Cookie=cookie),
+                url=f"{url}",
                 actions=[
                     "wait for element .jp-Launcher to be visible",
                     f"screen capture {report_root}/lab.png",
@@ -580,43 +600,20 @@ def run_pa11y_jupyterlab(json_report):
         ]
     )
 
-    pa11y_config_json = report_root / f"{json_report.stem}-config.json"
-
-    pa11y_config_json.write_text(json.dumps(pa11y_config, indent=2), encoding="utf-8")
-
-    pa11y_args = [
-        *YARN,
-        "--silent",
-        "pa11y-ci",
-        "--json",
-        "--config",
-        pa11y_config_json,
-    ]
-
     pa11y = None
 
     try:
-        # use shell redirection, because very large :(
-        pa11y = subprocess.Popen(
-            "{} > {}".format(" ".join(map(str, pa11y_args)), json_report),
-            shell=True,
-            cwd=str(PA11Y),
-            stdout=subprocess.PIPE,
-        )
-
+        pa11y = make_pa11y_process(json_report, pa11y_config)
         pa11y.wait()
-
     finally:
         if pa11y is not None:
             pa11y.terminate()
             pa11y.wait()
-        if lab is not None:
-            lab.terminate()
-            lab.communicate(b"y\n")
-            lab.wait()
+        stop_lab()
 
 
 def run_pa11y_html(json_report, output_dir):
+    """finally generate the human-readable HTML report information"""
     subprocess.call(
         [
             *YARN,
@@ -628,18 +625,3 @@ def run_pa11y_html(json_report, output_dir):
         ],
         cwd=PA11Y,
     )
-
-
-def patch_sphinx_sitemap(conf_py):
-    text = conf_py.read_text(encoding="utf-8")
-    patches = []
-
-    if "html_baseurl" not in text:
-        patches += [f"html_baseurl = 'https://localhost:{PORT}/'"]
-
-    if "sphinx_sitemap" not in text:
-        patches += ["extensions = ['sphinx_sitemap']"]
-
-    if patches:
-        patches += ["## patches added by @jupyterlab/accessibility", *patches]
-        conf_py.write_text("\n\n".join([text, "", *patches, ""]), encoding="utf-8")
