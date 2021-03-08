@@ -2,8 +2,8 @@ name: ci
 
 on:
   # TODO: these should be tightened up
-  push:
-    branches: "*"
+  # push:
+  #   branches: "*"
   pull_request:
     branches: "*"
 
@@ -15,22 +15,38 @@ jobs:
   test:
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
-      - uses: conda-incubator/setup-miniconda@master
+      - name: Check out this repo
+        uses: actions/checkout@v2
+
+      - name: Set Up environment like binder
+        uses: conda-incubator/setup-miniconda@master
         with:
           environment-file: .binder/environment.yml
           miniforge-variant: Mambaforge
           use-mamba: true
-      - run: |
+
+      - name: Run binder postBuild
+        run: |
           set -eux
-          bash postBuild
-      - run: |
+          bash .binder/postBuild
+
+      - name: Upload Logs
+        uses: actions/upload-artifact@v2
+        with:
+          name: accessibility logs ${{ github.run_number }}
+          path: |
+            logs
+        if: always()
+
+      - name: Generate reports
+        run: |
           set -eux
           doit report
-      - uses: actions/upload-artifact@v2
+
+      - name: Upload reports
+        uses: actions/upload-artifact@v2
         with:
           name: accessibility ${{ github.run_number }}
           path: |
             reports
-            logs
         if: always()
