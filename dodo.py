@@ -108,6 +108,7 @@ def task_clone():
                 do("git", "init", "-b", "work", cwd=path),
                 do("git", "remote", "add", "origin", spec["origin"], cwd=path),
                 do("git", "config", "user.email", "a11y@jupyter.org", cwd=path),
+                do("git", "config", "user.name", "Jupyter Accessibility", cwd=path),
                 do("git", "config", "advice.detachedHead", "false", cwd=path),
             ],
             targets=[config],
@@ -375,30 +376,32 @@ def task_report():
     path = PATHS.get("jupyterlab")
 
     if path:
-        lab_docs_sitemap = path / "docs/build/html/sitemap.xml"
-        lab_reports = REPORTS / "jupyterlab/pa11y"
-        lab_json_report = lab_reports / "pa11y-ci-docs.json"
-        lab_html_report = lab_reports / "html/index.html"
+        lab_docs = path / "docs/build/html"
+        lab_docs_html = [
+            p for p in lab_docs.rglob("*.html") if "ipynb_checkpoints" not in str(p)
+        ]
+        lab_docs_reports = REPORTS / "jupyterlab/docs"
+        lab_docs_report_json = lab_docs_reports / "pa11y-ci-jupyterlab-docs.json"
+        lab_docs_report_html = lab_docs_reports / "index.html"
 
         yield dict(
             name="jupyterlab:docs:pa11y-ci:json",
-            file_dep=[lab_docs_sitemap, *yarn_integrity(PA11Y)],
-            uptodate=[lambda: False],
+            file_dep=[*yarn_integrity(PA11Y), *lab_docs_html],
             actions=[
-                (doit.tools.create_folder, [lab_reports]),
-                (run_pa11y_json, [lab_docs_sitemap, lab_json_report]),
+                (doit.tools.create_folder, [lab_docs_reports]),
+                (run_pa11y_static, [lab_docs, lab_docs_html, lab_docs_report_json]),
             ],
-            targets=[lab_json_report],
+            targets=[lab_docs_report_json],
         )
 
         yield dict(
             name="jupyter:docs:pa11y-ci:html",
-            file_dep=[lab_json_report],
+            file_dep=[lab_docs_report_json],
             actions=[
-                (doit.tools.create_folder, [lab_html_report.parent]),
-                (run_pa11y_html, [lab_json_report, lab_html_report.parent]),
+                (doit.tools.create_folder, [lab_docs_report_html.parent]),
+                (run_pa11y_html, [lab_docs_report_json, lab_docs_report_html.parent]),
             ],
-            targets=[lab_html_report],
+            targets=[lab_docs_report_html],
         )
 
 
@@ -455,12 +458,7 @@ def run_jupyterlab():
     return doit.tools.PythonInteractiveAction(jupyterlab)
 
 
-def run_pa11y_json(sitemap, json_report):
-    root = sitemap.parent
-    html = sorted(
-        [p for p in root.rglob("*.html") if "ipynb_checkpoints" not in str(p)]
-    )
-
+def run_pa11y_static(root, html_files, json_report):
     server_args = [
         "python",
         str(PA11Y / "serve.py"),
@@ -472,7 +470,7 @@ def run_pa11y_json(sitemap, json_report):
     pa11y_args = [*YARN, "--silent", "pa11y-ci", "--json"]
 
     pa11y_args += [
-        f"http://{HOST}:{PORT}/{p.relative_to(root).as_posix()}" for p in html
+        f"http://{HOST}:{PORT}/{p.relative_to(root).as_posix()}" for p in html_files
     ]
 
     try:
