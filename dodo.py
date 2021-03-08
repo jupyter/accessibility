@@ -1,9 +1,11 @@
-# change the URLs in `./repos.yml`
+"""doit for interactive testing of accessibility in Jupyter
+"""
 import os
 import pathlib
 import doit.tools
 import json
 import shutil
+import time
 import sys
 import subprocess
 from yaml import safe_load
@@ -25,6 +27,10 @@ os.environ.update(
 )
 
 HERE = pathlib.Path(__file__).parent
+CI = HERE / ".github"
+PA11Y = HERE / "pa11y"
+REPORTS = HERE / "reports"
+
 
 # don't pollute the global state
 LINKS = (HERE / "repos/.yarn-links").resolve()
@@ -38,6 +44,8 @@ LAB_APP_INDEX = LAB_APP_STATIC / "index.html"
 REPOS_YML = HERE / "repos.yml"
 REPOS = safe_load(REPOS_YML.read_text())["repos"]
 PATHS = {name: HERE / "repos" / name for name in REPOS}
+HOST = "127.0.0.1"
+PORT = 8080
 
 
 MISSING_LUMINO_DOCS = [
@@ -49,7 +57,7 @@ MISSING_LUMINO_DOCS = [
 
 def task_lint():
     """lint the source in _this_ repo"""
-    all_py = [*HERE.glob("*.py")]
+    all_py = [*HERE.glob("*.py"), *PA11Y.glob("*.py")]
     yield dict(
         name="py",
         doc="apply python source formatting and basic checking",
@@ -57,8 +65,32 @@ def task_lint():
         actions=[do("black", *all_py), do("flake8", "--max-line-length=88", *all_py)],
     )
 
+    all_prettier = [
+        *HERE.glob("*.yml"),
+        *PA11Y.glob("*.json"),
+        *PA11Y.glob("*.md"),
+        *CI.rglob("*.yml"),
+    ]
 
-# add targets to the docstring to include in the dev build.
+    # += [HERE.glob("*.md")]
+
+    yield dict(
+        name="prettier",
+        doc="apply prettier source formatting",
+        actions=[
+            do(
+                *YARN,
+                "prettier",
+                "--write",
+                "--list-different",
+                *all_prettier,
+                cwd=PA11Y,
+            )
+        ],
+        file_dep=[*all_prettier],
+    )
+
+
 def task_clone():
     """clone all the repos defined in `repos.yml`"""
     for name, spec in REPOS.items():
@@ -108,6 +140,14 @@ def task_clone():
 
 def task_setup():
     """ensure a working build of repos"""
+
+    yield dict(
+        name=f"{PA11Y.name}:yarn:install",
+        file_dep=[PA11Y / "package.json"],
+        actions=[do(*YARN, cwd=PA11Y)],
+        targets=[*yarn_integrity(PA11Y)],
+    )
+
     for name, path in PATHS.items():
         head = path / ".git/HEAD"
         pkg_json = path / "package.json"
@@ -331,6 +371,37 @@ def task_docs():
             )
 
 
+def task_report():
+    path = PATHS.get("jupyterlab")
+
+    if path:
+        lab_docs_sitemap = path / "docs/build/html/sitemap.xml"
+        lab_reports = REPORTS / "jupyterlab/pa11y"
+        lab_json_report = lab_reports / "pa11y-ci-docs.json"
+        lab_html_report = lab_reports / "html/index.html"
+
+        yield dict(
+            name="jupyterlab:docs:pa11y-ci:json",
+            file_dep=[lab_docs_sitemap, *yarn_integrity(PA11Y)],
+            uptodate=[lambda: False],
+            actions=[
+                (doit.tools.create_folder, [lab_reports]),
+                (run_pa11y_json, [lab_docs_sitemap, lab_json_report]),
+            ],
+            targets=[lab_json_report],
+        )
+
+        yield dict(
+            name="jupyter:docs:pa11y-ci:html",
+            file_dep=[lab_json_report],
+            actions=[
+                (doit.tools.create_folder, [lab_html_report.parent]),
+                (run_pa11y_html, [lab_json_report, lab_html_report.parent]),
+            ],
+            targets=[lab_html_report],
+        )
+
+
 def task_start():
     """start applications"""
     if "jupyterlab" in REPOS:
@@ -384,12 +455,66 @@ def run_jupyterlab():
     return doit.tools.PythonInteractiveAction(jupyterlab)
 
 
+def run_pa11y_json(sitemap, json_report):
+    root = sitemap.parent
+    html = sorted(
+        [p for p in root.rglob("*.html") if "ipynb_checkpoints" not in str(p)]
+    )
+
+    server_args = [
+        "python",
+        str(PA11Y / "serve.py"),
+        f"--host={HOST}",
+        f"--port={PORT}",
+        f"--path={root}",
+    ]
+
+    pa11y_args = [*YARN, "--silent", "pa11y-ci", "--json"]
+
+    pa11y_args += [
+        f"http://{HOST}:{PORT}/{p.relative_to(root).as_posix()}" for p in html
+    ]
+
+    try:
+        server = subprocess.Popen(server_args)
+        time.sleep(1)
+
+        # use shell redirection, because very large :(
+        pa11y = subprocess.Popen(
+            "{} > {}".format(" ".join(map(str, pa11y_args)), json_report),
+            shell=True,
+            cwd=str(PA11Y),
+            stdout=subprocess.PIPE,
+        )
+
+        pa11y.wait()
+
+    finally:
+        pa11y.terminate()
+        server.terminate()
+        server.wait()
+
+
+def run_pa11y_html(json_report, output_dir):
+    subprocess.call(
+        [
+            *YARN,
+            "pa11y-ci-reporter-html",
+            "--source",
+            json_report,
+            "--destination",
+            output_dir,
+        ],
+        cwd=PA11Y,
+    )
+
+
 def patch_sphinx_sitemap(conf_py):
     text = conf_py.read_text(encoding="utf-8")
     patches = []
 
     if "html_baseurl" not in text:
-        patches += ["html_baseurl = 'https://localhost:8080/docs/'"]
+        patches += [f"html_baseurl = 'https://localhost:{PORT}/'"]
 
     if "sphinx_sitemap" not in text:
         patches += ["extensions = ['sphinx_sitemap']"]

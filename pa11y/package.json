@@ -1,0 +1,15 @@
+{
+  "name": "@jupyter/accessibility",
+  "verison": "0.0.0",
+  "private": true,
+  "devDependencies": {
+    "prettier": "^2.2.1",
+    "pa11y-ci": "^2.4.0",
+    "pa11y-ci-reporter-html": "^2.1.2"
+  },
+  "prettier": {
+    "singleQuote": true,
+    "proseWrap": "always",
+    "printWidth": 88
+  }
+}
