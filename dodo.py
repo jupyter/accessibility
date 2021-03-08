@@ -380,6 +380,7 @@ def task_report():
         lab_docs_html = [
             p for p in lab_docs.rglob("*.html") if "ipynb_checkpoints" not in str(p)
         ]
+        lab_docs_html = [lab_docs_html[0], lab_docs_html[-1]]
         lab_docs_reports = REPORTS / "jupyterlab/docs"
         lab_docs_report_json = lab_docs_reports / "pa11y-ci-jupyterlab-docs.json"
         lab_docs_report_html = lab_docs_reports / "index.html"
@@ -395,7 +396,7 @@ def task_report():
         )
 
         yield dict(
-            name="jupyter:docs:pa11y-ci:html",
+            name="jupyterlab:docs:pa11y-ci:html",
             file_dep=[lab_docs_report_json],
             actions=[
                 (doit.tools.create_folder, [lab_docs_report_html.parent]),
@@ -459,6 +460,8 @@ def run_jupyterlab():
 
 
 def run_pa11y_static(root, html_files, json_report):
+    report_root = json_report.parent
+
     server_args = [
         "python",
         str(PA11Y / "serve.py"),
@@ -467,10 +470,23 @@ def run_pa11y_static(root, html_files, json_report):
         f"--path={root}",
     ]
 
-    pa11y_args = [*YARN, "--silent", "pa11y-ci", "--json"]
+    pa11y_config = dict(
+        urls=[
+            f"http://{HOST}:{PORT}/{p.relative_to(root).as_posix()}" for p in html_files
+        ],
+    )
 
-    pa11y_args += [
-        f"http://{HOST}:{PORT}/{p.relative_to(root).as_posix()}" for p in html_files
+    pa11y_config_json = report_root / f"{json_report.stem}-config.json"
+
+    pa11y_config_json.write_text(json.dumps(pa11y_config, indent=2), encoding="utf-8")
+
+    pa11y_args = [
+        *YARN,
+        "--silent",
+        "pa11y-ci",
+        "--json",
+        "--config",
+        pa11y_config_json,
     ]
 
     try:
