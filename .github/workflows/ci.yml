@@ -15,20 +15,25 @@ jobs:
   test:
     runs-on: ubuntu-20.04
     steps:
-      - name: Check out this repo
+      - name: Check out this Repo
         uses: actions/checkout@v2
 
-      - name: Set Up environment like binder
+      - name: Set Up Binder environment
         uses: conda-incubator/setup-miniconda@master
         with:
           environment-file: .binder/environment.yml
           miniforge-variant: Mambaforge
           use-mamba: true
 
-      - name: Run binder postBuild
+      - name: Run Binder postBuild
         run: |
           set -eux
           bash .binder/postBuild
+
+      - name: Generate Reports
+        run: |
+          set -eux
+          doit report |& tee logs/99.report.log
 
       - name: Upload Logs
         uses: actions/upload-artifact@v2
@@ -38,15 +43,10 @@ jobs:
             logs
         if: always()
 
-      - name: Generate reports
-        run: |
-          set -eux
-          doit report
-
-      - name: Upload reports
+      - name: Upload Reports
         uses: actions/upload-artifact@v2
         with:
-          name: accessibility ${{ github.run_number }}
+          name: accessibility reports ${{ github.run_number }}
           path: |
             reports
         if: always()
