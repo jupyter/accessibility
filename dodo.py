@@ -430,7 +430,7 @@ def task_report():
     if path is not None:
         for task in yield_pa11y_static_tasks(path.name, path / "docs"):
             yield task
-        for task in yield_pa11y_static_tasks(path.name, path / "examples", path):
+        for task in yield_pa11y_static_tasks(path.name, path / "examples", path, True):
             yield task
 
 
@@ -488,7 +488,7 @@ def run_jupyterlab():
     return doit.tools.PythonInteractiveAction(jupyterlab)
 
 
-def yield_pa11y_static_tasks(name, path, root=None):
+def yield_pa11y_static_tasks(name, path, root=None, screenshot=False):
     """yield the pair of tasks for generating raw pa11y JSON and HTML"""
     root = root or path
     html = [p for p in path.rglob("*.html") if "ipynb_checkpoints" not in str(p)]
@@ -501,7 +501,7 @@ def yield_pa11y_static_tasks(name, path, root=None):
         file_dep=[*yarn_integrity(PA11Y), *html],
         actions=[
             (doit.tools.create_folder, [reports]),
-            (run_pa11y_static, [root, html, report_json]),
+            (run_pa11y_static, [root, html, report_json, screenshot]),
         ],
         targets=[report_json],
     )
@@ -563,24 +563,24 @@ def make_static_server_url_stop(root, host=HOST, port=PORT):
     return server, url, stop
 
 
-def make_one_pa11y_ci_config(path, base_url, root, report_root):
+def make_one_pa11y_ci_config(path, base_url, root, report_root, screenshot=False):
     url = f"{base_url}{path.relative_to(root).as_posix()}"
-    img = report_root / re.sub(r"[^a-zA-Z\d]", "-", url.split("//")[1])
-    return dict(
-        url=url,
-        actions=[
-            f"screen capture {img}.png",
-        ],
-    )
+    config = dict(url=url)
+
+    if screenshot:
+        img = report_root / re.sub(r"[^a-zA-Z\d]", "-", url.split("//")[1])
+        config["actions"] = [f"screen capture {img}.png"]
+
+    return config
 
 
-def run_pa11y_static(root, html_files, json_report):
+def run_pa11y_static(root, html_files, json_report, screenshot=False):
     """run pa11y against a local static HTML server"""
     server, url, stop_server = make_static_server_url_stop(root)
 
     pa11y_config = dict(
         urls=[
-            make_one_pa11y_ci_config(p, url, root, json_report.parent)
+            make_one_pa11y_ci_config(p, url, root, json_report.parent, screenshot)
             for p in html_files
         ],
     )
