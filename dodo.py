@@ -393,8 +393,8 @@ def task_docs():
 
 
 @doit.create_after("docs")
-@doit.create_after("app")
 def task_report():
+    """generate reports from static artifacts and running apps"""
     path = PATHS.get("jupyterlab")
 
     if path:
@@ -407,6 +407,7 @@ def task_report():
 
         yield dict(
             name="jupyterlab:app:pa11y-ci:json",
+            task_dep=["app"],
             file_dep=[LAB_APP_INDEX],
             actions=[
                 (doit.tools.create_folder, [lab_app_reports]),
