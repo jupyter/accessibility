@@ -1,6 +1,7 @@
 """doit for interactive testing of accessibility in Jupyter
 """
 import os
+import re
 import pathlib
 import doit.tools
 import json
@@ -202,6 +203,19 @@ def task_setup():
                     else {}
                 ),
             )
+
+            if path == PATHS.get("lumino"):
+                yield dict(
+                    name=f"{name}:yarn:minimize",
+                    file_dep=yarn_integrity(path),
+                    actions=[do(*YARN, "minimize", cwd=path)],
+                    targets=list(path.glob("packages/*/dist/index.min.js")),
+                    **(
+                        dict(task_dep=[f"setup:{name}:pip:install"])
+                        if setup_py.exists()
+                        else {}
+                    ),
+                )
 
 
 @doit.create_after("setup")
@@ -416,7 +430,7 @@ def task_report():
     if path is not None:
         for task in yield_pa11y_static_tasks(path.name, path / "docs"):
             yield task
-        for task in yield_pa11y_static_tasks(path.name, path / "examples"):
+        for task in yield_pa11y_static_tasks(path.name, path / "examples", path):
             yield task
 
 
@@ -474,8 +488,9 @@ def run_jupyterlab():
     return doit.tools.PythonInteractiveAction(jupyterlab)
 
 
-def yield_pa11y_static_tasks(name, path):
+def yield_pa11y_static_tasks(name, path, root=None):
     """yield the pair of tasks for generating raw pa11y JSON and HTML"""
+    root = root or path
     html = [p for p in path.rglob("*.html") if "ipynb_checkpoints" not in str(p)]
     reports = REPORTS / f"{name}/{path.name}"
     report_json = reports / f"pa11y-ci-{name}-{path.name}.json"
@@ -486,7 +501,7 @@ def yield_pa11y_static_tasks(name, path):
         file_dep=[*yarn_integrity(PA11Y), *html],
         actions=[
             (doit.tools.create_folder, [reports]),
-            (run_pa11y_static, [path, html, report_json]),
+            (run_pa11y_static, [root, html, report_json]),
         ],
         targets=[report_json],
     )
@@ -548,12 +563,26 @@ def make_static_server_url_stop(root, host=HOST, port=PORT):
     return server, url, stop
 
 
+def make_one_pa11y_ci_config(path, base_url, root, report_root):
+    url = f"{base_url}{path.relative_to(root).as_posix()}"
+    img = report_root / re.sub(r"[^a-zA-Z\d]", "-", url.split("//")[1])
+    return dict(
+        url=url,
+        actions=[
+            f"screen capture {img}.png",
+        ],
+    )
+
+
 def run_pa11y_static(root, html_files, json_report):
     """run pa11y against a local static HTML server"""
     server, url, stop_server = make_static_server_url_stop(root)
 
     pa11y_config = dict(
-        urls=[f"{url}{p.relative_to(root).as_posix()}" for p in html_files],
+        urls=[
+            make_one_pa11y_ci_config(p, url, root, json_report.parent)
+            for p in html_files
+        ],
     )
 
     pa11y_ci = None
