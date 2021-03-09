@@ -378,33 +378,8 @@ def task_report():
     path = PATHS.get("jupyterlab")
 
     if path:
-        lab_docs = path / "docs/build/html"
-        lab_docs_html = [
-            p for p in lab_docs.rglob("*.html") if "ipynb_checkpoints" not in str(p)
-        ]
-        lab_docs_reports = REPORTS / "jupyterlab/docs"
-        lab_docs_report_json = lab_docs_reports / "pa11y-ci-jupyterlab-docs.json"
-        lab_docs_report_html = lab_docs_reports / "index.html"
-
-        yield dict(
-            name="jupyterlab:docs:pa11y-ci:json",
-            file_dep=[*yarn_integrity(PA11Y), *lab_docs_html],
-            actions=[
-                (doit.tools.create_folder, [lab_docs_reports]),
-                (run_pa11y_static, [lab_docs, lab_docs_html, lab_docs_report_json]),
-            ],
-            targets=[lab_docs_report_json],
-        )
-
-        yield dict(
-            name="jupyterlab:docs:pa11y-ci:html",
-            file_dep=[lab_docs_report_json],
-            actions=[
-                (doit.tools.create_folder, [lab_docs_report_html.parent]),
-                (run_pa11y_html, [lab_docs_report_json, lab_docs_report_html.parent]),
-            ],
-            targets=[lab_docs_report_html],
-        )
+        for task in yield_pa11y_static_tasks(path.name, path / "docs/build/html"):
+            yield task
 
         lab_app_reports = REPORTS / "jupyterlab/app"
         lab_app_report_json = lab_app_reports / "pa11y-ci-jupyterlab-app.json"
@@ -429,6 +404,15 @@ def task_report():
             ],
             targets=[lab_app_report_html],
         )
+
+    path = PATHS.get("lumino")
+
+    if path is not None:
+        for task in yield_pa11y_static_tasks(path.name, path / "docs"):
+            yield task
+        for task in yield_pa11y_static_tasks(path.name, path / "examples"):
+            yield task
+
 
 
 def task_start():
@@ -484,7 +468,36 @@ def run_jupyterlab():
     return doit.tools.PythonInteractiveAction(jupyterlab)
 
 
-def make_pa11y_process(json_report, pa11y_config):
+def yield_pa11y_static_tasks(name, path):
+    """yield the pair of tasks for generating raw pa11y JSON and HTML"""
+    html = [p for p in path.rglob("*.html") if "ipynb_checkpoints" not in str(p)]
+    reports = REPORTS / f"{name}/{path.name}"
+    report_json = reports / f"pa11y-ci-{name}-{path.name}.json"
+    report_html = reports / "index.html"
+
+    yield dict(
+        name=f"{name}:{path.name}:pa11y-ci:json",
+        file_dep=[*yarn_integrity(PA11Y), *html],
+        actions=[
+            (doit.tools.create_folder, [reports]),
+            (run_pa11y_static, [path, html, report_json]),
+        ],
+        targets=[report_json],
+    )
+
+    yield dict(
+        name=f"{name}:{path.name}:pa11y-ci:html",
+        file_dep=[report_json],
+        actions=[
+            (doit.tools.create_folder, [report_html.parent]),
+            (run_pa11y_html, [report_json, report_html.parent]),
+        ],
+        targets=[report_html],
+    )
+
+
+def make_pa11y_ci_process(json_report, pa11y_config):
+    """start a pa11y-ci process which redirects its output to a JSON report"""
     pa11y_config_json = json_report.parent / f"{json_report.stem}-config.json"
 
     pa11y_config_json.write_text(json.dumps(pa11y_config, indent=2), encoding="utf-8")
@@ -507,30 +520,45 @@ def make_pa11y_process(json_report, pa11y_config):
     )
 
 
-def run_pa11y_static(root, html_files, json_report):
+def make_static_server_url_stop(root, host=HOST, port=PORT):
+    """start a tornado static file server"""
+
     server_args = [
         "python",
         str(PA11Y / "serve.py"),
-        f"--host={HOST}",
-        f"--port={PORT}",
+        f"--host={host}",
+        f"--port={port}",
         f"--path={root}",
     ]
 
-    pa11y_config = dict(
-        urls=[
-            f"http://{HOST}:{PORT}/{p.relative_to(root).as_posix()}" for p in html_files
-        ],
-    )
+    url = f"http://{host}:{port}/"
 
-    try:
-        server = subprocess.Popen(server_args)
-        time.sleep(1)
-        pa11y = make_pa11y_process(json_report, pa11y_config)
-        pa11y.wait()
-    finally:
-        pa11y.terminate()
+    def stop():
         server.terminate()
         server.wait()
+
+    server = subprocess.Popen(server_args)
+
+    return server, url, stop
+
+
+def run_pa11y_static(root, html_files, json_report):
+    """run pa11y against a local static HTML server"""
+    server, url, stop_server = make_static_server_url_stop(root)
+
+    pa11y_config = dict(
+        urls=[f"{url}{p.relative_to(root).as_posix()}" for p in html_files],
+    )
+
+    pa11y_ci = None
+    try:
+        time.sleep(1)
+        pa11y_ci = make_pa11y_ci_process(json_report, pa11y_config)
+        pa11y_ci.wait()
+    finally:
+        if pa11y_ci is not None:
+            pa11y_ci.terminate()
+        stop_server()
 
 
 def make_lab_cookie_url_stop(cwd=HERE):
@@ -578,7 +606,7 @@ def make_lab_cookie_url_stop(cwd=HERE):
 
 
 def run_pa11y_jupyterlab(json_report):
-    """running pa11y on jupyterlab"""
+    """running pa11y-ci on JupyterLab"""
     report_root = json_report.parent
 
     lab, cookie, url, stop_lab = make_lab_cookie_url_stop()
@@ -600,15 +628,15 @@ def run_pa11y_jupyterlab(json_report):
         ]
     )
 
-    pa11y = None
+    pa11y_ci = None
 
     try:
-        pa11y = make_pa11y_process(json_report, pa11y_config)
-        pa11y.wait()
+        pa11y_ci = make_pa11y_ci_process(json_report, pa11y_config)
+        pa11y_ci.wait()
     finally:
-        if pa11y is not None:
-            pa11y.terminate()
-            pa11y.wait()
+        if pa11y_ci is not None:
+            pa11y_ci.terminate()
+            pa11y_ci.wait()
         stop_lab()
 
 
