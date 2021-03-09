@@ -144,6 +144,7 @@ def task_clone():
             )
 
 
+@doit.create_after("clone")
 def task_setup():
     """ensure a working build of repos"""
 
@@ -203,6 +204,7 @@ def task_setup():
             )
 
 
+@doit.create_after("setup")
 def task_link():
     """link yarn packages across the repos"""
     # go to the direction and links the packages.
@@ -241,6 +243,7 @@ def task_link():
         )
 
 
+@doit.create_after("link")
 def task_app():
     """rebuild apps with live modifications"""
     lab = PATHS.get("jupyterlab")
@@ -285,6 +288,7 @@ def task_app():
         )
 
 
+@doit.create_after("setup")
 def task_docs():
     """build documentation"""
     for path in PATHS.values():
@@ -374,6 +378,8 @@ def task_docs():
             )
 
 
+@doit.create_after("docs")
+@doit.create_after("app")
 def task_report():
     path = PATHS.get("jupyterlab")
 
@@ -414,7 +420,7 @@ def task_report():
             yield task
 
 
-
+@doit.create_after("app")
 def task_start():
     """start applications"""
     if "jupyterlab" in REPOS:
