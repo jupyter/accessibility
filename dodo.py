@@ -35,15 +35,27 @@ LAB_APP_DIR = pathlib.Path(sys.prefix) / "share/jupyter/lab"
 LAB_APP_STATIC = LAB_APP_DIR / "static"
 LAB_APP_INDEX = LAB_APP_STATIC / "index.html"
 
-
 REPOS_YML = HERE / "repos.yml"
 REPOS = safe_load(REPOS_YML.read_text())["repos"]
 PATHS = {name: HERE / "repos" / name for name in REPOS}
 
 
+MISSING_LUMINO_DOCS = [
+    "default-theme",
+    # TODO: https://github.com/jupyterlab/lumino/issues/154
+    "polling",
+]
+
+
 def task_lint():
+    """lint the source in _this_ repo"""
     all_py = [*HERE.glob("*.py")]
-    yield dict(name="py", file_dep=[*all_py], actions=[do("black", *all_py)])
+    yield dict(
+        name="py",
+        doc="apply python source formatting and basic checking",
+        file_dep=[*all_py],
+        actions=[do("black", *all_py), do("flake8", "--max-line-length=88", *all_py)],
+    )
 
 
 # add targets to the docstring to include in the dev build.
@@ -54,10 +66,8 @@ def task_clone():
         config = path / ".git/config"
         head = path / ".git/HEAD"
 
-        uptodate = doit.tools.config_changed({name: spec})
-
         yield dict(
-            name=f"init:{name}",
+            name=f"{name}:init",
             file_dep=[REPOS_YML],
             actions=[]
             if path.exists()
@@ -81,14 +91,14 @@ def task_clone():
                 actions += [do("git", "checkout", "-f", commit, cwd=path)]
             else:
                 prev = refs[i - 1]
-                task_dep += [f"""clone:fetch:{name}:{i-1}:{prev["ref"]}"""]
+                task_dep += [f"""clone:{name}:fetch:{i-1}:{prev["ref"]}"""]
                 actions += [do("git", "merge", "--commit", commit, cwd=path)]
 
             if i == len(refs) - 1:
                 targets = [head]
 
             yield dict(
-                name=f"""fetch:{name}:{i}:{ref["ref"]}""",
+                name=f"""{name}:fetch:{i}:{ref["ref"]}""",
                 file_dep=[config],
                 targets=targets,
                 task_dep=task_dep,
@@ -98,13 +108,13 @@ def task_clone():
 
 def task_setup():
     """ensure a working build of repos"""
-    for path in PATHS.values():
+    for name, path in PATHS.items():
         head = path / ".git/HEAD"
         pkg_json = path / "package.json"
 
         if pkg_json.exists():
             yield dict(
-                name=f"yarn:install:{path.name}",
+                name=f"{name}:yarn:install",
                 file_dep=[pkg_json, head],
                 actions=[do(*YARN, cwd=path)],
                 targets=yarn_integrity(path),
@@ -117,7 +127,7 @@ def task_setup():
                 yarn_integrity(path) if pkg_json.exists() else []
             )
             yield dict(
-                name=f"pip:install:{path.name}",
+                name=f"{name}:pip:install",
                 file_dep=py_deps,
                 actions=[
                     do(*PIP, "uninstall", "-y", path.name, cwd=path),
@@ -129,18 +139,18 @@ def task_setup():
                 yield dict(
                     name=f"server:{path.name}",
                     file_dep=py_deps,
-                    task_dep=[f"setup:pip:install:{path.name}"],
+                    task_dep=[f"setup:{name}:pip:install"],
                     actions=server_extensions(path),
                 )
 
         if pkg_json.exists():
             yield dict(
-                name=f"yarn:build:{path.name}",
+                name=f"{name}:yarn:build",
                 file_dep=yarn_integrity(path),
                 actions=[do(*YARN, "build", cwd=path)],
                 targets=list(path.glob("packages/*/lib/*.js")),
                 **(
-                    dict(task_dep=[f"setup:pip:install:{path.name}"])
+                    dict(task_dep=[f"setup:{name}:pip:install"])
                     if setup_py.exists()
                     else {}
                 ),
@@ -196,6 +206,7 @@ def task_app():
 
         yield dict(
             name="build",
+            doc="do a dev build of the current jupyterlab source",
             file_dep=[
                 *LINKS.glob("*/package.json"),
                 *LINKS.glob("*/*/package.json"),
@@ -204,12 +215,16 @@ def task_app():
                     [],
                 ),
             ],
-            actions=[do(*YARN, "clean", cwd=dev_mode), do(*YARN, "build:prod", cwd=dev_mode)],
+            actions=[
+                do(*YARN, "clean", cwd=dev_mode),
+                do(*YARN, "build:prod", cwd=dev_mode),
+            ],
             targets=[dev_index],
         )
 
         yield dict(
             name="deploy",
+            doc="deploy the build dev application to $PREFIX/share/jupyter/lab",
             file_dep=[dev_index],
             actions=[
                 lambda: [shutil.rmtree(LAB_APP_DIR, ignore_errors=True), None][-1],
@@ -224,12 +239,100 @@ def task_app():
         )
 
 
+def task_docs():
+    """build documentation"""
+    for path in PATHS.values():
+        if not path.exists():
+            continue
+
+        if path == PATHS.get("jupyterlab"):
+            tsdoc_index = path / "docs/api/index.html"
+            yield dict(
+                name="""jupyterlab:html:typedoc""",
+                doc="build JupyterLab TypeScript API docs",
+                file_dep=[*path.rglob("src/**/*.ts"), path / "package.json"],
+                actions=[do(*YARN, "docs", cwd=path)],
+                targets=[tsdoc_index],
+            )
+
+            lab_docs = path / "docs"
+            lab_docs_src = lab_docs / "source"
+            conf_py = lab_docs_src / "conf.py"
+            yield dict(
+                name="jupyterlab:html:sphinx",
+                doc="build JupyterLab docs (with a sitemap)",
+                file_dep=[
+                    tsdoc_index,
+                    *lab_docs_src.rglob("*.rst"),
+                    *lab_docs_src.rglob("*.css"),
+                    *lab_docs_src.rglob("*.js"),
+                ],
+                actions=[
+                    (patch_sphinx_sitemap, [conf_py]),
+                    do(
+                        "sphinx-build",
+                        "-b",
+                        "html",
+                        "source",
+                        "build/html",
+                        cwd=path / "docs",
+                    ),
+                ],
+                targets=[
+                    path / "docs/build/html/.buildinfo",
+                    path / "docs/build/html/index.html",
+                    path / "docs/build/html/sitemap.xml",
+                ],
+            )
+
+        if path == PATHS.get("lumino"):
+            lm_pkgs = sorted([p.parent for p in path.glob("packages/*/package.json")])
+            lm_docs = [
+                path / f"docs/api/{p.name}/index.html"
+                for p in lm_pkgs
+                if p.name not in MISSING_LUMINO_DOCS
+            ]
+            lm_index = path / "docs/api/index.html"
+            yield dict(
+                name="""lumino:html:typedoc""",
+                doc="build Lumino TypeScript API docs",
+                file_dep=[*path.rglob("packages/*/src/**/*.ts"), path / "package.json"],
+                targets=lm_docs,
+                actions=[do(*YARN, "docs", cwd=path)],
+            )
+
+            lm_index_text = "\n".join(
+                [
+                    """
+                    <!doctype html>
+                    <html>
+                    <head><title>Lumino API Documentation</title></head>
+                    <body><h1>Lumino API Documentation</h1><ul>
+                    """,
+                    *[
+                        f"""
+                        <li>
+                        <a href="./{p.name}/index.html">{p.name.title()}</a>
+                        </li>
+                        """
+                        for p in lm_pkgs
+                        if p.name not in MISSING_LUMINO_DOCS
+                    ],
+                    """</ul></body></html>""",
+                ]
+            )
+
+            yield dict(
+                name="""lumino:html:index""",
+                doc="build lumino docs index",
+                file_dep=[*lm_docs],
+                actions=[lambda: [lm_index.write_text(lm_index_text), None][-1]],
+                targets=[lm_index],
+            )
+
+
 def task_start():
     """start applications"""
-    if os.environ.get("NOT_ON_BINDER") is None:
-        print("set the environment variable NOT_ON_BINDER to start")
-        return
-
     if "jupyterlab" in REPOS:
         yield dict(
             name="jupyterlab",
@@ -279,3 +382,18 @@ def run_jupyterlab():
         return True
 
     return doit.tools.PythonInteractiveAction(jupyterlab)
+
+
+def patch_sphinx_sitemap(conf_py):
+    text = conf_py.read_text(encoding="utf-8")
+    patches = []
+
+    if "html_baseurl" not in text:
+        patches += ["html_baseurl = 'https://localhost:8080/docs/'"]
+
+    if "sphinx_sitemap" not in text:
+        patches += ["extensions = ['sphinx_sitemap']"]
+
+    if patches:
+        patches += ["## patches added by @jupyterlab/accessibility", *patches]
+        conf_py.write_text("\n\n".join([text, "", *patches, ""]), encoding="utf-8")

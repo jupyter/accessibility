@@ -1,26 +1,41 @@
 # this defines the base environment to BUILD a11y testing binders
 # across different development versions.
 name: a11y
+
 channels:
   - conda-forge
   - nodefaults
+
 dependencies:
-  - black
-  - doit
-  - git
+  # baseline runtimes
+  - nodejs >=12,<15,!=13.*
+  - python >=3.7,<3.10
+  - yarn <2
+  # jupyterlab itself (though it will be likely removed)
   - jupyter_server
-  - jupyter-packaging
   - jupyterlab >=3.0.9
   - jupyterlab_server >=2.3,<2.4
-  - matplotlib-base
   - nbclassic
-  - nodejs >=12,<15,!=13.*
-  - numpy
+  # jupyterlab build
+  - jupyter-packaging
   - pip
-  - python >=3.7,<3.10
-  - pyyaml
   - twine
-  - vega_datasets
   - wheel
+  # jupyterlab demo
+  - matplotlib-base
+  - numpy
+  - vega_datasets
   - xeus-python
-  - yarn <2
+  # jupyterlab docs
+  - recommonmark
+  - sphinx
+  - sphinx_rtd_theme
+  - sphinx-copybutton
+  - sphinx-sitemap
+  # this repo's tools
+  - black
+  - doit
+  - flake8
+  - git
+  - pyyaml
+  - toml
