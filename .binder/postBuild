@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+set -eux
+
+doit list --all --status
+
+mkdir -p logs
+
+time doit clone |& tee logs/00.clone.log
+
+doit list --all --status
+
+time doit setup |& tee logs/01.setup.log
+
+time doit link  |& tee logs/02.link.log
+
+time doit docs  |& tee logs/03.docs.log
+
+time doit app   |& tee logs/99.app.log
+
+doit list --all --status
