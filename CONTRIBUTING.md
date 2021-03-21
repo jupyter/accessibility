@@ -43,7 +43,7 @@ declarative, productive way.
 
 ## On Binder
 
-> Reproduce locally with `doit app`
+> Reproduce locally with `doit app docs`
 
 To meet some of the above challenges, this repository's interactive state on [Binder]
 is composed of a full live _development environment_ made of the (hopefully) harmonious

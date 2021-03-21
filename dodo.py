@@ -15,6 +15,8 @@ import urllib.request
 
 import toml
 
+import jsonschema
+
 import doit.tools
 
 DOIT_CONFIG = {
@@ -36,6 +38,10 @@ os.environ.update(
 HERE = pathlib.Path(__file__).parent
 CI = HERE / ".github"
 PA11Y = HERE / "pa11y"
+REPO_SCHEMA = PA11Y / "repos.schema.json"
+REPO_VALIDATOR = jsonschema.Draft7Validator(
+    json.loads(REPO_SCHEMA.read_text(encoding="utf-8"))
+)
 REPORTS = HERE / "reports"
 
 GITHUB = "https://github.com"
@@ -71,6 +77,13 @@ def task_lint():
     """lint the source in _this_ repo"""
     all_py = [*HERE.glob("*.py"), *PA11Y.glob("*.py")]
     yield dict(
+        name="schema:repos",
+        doc="ensure the repos schema is well-formed",
+        file_dep=[REPOS_TOML, REPO_SCHEMA],
+        actions=[lambda: REPO_VALIDATOR.validate(REPOS)],
+    )
+
+    yield dict(
         name="py",
         doc="apply python source formatting and basic checking",
         file_dep=[*all_py],
@@ -84,8 +97,6 @@ def task_lint():
         *CI.rglob("*.yml"),
         HERE / "CONTRIBUTING.md",
     ]
-
-    # += [HERE.glob("*.md")]
 
     yield dict(
         name="prettier",
@@ -114,6 +125,7 @@ def task_clone():
 
         yield dict(
             name=f"{name}:init",
+            task_dep=["lint:schema:repos"],
             file_dep=[REPOS_TOML],
             actions=[]
             if path.exists()
