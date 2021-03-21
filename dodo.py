@@ -1,19 +1,21 @@
 """doit for interactive testing of accessibility in Jupyter
 """
-import os
-import re
-import pathlib
-import doit.tools
-import json
-import shutil
-import time
-import sys
-import random
 import hashlib
 import http.cookiejar
-import urllib.request
+import json
+import os
+import pathlib
+import random
+import re
+import shutil
 import subprocess
-from yaml import safe_load
+import sys
+import time
+import urllib.request
+
+import toml
+
+import doit.tools
 
 DOIT_CONFIG = {
     "backend": "sqlite3",
@@ -36,6 +38,10 @@ CI = HERE / ".github"
 PA11Y = HERE / "pa11y"
 REPORTS = HERE / "reports"
 
+GITHUB = "https://github.com"
+LAB_ORG = "jupyterlab"
+REPO_JUPYTERLAB = f"{GITHUB}/{LAB_ORG}/jupyterlab"
+REPO_LUMINO = f"{GITHUB}/{LAB_ORG}/lumino"
 
 # don't pollute the global state
 LINKS = (HERE / "repos/.yarn-links").resolve()
@@ -46,9 +52,9 @@ LAB_APP_DIR = pathlib.Path(sys.prefix) / "share/jupyter/lab"
 LAB_APP_STATIC = LAB_APP_DIR / "static"
 LAB_APP_INDEX = LAB_APP_STATIC / "index.html"
 
-REPOS_YML = HERE / "repos.yml"
-REPOS = safe_load(REPOS_YML.read_text())["repos"]
-PATHS = {name: HERE / "repos" / name for name in REPOS}
+REPOS_TOML = HERE / "repos.toml"
+REPOS = toml.loads(REPOS_TOML.read_text())["repos"]
+PATHS = {url: HERE / "repos" / pathlib.Path(url).name for url in REPOS}
 HOST = "127.0.0.1"
 PORT = 8080
 LAB_PORT = 9999
@@ -99,21 +105,22 @@ def task_lint():
 
 
 def task_clone():
-    """clone all the repos defined in `repos.yml`"""
-    for name, spec in REPOS.items():
-        path = PATHS[name]
+    """clone all the repos defined in `repos.toml`"""
+    for url, spec in REPOS.items():
+        path = PATHS[url]
+        name = path.name
         config = path / ".git/config"
         head = path / ".git/HEAD"
 
         yield dict(
             name=f"{name}:init",
-            file_dep=[REPOS_YML],
+            file_dep=[REPOS_TOML],
             actions=[]
             if path.exists()
             else [
                 (doit.tools.create_folder, [path]),
                 do("git", "init", "-b", "work", cwd=path),
-                do("git", "remote", "add", "origin", spec["origin"], cwd=path),
+                do("git", "remote", "add", "origin", url, cwd=path),
                 do("git", "config", "user.email", "a11y@jupyter.org", cwd=path),
                 do("git", "config", "user.name", "Jupyter Accessibility", cwd=path),
                 do("git", "config", "advice.detachedHead", "false", cwd=path),
@@ -128,7 +135,9 @@ def task_clone():
             commit = ref.get("commit") or ref["ref"]
             targets = []
             if i == 0:
-                actions += [do("git", "checkout", "-f", commit, cwd=path)]
+                actions += [
+                    do("git", "checkout", "-f", commit, cwd=path),
+                ]
             else:
                 prev = refs[i - 1]
                 task_dep += [f"""clone:{name}:fetch:{i-1}:{prev["ref"]}"""]
@@ -184,7 +193,7 @@ def task_setup():
                     do(*PIP, "check"),
                 ],
             )
-            if path == PATHS.get("jupyterlab"):
+            if path == PATHS.get(REPO_JUPYTERLAB):
                 yield dict(
                     name=f"server:{path.name}",
                     file_dep=py_deps,
@@ -205,7 +214,7 @@ def task_setup():
                 ),
             )
 
-            if path == PATHS.get("lumino"):
+            if path == PATHS.get(REPO_LUMINO):
                 yield dict(
                     name=f"{name}:yarn:minimize",
                     file_dep=yarn_integrity(path),
@@ -223,8 +232,8 @@ def task_setup():
 def task_link():
     """link yarn packages across the repos"""
     # go to the direction and links the packages.
-    lumino = PATHS.get("lumino")
-    lab = PATHS.get("jupyterlab")
+    lumino = PATHS.get(REPO_LUMINO)
+    lab = PATHS.get(REPO_JUPYTERLAB)
 
     if not (lumino and lab):
         return
@@ -261,7 +270,7 @@ def task_link():
 @doit.create_after("link")
 def task_app():
     """rebuild apps with live modifications"""
-    lab = PATHS.get("jupyterlab")
+    lab = PATHS.get(REPO_JUPYTERLAB)
 
     if lab:
         dev_mode = lab / "dev_mode"
@@ -310,7 +319,7 @@ def task_docs():
         if not path.exists():
             continue
 
-        if path == PATHS.get("jupyterlab"):
+        if path == PATHS.get(REPO_JUPYTERLAB):
             tsdoc_index = path / "docs/api/index.html"
             yield dict(
                 name="""jupyterlab:html:typedoc""",
@@ -347,7 +356,7 @@ def task_docs():
                 ],
             )
 
-        if path == PATHS.get("lumino"):
+        if path == PATHS.get(REPO_LUMINO):
             lm_pkgs = sorted([p.parent for p in path.glob("packages/*/package.json")])
             lm_docs = [
                 path / f"docs/api/{p.name}/index.html"
@@ -396,7 +405,7 @@ def task_docs():
 @doit.create_after("docs")
 def task_report():
     """generate reports from static artifacts and running apps"""
-    path = PATHS.get("jupyterlab")
+    path = PATHS.get(REPO_JUPYTERLAB)
 
     if path:
         for task in yield_pa11y_static_tasks(path.name, path / "docs/build/html"):
@@ -427,7 +436,7 @@ def task_report():
             targets=[lab_app_report_html],
         )
 
-    path = PATHS.get("lumino")
+    path = PATHS.get(REPO_LUMINO)
 
     if path is not None:
         for task in yield_pa11y_static_tasks(path.name, path / "docs"):
@@ -439,7 +448,7 @@ def task_report():
 @doit.create_after("app")
 def task_start():
     """start applications"""
-    if "jupyterlab" in REPOS:
+    if REPO_JUPYTERLAB in REPOS:
         yield dict(
             name="jupyterlab",
             uptodate=[lambda: False],
@@ -651,7 +660,7 @@ def run_pa11y_jupyterlab(json_report):
     if cookie is None:
         return False
 
-    # TODO: merge these defaults with a YAML/TOML file
+    # TODO: merge these defaults with a TOML file
     pa11y_config = dict(
         urls=[
             dict(

@@ -36,5 +36,4 @@ dependencies:
   - doit
   - flake8
   - git
-  - pyyaml
   - toml
