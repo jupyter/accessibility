@@ -76,6 +76,7 @@ def task_lint():
         *PA11Y.glob("*.json"),
         *PA11Y.glob("*.md"),
         *CI.rglob("*.yml"),
+        HERE / "CONTRIBUTING.md",
     ]
 
     # += [HERE.glob("*.md")]
