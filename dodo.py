@@ -37,7 +37,7 @@ os.environ.update(
 
 HERE = pathlib.Path(__file__).parent
 CI = HERE / ".github"
-PA11Y = HERE / "pa11y"
+PA11Y = HERE / "pa11y-jupyter"
 REPO_SCHEMA = PA11Y / "repos.schema.json"
 REPO_VALIDATOR = jsonschema.Draft7Validator(
     json.loads(REPO_SCHEMA.read_text(encoding="utf-8"))
