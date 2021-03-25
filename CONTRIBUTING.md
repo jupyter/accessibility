@@ -19,9 +19,11 @@ This project follows the [Jupyter Code of Conduct].
 
 1. get a free GitHub account
 2. make one (or more) [pull requests] to one (or more) Jupyter repositories
-3. make a pull request to `jupyter/accessibility` that changes `repos.toml` to
+3. make a pull request to `jupyter/accessibility:ci` that changes `repos.toml` to
    include the pull requests from **step 2**
-4. construct the appropriate Binder link and put it in (all of) the pull request(s)
+   - the pull request _target_ should be the `ci` branch
+4. construct the appropriate Binder link and paste the Markdown in (all of) the
+   pull request(s)
 5. gather and discuss findings
 6. update the upstream pull requests
 7. repeat steps 3+ as needed
@@ -35,11 +37,13 @@ repositories:
 - the client code itself
 - dependencies of the client
 - the underlying server code, and its dependencies
-- formal specifications such as [Jupyter Kernel Messaging] or [Jupyter Notebook Format]
+- formal specifications such as the [Jupyter Kernel Messaging] or the [Jupyter Notebook Format]
+  - changes at this level often require a new [Jupyter Enhancement Proposal] (JEP)
 
-Each component has its own developer workflows and culture.
-In this repository, we've tried to collect these development workflows in a
-declarative, productive way.
+Each component likely has its own developer workflows and culture.
+In this repository, we've tried to collect the workflows in a declarative, productive
+way, that allows trying out _Code From The Future_, without blocking review until
+_every_ pull request merged.
 
 ## On Binder
 
@@ -69,8 +73,8 @@ computer.
 
 - Get [Miniforge] for `conda`
   > - if your computer runs Windows, please ensure you:
-  >   - install `conda` on short path
-  >   - clone this repo to a short path
+  >   - install `conda` on short path, e.g. `c:\mf`
+  >   - clone this repo to a short path, e.g. `c:\git\a11y`
 - Make an environment like the one in [Binder](./.binder/environment.yml)
 
   ```bash
@@ -123,3 +127,4 @@ workflows.
 [postbuild]: https://repo2docker.readthedocs.io/en/latest/config_files.html#postbuild-run-code-after-installing-the-environment
 [pull requests]: https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-requests
 [repo2docker]: https://github.com/jupyterhub/repo2docker
+[jupyter enhancement proposal]: https://github.com/jupyter/enhancement-proposals

@@ -1,7 +1,22 @@
 """ a minimal static server, primarily for performing audits
 
-    this is not meant to be used in production, and some settings are insecure
-    to game auditing metrics which will vary substantially by deployment
+    ************************* DO NOT USE IN PRODUCTION *************************
+
+    Much like `python -m http.server`, some settings this server uses are
+    insecure/suboptimal or just plain crazy.
+
+    - _Unlike_ http.server, this _at least_ only binds to your local network
+      loopback, rather than the whole world.
+
+    - `autoreload` is enabled for convenient modification of the test
+      infrastructure, and to help verify in logs that the system-under-test is
+      not changing.
+
+    - `compress_response` is enabled to reduce false positives from auditing
+      tools which expect "production" deployments, difficult to achieve and
+      secure on a desktop computer.
+
+    ************ REALLY, DO NOT USE FOR ANYTHING OTHER THAN TESTING ************
 """
 from tornado import ioloop, web, options
 
