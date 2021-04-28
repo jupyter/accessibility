@@ -15,6 +15,6 @@ time doit link  |& tee logs/02.link.log
 
 time doit docs  |& tee logs/03.docs.log
 
-time doit app   |& tee logs/99.app.log
+time doit app   |& tee logs/50.app.log
 
 doit list --all --status

@@ -1,0 +1,19 @@
+# these are some repos we want to check out and test against.
+# these aren't submodules, so that they can be easily updated from the web UI
+
+# a full URL is used as the identifier
+[repos."https://github.com/jupyterlab/jupyterlab"]
+# the refs are applied in the order given, and need to merge "cleanly"
+refs = [
+    # the upstream ref, as a branch or tag.
+    {ref = "3.0.x"},
+    # Once created, PRs can found with `git ls-remote`.
+    # Providing (part of) the full commit helps give a reproducible experience
+    {ref = "pull/9622/head", commit = "408f30f"},
+]
+
+# any number of repos can be added
+[repos."https://github.com/jupyterlab/lumino"]
+refs = [
+    {ref = "pull/149/head", commit = "09aec10"}
+]

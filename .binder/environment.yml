@@ -31,11 +31,9 @@ dependencies:
   - sphinx
   - sphinx_rtd_theme
   - sphinx-copybutton
-  - sphinx-sitemap
   # this repo's tools
   - black
   - doit
   - flake8
   - git
-  - pyyaml
   - toml
