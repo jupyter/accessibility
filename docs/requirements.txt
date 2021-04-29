@@ -1,0 +1,3 @@
+sphinx>=3
+pydata_sphinx_theme
+myst_parser

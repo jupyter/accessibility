@@ -4,13 +4,13 @@ This file collects all the separate note files into one place to make it easier 
 
 ## 09.30.20 Meeting Minutes
 ### Attendees
-Martha (@marthacryan )
-Max (@telamonian )
-Karla (@karlaspuldaro)
-Alek
-tony (@tonyfast)
-Alex (@ajbozarth)
-Isabela (@isabela-pf)
+- Martha (@marthacryan )
+- Max (@telamonian )
+- Karla (@karlaspuldaro)
+- Alek
+- tony (@tonyfast)
+- Alex (@ajbozarth)
+- Isabela (@isabela-pf)
 
 ### Notes
 #### Say hello! 
@@ -123,11 +123,11 @@ accessibility reveiw for the design.
 
 ## 10.21.20 Meeting Minutes
 ### Attendees
-Max @telamonian
-Isabela @isabela-pf
-Martha @marthacryan
-Alex @ajbozarth
-Jason Grout @jasongrout
+- Max @telamonian
+- Isabela @isabela-pf
+- Martha @marthacryan
+- Alex @ajbozarth
+- Jason Grout @jasongrout
 
 ### Notes
 
@@ -191,11 +191,11 @@ as a good starting point.
 
 ## 11.04.20 Meeting Minutes
 ### Attendees
-Martha @marthacryan
-Max @telamonian 
-Alex @ajbozarth 
-Jason @jasongrout 
-Isabela @isabela-pf 
+- Martha @marthacryan
+- Max @telamonian 
+- Alex @ajbozarth 
+- Jason @jasongrout 
+- Isabela @isabela-pf 
 
 ### Notes
 
@@ -237,13 +237,13 @@ across as many repos anymore.
 
 ## 11.18.20 Meeting Minutes
 ### Attendees
-Martha @marthacryan
-Karla @karlaspuldaro
-Alex @ajbozarth
-Max @telamonian
-Jason @jasongrout 
-Thomas @manfromjupyter
-Isabela @isabela-pf 
+- Martha @marthacryan
+- Karla @karlaspuldaro
+- Alex @ajbozarth
+- Max @telamonian
+- Jason @jasongrout 
+- Thomas @manfromjupyter
+- Isabela @isabela-pf 
 
 ### Notes
 - Welcome Thomas!
@@ -295,16 +295,16 @@ the problems we already know about.
 
 ## 12.02.20 Meeting Minutes
 ### Attendees
-tony @tonyfast
-Max @telamonian 
-Jason @jasongrout 
-Alex @ajbozarth 
-Karla @karlaspuldaro
-Gonzalo @goanpeca 
-Martha @marthacryan 
-Thomas @manfromjupyter 
-Darian @afshin 
-Isabela @isabela-pf 
+- Tony @tonyfast
+- Max @telamonian 
+- Jason @jasongrout 
+- Alex @ajbozarth 
+- Karla @karlaspuldaro
+- Gonzalo @goanpeca 
+- Martha @marthacryan 
+- Thomas @manfromjupyter 
+- Darian @afshin 
+- Isabela @isabela-pf 
 
 ### Notes
 
@@ -576,14 +576,14 @@ work so we can help learn from each other.
 
 ## 01.13.21 Meeting Minutes
 ### Attendees
-Max @telamonian 
-Thomas @manfromjupyter 
-Martha @marthacryan 
-Jason @jasongrout 
-Tony @tonyfast
-Isabela @isabela-pf 
-Darian @afshin  
-Alex @ajbozarth 
+- Max @telamonian 
+- Thomas @manfromjupyter 
+- Martha @marthacryan 
+- Jason @jasongrout 
+- Tony @tonyfast
+- Isabela @isabela-pf 
+- Darian @afshin  
+- Alex @ajbozarth 
 
 Happy new year!
 
@@ -674,14 +674,14 @@ a first priority right now?
 ## 01.27.21 Meeting Minutes
 ### Attendees
 (oops! No one signed in today so I gave my best guess.)
-Max @telamonian 
-Thomas @manfromjupyter 
-Martha @marthacryan 
-Jason @jasongrout 
-Tony @tonyfast
-Alex @ajbozarth 
-Karla @karlasupldaro
-Isabela @isabela-pf 
+- Max @telamonian 
+- Thomas @manfromjupyter 
+- Martha @marthacryan 
+- Jason @jasongrout 
+- Tony @tonyfast
+- Alex @ajbozarth 
+- Karla @karlasupldaro
+- Isabela @isabela-pf 
 
 ### What are people working on?
 - How is everyone doing?
