@@ -28,3 +28,4 @@ Meetings reports
 
   ../meeting-minutes/jupyterlab-accessibility-meetings/all-minutes.md
   ../meeting-minutes/lumino/walkthrough-phosphor-prs.md
+  ../meeting-minutes/2019-web4all-hackathon/hackathon-resources.md

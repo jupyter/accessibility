@@ -1,3 +1,5 @@
+## Hackathon resources
+
 Per request in [jupyter/accessibility #2](https://github.com/jupyter/accessibility/issues/2), 
 these notes help keep track of the work done on JupyterLab during 
 the [2019 Web4All hackathon](http://www.w4a.info/2019/hackathon/). 

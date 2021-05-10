@@ -76,3 +76,7 @@ html_theme_options = {
       },
    ]
 }
+
+# -- Misc ---------------------------------------------------
+# Suppress the warning for non-consecutive header level increase
+suppress_warnings = ["myst.header"]
