@@ -1118,3 +1118,26 @@ updates in the next few weeks.
 - Get a testing demo running (Tony)
 - Fix CZI PDF PR to be in a different directory (Isabela)
 - Work on the [sidebar and command palette color contrast PR](https://github.com/jupyterlab/jupyterlab/pull/10101) and let us know when it's ready for review (Isabela)
+
+## 05.05.21 Meeting Minutes
+
+### Attendees
+- Max
+- Tony
+- Isabela
+- MJ
+
+### What are people working on?
+- MJ
+    - Looking for review on [jupyterlab/jupyterlab #10126](https://github.com/jupyterlab/jupyterlab/pull/10126), a pull request to address `skiplink` needs discussed at [#9688](https://github.com/jupyterlab/jupyterlab/issues/9688).
+    - Martha and Max followed up, thank you!
+    - It seems like a suggestion may have broken the implementation, so we are trying to get it working again.
+- Isabela
+    - Still focusing mainly on grant writing.
+    - Haven't gotten to work on the draft color contrast PR at [jupyterlab/jupyterlab #10146](https://github.com/jupyterlab/jupyterlab/pull/10146).
+- Tony
+    - How do we keep up community momentum?
+
+### Next Steps
+- Changes to get skiplink merged
+- Grant writing update and public review
