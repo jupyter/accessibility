@@ -3,13 +3,13 @@
 ## Walkthrough Phosphor Accessibility PRs Meeting Notes (10.26.2020)
 
 ### Attendees
-Jason Grout @jasongrout
-Martha @marthacryan
-Alex @ajbozarth
-Karla @karlaspuldaro
-Alek @biniona
-Gonzalo @goanpeca
-Isabela @isabela-pf
+- Jason Grout @jasongrout
+- Martha @marthacryan
+- Alex @ajbozarth
+- Karla @karlaspuldaro
+- Alek @biniona
+- Gonzalo @goanpeca
+- Isabela @isabela-pf
 
 ### Context
 This is related to the [Web4All Hackathon](http://www.w4a.info/2019/hackathon/) 
