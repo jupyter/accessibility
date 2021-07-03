@@ -1141,3 +1141,77 @@ updates in the next few weeks.
 ### Next Steps
 - Changes to get skiplink merged
 - Grant writing update and public review
+
+## 05.19.21 Meeting Minutes
+### Attendees
+- Jason 
+- Thomas
+- Martha
+- Tony
+- Max
+- Sophie
+- Max
+
+### What are people working on?
+- We did introductions since we had new attendees! Hooray!
+
+- Sophie
+    - Interested in getting an overview of what we are doing here and what needs to be done still.
+    - May have interest in mentored sprints or other community events to help get a Jupyter interface accessible.
+- Martha
+    - Looking for guidance on where is the next useful place to contrubute
+    - Perhaps [Issue area 1: keyboard navigation of #9399](https://github.com/jupyterlab/jupyterlab/issues/9399)?
+    - Checking tab index and skiplink status
+- Isabela
+    - Workshop funding follow up [jupyter/accessibility #43](https://github.com/jupyter/accessibility/issues/43). Need feedback on "the jupyter/accessibility team have the best visibility onto what would make the most impact. What advise would you have for how to best use these resources?"
+    - CZI grant submitted. We won't hear for a few months, so I'll be back to color contrast.x
+- Jason reviewed skip links implementation: https://github.com/jupyterlab/jupyterlab/issues/10268
+    - Follow up with MJ about availability
+
+### Next Steps
+- Follow up on skiplink status (Isabela)
+- Next steps for keyboard navigation (check for positive tab index values, potential skiplink next steps) (Martha)
+- Workshop follow up (Everyone can post at [#43](https://github.com/jupyter/accessibility/issues/43))
+- Color contrast PR [jlab #10146](https://github.com/jupyterlab/jupyterlab/pull/10146)(Isabela)
+- Binderhub AWS policy
+
+Priority issues: https://github.com/jupyterlab/jupyterlab/issues/9399
+
+## 06.02.21 Meeting Minutes
+### Attendees
+- Max
+- Thomas
+- Tony
+- Kevin
+- Jason
+- Sophie
+- Martha
+
+### What are people working on?
+- Isabela
+    - JupyterLab dev mode not reflecting changes. Help please?
+        - Note to self: you can run `jupyter lab --dev-mode --watch` :upside_down_face: 
+    - Some workshop ideas have been added to [jupyter/accessibility #43](https://github.com/jupyter/accessibility/issues/43).
+    - Does anyone know what JupyterHub and/or BinderHub issues, PRs, or other discussions factored in to the blocking of AWS?
+        - [jupyterhub/mybinder.org-deploy #1828](https://github.com/jupyterhub/mybinder.org-deploy/issues/)
+
+- Martha
+    - [#187](https://github.com/jupyterlab/lumino/pull/187) Needs testing! Also need to fix test failures
+        - Jason is reviewing it (thanks)!
+    - [#10289](https://github.com/jupyterlab/jupyterlab/pull/10289) Merged! :D :tada: 
+
+- Kevin
+    - Yjs now supports CodeMirror v6 which has better accessibility support: https://github.com/yjs/y-codemirror.next
+    - This should make it pretty easy to switch to CodeMirror 6 at Jupyter
+    - jlab 4.0 roadmap (mentions codemirror 6): https://docs.google.com/spreadsheets/d/1r6_ySd18xZwfPexdmlkdFhHUWynaza0zXjrxMMIoLWw/edit
+
+### Next Steps
+- Review github project to make sure it's accurate and target next steps for work (Isabela)
+- PR with docs for Nick's magic lumino + jlab binder
+  - https://github.com/jupyter/accessibility/pull/35
+- Follow up on RTC and accessibility. What are next steps for making progress there? (Isabela)
+  - https://workspaceupdates.googleblog.com/2019/08/real-time-collab-accessibility.html
+  - Thomas: "I think easiest way to do the RTC piece for screenreaders AFTER the product supports reading and editing first, would be to just add screenreader only alerts that simple says 'Tony recently edited the document.' Could say what they added for extra credit. The WCAG requirement now is merey that they are ntofiicated if 'content changed dynamically'”
+- Get [#10146](https://github.com/jupyterlab/jupyterlab/pull/10146) for color contrast to a review state (Isabela).
+- Follow up about CodeMirror 6 (Isabela and Kevin)
+- Follow up about accessibility workshop [jupyter/accessibility #43](https://github.com/jupyter/accessibility/issues/43)
