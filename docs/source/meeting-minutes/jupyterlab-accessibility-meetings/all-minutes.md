@@ -1215,3 +1215,51 @@ Priority issues: https://github.com/jupyterlab/jupyterlab/issues/9399
 - Get [#10146](https://github.com/jupyterlab/jupyterlab/pull/10146) for color contrast to a review state (Isabela).
 - Follow up about CodeMirror 6 (Isabela and Kevin)
 - Follow up about accessibility workshop [jupyter/accessibility #43](https://github.com/jupyter/accessibility/issues/43)
+
+## 06.16.21
+### Attendees
+- Oops! No one signed in.
+### What are people working on?
+- Isabela
+    - [#10146](https://github.com/jupyterlab/jupyterlab/pull/10146) was merged! This made some color contrast fixes to the filebrowser and command palette. 
+    - There are still more to-do fixes on the [issue it draws from](https://github.com/jupyterlab/jupyterlab/issues/8832). Has anyone worked on/know where the various search UIs (in the file browser, command palette, and/or extensions) are in the code base?
+    - I'm going to the BinderHub team meeting later today to follow up on the AWS blocking and get request a long-term solution.
+    - [Accessibility workshop](https://github.com/jupyter/accessibility/issues/43) follow up! We are aiming to have an event by late August/early September.
+    - Someone pointed me to W3C's [Authoring Tool Accessibility Guidelines](https://www.w3.org/WAI/standards-guidelines/atag/). Passing it on.
+- Kevin and Cameron
+    - Accessibility considerations in RTC commenting? 
+
+## 06.30.21
+### Attendees
+- Mike
+- Tony Fast - Quansight
+- Isabela
+- Adam
+- Jason
+- Chloe
+
+### What are people working on?
+- Adam
+    - Does accessibility include accessibility? Answer: yes!
+    - Tony shares [The Documentation System](https://documentation.divio.com/) and [Rin Oliver's Writing Documentation with Neurodivergent Open Source Contributors In Mind](https://www.youtube.com/watch?v=TV-bawUDibc)
+- Mike
+    - What is an accessible code completion experience? There seems to be a gap in documentation here.
+- Chloe
+    - What are some things to think about with commenting/chat and RTC that aren't just visual?
+    - Think about how to make sure content is marked up in a way that it can be accessed. How does all the info on a page
+    - Tony shares https://technica11y.org/designing-and-coding-for-low-vision and https://www.w3.org/WAI/tutorials/page-structure/content/
+- Isabela
+    - The full multi-skiplink is back on the table if people want to work on that. I went to pick it up and it is beyond my current knowledge level (though I'd love to be a fly on the wall of someone working on this).
+        - Needs implementation fix based on [#10268](https://github.com/jupyterlab/jupyterlab/issues/10268)
+        - Isabela to follow up with Jason
+    - BinderHub meeting update [jupyterhub/binderhub #1309](https://github.com/jupyterhub/binderhub/pull/1309)
+    - From the last meetings: [RTC commenting issue](https://github.com/jupyterlab/jupyterlab/issues/10448) and [CodeMirror 6 discussion](https://github.com/jupyterlab/jupyterlab/issues/10370)
+
+### Other ideas
+- JupyterLab extension that disables the mouse for manual testing?
+
+### Next Steps
+
+- Update [#8832](https://github.com/jupyterlab/jupyterlab/issues/8832) with info from [#10008](https://github.com/jupyterlab/jupyterlab/issues/10008) and a regression I manually noticed. Turn this checklist into another PR. (Isabela)
+- Multiple skiplinks to different regions (Isabela to reach out to Jason)
+- Mike is going to look into color stuff? :)
