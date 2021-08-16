@@ -1263,3 +1263,28 @@ Priority issues: https://github.com/jupyterlab/jupyterlab/issues/9399
 - Update [#8832](https://github.com/jupyterlab/jupyterlab/issues/8832) with info from [#10008](https://github.com/jupyterlab/jupyterlab/issues/10008) and a regression I manually noticed. Turn this checklist into another PR. (Isabela)
 - Multiple skiplinks to different regions (Isabela to reach out to Jason)
 - Mike is going to look into color stuff? :)
+
+## 07.14.21
+### Attendees
+- Darian
+- Tony
+- Martha
+- Nick
+- Isabela
+
+### What are people working on?
+- Isabela and Tony
+    - Jupyter Accessibility Workshop
+        - We discussed an alternative sprint method for adding alt text to documentation. This does not create regular contributors, but it might solve a big problem and help people learn about accessibility.
+        - What could be another goal? Getting a group of people who want to be involved with Jupyter but don't know how a place to start.
+- Martha
+    - Looking for feedback on [lumino #187](https://github.com/jupyterlab/lumino/pull/187).
+            - Darian says that this should be two PRs. One for focus. One for the expected keyboard bindings.
+    - Is this PR still viable? [jupyterlab #6369](https://github.com/jupyterlab/jupyterlab/pull/6369)
+        - It is a draft, so we can't do anything to the existing PR. At best we could open a new PR.
+
+### Next steps
+- Remove keybindings work on [lumino #187](https://github.com/jupyterlab/lumino/pull/187) and mark it ready for review (Martha)
+- Start new lumino PR for keybindings and focus in menus (Martha)
+- Test documentation sprint on July 21 (Tony and Isabela) (and anyone else who wants to join!)
+- Review [jupyterlab #8832](https://github.com/jupyterlab/jupyterlab/issues/8832) and [jupyterlab #1008](https://github.com/jupyterlab/jupyterlab/issues/1008) for next steps on color contrast (Isabela)
