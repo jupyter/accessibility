@@ -1288,3 +1288,65 @@ Priority issues: https://github.com/jupyterlab/jupyterlab/issues/9399
 - Start new lumino PR for keybindings and focus in menus (Martha)
 - Test documentation sprint on July 21 (Tony and Isabela) (and anyone else who wants to join!)
 - Review [jupyterlab #8832](https://github.com/jupyterlab/jupyterlab/issues/8832) and [jupyterlab #1008](https://github.com/jupyterlab/jupyterlab/issues/1008) for next steps on color contrast (Isabela)
+
+## 07.28.21
+### Attendees
+- Tony
+- Isabela
+- Martha
+- Carlos
+- Jessica
+
+### What are people working on?
+- Martha
+    - Merged [jupyterlab/lumino #187](https://github.com/jupyterlab/lumino/pull/187) :tada: 
+    - Looking for next thing to work on!
+        - Maybe the next step for skiplink to make there by a list of skiplinks for the different areas. Most recent [skiplink PR](https://github.com/jupyterlab/jupyterlab/pull/10535)
+- Carlos
+    - Curious about what is happening here!
+    - We talked about testing some. Maybe recording and comparing videos might help for tracking interactions and avoiding accessibility regressions.
+    - Playwright? [blog post](https://www.yunier.dev/2021-03-13-accessibility-testing-with-playwright/)
+    - How can we support projects 
+- Isabela
+    - and Tony: Jupyter accessibility workshop. You can [track the work here](https://github.com/Quansight-Labs/jupyter-accessibility-workshops).
+    - [Notes from the test sprint on July 21](https://hackmd.io/GifZ-RJZR2uXWx5ETcuXEg)
+    - Very work-in-progress [alt text guide/review checklist](https://hackmd.io/bkAOZc9wTG6iRMBvaP745Q) based on feedback. Hopefully this can go to many projects once we have a working draft.
+    - We are supposed to be hearing back about the CZI grant soon.
+    - Binder isn't blocking providers anymore (issue [#1828](https://github.com/jupyterhub/mybinder.org-deploy/issues/1828)). Hooray!
+- Jessica
+    - Curious about intersection of accssibility & internationalization effort i.e alt text in non-English?
+
+### Next steps
+- Review [jupyterlab #8832](https://github.com/jupyterlab/jupyterlab/issues/8832) and [jupyterlab #1008](https://github.com/jupyterlab/jupyterlab/issues/1008) for next steps on color contrast (Isabela)
+- Test documentation sprint with NumPy on July 28 (Tony and Isabela) (and anyone else who wants to join!)
+
+## 08.11.21
+### Attendees
+* Martha
+* Isabela
+* Jason
+* Max
+* Nick
+* Mike
+* Jenn
+* Erik
+
+### What are people working on?
+- Jenn and Erik
+  - Hello from [Space Telescope Science Institute](https://www.stsci.edu/) and [Astropy](https://www.astropy.org/)!
+  - Jupyter notebooks aren't accessible and we'd like them to be. 
+  - We've been working with [GLAS Education](https://www.glaseducation.org/) to test our own work with blind and visually impaired people.
+- Nick
+  - documentation as an area also lacking accessibility
+  - Still trying to get pydata-sphinx-theme PRs merged ([Lighthouse testing](https://github.com/pydata/pydata-sphinx-theme/pull/206) and [pa11y testing](https://github.com/pydata/pydata-sphinx-theme/pull/294))
+- Mike
+  - question: are outputs returned by kernel, say data frames, accessible/is it being worked on by anyone? I know there is a lot of work on UX, but I wonder how much work will be there in downstream packages which provide outputs
+    - [Max] *if you’re talking about the fancy pandas dataframe rendering, the answer is definitely not. There are wcag/aria specs for how to make a grid accessible, tho*
+    - [Jason] *That would be awesome if the frontend supported some innate dataframe mimetype which it could render in an accessible way*
+  - question: `aria-label` vs `title` (https://github.com/jupyterlab/jupyterlab/pull/10727/files#r685601307)
+      - Should this be defined from the toolbar button instead of the tooltip?
+      - Isabela will test the binder and see how the current implmentation works.
+      - https://github.com/jupyterlab/jupyterlab/pull/10727/files#r685601307
+      - https://www.w3.org/TR/wai-aria-practices-1.1/
+      - https://www.w3.org/TR/wai-aria-practices-1.1/#wai-aria-roles-states-and-properties-3
+### Next steps
