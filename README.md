@@ -26,7 +26,7 @@ If you are trying to use Jupyter tools with assistive technology now, you may be
 
 Anyone is welcome to attend, if they would like to discuss a topic or just to listen in.
 
-- When: every other Wednesday (check the [community calendar](https://jupyter.readthedocs.io/en/latest/community/content-community.html#jupyter-community-meetings)) at [10:15 AM Pacific Time](https://www.thetimezoneconverter.com/?t=9%3A00%20am&tz=San%20Francisco&)
+- When: every other Wednesday (check the [community calendar](https://jupyter.readthedocs.io/en/latest/community/content-community.html#jupyter-community-meetings)) at [10:15 AM Pacific Time](https://dateful.com/convert/san-francisco-california?t=1015am)
 - Where: [`jovyan` Zoom](https://zoom.us/my/jovyan?pwd=c0JZTHlNdS9Sek9vdzR3aTJ4SzFTQT09)
 - What: [current agenda](https://hackmd.io/WnaWXboXSiGoqWvev_fAvA) and [public notes](https://github.com/jupyterlab/team-compass/issues/98) from past meetings.
 
