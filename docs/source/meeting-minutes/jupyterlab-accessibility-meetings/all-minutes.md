@@ -1384,3 +1384,23 @@ Priority issues: https://github.com/jupyterlab/jupyterlab/issues/9399
 - Update PyData sphinx theme PRs for [Lighthouse](https://github.com/pydata/pydata-sphinx-theme/pull/206) and [pa11y testing](https://github.com/pydata/pydata-sphinx-theme/pull/294). (Nick)
 - Ask Martha about explaining how accessibility needs to fit in to Jupyter (Isabela)
 - Follow up/finish alt text guide for workshop (Isabela)
+
+## 09.08.21
+### Attendees
+- Jason
+- Isabela
+- Max
+
+### What are people working on?
+- [PyData Sphinx theme's pa11y testing PR](https://github.com/pydata/pydata-sphinx-theme/pull/294) has been merged! :tada: Thanks to Nick!
+- Jupyter accessibility workshop efforts can be tracked on the [workshop repo](https://github.com/Quansight-Labs/jupyter-accessibility-workshops) and the first two events are scheduled for October 2 and October 9.
+    - More announcements to come soon!
+    - If you are interested in helping moderate this event, we'd love to hear from you.`
+- The [CZI grant for Jupyter accessibility efforts](https://chanzuckerberg.com/eoss/proposals/inclusive-and-accessible-scientific-computing-in-the-jupyter-ecosystem/) did get funded! 
+    - Our official start is at the beginning of October, so more info to come.
+    - The a [PDF of full application is public](https://github.com/jupyter/accessibility/blob/81361c61fd1090fb1dd928d0914f0940192c58e3/grant-applications/Inclusive_and_Accessible_Scientific_Computing_in_Jupyter_Ecosystem_SUBMITTED_PROPOSAL.pdf) and includes a timeline and work we are commited to.
+- Outside of Jupyter-specific work, there is also multi-project interest in developing [SPEC(s)](https://scientific-python.org/specs/purpose-and-process/) for accessibility practices in open source. You can [join the discussion here](https://discuss.scientific-python.org/t/discussion-accessible-open-source-projects/63).
+
+### Next steps
+- Formal announcement of accessibility workshops (Isabela and Tony)
+- Connect with other community workshop people (Isabela)
