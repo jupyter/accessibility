@@ -1429,3 +1429,236 @@ Priority issues: https://github.com/jupyterlab/jupyterlab/issues/9399
 
 ### Next Steps
 - Talk about CodeMirror 6 again at the beginning of October
+
+## 10.6.21
+### Attendees
+- Jason
+- Tony
+- Adam
+- Martha
+- Isabela
+- Ely
+- Thomas
+
+### What are people working on?
+- Adam
+    - Lumino documentation is lacking and it can interfere with this work.
+    - Who would document, give a tutorial, talk, anything?
+- Isabela
+    - Grant process has begun! Myself and people in charge of me are working on bringing in new people to spend dedeicated development time on this.
+    - I'm watching [this ipython/ipython PR](https://github.com/pydata/pydata-sphinx-theme/pull/294) and hoping to see it merged.
+- Tony
+    - Where does [RetroLab](https://github.com/jupyterlab/retrolab) fit?
+    -  It isn't core JupyterLab (currently) ([this comment describes how it could be in core in the future](https://github.com/jupyterlab/jupyterlab/issues/9869#issuecomment-936714230)) but has a more streamlined interface that might influence the experience.
+-  CodeMirror 6
+    -  Estimated to take at least one month for a single full-time developer
+    -  5 and 6 don't have full parity, so that path isn't perfectly clear. You need to account time for that.
+    -  Kevin is interested in this and would like to work with others.
+    -  Martha may also be able to help!
+
+## 10.20.21
+### Attendees
+- Tony
+- Jessica
+- Nick
+- Mike
+- Karolina
+- Martha
+- Jenn
+- Ely
+- Isabela
+
+### What are people working on?
+- Isabela
+    - Jupyter accessibility workshops are going through budget approvals now. That's where I'll be halfway through our meeting today.
+    - October 25 I will have someone starting with development time devoted to JupyterLab accessibility. Yay! You'll get to meet them soon. (This is made possible by the [CZI EOSS grant](https://blog.jupyter.org/czi-awards-three-eoss-grants-to-jupyter-community-members-6aef43bd9468))
+    - This also means I'll have devoted time for accessibility again, so this will help me go back to making contributions.
+
+- Jenn
+    - funding question
+    - needs to be scoped
+    - can have external partners
+    - needs follow up
+
+- Mike: just highlighting file system review in https://github.com/jupyterlab/design
+    - Extensions and accessibility assessment. Are extensions in the JupyterLab organization the next step?
+    - is there an accessibility repo?
+      - there is https://github.com/orgs/jupyterlab/projects/1
+      - but no repo as for today
+      - might be worth to have a repo with acessibility team-compas and to upload artifacts (slides/notes/recommendations) and link to these notes
+
+### Next Steps
+- Follow up with Jenn about funding (Isabela+)
+
+## 11.03.21
+### Attendees
+- Jason
+- Martha
+- Nick
+- Tony
+- Frederic
+- Mike
+- Adam
+- Isabela
+- Jenn
+- Gabriel
+- Jessica
+- Tania
+- Karolina
+
+### What are people working on?
+
+- Jason has been working on formatting keyboard shortcuts, adhering to OS conventions: 
+  - https://github.com/jupyterlab/lumino/pull/258 (with some exploratory work in https://github.com/jupyterlab/lumino/pull/257). Most of the work affects how keyboard shortcuts are displayed on Mac especially, and I tried to check how things are presented in VoiceOver. I would love if someone would double-check my work when it gets released to make sure it works well with screen readers.
+      - Mike: some older articles (2014) highlighted issues with other screen readers: https://www.deque.com/blog/dont-screen-readers-read-whats-screen-part-1-punctuation-typographic-symbols/
+  - Mike: tracking `aria-keyshortcuts` in https://github.com/jupyterlab/lumino/issues/261 (help wanted!)
+- Jason also is working on switching to using the system font on all platforms: https://github.com/jupyterlab/jupyterlab/pull/11388. The end result of this is that Linux moves from Arial to the system font, which seems to be more readable and wider spacing. You can see examples of the difference by looking at the differences in the screenshots that are updated by the PR.
+
+- Nick says [JupyterLab-fonts](https://github.com/deathbeds/jupyterlab-fonts) (could) add [`opendyslexic`](https://opendyslexic.org/) from [fontsource](https://github.com/fontsource/fontsource/blob/main/FONTLIST.json#L978)
+  - https://github.com/deathbeds/jupyterlab-fonts
+  - Mike: [JupyterLab Desktop ships a custom set of fonts](https://github.com/jupyterlab/jupyterlab-desktop/pull/59) (we may need to account for that)
+  - Should this be a pattern for a theme builder because variables allow for better manipulation and adjustment of things like button sizes or input box sizes.
+  - Would there be use in a DOM specification similar to nbformat?
+
+- Tania, Gabriel, Tony, Isabela
+    - You can keep up with grant efforts at [Quansight-Labs/jupyter-a11y-mgmt](https://github.com/Quansight-Labs/jupyter-a11y-mgmt) and this will be reported again at meetings in the future.
+
+- Gabriel
+    - Thanks to Jason (and whoever else) for contributing docs. I was able to get JupyterLab dev environment up really quickly (less than 1 hour)
+    - Mentioned https://www.w3.org/TR/using-aria/#firstrule
+    
+- Martha
+    - Just wanted to let Gabriel know - you can reach out to me anytime with questions through gitter!
+
+- Isabela
+    - Is anyone in contact/know status of Johan's work on the [CodeMirror6 migration](https://github.com/jupyterlab/jupyterlab/issues/10370#issuecomment-942048940)?
+        - Work is in progress ([there](https://github.com/JohanMabille/jupyterlab/tree/codemirror)). CodeMirror6 introduces a completly new API that brings some challenge. So Johan is focusing on having a first draft PR without carry too much about styles/modes and extensions. So people can start to test it and we will be able to evaluate what work is remaining (in particular if some CodeMirror extensions needs to be ported from 5 to 6).
+    
+- Frederic
+    - I will test [Fast Design components](https://www.fast.design/) from Microsoft and report here.
+
+### Next steps
+- Address request for feedback on Jason and Mike's work listed above
+- Mike https://github.com/jupyterlab/lumino/issues/261 (help wanted!)
+- Frederic will check in with Johan about CodeMirror 6
+- Isabela will update the [JupyterLab accessibility project](https://github.com/orgs/jupyterlab/projects/1) to make sure it's ready for people to pick work off again.
+
+## 11.17.21
+
+### Attendees
+- Martha
+- Ely
+- Jason Grout
+- Jason Weill
+- Tony
+- Mike
+- Frederic
+- Gabriel (Quansight, @gabalafou)
+- Nick
+- Adam
+- Karolina
+- Isabela
+
+
+### What are people working on?
+- Shared with us: [Accessibility notebook experiment exploring sound interactions](https://colab.research.google.com/github/hassaku/colab-a11y-utils/blob/master/colab_a11y_util_example.ipynb#scrollTo=021Jdm2npMLf)
+- Jason Grout mentioned [colab-a11y-utils](https://pypi.org/project/colab-a11y-utils/). It may be good to explore this package.
+- Frederic 
+    - working on a windowed notebook - this will certainly raise accessibility issue
+        - Headers may already not be working well. [jupyterlab/jupyterlab #11374 Anchors are not working properly](https://github.com/jupyterlab/jupyterlab/issues/11374)
+        - Virtual rendering in other contexts: [Google Docs](https://workspaceupdates.googleblog.com/2021/05/Google-Docs-Canvas-Based-Rendering-Update.html), [genome browsers]( http://2020.ensembl.org/genome-browser/homo_sapiens_GCA_000001405_28?focus=gene:ENSG00000141510&location=17:7544013-7862190)
+    - Testing basic components against accessiblity: sharing an example from VS Code (didnot look at the techno used):
+        - https://microsoft.github.io/vscode-webview-ui-toolkit/
+            - This is a storybook website that got a Accessibility tests report  
+        ![Webview UI Toolkit's interface showing a list of accessibility test results for a component](https://i.imgur.com/aKRjl2E.png)
+        - GitHub repo: https://github.com/microsoft/vscode-webview-ui-toolkit
+- Tony 
+    - Notebook 7 efforts are meant to include accessibility efforts [more info on the plan for Notebook 7](https://github.com/jupyter/notebook/issues/6210#issuecomment-957169113)
+    - Nick mentions wanting resources that help accessibility be a part of development as a focus of the repo. Should we be testing things like [Lorenz notebook](https://github.com/jupyterlab/jupyterlab-demo/blob/master/notebooks/Lorenz.ipynb) in accessibility tests?
+- Jason W
+    - Resources for working on jupyterlab, retrolab, other packages simultaneously?
+        - [doit automation file](https://pydoit.org/task_args.html) https://github.com/jupyter/accessibility/blob/master/dodo.py
+        - [Linking/Unlinking Packages to JupyterLab documentation](https://jupyterlab.readthedocs.io/en/stable/developer/contributing.html#linking-unlinking-packages-to-jupyterlab)
+        - [An example of testing such things in jupyter/accessibility](https://github.com/jupyter/accessibility/pull/35)
+        - [Verdaccio](https://verdaccio.org/)
+- Gabriel
+    - Poking around the JupyterLab code base, running Galata tests 
+- Isabela
+    - With the CZI EOSS grant, we will be updating our progress via a roadmap. 
+    - Let's talk about the current [draft roadmap PR](https://github.com/Quansight-Labs/jupyter-a11y-mgmt/pull/60).
+    - What information would you all want on this roadmap?
+        - Linking to issues might be nice. Which issues make sense (we have duplicate issues across some repositories)?
+        - Add another page "changelog" that lists what we have completed when things get moved off the roadmap.
+        - Are there repository labels/tags that make sense to link to?
+
+## 12.01.21
+
+### Attendees
+
+| Name | Organization | GitHub Handle |
+|---|---|---|
+| tony fast | quansight | @tonyfast |
+| R Ely | Bloomberg | @ohrely |
+| Chadi Abi Fadel | American University of Beirut | @real-slim-chadi |
+| Isabela Presedo-Floyd | Quansight Labs | @isabela-pf |
+| Frederic Collonval | QuantStack | @fcollonval |
+| Gabriel Fouasnon | Quansight Labs | @gabalafou |
+
+### What are people working on?
+
+- Chadi
+    - [W3C's Web Accessibility Initiative](https://www.w3.org/WAI/)
+    - [Australian National University's Different types of disabilities](https://services.anu.edu.au/human-resources/respect-inclusion/different-types-of-disabilities)
+- Ely and Tony
+    - Can we get review on the [draft workshop agenda](https://hackmd.io/@p5jde6ivTRa6LnqFD8l8wQ/Hk42FoH_Y)
+- Frederic
+    - PoC [WebComponents for Jupyter](https://github.com/jupyterlab-contrib/jupyter-ui-toolkit) with low level accessibility rules
+    - Discussed more in depth in the prior JupyterLab meeting
+- Gabriel (Quansight Labs)
+    - Automated accessibility testing
+    - Quansight Labs [tracks my work on Jupyter](https://github.com/Quansight-Labs/jupyter-a11y-mgmt/issues/assigned/gabalafou) in a public GitHub repo
+    - Feel free to reach out to me on [gitter](https://gitter.im/gabalafou) or email me gfouasnon@quansight.com
+- Isabela
+    - I'm back working on [#8832](https://github.com/jupyterlab/jupyterlab/issues/8832) as promised. I have some questions on search/filter boxes this week.
+
+- Pre-meeting chat
+    - Ely: High contrast colors that help with low vision may aggravate migranes or other disabilities. Customization seems key.
+    - Nick: we could add a PR check to ensure that style values aren't being hard-coded
+    - Shared links: 
+        - [Bay area (currently remote) a11y meetup](https://www.meetup.com/a11ybay/)
+        - [sytlelint-scss/stylelint-scss  Rule idea: color-no-non-variables #4 ](https://github.com/stylelint-scss/stylelint-scss/issues/4)
+        - [stylelint documentation's list of rules for color](https://stylelint.io/user-guide/rules/list/#color-1)
+
+ ## 12.15.21
+
+### Attendees
+
+- Ely
+- Tony
+- Gabriel
+- Mike
+- Isabela
+- Saeeda
+- Chadi
+- Martha
+- Carlos
+- Jenn
+
+### What are people working on?
+
+- Ely
+    - Accessibility workshop is tomorrow!
+        - [Here is the workshop agenda](https://hackmd.io/JmEN6JIMTn6f9IKuLCoo0Q)
+        - Anyone can join in from the community calendar
+- Chadi
+    - Getting involved/onboarding needs to support accessibility
+    - Sharing work around summarizing accessibility needs
+- Carlos
+    - RTC user identification uses colors. How to use distinct and accessible color palettes is being discussed on [jupyterlab/jupyterlab issue #11641](https://github.com/jupyterlab/jupyterlab/issues/11641).
+        - This issue is based on [a thread on jupyterlab/jupyterlab PR #114430](https://github.com/jupyterlab/jupyterlab/pull/11443#discussion_r761473200)
+    - Ely: seems like it needs to be a set of variables defined by the theme since themes can vary so much
+    - Tony shares [WCAG 3 will use a new color contrast method called APCA (Advanced Perceptual Contrast Algorithm)](https://twitter.com/DanHollick/status/1468958644364402702)
+- Isabela
+    - Jupyter accessibility events updates! More updates to come, and you can always reference [the quansight-labs/jupyter-accessbility-workshops repo](https://github.com/Quansight-Labs/jupyter-accessibility-workshops)
+    - [jupyterlab/jupyterlab PR #11658](https://github.com/jupyterlab/jupyterlab/pull/11658) is work on color contrast. I've gotten some review but there's lots to discuss.
+    - Roadmap updates (for CZI grant reporting and community communication) based on all your feedback. You can review the PR [Quansight-Labs/jupyter-a11y-mgmt #60](https://github.com/Quansight-Labs/jupyter-a11y-mgmt/pull/60). When we get it cleaned up, it will go to jupyter/accessibility so it's more findable by the community.
