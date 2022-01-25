@@ -27,6 +27,9 @@ document.
 For links to Lumino source, we use
 [v2021.12.13](https://github.com/jupyterlab/lumino/releases/tag/v2021.12.13).
 
+Original source code for this document, including the .drawio file used to
+generate all of the images in this doc, can by found by going to
+https://github.com/gabalafou/map-jupyterlab-frontend-components.
 
 ### Scope
 
