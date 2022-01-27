@@ -1,0 +1,50 @@
+{
+  "$id": "https://github.com/jupyter/accessibility/tree/master/repos.schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "description": "a schema for describing the jupyter/accessibility Binder and GitHub actions",
+  "$ref": "#/definitions/top-level",
+  "definitions": {
+    "top-level": {
+      "description": "a description of a local development and testing environment",
+      "type": "object",
+      "properties": {
+        "repos": {
+          "description": "a set of repositories identified by URL",
+          "type": "object",
+          "patternProperties": {
+            "https://.*": {
+              "$ref": "#/definitions/repo"
+            }
+          }
+        }
+      }
+    },
+    "repo": {
+      "description": "a repository that will be checked out, built, and tested",
+      "required": ["refs"],
+      "properties": {
+        "refs": {
+          "$ref": "#/definitions/ref"
+        }
+      }
+    },
+    "ref": {
+      "description": "a point in distributed version control history",
+      "required": ["ref"],
+      "properties": {
+        "ref": {
+          "description": "a human-readable reference to a mutable point in time in a repo",
+          "type": "string",
+          "minLength": 1,
+          "examples": ["HEAD", "main", "3.0.x", "pull/123/head"]
+        },
+        "commit": {
+          "description": "a substring of the cryptographic reference to a point in development contained in the `ref`",
+          "type": "string",
+          "minLength": 7,
+          "pattern": "[a-z\\d]{7,}"
+        }
+      }
+    }
+  }
+}
