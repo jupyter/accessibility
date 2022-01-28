@@ -42,5 +42,5 @@ else:
 
     @nox.session(reuse_venv=True)
     def docs(session):
-        session.install("jupyter-book", "doit")
+        session.install("doit", "-rdocs/requirements.txt")
         session.run("doit", "-f", "noxfile.py", *session.posargs), 
