@@ -11,22 +11,23 @@ DOIT_CONFIG = dict(verbosity=2)
 
 def task_docs():
     def config():
+        cmd = CmdAction(F"jb config sphinx --toc {TOC.absolute()} --config {CONFIG.absolute()} .".split(), shell=False)
         with suppress(SystemExit):
-            CmdAction(F"jb config sphinx --toc {TOC.absolute()} --config {CONFIG.absolute()} .".split(), shell=False)
+            cmd.execute()
     from doit.action import CmdAction
     
     yield dict(
         name="configure",
         file_dep=[TOC, CONFIG],
         actions=[
-          config  
+          config, "mv docs/conf.py conf.py"
         ],
-        targets=[CONF],
+        targets=["conf.py"],
         clean=True,
     )
     yield dict(
         name="build",
-        actions=[F"sphinx-build -c {CONF.parent} . _build/html"],
+        actions=[F"sphinx-build . _build/html"],
         targets=["_build/html/index.html"],
         uptodate=[False]
     )
