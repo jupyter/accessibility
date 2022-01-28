@@ -1,0 +1,23 @@
+name: jupyter book documentation
+
+on: [push]
+
+jobs:
+  build:
+    if: ${{ github.event_name == 'pull_request' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
+      - name: Install dependencies
+        run: python -m pip install --upgrade pip nox
+      - name: Test with pytest
+        run: nox -s docs
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4.2.2
+        with:
+          branch: gh-pages
+          folder: _build/html
+          target-folder: ${{ github.ref }}
