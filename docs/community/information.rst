@@ -1,4 +1,4 @@
-Working Group Members
+Jupyter Accessibility Community
 =====================
 
 Once we have assembled the working group, we will list the members here.
@@ -26,6 +26,6 @@ Meetings reports
 .. toctree::
   :maxdepth: 1
 
-  ../meeting-minutes/jupyterlab-accessibility-meetings/all-minutes.md
-  ../meeting-minutes/lumino/walkthrough-phosphor-prs.md
-  ../meeting-minutes/2019-web4all-hackathon/hackathon-resources.md
+  meeting-minutes/jupyterlab-accessibility-meetings/all-minutes.md
+  meeting-minutes/lumino/walkthrough-phosphor-prs.md
+  meeting-minutes/2019-web4all-hackathon/hackathon-resources.md

@@ -2,19 +2,13 @@ format: jb-book
 root: README.md
 chapters:
 - file: docs/statement.md
-- file: docs/community/README.md
+- file: docs/community/information.rst
 - file: docs/resources/README.md
   sections:
   - file: docs/resources/team_guides.rst
   - file: docs/resources/map-jupyterlab-frontend-architecture/README.md
   - file: docs/community/meeting-minutes/lumino/walkthrough-phosphor-prs.md
   - file: docs/community/meeting-minutes/2019-web4all-hackathon/hackathon-resources.md
-- file: docs/audits/README.md
-  sections:
-  - url: https://github.com/jupyterlab/jupyterlab/issues/9399
-    title: JupyterLab v2.2.6 WCAG 2.1
-  - url: https://github.com/jupyter/accessibility/issues/7
-    title: Jupyter Notebook WCAG 2.0
 - file: docs/funding/README.md
 - file: docs/developer/README.md
   sections:
