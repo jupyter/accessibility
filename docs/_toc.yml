@@ -3,14 +3,14 @@ root: README.md
 chapters:
 - file: docs/statement.md
 - file: docs/community/information.rst
+- file: docs/funding/README.md
+- file: docs/developer/README.md
+  sections:
+  - file: CONTRIBUTING.md
+  - file: ARCHITECTURE.md
 - file: docs/resources/README.md
   sections:
   - file: docs/resources/team_guides.rst
   - file: docs/resources/map-jupyterlab-frontend-architecture/README.md
   - file: docs/community/meeting-minutes/lumino/walkthrough-phosphor-prs.md
   - file: docs/community/meeting-minutes/2019-web4all-hackathon/hackathon-resources.md
-- file: docs/funding/README.md
-- file: docs/developer/README.md
-  sections:
-  - file: CONTRIBUTING.md
-  - file: ARCHITECTURE.md
