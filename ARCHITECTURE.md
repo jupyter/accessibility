@@ -4,7 +4,7 @@ Accessibility is a cross cutting concern in Project Jupyter. This repository exi
 
 1. the `ja11y` python module
 2. `jupyterlab` node packages
-3. accessibility testing toolsP
+3. accessibility testing tools
 4. sphinx documentation for the accessibility project.
 
 ## `/ja11y` the python module
