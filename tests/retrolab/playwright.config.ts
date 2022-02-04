@@ -15,7 +15,7 @@ const config: PlaywrightTestConfig = {
   testDir: "./test",
 
   /* Maximum time one test can run for. */
-  timeout: 30 * 1000,
+  timeout: 60 * 1000,
 
   expect: {
     /**

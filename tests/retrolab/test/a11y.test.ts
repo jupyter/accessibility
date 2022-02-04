@@ -1,5 +1,5 @@
 import { expect } from "@playwright/test";
-import { injectAxe, getViolations } from "axe-playwright";
+import { injectAxe, getAxeResults } from "axe-playwright";
 import { test } from "./fixtures";
 import { createHtmlReport } from "axe-html-reporter";
 import fs from "fs";
@@ -28,7 +28,7 @@ test.describe.parallel("accessibility checks", () => {
     // inject the axe-core runtime into the page under test
     await injectAxe(page as any);
 
-    const violations = await getViolations(page as any, null, {
+    const results = await getAxeResults(page as any, null, {
       detailedReport: true,
       detailedReportOptions: { html: true },
       axeOptions: {
@@ -37,6 +37,16 @@ test.describe.parallel("accessibility checks", () => {
           values: ["wcag2a", "best-practice"], // all tags and standards listed here: https://www.deque.com/axe/core-documentation/api-documentation/#axe-core-tags
         },
       },
+    });
+    const { violations } = results;
+
+    const axeResultsJsonFilepath = testInfo.outputPath("axe-results.json")
+    const axeResultsJson = JSON.stringify(results);
+    await fs.promises.writeFile(axeResultsJsonFilepath, axeResultsJson);
+    testInfo.attachments.push({
+      name: "axe-results-json",
+      path: axeResultsJsonFilepath,
+      contentType: "application/json",
     });
 
     if (violations.length > 0) {
@@ -91,7 +101,7 @@ test.describe.parallel("accessibility checks", () => {
     // inject the axe-core runtime into the page under test
     await injectAxe(page as any);
 
-    const violations = await getViolations(page as any, null, {
+    const results = await getViolations(page as any, null, {
       detailedReport: true,
       detailedReportOptions: { html: true },
       axeOptions: {
@@ -100,6 +110,16 @@ test.describe.parallel("accessibility checks", () => {
           values: ["wcag2a", "best-practice"], // all tags and standards listed here: https://www.deque.com/axe/core-documentation/api-documentation/#axe-core-tags
         },
       },
+    });
+    const { violations } = results;
+
+    const axeResultsJsonFilepath = testInfo.outputPath("axe-results.json");
+    const axeResultsJson = JSON.stringify(results);
+    await fs.promises.writeFile(axeResultsJsonFilepath, axeResultsJson);
+    testInfo.attachments.push({
+      name: "axe-results-json",
+      path: axeResultsJsonFilepath,
+      contentType: "application/json",
     });
 
     if (violations.length > 0) {
