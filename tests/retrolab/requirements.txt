@@ -1,10 +1,6 @@
-bqplot
-ipykernel
-jupyter_client
 matplotlib
-nbsphinx>=0.5
+ipywidgets
+IPython
 numpy
-recommonmark
-sphinx>=1.4.6
-sphinx_rtd_theme
-packaging
+scipy
+git+https://github.com/jupyterlab/retrolab.git@v0.3.19#egg=retrolab

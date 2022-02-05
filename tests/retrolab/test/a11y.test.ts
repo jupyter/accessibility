@@ -1,5 +1,5 @@
 import { expect } from "@playwright/test";
-import { injectAxe, getAxeResults } from "axe-playwright";
+import { injectAxe, getViolations } from "axe-playwright";
 import { test } from "./fixtures";
 import { createHtmlReport } from "axe-html-reporter";
 import fs from "fs";
@@ -28,7 +28,7 @@ test.describe.parallel("accessibility checks", () => {
     // inject the axe-core runtime into the page under test
     await injectAxe(page as any);
 
-    const results = await getAxeResults(page as any, null, {
+    const violations = await getViolations(page as any, null, {
       detailedReport: true,
       detailedReportOptions: { html: true },
       axeOptions: {
@@ -38,10 +38,9 @@ test.describe.parallel("accessibility checks", () => {
         },
       },
     });
-    const { violations } = results;
 
     const axeResultsJsonFilepath = testInfo.outputPath("axe-results.json")
-    const axeResultsJson = JSON.stringify(results);
+    const axeResultsJson = JSON.stringify(violations);
     await fs.promises.writeFile(axeResultsJsonFilepath, axeResultsJson);
     testInfo.attachments.push({
       name: "axe-results-json",
@@ -101,7 +100,7 @@ test.describe.parallel("accessibility checks", () => {
     // inject the axe-core runtime into the page under test
     await injectAxe(page as any);
 
-    const results = await getViolations(page as any, null, {
+    const violations = await getViolations(page as any, null, {
       detailedReport: true,
       detailedReportOptions: { html: true },
       axeOptions: {
@@ -111,10 +110,9 @@ test.describe.parallel("accessibility checks", () => {
         },
       },
     });
-    const { violations } = results;
 
     const axeResultsJsonFilepath = testInfo.outputPath("axe-results.json");
-    const axeResultsJson = JSON.stringify(results);
+    const axeResultsJson = JSON.stringify(violations);
     await fs.promises.writeFile(axeResultsJsonFilepath, axeResultsJson);
     testInfo.attachments.push({
       name: "axe-results-json",
