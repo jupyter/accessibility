@@ -1,4 +1,4 @@
-# Accessibility
+# Project Jupyter Accessibility Working Group
 
 Welcome to the Github repository for the accessibility working group of [Project Jupyter](https://jupyter.org/). This group is being formed in early 2019. Its goal is to gather stakeholders who can actively work with the project to make Jupyter's core user-facing software accessible. In particular, the initial targets are:
 
