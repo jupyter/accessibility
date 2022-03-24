@@ -8,4 +8,4 @@ Sustained funding is critical to maintaining `jupyter`'s accessibility. Please c
 
 - CZI EOSS Cycle 4 (ongoing)
      - [Proposal](Inclusive_and_Accessible_Scientific_Computing_in_Jupyter_Ecosystem_SUBMITTED_PROPOSAL.pdf)
-     - [Roadmap]()
+     - [Roadmap](czi-grant-roadmap.md)
