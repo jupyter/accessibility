@@ -20,6 +20,7 @@ If you are trying to use Jupyter tools with assistive technology now, you may be
 - [Jupyter Notebook Accessibility Issues](https://github.com/jupyter/notebook/issues?q=is%3Aopen+is%3Aissue+label%3Atag%3AAccessibility)
 - [JupyterHub Accessibility Issues](https://github.com/jupyterhub/jupyterhub/issues?q=is%3Aopen+is%3Aissue+label%3Aaccessibility)
 - [JupyterLab Accessibility Issues](https://github.com/jupyterlab/jupyterlab/issues?q=is%3Aopen+is%3Aissue+label%3Atag%3AAccessibility)
+- Review and join in contributing to [accessibility issues identified for the ongoing CZI EOSS grant](docs/funding/czi-grant-roadmap.md)
 - If you find something that you think should be labeled for accessibility, feel free to label it or add a comment.
 
 ### Join our JupyterLab accessibility meetings
