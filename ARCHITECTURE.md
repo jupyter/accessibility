@@ -15,6 +15,8 @@ Accessibility is a cross cutting concern in Project Jupyter. This repository exi
 
 ### node configuration files
 
+no longer exists
+
 ## `/docs` the docs
 
 `jupyter-book`, a usability layer over `sphinx` for `jupyter` workflows, is our documentation tool.
