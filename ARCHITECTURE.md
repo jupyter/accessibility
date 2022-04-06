@@ -11,6 +11,9 @@ Accessibility is a cross cutting concern in Project Jupyter. This repository exi
 
 ### python configuration files
 
+what is this now?
+is this pa11ly-jupyter?
+
 ## `/packages` the node packages
 
 ### node configuration files
