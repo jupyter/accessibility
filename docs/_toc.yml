@@ -2,7 +2,7 @@ format: jb-book
 root: README.md
 chapters:
 - file: docs/statement.md
-- file: docs/community/information.rst
+- file: docs/community/information.md
 - file: docs/funding/README.md
 - file: docs/developer/README.md
   sections:
