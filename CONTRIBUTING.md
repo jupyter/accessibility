@@ -4,6 +4,13 @@
 
 This project follows the [Jupyter Code of Conduct].
 
+## Links
+lol wut is a binder
+
+wut is a doit
+
+
+
 ## Goal
 
 > To facilitate improving the accessibility of interactive computing, we are trying to make it easy to:
