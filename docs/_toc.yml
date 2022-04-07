@@ -1,8 +1,8 @@
 format: jb-book
-root: README.md
+root: docs/index.md
 chapters:
-- file: docs/statement.md
-- file: docs/community/information.rst
+# - file: docs/statement.md (perhaps keep this on its own tab)
+- file: docs/community/README.md
 - file: docs/funding/README.md
 - file: docs/developer/README.md
   sections:
@@ -14,3 +14,5 @@ chapters:
   - file: docs/resources/map-jupyterlab-frontend-architecture/README.md
   - file: docs/community/meeting-minutes/lumino/walkthrough-phosphor-prs.md
   - file: docs/community/meeting-minutes/2019-web4all-hackathon/hackathon-resources.md
+  - file: docs/community/meeting-minutes/jupyterlab-accessibility-meetings/all-minutes.md
+  

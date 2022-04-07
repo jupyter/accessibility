@@ -12,23 +12,18 @@ If you are trying to use Jupyter tools with assistive technology now, you may be
 - [Jupyter Notebook a11y toolbar](https://github.com/uclixnjupyternbaccessibility/jupyter_contrib_nbextensions/tree/master/src/jupyter_contrib_nbextensions/nbextensions/accessibility_toolbar) (from Microsoft research)
 - Make cells editable with a screen reader using the [NVDA Browser Nav add-on](https://addons.nvda-project.org/addons/browsernav.en.html#:~:text=BrowserNav%20addon%20for%20NVDA,comments%20or%20malformed%20HTML%20tables.”)
 
-## Get involved
+# `jupyter` accessibility statement
 
-### Join the conversation
+As of Jan 31, 2022, `jupyterlab` nor `retrolab` meet WCAG 2.1 Level A compliance. 
 
-- [Check out the accessibility section of the community forum](https://discourse.jupyter.org/c/special-topics/accessibility) for ongoing conversations and brainstorms around accessibility in the Jupyter ecosystem.
-- [Jupyter Notebook Accessibility Issues](https://github.com/jupyter/notebook/issues?q=is%3Aopen+is%3Aissue+label%3Atag%3AAccessibility)
-- [JupyterHub Accessibility Issues](https://github.com/jupyterhub/jupyterhub/issues?q=is%3Aopen+is%3Aissue+label%3Aaccessibility)
-- [JupyterLab Accessibility Issues](https://github.com/jupyterlab/jupyterlab/issues?q=is%3Aopen+is%3Aissue+label%3Atag%3AAccessibility)
-- If you find something that you think should be labeled for accessibility, feel free to label it or add a comment.
 
-### Join our JupyterLab accessibility meetings
+## `jupyter` audits
 
-Anyone is welcome to attend, if they would like to discuss a topic or just to listen in.
+This section includes audits from different stakeholders on `jupyter` products.
 
-- When: every other Wednesday (check the [community calendar](https://jupyter.readthedocs.io/en/latest/community/content-community.html#jupyter-community-meetings)) at [10:15 AM Pacific Time](https://dateful.com/convert/san-francisco-california?t=1015am)
-- Where: [`jovyan` Zoom](https://zoom.us/my/jovyan?pwd=c0JZTHlNdS9Sek9vdzR3aTJ4SzFTQT09)
-- What: [current agenda](https://hackmd.io/WnaWXboXSiGoqWvev_fAvA) and [public notes](https://github.com/jupyterlab/team-compass/issues/98) from past meetings.
+* [JupyterLab v2.2.6 WCAG 2.1](https://github.com/jupyterlab/jupyterlab/issues/9399)
+* [Jupyter Notebook WCAG 2.0](https://github.com/jupyter/accessibility/issues/7)
+
 
 ## Links to accessibility standards and resources
 
