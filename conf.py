@@ -5,7 +5,7 @@
 ###############################################################################
 author = 'Jupyter Team'
 comments_config = {'hypothesis': False, 'utterances': False}
-copyright = '2021, Jupyter Team'
+copyright = '2021-2022, Jupyter Team'
 exclude_patterns = ['**.ipynb_checkpoints', '.DS_Store', '.nox', 'Thumbs.db', '_build', 'meeting-minutes/jupyterlab-accessibility-meetings/20*.md', 'source']
 execution_allow_errors = False
 execution_excludepatterns = []
