@@ -1,4 +1,4 @@
-# `jupyter` accessibility community information
+# `jupyter` accessibility community
 
 Once we have assembled the working group, we will list the members here.
 
