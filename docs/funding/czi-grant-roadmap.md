@@ -2,7 +2,7 @@
 
 Created on: November 11, 2021
 
-Last updated on: December 8, 2021
+Last updated on: April 1, 2022
 
 ## Primary goals
 
@@ -15,19 +15,20 @@ Over the course of the two-year grant, we are aiming to transform the Jupyter ec
 3. Document what we've learn/best practices for accessibility specific to Jupyter or the wider scientific Python ecosystem
 4. Share work with other projects and help them start implementing accessibility fixes when possible
 
+For a list of work completed, refer to [Jupyter Accessibility Roadmap - Completed Items](czi-grant-completed.md).
+
 ## Action items
 
 ### In the works
 
-- Add automated accessibility tests to JupyterLab ([JupyterLab issue #9742](https://github.com/jupyterlab/jupyterlab/issues/9742))
-- Update the [JupyterLab accessibility project board](https://github.com/orgs/Quansight-Labs/projects/5/views/1)
+- Add automated accessibility tests to JupyterLab ([JupyterLab issue #9742](https://github.com/jupyterlab/jupyterlab/issues/9742))([Testing exploration has begun here](https://github.com/jupyter/accessibility/pull/74))
 - Determine pathways for inviting community engagement
+- Cross-project outreach within Project Jupyter and beyond
 
 ### Coming soon
 
 - Improve color contrast in JupyterLab ([WCAG minimum contrast](https://www.w3.org/TR/WCAG21/#contrast-minimum)) ([JupyterLab issue #8832](https://github.com/jupyterlab/jupyterlab/issues/8832))
 - Support for 400% zoom in JupyterLab ([WCAG reflow](https://www.w3.org/TR/WCAG21/#reflow))([JupyterLab issue #10004](https://github.com/jupyterlab/jupyterlab/issues/10004))
-- Cross-project outreach within Project Jupyter and beyond
 - Add a news section to the [jupyter-a11y-mgmt team compass](https://quansight-labs.github.io/jupyter-a11y-mgmt/readme.html)
 
 ### Not too far off
