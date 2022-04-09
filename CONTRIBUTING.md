@@ -23,7 +23,42 @@ wut is a doit
 > - show progress towards an accessibility _Roadmap_
 
 ## Community Structure
-Put some information about how the Jupyter community structure is organized here
+The work being done in this repository will begin by centering around advocating for accessibility and building accessiblility-centered features within the JupterLab, JupyterNotebook, and JupyterHub sub-projects within the larger Jupyter project. Some information to connect you to those projects and organizations is located below.
+### The Jupyter Project
+* [Jupyter Website]
+* [Jupyter Gitter]
+
+### JupyterLab
+[JupyterLab](http://jupyterlab.readthedocs.io/en/stable/) is the next-generation user interface for [Project Jupyter](https://jupyter.org) offering
+all the familiar building blocks of the classic Jupyter Notebook (notebook,
+terminal, text editor, file browser, rich outputs, etc.) in a flexible and
+powerful user interface.
+JupyterLab will eventually replace the classic Jupyter Notebook.
+* [JupyterLab Repository]
+* [JupyterLab Documentation]
+* [JupyterLab Contribution Guide]
+
+
+### JupyterNotebook
+The Jupyter notebook is a web-based notebook environment for interactive computing.
+* [JupyterNotebook Repository]
+* [JupyterNotebook Documentation]
+* [JupyterNotebook Contribution Guide]
+
+### JupyterHub
+With [JupyterHub](https://jupyterhub.readthedocs.io) you can create a
+**multi-user Hub** that spawns, manages, and proxies multiple instances of the
+single-user [Jupyter notebook](https://jupyter-notebook.readthedocs.io)
+server.
+
+[Project Jupyter](https://jupyter.org) created JupyterHub to support many
+users. The Hub can offer notebook servers to a class of students, a corporate
+data science workgroup, a scientific research project, or a high-performance
+computing group.
+* [JupyterHub Repository]
+* [JupyterHub Documentation]
+* [JupyterHub Contribution Guide]
+
 
 ## Core Workflow
 
@@ -146,3 +181,14 @@ workflows.
 [pull requests]: https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-requests
 [repo2docker]: https://github.com/jupyterhub/repo2docker
 [jupyter enhancement proposal]: https://github.com/jupyter/enhancement-proposals
+[Jupyter Gitter]: https://gitter.im/jupyter/jupyter
+[Jupyter Website]: https://jupyter.org/
+[JupyterLab Repository]:https://github.com/jupyterlab/jupyterlab
+[JupyterLab Documentation]:https://jupyterlab.readthedocs.io/
+[JupyterLab Contribution Guide]: https://github.com/jupyterlab/jupyterlab/blob/master/docs/source/developer/contributing.rst
+[JupyterNotebook Repository]: https://github.com/jupyter/notebook
+[JupyterNotebook Documentation]:https://jupyter-notebook.readthedocs.io/
+[JupyterNotebook Contribution Guide]:https://github.com/jupyter/notebook/blob/main/CONTRIBUTING.md
+[JupyterHub Repository]: https://github.com/jupyterhub/jupyterhub
+[JupyterHub Documentation]: https://jupyterhub.readthedocs.io/en/stable/
+[JupyterHub Contribution Guide]:https://github.com/jupyterhub/jupyterhub/blob/main/CONTRIBUTING.md

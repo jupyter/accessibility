@@ -52,7 +52,7 @@ REPO_LUMINO = f"{GITHUB}/{LAB_ORG}/lumino"
 # don't pollute the global state
 LINKS = (HERE / "repos/.yarn-links").resolve()
 YARN = ["yarn", "--link-folder", LINKS]
-PIP = ["python", "-m", "pip"]
+PIP = ["python3", "-m", "pip"]
 
 LAB_APP_DIR = pathlib.Path(sys.prefix) / "share/jupyter/lab"
 LAB_APP_STATIC = LAB_APP_DIR / "static"
@@ -568,7 +568,7 @@ def make_static_server_url_stop(root, host=HOST, port=PORT):
     """start a tornado static file server"""
 
     server_args = [
-        "python",
+        "python3",
         str(PA11Y / "serve.py"),
         f"--host={host}",
         f"--port={port}",
