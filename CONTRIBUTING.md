@@ -22,11 +22,13 @@ wut is a doit
 > - work as a team to get the pull requests merged
 > - show progress towards an accessibility _Roadmap_
 
-## Community Structure
+## Community Structure - The Jupyter Project and Subprojects
 The work being done in this repository will begin by centering around advocating for accessibility and building accessiblility-centered features within the JupterLab, JupyterNotebook, and JupyterHub sub-projects within the larger Jupyter project. Some information to connect you to those projects and organizations is located below.
 ### The Jupyter Project
 * [Jupyter Website]
 * [Jupyter Gitter]
+
+- [Check out the accessibility section of the community forum](https://discourse.jupyter.org/c/special-topics/accessibility) for ongoing conversations and brainstorms around accessibility in the Jupyter ecosystem.
 
 ### JupyterLab
 [JupyterLab](http://jupyterlab.readthedocs.io/en/stable/) is the next-generation user interface for [Project Jupyter](https://jupyter.org) offering
@@ -37,6 +39,7 @@ JupyterLab will eventually replace the classic Jupyter Notebook.
 * [JupyterLab Repository]
 * [JupyterLab Documentation]
 * [JupyterLab Contribution Guide]
+* [JupyterLab Accessibility Issues]
 
 
 ### JupyterNotebook
@@ -44,6 +47,7 @@ The Jupyter notebook is a web-based notebook environment for interactive computi
 * [JupyterNotebook Repository]
 * [JupyterNotebook Documentation]
 * [JupyterNotebook Contribution Guide]
+* [JupyterNotebook Accessibility Issues]
 
 ### JupyterHub
 With [JupyterHub](https://jupyterhub.readthedocs.io) you can create a
@@ -58,6 +62,7 @@ computing group.
 * [JupyterHub Repository]
 * [JupyterHub Documentation]
 * [JupyterHub Contribution Guide]
+* [JupyterHub Accessibility Issues]
 
 
 ## Core Workflow
@@ -192,3 +197,6 @@ workflows.
 [JupyterHub Repository]: https://github.com/jupyterhub/jupyterhub
 [JupyterHub Documentation]: https://jupyterhub.readthedocs.io/en/stable/
 [JupyterHub Contribution Guide]:https://github.com/jupyterhub/jupyterhub/blob/main/CONTRIBUTING.md
+[JupyterNotebook Accessibility Issues]: https://github.com/jupyter/notebook/issues?q=is%3Aopen+is%3Aissue+label%3Atag%3AAccessibility
+[JupyterHub Accessibility Issues]: https://github.com/jupyterhub/jupyterhub/issues?q=is%3Aopen+is%3Aissue+label%3Aaccessibility
+[JupyterLab Accessibility Issues]: https://github.com/jupyterlab/jupyterlab/issues?q=is%3Aopen+is%3Aissue+label%3Atag%3AAccessibility
