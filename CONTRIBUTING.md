@@ -1,4 +1,6 @@
-# Contributing to jupyter/accessibility
+# Contributing to accessibility in the Jupyter ecosystem
+
+This contribution guide is to help developers looking to improve the accessibility of Jupyter's core user-facing software. If you are instead looking to add knowledge to the jupyter/accessibility repository, see [here](./docs/developer/CONTRIBUTING.md).
 
 ## Code of Conduct
 
@@ -8,8 +10,6 @@ This project follows the [Jupyter Code of Conduct].
 lol wut is a binder
 
 wut is a doit
-
-
 
 ## Goal
 
@@ -29,6 +29,8 @@ The work being done in this repository will begin by centering around advocating
 * [Jupyter Gitter]
 
 - [Check out the accessibility section of the community forum](https://discourse.jupyter.org/c/special-topics/accessibility) for ongoing conversations and brainstorms around accessibility in the Jupyter ecosystem.
+- If you find something that you think should be labeled for accessibility, feel free to label it or add a comment.
+
 
 ### JupyterLab
 [JupyterLab](http://jupyterlab.readthedocs.io/en/stable/) is the next-generation user interface for [Project Jupyter](https://jupyter.org) offering

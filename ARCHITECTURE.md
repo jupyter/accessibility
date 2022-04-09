@@ -1,4 +1,4 @@
-# architecture document for the `jupyter/accessibility` repository
+# Architecture document for the `jupyter/accessibility` repository
 
 Accessibility is a cross cutting concern in Project Jupyter. This repository exists as a monorepo to incubate accessibility tooling and resources. In this repository, you will find 3 modules:
 
