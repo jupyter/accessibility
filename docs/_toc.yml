@@ -8,6 +8,7 @@ chapters:
   sections:
   - file: CONTRIBUTING.md
   - file: ARCHITECTURE.md
+  - file: docs/developer/CONTRIBUTING_HERE.md
 - file: docs/resources/README.md
   sections:
   - file: docs/resources/team_guides.rst
