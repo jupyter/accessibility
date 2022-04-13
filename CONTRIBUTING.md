@@ -76,7 +76,6 @@ computing group.
 7. repeat steps 3+ as needed
 8. get upstream pull requests merged
 
-
 ## Why is this so complicated?
 
 Improving the accessibility of a Jupyter client may require touching many
@@ -92,7 +91,6 @@ Each component likely has its own developer workflows and culture.
 In this repository, we've tried to collect the workflows in a declarative, productive
 way, that allows trying out _Code From The Future_, without blocking review until
 _every_ pull request merged.
-
 
 ## On Binder
 
