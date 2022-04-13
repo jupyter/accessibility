@@ -1,4 +1,0 @@
-doit
-toml
-jsonschema
-packaging
