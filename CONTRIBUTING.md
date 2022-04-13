@@ -6,11 +6,6 @@ This contribution guide is to help developers looking to improve the accessibili
 
 This project follows the [Jupyter Code of Conduct].
 
-## Links
-lol wut is a binder
-
-wut is a doit
-
 ## Goal
 
 > To facilitate improving the accessibility of interactive computing, we are trying to make it easy to:
@@ -81,8 +76,6 @@ computing group.
 7. repeat steps 3+ as needed
 8. get upstream pull requests merged
 
-* What even is a binder?
-* Where is jupyter/accessibility:ci? Is this just where the CI lies?
 
 ## Why is this so complicated?
 
@@ -99,8 +92,6 @@ Each component likely has its own developer workflows and culture.
 In this repository, we've tried to collect the workflows in a declarative, productive
 way, that allows trying out _Code From The Future_, without blocking review until
 _every_ pull request merged.
-
-* links to jupyter respoisitories?
 
 
 ## On Binder
@@ -157,8 +148,6 @@ computer.
 ## Under the Hood
 
 ### doit
-
-* Doit should be explained further
 
 The workhorse of this approach is [doit]. It is a python-based tool that manages:
 
