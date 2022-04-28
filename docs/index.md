@@ -6,7 +6,7 @@ Welcome to the Github repository for the accessibility working group of [Project
 *   [JupyterLab](https://github.com/jupyterlab/jupyterlab)
 *   [JupyterHub](https://github.com/jupyterhub/jupyterhub)
 
-In March 2019, this software was not accessable. As of April 2022, significant work is still required to reach that goal.
+In March 2019, this software was not accessible. As of April 2022, significant work is still required to reach that goal.
 
 If you are trying to use Jupyter tools with assistive technology now, you may be able to get basic support with the following:
 - [Jupyter Notebook a11y toolbar](https://github.com/uclixnjupyternbaccessibility/jupyter_contrib_nbextensions/tree/master/src/jupyter_contrib_nbextensions/nbextensions/accessibility_toolbar) (from Microsoft research)
