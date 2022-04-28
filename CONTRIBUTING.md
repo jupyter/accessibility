@@ -19,7 +19,8 @@ This project follows the [Jupyter Code of Conduct].
 
 ## Community Structure - The Jupyter Project and Subprojects
 The work being done in this repository will begin by centering around advocating for accessibility and building accessiblility-centered features within the JupterLab, JupyterNotebook, and JupyterHub sub-projects within the larger Jupyter project. Some information to connect you to those projects and organizations is located below.
-### The Jupyter Project
+### Project Jupyter
+
 * [Jupyter Website]
 * [Jupyter Gitter]
 
@@ -32,7 +33,6 @@ The work being done in this repository will begin by centering around advocating
 all the familiar building blocks of the classic Jupyter Notebook (notebook,
 terminal, text editor, file browser, rich outputs, etc.) in a flexible and
 powerful user interface.
-JupyterLab will eventually replace the classic Jupyter Notebook.
 * [JupyterLab Repository]
 * [JupyterLab Documentation]
 * [JupyterLab Contribution Guide]

@@ -1,6 +1,6 @@
 # Project Jupyter Accessibility Working Group
 
-Welcome to the Github repository for the accessibility working group of [Project Jupyter](https://jupyter.org/). This group was formed in early 2019. Its goal is to gather stakeholders who can actively work with the project to make Jupyter's core user-facing software accessible. In particular, the initial targets are:
+Welcome to the Github repository for the accessibility working group of [Project Jupyter](https://jupyter.org/). This group is being formed in early 2019. Its goal is to gather stakeholders who can actively work with the project to make Jupyter's core user-facing software accessible. In particular, the initial targets are:
 
 *   [Classic Jupyter Notebook](https://github.com/jupyter/notebook)
 *   [JupyterLab](https://github.com/jupyterlab/jupyterlab)
