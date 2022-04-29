@@ -1,7 +1,7 @@
 format: jb-book
 root: docs/index.md
 chapters:
-# - file: docs/statement.md (perhaps keep this on its own tab)
+- file: docs/statement.md
 - file: docs/community/README.md
 - file: docs/funding/README.md
 - file: docs/developer/README.md

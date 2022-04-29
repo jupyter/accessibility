@@ -14,7 +14,6 @@ Anyone is welcome to attend, if they would like to discuss a topic or just to li
 
 - [current agenda](https://hackmd.io/WnaWXboXSiGoqWvev_fAvA)
 - [public notes archive](https://github.com/jupyterlab/team-compass/issues/98) from past meetings
-<br/><br/>
 - [All JupyterLab Accessibility Meeting Minutes](./meeting-minutes/jupyterlab-accessibility-meetings/all-minutes.md)
 - [Walkthrough Phosphor Accessibility PRs Meeting Notes (10.26.2020)](./meeting-minutes/lumino/walkthrough-phosphor-prs.md)
 - [Hackathon resources](./meeting-minutes/2019-web4all-hackathon/hackathon-resources.md)

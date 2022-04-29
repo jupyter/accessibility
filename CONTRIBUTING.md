@@ -6,11 +6,6 @@ This contribution guide is to help developers looking to improve the accessibili
 
 This project follows the [Jupyter Code of Conduct].
 
-## Links
-lol wut is a binder
-
-wut is a doit
-
 ## Goal
 
 > To facilitate improving the accessibility of interactive computing, we are trying to make it easy to:
@@ -24,7 +19,8 @@ wut is a doit
 
 ## Community Structure - The Jupyter Project and Subprojects
 The work being done in this repository will begin by centering around advocating for accessibility and building accessiblility-centered features within the JupterLab, JupyterNotebook, and JupyterHub sub-projects within the larger Jupyter project. Some information to connect you to those projects and organizations is located below.
-### The Jupyter Project
+### Project Jupyter
+
 * [Jupyter Website]
 * [Jupyter Gitter]
 
@@ -37,7 +33,6 @@ The work being done in this repository will begin by centering around advocating
 all the familiar building blocks of the classic Jupyter Notebook (notebook,
 terminal, text editor, file browser, rich outputs, etc.) in a flexible and
 powerful user interface.
-JupyterLab will eventually replace the classic Jupyter Notebook.
 * [JupyterLab Repository]
 * [JupyterLab Documentation]
 * [JupyterLab Contribution Guide]
@@ -81,9 +76,6 @@ computing group.
 7. repeat steps 3+ as needed
 8. get upstream pull requests merged
 
-* What even is a binder?
-* Where is jupyter/accessibility:ci? Is this just where the CI lies?
-
 ## Why is this so complicated?
 
 Improving the accessibility of a Jupyter client may require touching many
@@ -99,9 +91,6 @@ Each component likely has its own developer workflows and culture.
 In this repository, we've tried to collect the workflows in a declarative, productive
 way, that allows trying out _Code From The Future_, without blocking review until
 _every_ pull request merged.
-
-* links to jupyter respoisitories?
-
 
 ## On Binder
 
@@ -157,8 +146,6 @@ computer.
 ## Under the Hood
 
 ### doit
-
-* Doit should be explained further
 
 The workhorse of this approach is [doit]. It is a python-based tool that manages:
 
