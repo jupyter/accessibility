@@ -12,6 +12,10 @@ If you are trying to use Jupyter tools with assistive technology now, you may be
 - [Jupyter Notebook a11y toolbar](https://github.com/uclixnjupyternbaccessibility/jupyter_contrib_nbextensions/tree/master/src/jupyter_contrib_nbextensions/nbextensions/accessibility_toolbar) (from Microsoft research)
 - Make cells editable with a screen reader using the [NVDA Browser Nav add-on](https://addons.nvda-project.org/addons/browsernav.en.html#:~:text=BrowserNav%20addon%20for%20NVDA,comments%20or%20malformed%20HTML%20tables.”)
 
+## Get involved
+
+Visit our [read the docs](https://jupyter-accessibility.readthedocs.io/en/restructure/docs/developer/README.html) for the best information on getting involved.
+
 ## Links to accessibility standards and resources
 
 One of our goals is to collect information about accessibility and create documentation to empower the Jupyter community to help us make our software accessible. Please use this section to begin to aggregate relevant third party standards, guides, and documentation related to this:
