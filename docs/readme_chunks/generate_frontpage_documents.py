@@ -1,4 +1,6 @@
 import os
+from paths import *
+
 
 def validDirectory(wd):
     if wd == "accessibility":
@@ -12,9 +14,9 @@ def validDirectory(wd):
     return False
 
 def parsefiles():
-    with open("./docs/readme_chunks/introduction.md") as intro:
-        with open("./docs/readme_chunks/getinvolved.md") as getinvolve:
-            with open("./docs/readme_chunks/accessibility_standards.md") as standards:
+    with open(INTRO_DOC) as intro:
+        with open(GET_INVOLVED) as getinvolve:
+            with open(ACC_STANDARDS) as standards:
                 introlines = intro.readlines()
                 involvelines = getinvolve.readlines()
                 standard = standards.readlines()
@@ -22,12 +24,12 @@ def parsefiles():
                 
 
 def writefiles(intro,involve,standard):
-    with open("./docs/index.md","w") as index:
+    with open(RTD_INDEX,"w") as index:
         index_writer = index.writelines(intro)
         index_writer = index.writelines(involve)
         index_writer = index.writelines(standard)
 
-    with open("./README.md","w") as readme:
+    with open(REPO_README,"w") as readme:
         readme_writer = readme.writelines(intro)
         readme_writer = readme.writelines(standard)
 
