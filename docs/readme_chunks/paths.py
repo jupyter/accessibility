@@ -1,5 +1,0 @@
-INTRO_DOC = "./docs/readme_chunks/introduction.md"
-GET_INVOLVED = "./docs/readme_chunks/getinvolved.md"
-ACC_STANDARDS = "./docs/readme_chunks/accessibility_standards.md"
-RTD_INDEX = "./docs/index.md"
-REPO_README = "./README.md"
