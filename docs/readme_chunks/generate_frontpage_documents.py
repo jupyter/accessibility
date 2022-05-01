@@ -90,7 +90,8 @@ class DocGenerator:
 
 
     def __write_readme_files(self,intro:list,involve:list,standard:list):
-        """_summary_
+        """
+        Writes readme files as a compilation of 'chunked' files
 
         Args:
             intro (list): Strings, who each represent one line of the 'intro_doc' chunk
