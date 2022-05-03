@@ -70,7 +70,7 @@ test.describe("accessibility checks", () => {
         if (exec) {
           await page.notebook.runCellByCell({})
         }
-        violations = axe(page, testInfo)
+        const violations = await axe(page, testInfo)
 
         await expect(violations).toEqual([]);
       });
