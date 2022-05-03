@@ -8,48 +8,52 @@ from shutil import copytree, move
 WHERE = Path()
 
 FOLDER = Path(__file__).parent
-TEMPLATES = FOLDER / "templates" / "pw"
+AXE_TEMPLATE = FOLDER / "jupyter-axe"
 DOIT_CONFIG = dict(verbosity=2)
-def task_playwright(prefix=Path("ja11y", "pw-tests"), target=Path("tests")):
+TARGET = Path("jupyter-a11y-tests")
+
+
+def task_playwright(prefix=TARGET / ".env", target=TARGET):
     """interactive testing of jupyter applications"""
     # should be able to modify templates to create different tests
 
-
     env = (target / ".env").absolute()
+    conda = f"conda run --prefix {env} --live-stream --no-capture-output"
     yield dict(
         name="env",
         actions=[
-            do(F"""conda create -yc conda-forge --prefix {env} python=3.9 "nodejs>=14,<15" yarn""")
+            do(
+                f"""conda create -yc conda-forge --prefix {env} python=3.9 "nodejs>=14,<15" yarn"""
+            )
         ],
-        uptodate=[env.exists()]
+        uptodate=[env.exists()],
     )
-    def mv(*args, **kwargs):
-        copytree(*args, **kwargs)
+
+    def mv(src, target):
+        copytree(src, target, dirs_exist_ok=True)
+
     yield dict(
         name="copy-templates",
-        actions=[(mv, [TEMPLATES, target])],
+        actions=[(mv, [AXE_TEMPLATE, target])],
         uptodate=[target.exists()],
     )
     yield dict(
         name="install:yarn",
-        actions=[do(F"conda run --prefix {env} yarn install", cwd=target)],
+        actions=[do(f"{conda} yarn install", cwd=target)],
         # targets  yark lock
     )
     yield dict(
         name="install:python",
-        actions=[do(F"conda run --prefix {env} pip install -r requirements.txt", cwd=target)],
+        actions=[do(f"{conda} pip install -r requirements.txt", cwd=target)],
     )
-    yield dict(
-        name="test",
-        actions=[do(F"conda run --prefix {env} npx playwright test", cwd=target)]
-    )
-
+    yield dict(name="test", actions=[do(f"{conda} npx playwright test", cwd=target)])
 
 
 def do(*args, cwd=WHERE, **kwargs):
     """wrap a Action for consistency"""
     from os import environ
     from doit.tools import CmdAction
+
     if len(args) == 1:
         args = args[0].split()
     kwargs.setdefault("env", {})
