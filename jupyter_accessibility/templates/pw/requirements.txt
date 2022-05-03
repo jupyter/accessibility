@@ -1,6 +1,0 @@
-matplotlib
-ipywidgets
-IPython
-numpy
-scipy
-git+https://github.com/jupyterlab/retrolab.git@v0.3.19#egg=retrolab

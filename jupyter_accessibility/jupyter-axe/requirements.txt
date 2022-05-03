@@ -1,0 +1,6 @@
+matplotlib
+ipywidgets
+IPython
+numpy
+scipy
+retrolab
