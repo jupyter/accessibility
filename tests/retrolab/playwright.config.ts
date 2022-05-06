@@ -82,6 +82,8 @@ const config: PlaywrightTestConfig = {
     // },
   ],
 
+  // TODO: enable port 8888 and 9323
+  // saves results to playwright-report and test-results
   webServer: {
     command: "yarn start",
     port: 8888,
