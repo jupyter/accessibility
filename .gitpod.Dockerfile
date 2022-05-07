@@ -89,7 +89,7 @@ RUN mamba env create -f /tmp/environment.yml && \
 
 # -----------------------------------------------------------------------------
 # ---- Copy needed files for npm dependencies ----
-COPY ./tests/retrolab/package.json package.json
+# COPY ./tests/retrolab/package.json package.json
 
 # Only install chromium for now - can change at build time
 ARG BROWSERS="chromium"
@@ -99,11 +99,10 @@ RUN mkdir ${PLAYWRIGHT_BROWSERS_PATH}
 RUN conda activate ${CONDA_ENV} && \
     rm -rf ${NODE_DEPS_PATH} && \
     npm install -g node-gyp && \
-    yarn install && \
     chmod -R 777 ${PLAYWRIGHT_BROWSERS_PATH} && \
     npx playwright install-deps && \
     npx playwright install ${BROWSERS} && \
-    rm package.json  && \
+    # rm package.json  && \
     rm -rf /var/lib/apt/lists/*
 
 # -----------------------------------------------------------------------------
