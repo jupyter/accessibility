@@ -1,4 +1,4 @@
-name: a11y-tests
+name: jupyterlab-a11y-tests
 channels:
   - conda-forge
 dependencies:

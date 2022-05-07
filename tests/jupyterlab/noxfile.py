@@ -37,5 +37,5 @@ def install_environment(session):
 def a11y_tests(session):
     install_environment(session)
     session.run("yarn", "install")
-    session.run("yarn", "playwright", "install", "chromium")
+    session.run("npx", "playwright", "install", "chromium")
     session.run("yarn", "run", "test")

@@ -13,7 +13,7 @@
 # https://hub.docker.com/_/ubuntu/?tab=tags&name=focal
 # OS/ARCH: linux/amd64
 
-FROM gitpod/workspace-base:latest
+FROM mcr.microsoft.com/playwright:v1.16.3-focal
 
 ARG MAMBAFORGE_VERSION="4.10.0-0"
 ARG CONDA_ENV=a11y-tests
@@ -39,6 +39,9 @@ USER root
 # hadolint ignore=DL3008
 RUN apt-get update && \
     apt-get install -yq --no-install-recommends \
+    software-properties-common \
+    locales \
+    wget \
     build-essential \
     ca-certificates \
     curl \
@@ -76,12 +79,12 @@ COPY ./tools/gitpod/workspace_config /usr/local/bin/workspace_config
 RUN chmod a+rx /usr/local/bin/workspace_config && \
     workspace_config
 
-COPY ./tools/environment.yml /tmp/environment.yml
+# COPY ./tools/environment.yml /tmp/environment.yml
 
 # -----------------------------------------------------------------------------
-# ---- Create conda environment ----
+# ---- Create conda environment with base dependencies ----
 # Install dependencies
-RUN mamba env create -f /tmp/environment.yml && \
+RUN mamba create -n a11y-tests -c conda-forge python=3.9 nox pyyaml 'nodejs>=16,<17' yarn && \
     conda activate ${CONDA_ENV}  && \
     conda clean --all -f -y && \
     rm -rf /tmp/* && \
@@ -92,18 +95,18 @@ RUN mamba env create -f /tmp/environment.yml && \
 # COPY ./tests/retrolab/package.json package.json
 
 # Only install chromium for now - can change at build time
-ARG BROWSERS="chromium"
+# ARG BROWSERS="chromium"
 
-RUN mkdir ${PLAYWRIGHT_BROWSERS_PATH}
+# RUN mkdir ${PLAYWRIGHT_BROWSERS_PATH}
 
-RUN conda activate ${CONDA_ENV} && \
-    rm -rf ${NODE_DEPS_PATH} && \
-    npm install -g node-gyp && \
-    chmod -R 777 ${PLAYWRIGHT_BROWSERS_PATH} && \
-    npx playwright install-deps && \
-    npx playwright install ${BROWSERS} && \
-    # rm package.json  && \
-    rm -rf /var/lib/apt/lists/*
+# RUN conda activate ${CONDA_ENV} && \
+#     rm -rf ${NODE_DEPS_PATH} && \
+#     npm install -g node-gyp && \
+#     chmod -R 777 ${PLAYWRIGHT_BROWSERS_PATH} && \
+#     npx playwright install-deps && \
+#     npx playwright install ${BROWSERS} && \
+#     # rm package.json  && \
+#     rm -rf /var/lib/apt/lists/*
 
 # -----------------------------------------------------------------------------
 # Always make sure we are not root

@@ -4,7 +4,7 @@
 set -e
 
 # gitpod/workspace-base needs at least one file here
-touch /home/gitpod/.bashrc.d/empty
+# touch /home/gitpod/.bashrc.d/empty
 
 # Add git aliases
 git config --global alias.co checkout
