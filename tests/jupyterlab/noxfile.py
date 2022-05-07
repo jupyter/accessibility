@@ -36,6 +36,6 @@ def install_environment(session):
 @nox.session(venv_backend="mamba", reuse_venv=True)
 def a11y_tests(session):
     install_environment(session)
-    session.run("yarn", "install")
-    session.run("npx", "playwright", "install", "--with-deps", "chromium")
-    session.run("yarn", "test")
+    session.run("yarn", "install", external=True)
+    session.run("npx", "playwright", "install", "--with-deps", "chromium", external=True)
+    session.run("yarn", "test", external=True)
