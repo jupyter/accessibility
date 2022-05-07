@@ -12,7 +12,7 @@ environment = safe_load(ENV_FILE.read_text())
 dependencies = environment.get("dependencies")
 # note this assumes that the last line is a pip package
 # maybe can be improved in the future, but it works for now
-requirements = dependencies.pop(-1).get("pip")
+# requirements = dependencies.pop(-1).get("pip")
 
 
 def install_environment(session):
@@ -27,15 +27,15 @@ def install_environment(session):
     for conda_pkg in dependencies:
         # installing conda dependencies
         session.conda_install(conda_pkg, channel="conda-forge")
-        # installing pip dependencies
-        for pkg in requirements:
-            # We split each line in case there's a space for `-r`
-            session.install(*pkg.split())
+        # # installing pip dependencies
+        # for pkg in requirements:
+        #     # We split each line in case there's a space for `-r`
+        #     session.install(*pkg.split())
 
 
 @nox.session(venv_backend="mamba", reuse_venv=True)
 def a11y_tests(session):
     install_environment(session)
     session.run("yarn", "install")
-    session.run("npx", "playwright", "install", "chromium")
-    session.run("yarn", "run", "test")
+    session.run("npx", "playwright", "install", "--with-deps", "chromium")
+    session.run("yarn", "test")

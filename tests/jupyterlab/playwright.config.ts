@@ -51,7 +51,7 @@ const config: PlaywrightTestConfig = {
     acceptDownloads: true,
 
     // from RetroLab's playwright.config: https://github.com/jupyterlab/retrolab/blob/main/ui-tests/playwright.config.ts
-    appPath: "/retro",
+    // appPath: "/retro",
 
     video: "retain-on-failure",
   },

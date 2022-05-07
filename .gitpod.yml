@@ -2,8 +2,4 @@ image:
   file: .gitpod.Dockerfile
 ports:
 - port: 9323
-workspaceLocation: ""
-tasks:
-  - init: >
-      cd tests/retrolab &&
-      yarn install
+- port: 8888

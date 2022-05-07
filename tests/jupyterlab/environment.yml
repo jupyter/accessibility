@@ -3,15 +3,10 @@ channels:
   - conda-forge
 dependencies:
   # for base a11y testing
-  - nodejs=16.*
   - jupyterlab
-  - pip
-  - yarn
   # for the notebook example
   - ipython
   - ipywidgets
   - matplotlib
   - numpy
   - scipy
-  - pip:
-    - doit

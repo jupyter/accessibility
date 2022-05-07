@@ -13,7 +13,7 @@
 # https://hub.docker.com/_/ubuntu/?tab=tags&name=focal
 # OS/ARCH: linux/amd64
 
-FROM mcr.microsoft.com/playwright:v1.16.3-focal
+FROM gitpod/workspace-base:latest
 
 ARG MAMBAFORGE_VERSION="4.10.0-0"
 ARG CONDA_ENV=a11y-tests
@@ -39,9 +39,9 @@ USER root
 # hadolint ignore=DL3008
 RUN apt-get update && \
     apt-get install -yq --no-install-recommends \
-    software-properties-common \
-    locales \
-    wget \
+    # software-properties-common \
+    # locales \
+    # wget \
     build-essential \
     ca-certificates \
     curl \
