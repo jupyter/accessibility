@@ -67,7 +67,8 @@ SHELL ["/bin/bash", "--login", "-o", "pipefail", "-c"]
 RUN wget -q -O mambaforge3.sh \
     "https://github.com/conda-forge/miniforge/releases/download/$MAMBAFORGE_VERSION/Mambaforge-$MAMBAFORGE_VERSION-Linux-x86_64.sh" && \
     bash mambaforge3.sh -p ${CONDA_DIR} -b && \
-    rm mambaforge3.sh
+    rm mambaforge3.sh && \
+    chown -R gitpod:gitpod ${CONDA_DIR}
 
 
 # -----------------------------------------------------------------------------
@@ -88,7 +89,7 @@ RUN mamba create -n a11y-tests -c conda-forge python=3.9 nox pyyaml 'nodejs>=16,
     conda activate ${CONDA_ENV}  && \
     conda clean --all -f -y && \
     rm -rf /tmp/* && \
-    echo node --version
+    echo node --version ">" `node --version`
 
 # -----------------------------------------------------------------------------
 # ---- Copy needed files for npm dependencies ----
