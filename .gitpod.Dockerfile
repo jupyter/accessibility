@@ -78,11 +78,10 @@ COPY ./tools/gitpod/workspace_config /usr/local/bin/workspace_config
 RUN chmod a+rx /usr/local/bin/workspace_config && \
     workspace_config
 
-COPY ./testing/jupyterlab/environment.yml /tmp/environment.yml
-
 # -----------------------------------------------------------------------------
 # ---- Create conda environment with base dependencies ----
 # Install dependencies
+COPY ./testing/jupyterlab/environment.yml /tmp/environment.yml
 RUN mamba env create -f /tmp/environment.yml && \
     conda activate ${CONDA_ENV}  && \
     conda clean --all -f -y && \

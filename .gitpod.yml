@@ -9,3 +9,4 @@ tasks:
       cd testing/jupyterlab
       yarn install
       npx playwright install chromium
+    command: yarn test
