@@ -9,6 +9,5 @@ tasks:
       cd testing/jupyterlab
     init: |
       yarn install
-      npx playwright install
     command: |
-      yarn test
+      npx playwright install
