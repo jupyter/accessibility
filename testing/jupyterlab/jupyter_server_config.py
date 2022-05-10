@@ -1,5 +1,7 @@
 from tempfile import mkdtemp
 
+# These settings modeled after https://github.com/jupyterlab/jupyterlab/blob/%40jupyterlab/galata%404.0.2/galata/jupyter_server_test_config.py
+
 c.ServerApp.port = 8888
 c.ServerApp.port_retries = 0
 c.ServerApp.open_browser = False

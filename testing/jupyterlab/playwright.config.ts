@@ -1,21 +1,22 @@
+// playwright.config.ts
 import galataConfig from "@jupyterlab/galata/lib/playwright-config";
 import { PlaywrightTestConfig, devices } from "@playwright/test";
-// playwright.config.ts
-import { expect } from '@playwright/test'
-import { matchers } from 'expect-axe-playwright'
+import { expect } from "@playwright/test";
+import { matchers } from "expect-axe-playwright";
 
-expect.extend(matchers)
-// modified from https://github.com/MarcusFelling/demo.playwright/blob/main/accessibility/playwright.config.ts
+expect.extend(matchers);
+
 /**
+ * Modified from https://github.com/MarcusFelling/demo.playwright/blob/main/accessibility/playwright.config.ts
  * See https://playwright.dev/docs/test-configuration.
  */
 const config: PlaywrightTestConfig = {
   ...galataConfig,
 
-  testDir: "./test",
+  testDir: "./tests",
 
   /* Maximum time one test can run for. */
-  timeout: 60 * 1000,
+  timeout: 20 * 1000,
 
   expect: {
     /**
@@ -82,8 +83,7 @@ const config: PlaywrightTestConfig = {
     // },
   ],
 
-  // TODO: enable port 8888 and 9323
-  // saves results to playwright-report and test-results
+  /* Run a server. The tests will open urls to this server in the browser. */
   webServer: {
     command: "yarn start",
     port: 8888,

@@ -1,13 +1,12 @@
 {
-  "name": "@retrolab/a11ytests",
+  "name": "@jupyterlab/a11ytests",
   "version": "1.0.0",
   "private": true,
-  "description": "Run automated accessibility checks against RetroLab",
+  "description": "Run automated accessibility checks against JupyterLab",
   "license": "BSD-3-Clause",
   "author": "Project Jupyter",
   "scripts": {
-    "start:jupyterlab": "jupyter lab --config jupyterlab/jupyter_server_config.py",
-    "start:retrolab": "jupyter retro --config retrolab/jupyter_server_config.py",
+    "start": "jupyter lab --config ./jupyter_server_config.py",
     "test": "playwright test",
     "test:debug": "PWDEBUG=1 playwright test",
     "test:report": "http-server ./playwright-report -a localhost -o",

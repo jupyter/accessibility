@@ -5,7 +5,7 @@ dependencies:
   # for base a11y testing
   - nodejs=16.*
   - yarn
-  - jupyterlab
+  - jupyterlab=3.*
   # for the notebook example
   - ipython
   - ipywidgets
