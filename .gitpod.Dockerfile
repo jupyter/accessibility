@@ -67,9 +67,7 @@ SHELL ["/bin/bash", "--login", "-o", "pipefail", "-c"]
 RUN wget -q -O mambaforge3.sh \
     "https://github.com/conda-forge/miniforge/releases/download/$MAMBAFORGE_VERSION/Mambaforge-$MAMBAFORGE_VERSION-Linux-x86_64.sh" && \
     bash mambaforge3.sh -p ${CONDA_DIR} -b && \
-    rm mambaforge3.sh && \
-    chown -R gitpod:gitpod ${CONDA_DIR}
-
+    rm mambaforge3.sh
 
 # -----------------------------------------------------------------------------
 # ---- Copy conda and config files ----
@@ -80,7 +78,7 @@ COPY ./tools/gitpod/workspace_config /usr/local/bin/workspace_config
 RUN chmod a+rx /usr/local/bin/workspace_config && \
     workspace_config
 
-COPY ./tools/environment.yml /tmp/environment.yml
+COPY ./testing/jupyterlab/environment.yml /tmp/environment.yml
 
 # -----------------------------------------------------------------------------
 # ---- Create conda environment with base dependencies ----
