@@ -64,6 +64,7 @@ SHELL ["/bin/bash", "--login", "-o", "pipefail", "-c"]
 
 # -----------------------------------------------------------------------------
 # ---- Installing mamba  ----
+USER gitpod
 RUN wget -q -O mambaforge3.sh \
     "https://github.com/conda-forge/miniforge/releases/download/$MAMBAFORGE_VERSION/Mambaforge-$MAMBAFORGE_VERSION-Linux-x86_64.sh" && \
     bash mambaforge3.sh -p ${CONDA_DIR} -b && \
@@ -74,6 +75,7 @@ RUN wget -q -O mambaforge3.sh \
 # Copy conda environment file into the container - this needs to exists inside
 # the container to create a conda environment from it
 # basic workspace configurations
+USER root
 COPY ./tools/gitpod/workspace_config /usr/local/bin/workspace_config
 RUN chmod a+rx /usr/local/bin/workspace_config && \
     workspace_config
@@ -81,11 +83,12 @@ RUN chmod a+rx /usr/local/bin/workspace_config && \
 # -----------------------------------------------------------------------------
 # ---- Create conda environment with base dependencies ----
 # Install dependencies
+USER gitpod
 COPY ./testing/jupyterlab/environment.yml /tmp/environment.yml
 RUN mamba env create -f /tmp/environment.yml && \
     conda activate ${CONDA_ENV}  && \
     conda clean --all -f -y && \
-    rm -rf /tmp/* && \
+    sudo rm -rf /tmp/* && \
     echo node --version ">" `node --version`
 
 # -----------------------------------------------------------------------------
