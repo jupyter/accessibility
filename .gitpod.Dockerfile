@@ -28,10 +28,6 @@ ENV CONDA_DIR="${GITPOD_HOME}/mambaforge3" \
     SHELL=/bin/bash
 ENV PATH=${CONDA_DIR}/bin:$PATH
 
-# Need to specify where we are installing the browsers
-ENV PLAYWRIGHT_BROWSERS_PATH="${GITPOD_HOME}/ms-playwright" \
-    NODE_DEPS_PATH="${GITPOD_HOME}/node_modules"
-
 # -----------------------------------------------------------------------------
 # ---- Creating as root - note: make sure to change to gitpod in the end ----
 USER root
@@ -93,24 +89,6 @@ RUN mamba env create -f /tmp/environment.yml && \
 
 RUN conda activate ${CONDA_ENV} && \
     npx playwright install-deps
-
-# -----------------------------------------------------------------------------
-# ---- Copy needed files for npm dependencies ----
-# COPY ./tests/jupyterlab/package.json package.json
-
-# Only install chromium for now - can change at build time
-# ARG BROWSERS="chromium"
-
-# RUN mkdir ${PLAYWRIGHT_BROWSERS_PATH}
-
-# RUN conda activate ${CONDA_ENV} && \
-#     rm -rf ${NODE_DEPS_PATH} && \
-#     npm install -g node-gyp && \
-#     chmod -R 777 ${PLAYWRIGHT_BROWSERS_PATH} && \
-#     npx playwright install-deps && \
-#     npx playwright install ${BROWSERS} && \
-#     # rm package.json  && \
-#     rm -rf /var/lib/apt/lists/*
 
 # -----------------------------------------------------------------------------
 # Always make sure we are not root
