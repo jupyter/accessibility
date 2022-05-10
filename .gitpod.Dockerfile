@@ -80,12 +80,12 @@ COPY ./tools/gitpod/workspace_config /usr/local/bin/workspace_config
 RUN chmod a+rx /usr/local/bin/workspace_config && \
     workspace_config
 
-# COPY ./tools/environment.yml /tmp/environment.yml
+COPY ./tools/environment.yml /tmp/environment.yml
 
 # -----------------------------------------------------------------------------
 # ---- Create conda environment with base dependencies ----
 # Install dependencies
-RUN mamba create -n a11y-tests -c conda-forge python=3.9 nox pyyaml 'nodejs>=16,<17' yarn && \
+RUN mamba env create -f /tmp/environment.yml && \
     conda activate ${CONDA_ENV}  && \
     conda clean --all -f -y && \
     rm -rf /tmp/* && \
@@ -93,7 +93,7 @@ RUN mamba create -n a11y-tests -c conda-forge python=3.9 nox pyyaml 'nodejs>=16,
 
 # -----------------------------------------------------------------------------
 # ---- Copy needed files for npm dependencies ----
-# COPY ./tests/retrolab/package.json package.json
+# COPY ./tests/jupyterlab/package.json package.json
 
 # Only install chromium for now - can change at build time
 # ARG BROWSERS="chromium"

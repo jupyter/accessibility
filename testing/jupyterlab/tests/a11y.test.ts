@@ -67,10 +67,10 @@ async function axe(page, testInfo) {
  * to run analysis on page
  * @see https://github.com/abhinaba-ghosh/axe-playwright
  */
-test.describe("accessibility checks", () => {
+test.describe("jupyterlab accessibility checks", () => {
   test.beforeEach(async ({ page, tmpPath }) => {
     await page.contents.uploadDirectory(
-      path.resolve(__dirname, "./notebooks"),
+      path.resolve(__dirname, "../../notebooks"),
       tmpPath
     );
   });
