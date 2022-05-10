@@ -125,3 +125,6 @@ reports/
 # playwright stuff
 **/playwright-*/
 **/test-results/
+
+# mac
+.DS_Store
