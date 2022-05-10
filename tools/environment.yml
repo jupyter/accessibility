@@ -3,6 +3,8 @@ channels:
   - conda-forge
 dependencies:
   # for base a11y testing
+  - nodejs=16.*
+  - yarn
   - jupyterlab
   # for the notebook example
   - ipython
