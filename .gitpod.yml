@@ -9,6 +9,6 @@ tasks:
       cd testing/jupyterlab
     init: |
       yarn install
-      npx playwright install chromium
+      npx playwright install
     command: |
       yarn test
