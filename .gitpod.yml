@@ -5,8 +5,10 @@ ports:
 - port: 8888
 tasks:
   - name: Install JupyterLab Node.js testing dependencies
-    init: |
+    before: |
       cd testing/jupyterlab
+    init: |
       yarn install
-      npx playwright install --with-deps chromium
-    command: yarn test
+      npx playwright install chromium
+    command: |
+      yarn test

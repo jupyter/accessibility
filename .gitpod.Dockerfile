@@ -91,6 +91,9 @@ RUN mamba env create -f /tmp/environment.yml && \
     sudo rm -rf /tmp/* && \
     echo node --version ">" `node --version`
 
+RUN conda activate ${CONDA_ENV} && \
+    npx playwright install-deps
+
 # -----------------------------------------------------------------------------
 # ---- Copy needed files for npm dependencies ----
 # COPY ./tests/jupyterlab/package.json package.json
