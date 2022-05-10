@@ -34,3 +34,15 @@ Your system must also meet the [Playwright system requirements](https://playwrig
     ```bash
     yarn test
     ```
+
+## :cloud: Running in Gitpod
+
+As an alternative to running the tests locally on your own machine, you can run them in a cloud environment on Gitpod.
+
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/jupyter/accessibility)
+
+Once you are in the Gitpod workspace, run:
+
+```bash
+yarn test
+```
