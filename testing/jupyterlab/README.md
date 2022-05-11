@@ -6,7 +6,7 @@ To run the tests in this directory you need the following pre-requisites:
 
 - mamba
 
-Your system must also meet the [Playwright system requirements](https://playwright.dev/docs/library#system-requirements).
+- Your system must also meet the [Playwright system requirements](https://playwright.dev/docs/library#system-requirements).
 
 ## :zap: Running the tests
 
