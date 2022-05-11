@@ -19,6 +19,10 @@ To run the tests in this directory you need the following pre-requisites:
 2. Install the Python dependencies:
 
     ```bash
+    # if using conda
+    conda env create -f environment.yml
+    
+    # if using mamba
     mamba env create -f environment.yml
     ```
 
