@@ -3,10 +3,10 @@
 #
 # Usage:
 # -------
-# 
+#
 # From the root of the project:
-# docker build --rm -f "./tools/Dockerfile" -t <build-tag> "."
-# 
+# docker build --rm -f "./testing/tools/gitpod/Dockerfile" -t <build-tag> "."
+#
 # To run the image:
 # docker run --rm -it <build-tag>
 # This image is based on: Ubuntu 20.04 (focal)
@@ -26,11 +26,7 @@ ENV GITPOD_HOME=/home/gitpod \
 
 ENV CONDA_DIR="${GITPOD_HOME}/mambaforge3" \
     SHELL=/bin/bash
-ENV PATH=${CONDA_DIR}/bin:$PATH 
-
-# Need to specify where we are installing the browsers
-ENV PLAYWRIGHT_BROWSERS_PATH="${GITPOD_HOME}/ms-playwright" \
-    NODE_DEPS_PATH="${GITPOD_HOME}/node_modules"
+ENV PATH=${CONDA_DIR}/bin:$PATH
 
 # -----------------------------------------------------------------------------
 # ---- Creating as root - note: make sure to change to gitpod in the end ----
@@ -39,6 +35,9 @@ USER root
 # hadolint ignore=DL3008
 RUN apt-get update && \
     apt-get install -yq --no-install-recommends \
+    # software-properties-common \
+    # locales \
+    # wget \
     build-essential \
     ca-certificates \
     curl \
@@ -61,49 +60,35 @@ SHELL ["/bin/bash", "--login", "-o", "pipefail", "-c"]
 
 # -----------------------------------------------------------------------------
 # ---- Installing mamba  ----
+USER gitpod
 RUN wget -q -O mambaforge3.sh \
     "https://github.com/conda-forge/miniforge/releases/download/$MAMBAFORGE_VERSION/Mambaforge-$MAMBAFORGE_VERSION-Linux-x86_64.sh" && \
     bash mambaforge3.sh -p ${CONDA_DIR} -b && \
     rm mambaforge3.sh
-
 
 # -----------------------------------------------------------------------------
 # ---- Copy conda and config files ----
 # Copy conda environment file into the container - this needs to exists inside
 # the container to create a conda environment from it
 # basic workspace configurations
-COPY ./tools/gitpod/workspace_config /usr/local/bin/workspace_config
+USER root
+COPY ./testing/tools/gitpod/workspace_config /usr/local/bin/workspace_config
 RUN chmod a+rx /usr/local/bin/workspace_config && \
     workspace_config
 
-COPY ./tools/environment.yml /tmp/environment.yml
-
 # -----------------------------------------------------------------------------
-# ---- Create conda environment ----
+# ---- Create conda environment with base dependencies ----
 # Install dependencies
+USER gitpod
+COPY ./testing/jupyterlab/environment.yml /tmp/environment.yml
 RUN mamba env create -f /tmp/environment.yml && \
     conda activate ${CONDA_ENV}  && \
     conda clean --all -f -y && \
-    rm -rf /tmp/* && \
-    echo node --version
-
-# -----------------------------------------------------------------------------
-# ---- Copy needed files for npm dependencies ----
-COPY ./tests/retrolab/package.json package.json
-
-# Only install chromium for now - can change at build time
-ARG BROWSERS="chromium"
-
-RUN mkdir ${PLAYWRIGHT_BROWSERS_PATH} 
+    sudo rm -rf /tmp/* && \
+    echo node --version ">" `node --version`
 
 RUN conda activate ${CONDA_ENV} && \
-    rm -rf ${NODE_DEPS_PATH} && \
-    npm install -g node-gyp && \
-    yarn install && \
-    yarn playwright install ${BROWSERS} && \
-    rm package.json  && \
-    rm -rf /var/lib/apt/lists/* && \
-    chmod -R 777 ${PLAYWRIGHT_BROWSERS_PATH}
+    npx playwright install-deps
 
 # -----------------------------------------------------------------------------
 # Always make sure we are not root
