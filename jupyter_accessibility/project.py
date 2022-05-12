@@ -303,11 +303,11 @@ class JupyterLabPackage(Package, id="jupyterlab"):
             name="yarn",
             actions=[do(f"{self.conda} yarn install", cwd=target)],
         )
-        yield dict(
-            basename="test_setup",
-            name="browser",
-            actions=[do(f"{self.conda} npx playwright install chrome", cwd=target)],
-        )
+        # yield dict(
+        #     basename="test_setup",
+        #     name="browser",
+        #     actions=[do(f"{self.conda} npx playwright install chrome", cwd=target)],
+        # )
         yield dict(basename="test", name="playwright", actions=[do(f"{self.conda} npx playwright test", cwd=target)])
 class RetroLabPackage(JupyterLabPackage, id="retrolab"):
     pass
