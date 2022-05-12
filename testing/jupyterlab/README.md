@@ -15,6 +15,7 @@ At the time of this writing, we have configured the tests to only run with
 Chromium, but you can
 [test other browsers](https://github.com/MarcusFelling/demo.playwright/blob/main/accessibility/playwright.config.ts)
 by modifying the `playwright.config.ts` file.
+
 ### :laptop: Locally
 
 1. Make sure you are in the correct directory:
