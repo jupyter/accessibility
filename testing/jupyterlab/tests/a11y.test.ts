@@ -13,10 +13,11 @@ const LORENZ = "Lorenz.ipynb";
 async function scrollNotebookToBottom(page) {
   await page.evaluate(() => {
     const notebookEl = document.querySelector(".jp-Notebook");
-    const scrollableHeight = notebookEl.scrollHeight - notebookEl.clientHeight;
-    for (let i = 0; Math.abs(scrollableHeight - i) < 1; i += 1) {
-      notebookEl.scrollTo(0, i);
-    }
+    const scrollBottom = notebookEl.scrollHeight - notebookEl.clientHeight;
+    notebookEl.scroll({
+      top: scrollBottom,
+      behavior: "smooth",
+    });
   });
 }
 
@@ -35,8 +36,11 @@ test.describe("JupyterLab accessibility checks", () => {
     tmpPath,
   }) => {
     await page.notebook.openByPath(`${tmpPath}/${LORENZ}`);
-    await scrollNotebookToBottom(page);
-    await expect(page).toBeAccessible();
+    try {
+      await expect(page).toBeAccessible();
+    } finally {
+      await scrollNotebookToBottom(page);
+    }
   });
 
   test("Lorenz notebook after running all cells", async ({
@@ -45,7 +49,10 @@ test.describe("JupyterLab accessibility checks", () => {
   }) => {
     await page.notebook.openByPath(`${tmpPath}/${LORENZ}`);
     await page.notebook.run();
-    await scrollNotebookToBottom(page);
-    await expect(page).toBeAccessible();
+    try {
+      await expect(page).toBeAccessible();
+    } finally {
+      await scrollNotebookToBottom(page);
+    }
   });
 });
