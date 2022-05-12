@@ -51,12 +51,10 @@ the test results:
 
     http://127.0.0.1:9323
 
-When you click on a test result, if it does not seem particularly readable, then
-look for a link to an HTML report and follow that link.
-
 ### :cloud: Running in Gitpod
 
-As an alternative to running the tests locally on your own machine, you can run them in a cloud environment on Gitpod.
+As an alternative to running the tests locally on your own machine, you can run
+them in a cloud environment on Gitpod.
 
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/jupyter/accessibility)
 
@@ -71,9 +69,11 @@ to see the test results:
 
     http://127.0.0.1:9323
 
-When you click on a test result, if it does not seem particularly readable, then
-look for a link to an HTML report and follow that link.
-
 In case you're wondering how you can open a local url from a cloud environment,
 Gitpod opens a remote session in VS Code (or other supported editor) and sets it
 up to proxy the local url to its remote server address.
+
+## Troubleshooting
+
+If a test fails, Playwright should attach a video and possibly other files to
+that test, which could help debug or explain why the test failed.
