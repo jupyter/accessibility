@@ -12,8 +12,6 @@
   },
   "dependencies": {
     "@jupyterlab/galata": "4.0.2",
-    "axe-html-reporter": "^2.2.3",
-    "axe-playwright": "^1.1.9",
-    "expect-axe-playwright": "^1.2.1"
+    "expect-axe-playwright": "^2.2.0"
   }
 }

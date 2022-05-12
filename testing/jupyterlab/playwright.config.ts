@@ -2,7 +2,7 @@
 import galataConfig from "@jupyterlab/galata/lib/playwright-config";
 import { PlaywrightTestConfig, devices } from "@playwright/test";
 import { expect } from "@playwright/test";
-import { matchers } from "expect-axe-playwright";
+import matchers from "expect-axe-playwright";
 
 expect.extend(matchers);
 
@@ -51,10 +51,16 @@ const config: PlaywrightTestConfig = {
 
     acceptDownloads: true,
 
-    // from RetroLab's playwright.config: https://github.com/jupyterlab/retrolab/blob/main/ui-tests/playwright.config.ts
-    // appPath: "/retro",
-
     video: "retain-on-failure",
+
+    axeOptions: {
+      runOnly: {
+        type: "tag",
+        // all tags and standards listed here:
+        // https://www.deque.com/axe/core-documentation/api-documentation/#axe-core-tags
+        values: ["wcag2a", "best-practice"],
+      },
+    },
   },
 
   /* Configure projects for major browsers */
@@ -67,20 +73,6 @@ const config: PlaywrightTestConfig = {
         ...devices["Desktop Chrome"],
       },
     },
-
-    // {
-    //   name: "firefox",
-    //   use: {
-    //     ...devices["Desktop Firefox"],
-    //   },
-    // },
-
-    // {
-    //   name: "webkit",
-    //   use: {
-    //     ...devices["Desktop Safari"],
-    //   },
-    // },
   ],
 
   /* Run a server. The tests will open urls to this server in the browser. */

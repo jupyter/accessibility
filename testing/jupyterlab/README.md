@@ -10,6 +10,11 @@ To run the tests in this directory you need the following pre-requisites:
 ## :zap: Running the tests
 
 You can run tests locally on your machine, or remotely in the cloud.
+
+At the time of this writing, we have configured the tests to only run with
+Chromium, but you can
+[test other browsers](https://github.com/MarcusFelling/demo.playwright/blob/main/accessibility/playwright.config.ts)
+by modifying the `playwright.config.ts` file.
 ### :laptop: Locally
 
 1. Make sure you are in the correct directory:
