@@ -5,6 +5,8 @@ import { createHtmlReport } from "axe-html-reporter";
 import fs from "fs";
 import * as path from "path";
 
+const notebooksDirectory = path.resolve(__dirname, "../../notebooks/");
+// Lorenz notebook file name
 const LORENZ = "Lorenz.ipynb";
 const AXE_CONFIG: Options = {
   detailedReport: true,
@@ -68,10 +70,12 @@ async function axe(page, testInfo) {
 // video with the test results to help with debugging. So here we scroll to the
 // bottom of the notebook so that if somebody needs to watch the video, they can
 // see the whole notebook from beginning to end.
-async function scrollToBottom(page) {
+async function scrollNotebookToBottom(page) {
   await page.evaluate(() => {
-    for (let i = 0; i < document.body.scrollHeight; i += 100) {
-      window.scrollTo(0, i);
+    const notebookEl = document.querySelector(".jp-Notebook");
+    const scrollableHeight = notebookEl.scrollHeight - notebookEl.clientHeight;
+    for (let i = 0; Math.abs(scrollableHeight - i) < 1; i += 1) {
+      notebookEl.scrollTo(0, i);
     }
   });
 }
@@ -81,30 +85,28 @@ async function scrollToBottom(page) {
  * page
  * @see https://github.com/abhinaba-ghosh/axe-playwright
  */
-test.describe("jupyterlab accessibility checks", () => {
+test.describe("JupyterLab accessibility checks", () => {
   test.beforeEach(async ({ page, tmpPath }) => {
-    const notebooksDirectory = path.resolve(__dirname, "../notebooks/");
-    console.log("notebooks dir", notebooksDirectory);
     await page.contents.uploadDirectory(notebooksDirectory, tmpPath);
   });
 
-  test("notebook a11y LORENZ execute false", async ({
+  test("Lorenz notebook before running all cells", async ({
     page,
     tmpPath,
   }, testInfo) => {
     await page.notebook.openByPath(`${tmpPath}/${LORENZ}`);
-    await scrollToBottom(page);
+    await scrollNotebookToBottom(page);
     const violations = await axe(page, testInfo);
     await expect(violations).toEqual([]);
   });
 
-  test("notebook a11y LORENZ execute true", async ({
+  test("Lorenz notebook after running all cells", async ({
     page,
     tmpPath,
   }, testInfo) => {
     await page.notebook.openByPath(`${tmpPath}/${LORENZ}`);
     await page.notebook.run();
-    await scrollToBottom(page);
+    await scrollNotebookToBottom(page);
     const violations = await axe(page, testInfo);
     await expect(violations).toEqual([]);
   });

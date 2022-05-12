@@ -4,9 +4,8 @@
 
 To run the tests in this directory you need the following pre-requisites:
 
-- mamba
-
-- Your system must also meet the [Playwright system requirements](https://playwright.dev/docs/library#system-requirements).
+- mamba (or conda)
+- Your system must also meet the [Playwright system requirements](https://playwright.dev/docs/library#system-requirements)
 
 ## :zap: Running the tests
 
@@ -21,7 +20,7 @@ To run the tests in this directory you need the following pre-requisites:
     ```bash
     # if using conda
     conda env create -f environment.yml
-    
+
     # if using mamba
     mamba env create -f environment.yml
     ```
