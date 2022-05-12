@@ -3,4 +3,5 @@ ipywidgets
 IPython
 numpy
 scipy
-retrolab
+jupyter
+jupyter_core

@@ -3,9 +3,10 @@
 tasks for testing things
 """
 from pathlib import Path
-from shutil import copytree, move
-
-WHERE = Path()
+try:
+    from .dodo import A11Y, do, mv
+except ImportError:
+    from dodo import A11Y, do, mv
 
 FOLDER = Path(__file__).parent
 AXE_TEMPLATE = FOLDER / "jupyter-axe"
@@ -17,20 +18,15 @@ def task_playwright(prefix=TARGET / ".env", target=TARGET):
     """interactive testing of jupyter applications"""
     # should be able to modify templates to create different tests
 
-    env = (target / ".env").absolute()
+    env = prefix.absolute()
     conda = f"conda run --prefix {env} --live-stream --no-capture-output"
     yield dict(
         name="env",
         actions=[
-            do(
-                f"""conda create -yc conda-forge --prefix {env} python=3.9 "nodejs>=14,<15" yarn"""
-            )
+            do(f"""conda create -yc conda-forge --prefix {env} python=3.9 "nodejs>=14,<15" yarn""")
         ],
         uptodate=[env.exists()],
     )
-
-    def mv(src, target):
-        copytree(src, target, dirs_exist_ok=True)
 
     yield dict(
         name="copy-templates",
@@ -46,10 +42,10 @@ def task_playwright(prefix=TARGET / ".env", target=TARGET):
         name="install:python",
         actions=[do(f"{conda} pip install -r requirements.txt", cwd=target)],
     )
-    yield dict(name="test", actions=[do(f"{conda} npx playwright test", cwd=target)])
+    yield dict(name="test", actions=[do(f"{conda} npx playwright test --headed", cwd=target)])
 
 
-def do(*args, cwd=WHERE, **kwargs):
+def do(*args, cwd=A11Y, **kwargs):
     """wrap a Action for consistency"""
     from os import environ
     from doit.tools import CmdAction
@@ -59,6 +55,4 @@ def do(*args, cwd=WHERE, **kwargs):
     kwargs.setdefault("env", {})
     kwargs["env"] = dict(environ)
     # kwargs["env"].update(ENV)
-    return CmdAction(
-        list(map(str, args)), shell=False, cwd=str(Path(cwd).resolve()), **kwargs
-    )
+    return CmdAction(list(map(str, args)), shell=False, cwd=str(Path(cwd).resolve()), **kwargs)
