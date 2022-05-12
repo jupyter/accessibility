@@ -1,5 +1,5 @@
 image:
-  file: tools/gitpod/Dockerfile
+  file: testing/tools/gitpod/Dockerfile
 ports:
 - port: 9323
 - port: 8888

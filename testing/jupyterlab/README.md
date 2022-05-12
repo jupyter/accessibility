@@ -9,6 +9,9 @@ To run the tests in this directory you need the following pre-requisites:
 
 ## :zap: Running the tests
 
+You can run tests locally on your machine, or remotely in the cloud.
+### :laptop: Locally
+
 1. Make sure you are in the correct directory:
 
     ```bash
@@ -38,7 +41,15 @@ To run the tests in this directory you need the following pre-requisites:
     yarn test
     ```
 
-## :cloud: Running in Gitpod
+Your console should output a local url that you can open in your browser to see
+the test results:
+
+    http://127.0.0.1:9323
+
+When you click on a test result, if it does not seem particularly readable, then
+look for a link to an HTML report and follow that link.
+
+### :cloud: Running in Gitpod
 
 As an alternative to running the tests locally on your own machine, you can run them in a cloud environment on Gitpod.
 
@@ -49,3 +60,15 @@ Once you are in the Gitpod workspace, run:
 ```bash
 yarn test
 ```
+
+The Gitpod console should output a local url that you can open in your browser
+to see the test results:
+
+    http://127.0.0.1:9323
+
+When you click on a test result, if it does not seem particularly readable, then
+look for a link to an HTML report and follow that link.
+
+In case you're wondering how you can open a local url from a cloud environment,
+Gitpod opens a remote session in VS Code (or other supported editor) and sets it
+up to proxy the local url to its remote server address.
