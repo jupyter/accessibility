@@ -16,6 +16,8 @@ from pathlib import Path
 from json import loads
 from os import environ
 
+IS_CI = "ci" in environ
+
 PIP = ("python", "-m", "pip")
 HERE = Path()
 THIS = Path(__file__).parent
@@ -84,18 +86,19 @@ class Project(Base):
         """create a conda environment for development work"""
         extras = []
         channels = "conda-forge"
-        if "ci" in environ:
+        if IS_CI:
             extras.append("playwright")
             channels += " microsoft"
         yield dict(
             name="conda",
             actions=[
+                do(f"{self.conda} python -m pip install pip --upgrade"),
                 do(
                     f'conda create -yc {channels} --prefix {self.prefix} python=3.9 "nodejs>=14,<15" yarn git'
                     + " ".join(extras)
                 ),
-                do(f"{self.conda} python -m pip install pip --upgrade"),
-            ],
+            ]
+            + (IS_CI and [do(f"{self.conda} npx playwright install chromium")] or []),
             uptodate=[self.prefix.exists()],
             clean=[(rmdir, [self.prefix])],
         )
