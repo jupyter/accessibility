@@ -16,7 +16,11 @@ from pathlib import Path
 from json import loads
 from os import environ
 
-IS_CI = "ci" in environ
+CI = environ.get("CI")
+if CI:
+    if not ((CI is True) or (CI == "true")):
+        CI = None
+IS_CI = bool(CI)
 
 PIP = ("python", "-m", "pip")
 HERE = Path()
