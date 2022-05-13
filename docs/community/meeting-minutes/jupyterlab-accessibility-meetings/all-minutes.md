@@ -1662,3 +1662,218 @@ Priority issues: https://github.com/jupyterlab/jupyterlab/issues/9399
     - Jupyter accessibility events updates! More updates to come, and you can always reference [the quansight-labs/jupyter-accessbility-workshops repo](https://github.com/Quansight-Labs/jupyter-accessibility-workshops)
     - [jupyterlab/jupyterlab PR #11658](https://github.com/jupyterlab/jupyterlab/pull/11658) is work on color contrast. I've gotten some review but there's lots to discuss.
     - Roadmap updates (for CZI grant reporting and community communication) based on all your feedback. You can review the PR [Quansight-Labs/jupyter-a11y-mgmt #60](https://github.com/Quansight-Labs/jupyter-a11y-mgmt/pull/60). When we get it cleaned up, it will go to jupyter/accessibility so it's more findable by the community.
+
+    ## 1.12.22
+
+### Attendees
+- tony
+- Ely
+- Mike
+- Frederic
+- Gabriel
+- Martha
+- Jason
+- Nick
+- Matthew
+- Chadi
+
+### What are people working on?
+
+- Isabela
+    - Jupyter accessibility workshops are upcoming on January 15, January 22, and two events in March.
+    - Find all up-to-date links on the [Jupyter blog announcement post](https://blog.jupyter.org/join-us-for-the-jupyter-accessibility-workshops-part-1-133e0e522d1b)
+- Gabriel
+    - Mapping out and comparing frontend of JupyterLab and RetroLab
+- Chadi
+    - How to get involved with Jupyter accessibility work
+        - Review tasks on the [JupyterLab accessibility project board](https://github.com/orgs/jupyterlab/projects/1)
+        - Focus on documentation fixes. Some could be adding alt text, making sure things are up to date.
+        - Make changes to documentation theming that supports accessibility across projects (find test background on https://github.com/jupyterlab/jupyterlab/pull/11803 and https://github.com/pydata/pydata-sphinx-theme/pull/548)
+        - Open issues based on what isn't working for you! We're relying heavily on standards, but user feedback would be even better.
+- Nick
+    - exploring [robotframework-axelibrary](https://github.com/adiralashiva8/robotframework-axelibrary) as a thing to add to [JupyterLibrary](https://github.com/robots-from-jupyter/robotframework-jupyterlibrary)
+        - should be possible to e.g. configure `Test Teardown` to `Collect Accessibility Violations`
+            - ...and when error conditions arise
+        - tag with violations which would bubble up to 
+    - potentially blocked by limited maintainer effort on upstreams 
+    - also have some data analysis tools for long-term ingest of many robot reports
+    - both could be injected into e.g. [robotkernel](https://github.com/robots-from-jupyter/robotkernel/issues/72)
+
+Some links in chat:
+- https://github.com/jupyterhub/jupyter-server-proxy/tree/main/tests/acceptance
+- https://github.com/robots-from-jupyter/robotlab/
+- https://github.com/locustio/locust
+- https://github.com/jupyter-server/jupyter_server/blob/main/jupyter_server/services/api/api.yaml
+- https://hypothesis.works/
+- https://github.com/Zac-HD/hypothesis-jsonschema
+- https://testguild.com/python-automation-testing/
+
+## 1.26.22
+
+### Attendees
+- Isabela
+- Frederic
+- Ely
+- Jason
+- Darian
+- Gabriel
+- Nick
+- Patrick
+- Tony
+
+### What are people working on?
+
+- Tony https://github.com/jupyter/accessibility/issues/67
+    - What jupyter/accessibility has been so far: kind of a cross-project team compass
+    - This PR discusses ways to make it a more resource-focused and active repo. Also to help people actually start using Jupyter tools (that's been a popular ask)
+- Patrick
+    - Could anyone give an update on how things are currently working, perhaps both high level and in the code?
+    - People are interested! We need to follow up and connect these communities
+    - Are these communities also willing to giving feedback on how to make better experiences (not just be WCAG compliant) based on how they use these tools?
+- Isabela
+    - Jupyter accessibility workshop summary/things to do
+    - Alt text PRS from the workshop (still in progress until the end of this week)
+        - https://github.com/isabela-pf/jupyter/pull/1
+        - https://github.com/isabela-pf/jupyter.github.io/pull/1
+- Gabriel
+    - Does the [JupyterLab settings UI PR](https://github.com/jupyterlab/jupyterlab/pull/11079) add accessibility features/is that a place they could go in the future?
+    - Right now? That's not the focus. It could be added in the future.
+
+### Next steps
+- Discuss [jupyter/accessibility reorganization](https://github.com/jupyter/accessibility/issues/67) (open for commenting to everyone!)
+- Follow up on cross-community collaboration (Isabela, Jenn, Tony, Patrick)
+- Remove hardcoded css colors to improve the extensibility of the these (maybe Nick?)
+
+## 2.09.22
+
+## Attendees
+- Nick
+- Tony
+- Martha
+- Ely
+- Frederic
+- Thomas
+- Chadi
+- Isabela
+
+## What are people working on
+
+- Chadi
+    - Interest in being assigned from existing issues
+    - nick: ipywidgets needs love. probably no existing issues, needs the audit and issue authoring. "there are definitely some ambulatory items on some of the custom controls"
+
+- Thomas
+    - "When is Jupyter Classic going away?"
+        - Tony replies with the related Juypyter Enhancement Proposal
+        - https://jupyter.org/enhancement-proposals/79-notebook-v7/notebook-v7.html
+    - Who's working on the grant now
+        - Gabriel (not in meeting today) is the person you want to meet. He's been working on testing at [jupyter/accessibility](https://github.com/jupyter/accessibility/)
+    - What's been happening?
+        - [stylelint PR may be a start to getting this testable](https://github.com/jupyterlab/jupyterlab/pull/11993)
+
+- Frederic
+    - [jupyter-ui-toolkit](https://jupyterlab-contrib.github.io/jupyter-ui-toolkit) update
+    - Intent of making all components in JupyterLab more accessible from their foundation rather than only remediation of existing.
+    - This has ties to [[WIP] JEP for React.js at Jupyter datalayer/jupyter-react#9](https://github.com/datalayer/jupyter-react/issues/9).
+
+- Tony 
+    - We need to have some testing notebooks for manual testing. Any thoughts on things/content types we need to make sure to include?
+        - Ely: Errors!
+        - Nick: the smallest elements, input/output (not even cells). something like [the work at jtpio/replite](https://github.com/jtpio/replite)
+        - Nick: run-only experience
+
+- Isabela: Jupyter accessibility workshops in January (summary)
+    - Sprint had two alt text PRs come out of it. [Jupyter.org alt text was merged](https://github.com/jupyter/jupyter.github.io/pull/680). [Project Jupyter documentation PR could use review](https://github.com/jupyter/jupyter/pull/607)
+- Isabela: Jupyter accessibility workshops in March!
+    - Draft sprint topic is on auditing. Is there anything specific you'd all like to have covered? Are there any projects you'd like to propose we use for the sprint?
+
+## 2.23.22
+
+## Attendees
+- Tony
+- Ely
+- Gabriel
+- Martha
+- Nick
+- Jason
+
+## notes
+
+* pdf accessibility https://www.section508.gov/create/pdfs/
+* stylelint-a11y https://github.com/YozhikM/stylelint-a11y
+* https://bareynol.github.io/mui-theme-creator/ theme editor
+* Thoughts from Ely on custom themes
+    * should we talk to people who are used to customizing colors?
+    * an export button would be really good for someone who has spent a lot of time working on their own theme locally 
+
+## What are people working on
+
+* @tonyfast
+    * reusable tasks for building jupyterlab, retrolab, lumino combinations.
+    * turning [`jupyter/accessibility`](https://github.com/jupyter/accessibility) into a js/py packages
+
+## 3.9.22
+
+## Attendees
+- Martha
+- Tony
+- Jason W
+- Jenn
+- Isabela
+- Gabriel
+
+## Agenda
+- Gabriel
+    - What do developers want/what would you all find helpful in the [jupyter/accessibility repo](https://github.com/jupyter/accessibility)
+        - - People can give feedback and ideas later via issues (or PRs if you have something you want to contribute) on jupyter/accessibility.
+    - What I'm working on, just FYI:
+        - [Adding checkboxes to JupyterLab file browser](https://github.com/jupyterlab/retrolab/issues/260#issuecomment-1035610998)
+        - [Adding infrastructure to run automated accessibility tests](https://github.com/gabalafou/accessibility/tree/axe/tests/retrolab)
+- Jason W
+    - [JupyterLab cell toolbar PR 12028](https://github.com/jupyterlab/jupyterlab/pull/12028) — Feedback sought on usability, accessibility, etc.
+        - Tab behavior is consistent throughout JupyterLab (which is good), but it's JupyterLab's tab behavior that doesn't make sense. This may need to be a separate issue.
+            - Tabbing through regions is discussed in https://github.com/jupyterlab/jupyterlab/issues/9688
+        - Focus is working throughout, so there is nothing that relies solely on a hover state (good!)
+        - How this interacts with a cell's command versus edit state is interesting. Navigating the toolbar happens in command mode, but tabbing fully through the toolbar transitions to edit mode with no immediate way back (instead users must return to the start of command mode outside the cell). This is to preserve the use of tab for code completion in a cell, something we do need to preserve.
+- Jenn
+    - Grant!
+- Tony 
+    - brings up discussion at [matplotlib/matplotlib #15971 Improve the accessibility of figures shown with `_repr_html_`](https://github.com/matplotlib/matplotlib/issues/15971#issuecomment-1062772917) around deprecation of `longdesc` and if there are ways this can be solved in a better experience and not only one-off tags.
+
+## 3.23.22
+
+## Attendees
+
+- Mike
+- Ely
+- Martha
+- Jenn
+- Gabriel
+- Tania
+- Isabela
+
+## Agenda
+
+Jupyter accessibility workshop resources! (First two events are up, but the last ones are pending. They will all link here.) [Jupyter accessibility workshops repo](https://github.com/Quansight-Labs/jupyter-accessibility-workshops/tree/main/events)
+
+Mike:
+- progressbar aria https://github.com/jupyterlab/jupyterlab/pull/12238
+    - An addition based on review on a prior pull request.
+    - This is something worth testing! Open invite for people to give it a try.
+    - Prompted a discussion around what/how can we test these things going forward. Do we have several accessibility fixes we'd like tested where it's worth actively reaching out to people?
+    - Similar, but separate from discussion around regular user feedback surveys timed with JupyterLab releases.
+
+Tania:
+Jupyter governance and jupyter/accessibility. A discussion around what's happening and where the community thinks we belong!
+- The initial proposal:[jupyter/governance #121 Standing Committees and Working Groups PR](https://github.com/jupyter/governance/pull/121)
+- Further discussion: [jupyter/governance #124 [Proposal] - add jupyter/accessibility as a software sub-project](https://github.com/jupyter/governance/issues/124)
+- :pencil: [Future governance Software Steering Council](https://jupyter.org/governance/software_steering_council.html) roles and responsibilities
+- Questions to pass over to the governance body:
+    - What are the criteria under which the WG's might or not get voting rights?
+    - Same but for continued vote/existence?
+- Pros and cons of each level. Summary is that it seems like there's more pros and no real cons on being a software project (long term). 
+
+## Next steps
+
+- **TODO**: open an issue on jupyter/accessibility and use it as a RFD (request for discussion)/lazy voting and revisit in 2-4 weeks?
+- Isabela to follow up with Mike on asking the community for feedback on existing accessibility fixes.
