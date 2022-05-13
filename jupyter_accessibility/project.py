@@ -18,9 +18,8 @@ from os import environ
 
 CI = environ.get("CI")
 
-if CI:
-    if CI is True or CI == "true":
-        CI = True
+if (CI is True) or (CI == "true"):
+    CI = True
 
 CI = bool(CI)
 
