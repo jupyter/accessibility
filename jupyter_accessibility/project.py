@@ -96,9 +96,14 @@ class Project(Base):
         yield dict(
             name="conda",
             actions=[
+                (create_folder, [self.dir]),
                 do(
-                    f'conda create -yc {channels} --prefix {self.prefix} python=3.9 "nodejs>=14,<15" yarn git'
-                    + " ".join(extras)
+                    " ".join(
+                        [
+                            f'conda create -yc {channels} --prefix {self.prefix} python=3.9 "nodejs>=14,<15" yarn git'
+                        ]
+                        + extras
+                    )
                 ),
                 do(f"{self.conda} python -m pip install pip --upgrade"),
             ]
