@@ -6,10 +6,9 @@ it should load extensions and retrolab.
 it should export a lite build.
 """
 
-from ctypes import Union
 from pathlib import Path
 from os import rmdir
-from typing import List
+from typing import List, Union
 
 from jupyter_accessibility.testing import AXE_TEMPLATE, DOIT_CONFIG
 from .dodo import do, rmdir, Base, Field, mv

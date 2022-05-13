@@ -1,0 +1,21 @@
+name: a11y tests
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2 
+        name: Fetch all history for all tags and branches
+        with:
+          fetch-depth: 0
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
+      - uses: conda-incubator/setup-miniconda@v2
+      - name: Install dependencies
+        run: |
+          python -m jupyter_accessibility -i retrolab -- list
+          python -m jupyter_accessibility -i retrolab -- env
