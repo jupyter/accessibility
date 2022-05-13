@@ -352,7 +352,7 @@ class JupyterLabPackage(Package, id="jupyterlab"):
             basename="test",
             name="playwright",
             actions=[
-                do(f"echo 'the target is {target}'"),
+                do(f"echo 'the target is {target.absolute()}'"),
                 do(f"{self.conda} npx playwright test", cwd=target),
             ],
         )
