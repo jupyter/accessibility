@@ -82,10 +82,10 @@ class Project(Base):
     # this is a setup task and the description could be improved
     def task_env(self):
         """create a conda environment for development work"""
-        extra = []
+        extras = []
         channels = "conda-forge"
         if "ci" in environ:
-            extra.append("playwright")
+            extras.append("playwright")
             channels += " microsoft"
         yield dict(
             name="conda",
