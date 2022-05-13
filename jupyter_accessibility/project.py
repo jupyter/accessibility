@@ -92,7 +92,7 @@ class Project(Base):
         channels = "conda-forge"
         if IS_CI:
             extras.append("playwright")
-            channels += " microsoft"
+            channels += " -c microsoft"
         yield dict(
             name="conda",
             actions=[
