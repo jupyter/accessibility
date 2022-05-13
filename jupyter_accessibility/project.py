@@ -14,7 +14,7 @@ from jupyter_accessibility.testing import AXE_TEMPLATE, DOIT_CONFIG
 from .dodo import do, rmdir, Base, Field, mv
 from pathlib import Path
 from json import loads
-
+from os import environ
 
 PIP = ("python", "-m", "pip")
 HERE = Path()
@@ -82,11 +82,17 @@ class Project(Base):
     # this is a setup task and the description could be improved
     def task_env(self):
         """create a conda environment for development work"""
+        extra = []
+        channels = "conda-forge"
+        if "ci" in environ:
+            extra.append("playwright")
+            channels += " microsoft"
         yield dict(
             name="conda",
             actions=[
                 do(
-                    f'conda create -yc conda-forge --prefix {self.prefix} python=3.9 "nodejs>=14,<15" yarn git'
+                    f'conda create -yc {channels} --prefix {self.prefix} python=3.9 "nodejs>=14,<15" yarn git'
+                    + " ".join(extras)
                 ),
                 do(f"{self.conda} python -m pip install pip --upgrade"),
             ],
