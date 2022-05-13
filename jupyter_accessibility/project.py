@@ -351,7 +351,10 @@ class JupyterLabPackage(Package, id="jupyterlab"):
         yield dict(
             basename="test",
             name="playwright",
-            actions=[do(f"{self.conda} npx playwright test", cwd=target)],
+            actions=[
+                do(f"echo 'the target is {target}'"),
+                do(f"{self.conda} npx playwright test", cwd=target),
+            ],
         )
 
 
