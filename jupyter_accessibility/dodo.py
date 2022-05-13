@@ -84,8 +84,8 @@ class Main(Base):
         from argparse import ArgumentParser
 
         parser = ArgumentParser("builder")
-        parser.add_argument("-i", "--ids", default=list(), help="repository ids", nargs="*")
-        parser.add_argument("-d", "--dir", default = Path(), help="the build directory", nargs="*")
+        parser.add_argument("-i", "--ids", default=["retrolab"], help="repository ids", nargs="*")
+        parser.add_argument("-d", "--dir", default = Path("jupyter-ally-build"), help="the build directory", nargs="*")
         return parser
 
     @classmethod
