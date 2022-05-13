@@ -92,11 +92,11 @@ class Project(Base):
         yield dict(
             name="conda",
             actions=[
-                do(f"{self.conda} python -m pip install pip --upgrade"),
                 do(
                     f'conda create -yc {channels} --prefix {self.prefix} python=3.9 "nodejs>=14,<15" yarn git'
                     + " ".join(extras)
                 ),
+                do(f"{self.conda} python -m pip install pip --upgrade"),
             ]
             + (IS_CI and [do(f"{self.conda} npx playwright install chromium")] or []),
             uptodate=[self.prefix.exists()],
