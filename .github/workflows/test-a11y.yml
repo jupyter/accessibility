@@ -17,5 +17,6 @@ jobs:
       - uses: conda-incubator/setup-miniconda@v2
       - name: Install dependencies
         run: |
+          python -m pip install -e .
           python -m jupyter_accessibility -i retrolab -- list
           python -m jupyter_accessibility -i retrolab -- env
