@@ -16,6 +16,14 @@ from pathlib import Path
 from json import loads
 from os import environ
 
+CI = environ.get("CI")
+
+if CI:
+    if CI is True or CI == "true": 
+        CI = True
+
+CI = bool(CI)
+
 PIP = ("python", "-m", "pip")
 HERE = Path()
 THIS = Path(__file__).parent
@@ -82,6 +90,12 @@ class Project(Base):
     # this is a setup task and the description could be improved
     def task_env(self):
         """create a conda environment for development work"""
+        ci = []
+        if CI:
+            ci.extend([
+                do(f"{self.conda} yarn install playwright"),
+                do(f"{self.conda} npx playwright install --with-deps chromium")
+            ])
         yield dict(
             name="conda",
             actions=[
@@ -89,7 +103,7 @@ class Project(Base):
                     f'conda create -yc conda-forge --prefix {self.prefix} python=3.9 "nodejs>=14,<15" yarn git'
                 ),
                 do(f"{self.conda} python -m pip install pip --upgrade"),
-            ],
+            ] + ci,
             uptodate=[self.prefix.exists()],
             clean=[(rmdir, [self.prefix])],
         )
