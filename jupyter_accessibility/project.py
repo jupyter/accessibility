@@ -93,7 +93,7 @@ class Project(Base):
         ci = []
         if CI:
             ci.extend([
-                do(f"{self.conda} yarn install playwright"),
+                do(f"{self.conda} yarn global playwright"),
                 do(f"{self.conda} npx playwright install --with-deps chromium")
             ])
         yield dict(
