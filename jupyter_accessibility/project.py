@@ -19,7 +19,7 @@ from os import environ
 CI = environ.get("CI")
 
 if CI:
-    if CI is True or CI == "true": 
+    if CI is True or CI == "true":
         CI = True
 
 CI = bool(CI)
@@ -90,12 +90,6 @@ class Project(Base):
     # this is a setup task and the description could be improved
     def task_env(self):
         """create a conda environment for development work"""
-        ci = []
-        if CI:
-            ci.extend([
-                do(f"{self.conda} yarn global playwright"),
-                do(f"{self.conda} npx playwright install --with-deps chromium")
-            ])
         yield dict(
             name="conda",
             actions=[
@@ -103,7 +97,7 @@ class Project(Base):
                     f'conda create -yc conda-forge --prefix {self.prefix} python=3.9 "nodejs>=14,<15" yarn git'
                 ),
                 do(f"{self.conda} python -m pip install pip --upgrade"),
-            ] + ci,
+            ],
             uptodate=[self.prefix.exists()],
             clean=[(rmdir, [self.prefix])],
         )
@@ -347,12 +341,14 @@ class JupyterLabPackage(Package, id="jupyterlab"):
             name="yarn",
             actions=[do(f"{self.conda} yarn install", cwd=target)],
         )
-        # playwright needs to be install, conda might do the trick
-        # yield dict(
-        #     basename="test_setup",
-        #     name="browser",
-        #     actions=[do(f"{self.conda} npx playwright install chrome", cwd=target)],
-        # )
+        if CI:
+            yield dict(
+                basename="test_setup",
+                name="playwright",
+                actions=[
+                    do(f"{self.conda} npx playwright install --with-deps chromium", cwd=target)
+                ],
+            )
         yield dict(
             basename="test",
             name="playwright",
