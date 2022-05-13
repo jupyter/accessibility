@@ -20,3 +20,7 @@ jobs:
           python -m pip install -e .
           python -m jupyter_accessibility -i retrolab -- list
           python -m jupyter_accessibility -i retrolab -- env
+          python -m jupyter_accessibility -i retrolab -- setup
+          conda install -p jupyter-a11y-build/.env -c microsoft playwright
+          python -m jupyter_accessibility -i retrolab -- test_setup
+          python -m jupyter_accessibility -i retrolab -- test
