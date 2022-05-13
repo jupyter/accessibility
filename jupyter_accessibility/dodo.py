@@ -2,17 +2,9 @@ from pydantic import BaseModel, Field
 from pathlib import Path
 from shutil import copytree
 
+
 A11Y = Path().parent
 DOIT_CONFIG = dict(verbosity=2, list=dict(status=True, subtasks=True))
-ENV = dict(
-    NODE_OPTS="--max-old-space-size=4096",
-    PIP_DISABLE_PIP_VERSION_CHECK="1",
-    # PIP_IGNORE_INSTALLED="1",
-    PIP_NO_BUILD_ISOLATION="1",
-    PIP_NO_DEPENDENCIES="1",
-    PYTHONIOENCODING="utf-8",
-    PYTHONUNBUFFERED="1",
-)
 
 
 def do(*args, cwd=A11Y, **kwargs):
@@ -24,8 +16,7 @@ def do(*args, cwd=A11Y, **kwargs):
     if len(args) == 1:
         args = split(args[0])
     kwargs.setdefault("env", {})
-    kwargs["env"] = dict(environ)
-    # kwargs["env"].update(ENV)
+    kwargs["env"] = {**kwargs["env"], **environ}
     return CmdAction(list(map(str, args)), shell=False, cwd=str(Path(cwd).resolve()), **kwargs)
 
 
@@ -39,16 +30,23 @@ def rmdir(*dir):
 
 
 def mv(src, target):
+
     copytree(src, target, dirs_exist_ok=True)
 
 
 class Base(BaseModel):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
+        # add post init behavior because its a nice pattern and helps post initialize.
+        # we were using dataclasses, but pydantic's better.
         getattr(self, "__post_init__", lambda: None)()
 
 
 class Main(Base):
+    """Main orchestrates the building and testing of jupyter products.
+
+    It initializes the project and invokes the primary doit application."""
+
     ids: list[str]
     dir: Path = Path("jupyter-a11y-build")
     project: type = None
@@ -57,8 +55,32 @@ class Main(Base):
     def __post_init__(self):
         self.setup_project()
 
+    def setup_project(self):
+        from .project import Project
+
+        self.project = Project(**self.dict(exclude={"project", "app"}))
+
+    def main(self, args=None, standalone=False):
+        """invoke the doit application through an interactive api."""
+        self.setup_project()
+        try:
+            self.project.doit().run(prep_args(args))
+        except standalone and SystemExit or () as e:
+            if e.args[0] != 0:
+                raise e
+
+    @classmethod
+    def run(cls, args=None, standalone=False):
+        """invoke the doit application as a standalone command line tool."""
+        # parse the argument we know and pass the rest to the doit application.
+        ns, args = cls.parse_args(args)
+        main = cls(**ns.__dict__)
+
+        main.main(args, standalone=standalone)
+
     @classmethod
     def get_parser(cls):
+        """the argument parser for the Main cli"""
         from argparse import ArgumentParser
 
         parser = ArgumentParser("builder")
@@ -70,25 +92,6 @@ class Main(Base):
     def parse_args(cls, args=None):
         parser = cls.get_parser()
         return parser.parse_known_args(args=prep_args(args))
-
-    def setup_project(self):
-        from .project import Project
-
-        self.project = Project(**self.dict(exclude={"project", "app"}))
-
-    def main(self, args=None, standalone=False):
-        self.setup_project()
-        try:
-            self.project.doit().run(prep_args(args))
-        except standalone and SystemExit or () as e:
-            if e.args[0] != 0:
-                raise e
-
-    @classmethod
-    def run(cls, args=None, standalone=False):
-        ns, args = cls.parse_args(args)
-        main = cls(**ns.__dict__)
-        main.main(args, standalone=standalone)
 
     def activate_extension(self):
         from IPython import get_ipython
