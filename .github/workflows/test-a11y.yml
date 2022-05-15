@@ -28,11 +28,11 @@ jobs:
           python -m jupyter_accessibility -i retrolab -- test_setup
           python -m jupyter_accessibility -i retrolab -- test
 
-  - name: Archive code coverage results
-        uses: actions/upload-artifact@v3
-        with:
-          name: a11y-test-results
-          path: |
-            jupyter-ally-build/jupyter-axe/test-results/*.json
-            jupyter-ally-build/jupyter-axe/test-results/**/*.json
+      - name: Archive code coverage results
+            uses: actions/upload-artifact@v3
+            with:
+              name: a11y-test-results
+              path: |
+                jupyter-ally-build/jupyter-axe/test-results/*.json
+                jupyter-ally-build/jupyter-axe/test-results/**/*.json
 
