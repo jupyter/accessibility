@@ -1,0 +1,14 @@
+name: a11y-tests
+channels:
+  - conda-forge
+dependencies:
+  # for base a11y testing
+  - nodejs=16.*
+  - yarn
+  - jupyterlab=3.*
+  # for the notebook example
+  - ipython
+  - ipywidgets
+  - matplotlib
+  - numpy
+  - scipy

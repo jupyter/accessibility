@@ -1,0 +1,34 @@
+#!/bin/bash
+# Basic configurations for the workspace
+
+set -e
+
+# gitpod/workspace-base needs at least one file here
+touch /home/gitpod/.bashrc.d/empty
+
+# Add git aliases
+git config --global alias.co checkout
+git config --global alias.ci commit
+git config --global alias.st status
+git config --global alias.br branch
+git config --global alias.hist "log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short"
+git config --global alias.type 'cat-file -t'
+git config --global alias.dump 'cat-file -p'
+
+# Vanity custom bash prompt - makes it more legible
+echo "PS1='\[\e]0;\u \w\a\]\[\033[01;36m\]\u\[\033[m\] > \[\033[38;5;141m\]\w\[\033[m\] \\$ '" >>~/.bashrc
+
+# Enable prompt color in the skeleton .bashrc
+# hadolint ignore=SC2016
+sed -i 's/^#force_color_prompt=yes/force_color_prompt=yes/' /etc/skel/.bashrc
+
+# make conda activate command available from /bin/bash (login and interactive)
+if [[ ! -f "/etc/profile.d/conda.sh" ]]; then
+    ln -s ${CONDA_DIR}/etc/profile.d/conda.sh /etc/profile.d/conda.sh
+fi
+echo ". ${CONDA_DIR}/etc/profile.d/conda.sh" >>~/.bashrc
+echo "conda activate a11y-tests" >>~/.bashrc
+
+# Enable prompt color in the skeleton .bashrc
+# hadolint ignore=SC2016
+sed -i 's/^#force_color_prompt=yes/force_color_prompt=yes/' /etc/skel/.bashrc
