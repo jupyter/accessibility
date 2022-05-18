@@ -7,7 +7,7 @@ To run the tests in this directory you need the following pre-requisites:
 - mamba (or conda)
 - Your system must also meet the [Playwright system requirements](https://playwright.dev/docs/library#system-requirements)
 
-## :zap: Running the tests
+## :zap: Running the accessibility tests
 
 You can run tests locally on your machine, or remotely in the cloud.
 
