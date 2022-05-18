@@ -14,7 +14,7 @@ You can run tests locally on your machine, or remotely in the cloud.
 At the time of this writing, we have configured the tests to only run with
 Chromium, but you can
 [extend these tests to cover other browsers](https://github.com/MarcusFelling/demo.playwright/blob/main/accessibility/playwright.config.ts)
-by modifying the `playwright.config.ts` file.
+by modifying the [`playwright.config.ts`](testing/jupyterlab/playwright.config.ts) file.
 
 ### :laptop: Locally
 
