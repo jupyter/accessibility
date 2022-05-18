@@ -49,8 +49,9 @@ by modifying the `playwright.config.ts` file.
 
 Your console should output a local url that you can open in your browser to see
 the test results:
-
-    http://127.0.0.1:9323
+    ```
+    	http://127.0.0.1:9323
+    ```
 
 ### :cloud: Running in Gitpod
 
