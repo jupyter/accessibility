@@ -68,8 +68,9 @@ yarn test
 
 The Gitpod console should output a local url that you can open in your browser
 to see the test results:
-
-    http://127.0.0.1:9323
+    ```
+    	http://127.0.0.1:9323
+    ```
 
 In case you're wondering how you can open a local url from a cloud environment,
 Gitpod opens a remote session in VS Code (or other supported editor) and sets it
