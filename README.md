@@ -10,16 +10,16 @@ These core user-facing software include:
 * [JupyterLab](https://github.com/jupyterlab/jupyterlab)
 * [JupyterHub](https://github.com/jupyterhub/jupyterhub)
 
-To be clear, as of March 2019 this software is not accessible. Significant work will be required to reach that goal.
+**Important notice: as of March 2019 this software is not accessible.** Significant work will be required to reach that goal.
 
 If you are trying to use Jupyter tools with assistive technology now, you may be able to get basic support with the following:
 
 - [Jupyter Notebook a11y toolbar](https://github.com/uclixnjupyternbaccessibility/jupyter_contrib_nbextensions/tree/master/src/jupyter_contrib_nbextensions/nbextensions/accessibility_toolbar) (from Microsoft research)
 - Make cells editable with a screen reader using the [NVDA Browser Nav add-on](https://addons.nvda-project.org/addons/browsernav.en.html#:~:text=BrowserNav%20addon%20for%20NVDA,comments%20or%20malformed%20HTML%20tables.”)
 
-## Getting involved
+## :raised_hands: Getting involved
 
-### Join the conversation
+### :speech_balloon: Join the conversation
 
 - [Check out the accessibility section of the community forum](https://discourse.jupyter.org/c/special-topics/accessibility) for ongoing conversations and brainstorms around accessibility in the Jupyter ecosystem.
 - [Jupyter Notebook Accessibility Issues](https://github.com/jupyter/notebook/issues?q=is%3Aopen+is%3Aissue+label%3Atag%3AAccessibility)
@@ -28,7 +28,7 @@ If you are trying to use Jupyter tools with assistive technology now, you may be
 - Review and join in contributing to [accessibility issues identified for the ongoing CZI EOSS grant](docs/funding/czi-grant-roadmap.md)
 - If you find something that you think should be labeled for accessibility, feel free to label it or add a comment.
 
-### Join our JupyterLab accessibility meetings
+### :handshake: Join our JupyterLab accessibility meetings
 
 Anyone is welcome to attend, if they would like to discuss a topic or to listen in.
 
@@ -38,7 +38,7 @@ Anyone is welcome to attend, if they would like to discuss a topic or to listen 
 
 Also - all the [public notes](https://github.com/jupyterlab/team-compass/issues/98) from past meetings are available online.
 
-## Links to accessibility standards and resources
+## :link: Links to accessibility standards and resources
 
 One of our goals is to collect information about accessibility and create documentation to empower the Jupyter community to help us make our software accessible. Please use this section to begin to aggregate relevant third party standards, guides, and documentation related to this:
 
