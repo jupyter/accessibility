@@ -6,7 +6,7 @@ tasks:
     init: |
       cd testing/jupyterlab
       yarn install
-      npx playwright install
+      cd workspace/a11y
 
 # --------------------------------------------------------
 # exposing ports
