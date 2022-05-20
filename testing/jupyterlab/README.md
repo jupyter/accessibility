@@ -1,8 +1,15 @@
-# JupyterLab accessibility tests
+# JupyterLab's accessibility tests
+
+- [JupyterLab's accessibility tests](#jupyterlabs-accessibility-tests)
+  - [:package: Requirements](#package-requirements)
+  - [:zap: Running the accessibility tests](#zap-running-the-accessibility-tests)
+    - [:computer: Locally](#computer-locally)
+    - [:cloud: Running in Gitpod](#cloud-running-in-gitpod)
+  - [:computer: Troubleshooting](#computer-troubleshooting)
 
 ## :package: Requirements
 
-To run the tests in this directory you need the following pre-requisites:
+To run the tests in this directory you need the following prerequisites:
 
 - mamba (or conda)
 - Your system must also meet the [Playwright system requirements](https://playwright.dev/docs/library#system-requirements)
@@ -16,7 +23,7 @@ Chromium, but you can
 [extend these tests to cover other browsers](https://github.com/MarcusFelling/demo.playwright/blob/main/accessibility/playwright.config.ts)
 by modifying the [`playwright.config.ts`](testing/jupyterlab/playwright.config.ts) file.
 
-### :laptop: Locally
+### :computer: Locally
 
 1. Make sure you are in the correct directory:
 
@@ -47,18 +54,15 @@ by modifying the [`playwright.config.ts`](testing/jupyterlab/playwright.config.t
     yarn test
     ```
 
-Your console should output a local url that you can open in your browser to see
-the test results:
-    ```
-    	http://127.0.0.1:9323
-    ```
+Your console should output a local URL that you can open in your browser to see
+the test results: typically http://127.0.0.1:9323
 
 ### :cloud: Running in Gitpod
 
 As an alternative to running the tests locally on your own machine, you can run
 them in a cloud environment on Gitpod.
 
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/jupyter/accessibility)
+[![Open in Gitpod button](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/jupyter/accessibility)
 
 Once you are in the Gitpod workspace, run:
 
@@ -67,16 +71,13 @@ yarn test
 ```
 
 The Gitpod console should output a local url that you can open in your browser
-to see the test results:
-    ```
-    	http://127.0.0.1:9323
-    ```
+to see the test results: typically http://127.0.0.1:9323
 
 In case you're wondering how you can open a local url from a cloud environment,
 Gitpod opens a remote session in VS Code (or other supported editor) and sets it
 up to proxy the local url to its remote server address.
 
-## Troubleshooting
+## :computer: Troubleshooting
 
 If a test fails, Playwright should attach a video and possibly other files to
 that test, which could help debug or explain why the test failed.

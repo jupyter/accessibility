@@ -6,7 +6,8 @@ This project follows the [Jupyter Code of Conduct].
 
 ## Goal
 
-> To facilitate improving the accessibility of interactive computing, we are trying to make it easy to:
+> To facilitate improving the accessibility of interactive computing.
+> We are trying to make this process smoother to:
 >
 > - capture the state of an accessibility feature across number of separate Jupyter
 >   repositories at different states of development as [pull requests]
@@ -17,17 +18,17 @@ This project follows the [Jupyter Code of Conduct].
 
 ## Core Workflow
 
-1. get a free GitHub account
-2. make one (or more) [pull requests] to one (or more) Jupyter repositories
-3. make a pull request to `jupyter/accessibility:ci` that changes `repos.toml` to
+1. Get a free GitHub account
+2. Make one (or more) [pull requests] to one (or more) Jupyter repositories
+3. Make a pull request to `jupyter/accessibility:ci` that changes `repos.toml` to
    include the pull requests from **step 2**
    - the pull request _target_ should be the `ci` branch
-4. construct the appropriate Binder link and paste the Markdown in (all of) the
+4. Construct the appropriate Binder link and paste the Markdown in (all of) the
    pull request(s)
-5. gather and discuss findings
-6. update the upstream pull requests
-7. repeat steps 3+ as needed
-8. get upstream pull requests merged
+5. Gather and discuss findings
+6. Update the upstream pull requests
+7. Repeat steps 3+ as needed
+8. Get upstream pull requests merged
 
 ## Why is this so complicated?
 
@@ -68,10 +69,10 @@ The _GitHub Actions_ workflow performs many of the same steps as _Binder_, but a
 
 ## On Your Computer
 
-You can do all of the things that happen on _Binder_ and _GitHub Actions_ on your
+You can do all the things that happen on _Binder_ and _GitHub Actions_ on your
 computer.
 
-- Get [Miniforge] for `conda`
+- Get [Miniforge] for `conda`:
   > - if your computer runs Windows, please ensure you:
   >   - install `conda` on short path, e.g. `c:\mf`
   >   - clone this repo to a short path, e.g. `c:\git\a11y`
@@ -94,7 +95,7 @@ computer.
   doit start
   ```
 
-  which actually... starts JupyterLab!
+  which will start JupyterLab!
 
 ## Under the Hood
 
@@ -106,10 +107,10 @@ The workhorse of this approach is [doit]. It is a python-based tool that manages
   - in the right order
     - when (parts of) files change
 
-#### Why Not Just (make|docker|pants|scons|bazel|grunt|...)?
+#### Why Not (make|docker|pants|scons|bazel|grunt|...) instead?
 
 In building and delivering complex environments, we've found `doit` offers a
-mix of portability, expressiveness, and productivity. Being python-based
+mix of portability, expressiveness, and productivity. Being Python-based
 we can be relatively sure it's going to work anywhere Jupyter works. Despite
 it's quirks, python is good at reading strings and running processes. Ensuring
 work isn't repeated is really important when welding together _n_ development
