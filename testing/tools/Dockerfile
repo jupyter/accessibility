@@ -17,7 +17,8 @@
 # https://hub.docker.com/_/ubuntu/?tab=tags&name=focal
 # OS/ARCH: linux/amd64
 
-FROM gitpod/workspace-base:latest
+# pinning the version
+FROM gitpod/workspace-base:2022-05-20-05-44-40
 
 # https://github.com/conda-forge/miniforge/releases
 ARG MAMBAFORGE_VERSION="4.12.0-0"
