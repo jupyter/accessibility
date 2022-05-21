@@ -4,13 +4,15 @@ on:
   push:
     branches:
       - master
+      # testing now
+      - trallard/*
 
 jobs:
   build:
     name: Build Gitpod Docker image 
     runs-on: ubuntu-latest
     environment: a11y-dev
-    if: "github.repository_owner == 'jupyter' && !contains(github.event.head_commit.message, '[ci skip]') && !contains(github.event.head_commit.message, '[skip ci]') && !contains(github.event.head_commit.message, '[skip github]')"
+    if: "github.repository_owner == 'Quansight-Labs' && !contains(github.event.head_commit.message, '[ci skip]') && !contains(github.event.head_commit.message, '[skip ci]') && !contains(github.event.head_commit.message, '[skip github]')"
     steps:
       - name: Clone repository ⚡
         uses: actions/checkout@v3

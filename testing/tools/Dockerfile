@@ -94,11 +94,11 @@ RUN wget -q -O mambaforge3.sh \
 # ---- Create conda environment with base dependencies ----
 # Install dependencies
 RUN mamba env create -f /tmp/environment.yml && \
-    conda activate ${CONDA_ENV}  && \
     conda clean --all -f -y && \
-    sudo rm -rf /tmp/* && \
-    chown "${USER}:${GITPOD_GIUD}}" "${CONDA_DIR}" && \
-    fix_permissions "${CONDA_DIR}"
+    rm -rf /tmp/*
+
+RUN fix_permissions "${CONDA_DIR}" && \ 
+    chown "${USER}:${GITPOD_GIUD}}" "${CONDA_DIR}" 
 
 RUN conda activate ${CONDA_ENV} && \
     # Install node dependencies
