@@ -6,15 +6,14 @@ it should load extensions and retrolab.
 it should export a lite build.
 """
 
+from json import loads
+from os import environ
 from pathlib import Path
-from os import rmdir
 from typing import List, Union
 
 from jupyter_accessibility.testing import AXE_TEMPLATE, DOIT_CONFIG
-from .dodo import do, rmdir, Base, Field, mv
-from pathlib import Path
-from json import loads
-from os import environ
+
+from .dodo import Base, Field, Tasks, do, mv, rmdir
 
 CI = environ.get("CI")
 
@@ -23,50 +22,58 @@ if (CI is True) or (CI == "true"):
 
 CI = bool(CI)
 
-PIP = ("python", "-m", "pip")
 HERE = Path()
 THIS = Path(__file__).parent
-REPOS = ["https://github.com/jupyterlab/lumino", "https://github.com/jupyterlab/jupyterlab"]
-BUILD_ENV = dict(
-    NODE_OPTS="--max-old-space-size=4096",
-    PIP_DISABLE_PIP_VERSION_CHECK="1",
-    # PIP_IGNORE_INSTALLED="1",
-    PIP_NO_BUILD_ISOLATION="1",
-    PIP_NO_DEPENDENCIES="1",
-    PYTHONIOENCODING="utf-8",
-    PYTHONUNBUFFERED="1",
-)
 
 from doit.tools import create_folder
 
 
-class Project(Base):
+class Project(Tasks, Base):
     """a project is specific directory that holds source code, environments,
     built artifacts and diagnostics.
 
     it manages python and node environments including symbollic links to development code."""
 
-    ids: List[str]
-    repos: dict = Field(default_factory=dict, metadata=dict(description=""))
-    dir: Path = Path("jupyter-a11y-build")
-    env: Path = Path(".env")
-    links: Path = Path("yarn-links")
-    prefix: Path = None
-    conda: Union[bool, str] = None
-    offline: bool = False
-    yarn_links: Path = None
-    test_results: Path = None
+    ids: List[str] = Field(description="shorthand for built and development resources")
+    repos: dict = Field(
+        default_factory=dict, description="a mapping of a product name to a Repo or Package"
+    )
+    dir: Path = Field(
+        Path("jupyter-a11y-build"), description="the folder we want to build our application in"
+    )
+    env: Path = Field(
+        Path(".env"), description="the folder in the dir where our conda environment will live"
+    )
+    links: Path = Field(
+        Path("yarn-links"),
+        description="the folder we use to hold our yarn symlinks for development assets",
+    )
+    prefix: Path = Field(None, description="a computed location for our conda environment")
+    # this is why we don't need to nox, this exposes more knobs for special cases.
+    conda: Union[bool, str] = Field(
+        None, description="the conda run prefix used to execute isolated system commands"
+    )
+    # with this we can turn conda, node, and pip in offline mode
+    offline: bool = Field(False, description="build in offline mode using your caches")
+    yarn_links: Path = Field(None, description="the computed location of our yarn symbollic links")
+    test_results: Path = Field(
+        None, description="the computed location of our playwright test results"
+    )
 
     def __post_init__(self):
+        # compute the prefix and carry the absolute position forward
         self.prefix = (self.dir / self.env).resolve()
+
+        # compute our conda run statement that prepends all the calls we make
         if self.conda is None:
             self.conda = f"conda run --no-capture-output --prefix {self.prefix}"
             if self.offline:
                 self.conda += " --offline"
         elif not self.conda:
-            # when conda is none we are running everything in the encapsulating environment
+            # the empty string case is the escape hatch from using conda.
+            # under these conditions you are using the environment you are in
             self.conda = ""
-        # the location of the yarn links we manage
+        # compute the location of the yarn links we manage
         self.yarn_links = (self.dir / self.links).resolve()
 
         # the output location of the test results for easy access
@@ -76,20 +83,25 @@ class Project(Base):
         # instructions for executing things
         for id in self.ids:
             kwargs = {}
-            if "://" not in id:
-                repo = Package(name=id, parent=self)
-            else:
+            if "://" in id:
+                # currently, everything at a url is assumed to be a repo
+                # there are certainly causes where we are wrong. we might
+                # likely need adapters for different network locations.
+
                 if "@" in id:
                     id, _, branch = id.rpartition("@")
                     kwargs.setdefault("branch", branch)
                 repo = Repo(url=id, parent=self, **kwargs)
+            else:
+                # otherwise we assume a built package.
+                repo = Package(name=id, parent=self)
 
             self.repos[repo.name] = repo
 
     # this is a setup task and the description could be improved
     def task_env(self):
         """create a conda environment for development work"""
-        yield dict(
+        yield self.conda and dict(
             name="conda",
             actions=[
                 do(
@@ -99,30 +111,13 @@ class Project(Base):
             ],
             uptodate=[self.prefix.exists()],
             clean=[(rmdir, [self.prefix])],
-        )
+        ) or dict(name="conda", actions=None)
 
     def task_meta(self):
         # the meta task compiles individual tasks defined per repo/package
         # all the tasks have basename/name pairs so meta doesn't appear in the task list
         for x in self.repos.values():
             yield from x.tasks()
-
-    def doit(self):
-        """build the doit application by pulling tasks from the"""
-        from doit.cmd_base import ModuleTaskLoader
-        from doit.doit_cmd import DoitMain
-
-        tasks = dict((x, getattr(self, x)) for x in dir(self) if x.startswith("task_"))
-        tasks.update({"DOIT_CONFIG": DOIT_CONFIG})
-        return DoitMain(ModuleTaskLoader(tasks))
-
-    def commands(self):
-        """explore what doit knows"""
-        return self.doit().get_commands()
-
-    def do(self, x, **kwargs):
-        """create a cmd action that can be run from the api"""
-        return do(f"{self.conda} {x}", **kwargs)
 
     def axe_results(self):
         """load axe results from the tests and show them as a data frame"""
@@ -133,9 +128,11 @@ class Project(Base):
 
 
 class Ext:
-    """a base class that allows us to compose different tasks based on projct"""
+    """a base class that allows us to compose different tasks based on project"""
 
-    _EXTENSIONS = None
+    # each asset in a build (jupyterlab, retrolab, lumino) has a specific source
+
+    _EXTENSIONS = None  # extension base classes define there own mapping ot manage
 
     def __init_subclass__(cls, id=None):
         if id:
@@ -145,6 +142,7 @@ class Ext:
         repo = super(type, cls).__new__(cls)
         repo.__init__(*args, **kwargs)
         if cls in {Repo, Package} and repo.name in cls._EXTENSIONS:
+            # choose to make a poackage or repo
             return super().__new__(cls._EXTENSIONS[repo.name])
         return repo
 
@@ -152,10 +150,10 @@ class Ext:
 class Common(Base):
     """common fields in Repo/Package classes"""
 
-    name: str = None
-    parent: Project
-    conda: str = None
-    dir: Path = None
+    name: str = Field(None, description="the canonical package name (eg jupyterlab, retrolab)")
+    parent: Project = Field(description="the parent project orchestrating things")
+    conda: str = Field(None, description="the parent's conda prefix used to execute our tasks")
+    dir: Path = Field(None, description="the parent's directory we are working in ")
 
 
 class Package(Common, Ext):
@@ -170,6 +168,7 @@ class Package(Common, Ext):
             basename="setup",
             name=f"pip:{self.name}",
             actions=[do(f"{self.conda} python -m pip install {self.name}")],
+            clean=[do(f"{self.conda} python -m pip uninstall -y {self.name}")],
         )
         yield from self.tests()
 
@@ -177,6 +176,7 @@ class Package(Common, Ext):
         yield from ()
 
     def __post_init__(self):
+        # propogate parent content to package
         self.dir = self.parent.dir
         self.conda = self.parent.conda
 
@@ -187,31 +187,37 @@ class Repo(Common, Ext):
     repos need instructions to build jupyter products, they are defined as doit tasks in each class.
     """
 
+    # the environment state for building a local jupyter package
+    BUILD_ENV = dict(
+        NODE_OPTS="--max-old-space-size=4096",
+        PIP_DISABLE_PIP_VERSION_CHECK="1",
+        # PIP_IGNORE_INSTALLED="1",
+        PIP_NO_BUILD_ISOLATION="1",
+        # PIP_NO_DEPENDENCIES="1",
+        PYTHONIOENCODING="utf-8",
+        PYTHONUNBUFFERED="1",
+    )
+
     _EXTENSIONS = {}
-    url: str
-    prefix: Path = None
-    conda: str = None
-    branch: str = "main"
-    env: Path = None
-    path: Path = None
-    head: Path = None
-    package: Path = None
-    links: Path = None
-    pip: str = None
-    yarn: Path = None
-    yarn_integrity: Path = None
-    setup: Path = None
-    setup: Path = None
+    url: str = Field(description="the url for the project pointing to a git repo")
+    branch: str = Field("main", description="the branch, ref, or hash to build")
+    path: Path = Field(None, description="path the repository with a git repo")
+    head: Path = Field(None, description="the HEAD of the git repo")
+    package: Path = Field(None, description="the package.json")
+    links: Path = Field(None, description="the yarn links location")
+    pip: str = Field(None, description="the pip command prefix including conda")
+    yarn: Path = Field(None, description="yarn prefix including conda")
+    yarn_integrity: Path = Field(None, description="the location of the yarn integrity file")
+    # useful for hashing
+    setup: Path = Field(None, description="the setup.py target")  # assuming one is being used
 
     def __post_init__(self):
         self.name = get_name(self.url)
         self.dir = self.parent.dir
         self.path = self.dir / self.name
-        self.prefix = self.parent.prefix
         self.head = self.path / ".git" / "HEAD"
         self.package = self.path / "package.json"
         self.links = self.path / "yarn-links"
-        self.env = (self.dir / ".env").resolve()
         self.conda = self.parent.conda
         self.yarn = f"{self.conda} yarn --link-folder {self.links.resolve()}"
         self.pip = f"{self.conda} python -m pip"
@@ -244,12 +250,13 @@ class Repo(Common, Ext):
             uptodate=[self.head.exists()],
         )
 
+    # this task needs to be generated after cloing
     def yarn_install(self, link=True):
         """install the yarn package"""
         # link_to are urls to repos, they are managed by the parent class
         yield dict(
-            basename="yarn_install",
-            name=self.name,
+            basename="install",
+            name=f"yarn:{self.name}",
             file_dep=[self.package, self.head],
             actions=[(create_folder, [self.links]), do(self.yarn, cwd=self.path)],
             targets=[self.yarn_integrity],
@@ -287,23 +294,24 @@ class Repo(Common, Ext):
                 visited.add(name)
                 # should use basename
                 yield dict(
-                    basename="deplink",
-                    name=name,
+                    basename="install",
+                    name=f"yarn:link:close:{name}",
                     file_dep=[package],
                     actions=[do(f"yarn link --link-folder {self.links} {name}", cwd=target.path)],
                     targets=[target.links / name / "package.json"],
                 )
 
     def pip_install(self):
+        """pip install the python package"""
         yield dict(
-            basename="setup",
+            basename="install",
             name=f"pip:{self.name}",
             actions=[
                 do(f"{self.conda} python -m pip install jupyter_packaging"),
                 do(
-                    f"{self.conda} python -m pip install --no-build-isolation -e.",
+                    f"{self.conda} python -m pip install -e.",  # many settings are held in the env
                     cwd=self.path,
-                    env=BUILD_ENV,
+                    env=self.BUILD_ENV,
                 ),
             ],
         )
@@ -313,6 +321,7 @@ class Repo(Common, Ext):
         # we need to clone before we can do anything
         # these have to happen afterwards. the order in the method has no bearing on the execution order
         yield self.yarn_install()
+        yield from self.tests()
 
     def get_repo(self, id):
         if isinstance(id, type):
@@ -321,7 +330,7 @@ class Repo(Common, Ext):
         return self.parent.repos[id]
 
 
-class JupyterLabPackage(Package, id="jupyterlab"):
+class PlayWright:
     def tests(self):
         target = self.dir / AXE_TEMPLATE.name
         yield dict(
@@ -358,17 +367,24 @@ class JupyterLabPackage(Package, id="jupyterlab"):
         )
 
 
-class RetroLabPackage(JupyterLabPackage, id="retrolab"):
+class JupyterLabPackage(Package, PlayWright, id="jupyterlab"):
     pass
 
 
-class JupyterLab(Repo, id="jupyterlab"):
+class RetroLabPackage(JupyterLabPackage, PlayWright, id="retrolab"):
+    """a class for the retrolab package from pypi"""
+
+
+class JupyterLab(Repo, PlayWright, id="jupyterlab"):
+    """a class for the jupyterlab package from pypi"""
+
     branch: str = "master"
 
     def tasks(self):
         yield from super().tasks()
-        lumino = self.parent.repos["lumino"]
-        yield from lumino.close_yarn_symlinks(self)
+        if "lumino" in self.parent.repos:
+            yield from self.parent.repos["lumino"].close_yarn_symlinks(self)
+
         yield self.pip_install()
 
 

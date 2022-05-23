@@ -1,7 +1,7 @@
-from pydantic import BaseModel, Field
 from pathlib import Path
 from shutil import copytree
 
+from pydantic import BaseModel, Field
 
 A11Y = Path().parent
 DOIT_CONFIG = dict(verbosity=2, list=dict(status=True, subtasks=True))
@@ -11,6 +11,7 @@ def do(*args, cwd=A11Y, **kwargs):
     """wrap a Action for consistency"""
     from os import environ
     from shlex import split
+
     from doit.tools import CmdAction
 
     if len(args) == 1:
@@ -85,7 +86,9 @@ class Main(Base):
 
         parser = ArgumentParser("builder")
         parser.add_argument("-i", "--ids", default=["retrolab"], help="repository ids", nargs="*")
-        parser.add_argument("-d", "--dir", default = Path("jupyter-ally-build"), help="the build directory", nargs="*")
+        parser.add_argument(
+            "-d", "--dir", default=Path("jupyter-ally-build"), help="the build directory", nargs="*"
+        )
         return parser
 
     @classmethod
@@ -94,14 +97,33 @@ class Main(Base):
         return parser.parse_known_args(args=prep_args(args))
 
     def activate_extension(self):
-        from IPython import get_ipython
         from doit import load_ipython_extension
+        from IPython import get_ipython
 
         shell = get_ipython()
         ns = shell.user_ns
         load_ipython_extension(shell)
         ns.update((k, getattr(self, k)) for k in dir(self) if k.startswith("task_"))
         ns.update(DOIT_CONFIG=DOIT_CONFIG)
+
+
+class Tasks(Base):
+    def doit(self):
+        """build the doit application by pulling tasks from the"""
+        from doit.cmd_base import ModuleTaskLoader
+        from doit.doit_cmd import DoitMain
+
+        tasks = dict((x, getattr(self, x)) for x in dir(self) if x.startswith("task_"))
+        tasks.update({"DOIT_CONFIG": DOIT_CONFIG})
+        return DoitMain(ModuleTaskLoader(tasks))
+
+    def commands(self):
+        """explore what doit knows"""
+        return self.doit().get_commands()
+
+    def do(self, x, **kwargs):
+        """create a cmd action that can be run from the api"""
+        return do(f"{self.conda} {x}", **kwargs)
 
 
 def prep_args(x):
