@@ -6,12 +6,11 @@ it should load extensions and retrolab.
 it should export a lite build.
 """
 
+from inspect import getmro
 from json import loads
 from os import environ
 from pathlib import Path
 from typing import List, Union
-
-from jupyter_accessibility.testing import AXE_TEMPLATE, DOIT_CONFIG
 
 from .dodo import Base, Field, Tasks, do, mv, rmdir
 
@@ -25,7 +24,18 @@ CI = bool(CI)
 HERE = Path()
 THIS = Path(__file__).parent
 
+AXE_TEMPLATE = THIS / "jupyter-axe"
 from doit.tools import create_folder
+
+
+def invoke_protocol(self, protocol):
+    t = type(self)
+
+    for cls in reversed(getmro(t)):
+        ns = vars(cls)
+        method = ns.get(protocol)
+        if method is not None:
+            yield from method(self)
 
 
 class Project(Tasks, Base):
@@ -117,7 +127,7 @@ class Project(Tasks, Base):
         # the meta task compiles individual tasks defined per repo/package
         # all the tasks have basename/name pairs so meta doesn't appear in the task list
         for x in self.repos.values():
-            yield from x.tasks()
+            yield from invoke_protocol(x, "tasks")
 
     def axe_results(self):
         """load axe results from the tests and show them as a data frame"""
@@ -125,26 +135,6 @@ class Project(Tasks, Base):
 
         files = list(self.test_results.rglob("axe-results.json"))
         return pandas.concat(dict(zip(files, map(pandas.read_json, files))))
-
-
-class Ext:
-    """a base class that allows us to compose different tasks based on project"""
-
-    # each asset in a build (jupyterlab, retrolab, lumino) has a specific source
-
-    _EXTENSIONS = None  # extension base classes define there own mapping ot manage
-
-    def __init_subclass__(cls, id=None):
-        if id:
-            cls._EXTENSIONS[id] = cls
-
-    def __new__(cls, *args, **kwargs):
-        repo = super(type, cls).__new__(cls)
-        repo.__init__(*args, **kwargs)
-        if cls in {Repo, Package} and repo.name in cls._EXTENSIONS:
-            # choose to make a poackage or repo
-            return super().__new__(cls._EXTENSIONS[repo.name])
-        return repo
 
 
 class Common(Base):
@@ -155,13 +145,35 @@ class Common(Base):
     conda: str = Field(None, description="the parent's conda prefix used to execute our tasks")
     dir: Path = Field(None, description="the parent's directory we are working in ")
 
+    def tests(self):
+        yield from ()
 
-class Package(Common, Ext):
+    def tasks(self):
+        yield from invoke_protocol(self, "tests")
+
+    _EXTENSIONS = None  # extension base classes define there own mapping ot manage
+
+    def __init_subclass__(cls, id=None):
+        if id:
+            # register a baseclass for a jupyter product
+            cls._EXTENSIONS[id] = cls
+
+    def __new__(cls, *args, **kwargs):
+        """the new method discovers the proper baseclass for the EXTENSION"""
+        repo = super(type, cls).__new__(cls)
+        repo.__init__(*args, **kwargs)
+        if cls in {Repo, Package} and repo.name in cls._EXTENSIONS:
+            # choose to make a poackage or repo
+            return super().__new__(cls._EXTENSIONS[repo.name])
+        return repo
+
+
+class Package(Common):
     """the base class of all packages
 
-    packages are built and available on package managers"""
+    packages are built and available on package managers. the id `jupyterlab` is the `jupyterlab` package in `pip`"""
 
-    _EXTENSIONS = {}
+    _EXTENSIONS = {}  # extension base classes define there own mapping ot manage
 
     def tasks(self):
         yield dict(
@@ -170,10 +182,6 @@ class Package(Common, Ext):
             actions=[do(f"{self.conda} python -m pip install {self.name}")],
             clean=[do(f"{self.conda} python -m pip uninstall -y {self.name}")],
         )
-        yield from self.tests()
-
-    def tests(self):
-        yield from ()
 
     def __post_init__(self):
         # propogate parent content to package
@@ -181,22 +189,23 @@ class Package(Common, Ext):
         self.conda = self.parent.conda
 
 
-class Repo(Common, Ext):
+PIP_BUILD_ENV = dict(
+    NODE_OPTS="--max-old-space-size=4096",
+    PIP_DISABLE_PIP_VERSION_CHECK="1",
+    # PIP_IGNORE_INSTALLED="1",
+    PIP_NO_BUILD_ISOLATION="1",
+    # PIP_NO_DEPENDENCIES="1",
+    PYTHONIOENCODING="utf-8",
+    PYTHONUNBUFFERED="1",
+)
+
+
+class Repo(Common):
     """the base class for all repos
 
     repos need instructions to build jupyter products, they are defined as doit tasks in each class.
+    these repos needed to be cloned, dev dependencies built.
     """
-
-    # the environment state for building a local jupyter package
-    BUILD_ENV = dict(
-        NODE_OPTS="--max-old-space-size=4096",
-        PIP_DISABLE_PIP_VERSION_CHECK="1",
-        # PIP_IGNORE_INSTALLED="1",
-        PIP_NO_BUILD_ISOLATION="1",
-        # PIP_NO_DEPENDENCIES="1",
-        PYTHONIOENCODING="utf-8",
-        PYTHONUNBUFFERED="1",
-    )
 
     _EXTENSIONS = {}
     url: str = Field(description="the url for the project pointing to a git repo")
@@ -311,7 +320,7 @@ class Repo(Common, Ext):
                 do(
                     f"{self.conda} python -m pip install -e.",  # many settings are held in the env
                     cwd=self.path,
-                    env=self.BUILD_ENV,
+                    env=PIP_BUILD_ENV,
                 ),
             ],
         )
@@ -321,7 +330,6 @@ class Repo(Common, Ext):
         # we need to clone before we can do anything
         # these have to happen afterwards. the order in the method has no bearing on the execution order
         yield self.yarn_install()
-        yield from self.tests()
 
     def get_repo(self, id):
         if isinstance(id, type):
@@ -330,13 +338,14 @@ class Repo(Common, Ext):
         return self.parent.repos[id]
 
 
-class PlayWright:
+class PlayWrightTests:
     def tests(self):
         target = self.dir / AXE_TEMPLATE.name
         yield dict(
             basename="test_setup",
             name="copy-templates",
             actions=[(mv, [AXE_TEMPLATE, target])],
+            clean=[(rmdir, [target])],
             uptodate=[target.exists()],
         )
         yield dict(
@@ -367,25 +376,39 @@ class PlayWright:
         )
 
 
-class JupyterLabPackage(Package, PlayWright, id="jupyterlab"):
+class JupyterApplication(Common, PlayWrightTests):
     pass
 
 
-class RetroLabPackage(JupyterLabPackage, PlayWright, id="retrolab"):
+class JupyterLabPackage(Package, JupyterApplication, id="jupyterlab"):
+    pass
+
+
+class RetroLabPackage(Package, JupyterApplication, id="retrolab"):
     """a class for the retrolab package from pypi"""
 
 
-class JupyterLab(Repo, PlayWright, id="jupyterlab"):
+class JupyterLabRepo(Repo, JupyterApplication, id="jupyterlab"):
     """a class for the jupyterlab package from pypi"""
 
     branch: str = "master"
 
     def tasks(self):
-        yield from super().tasks()
         if "lumino" in self.parent.repos:
             yield from self.parent.repos["lumino"].close_yarn_symlinks(self)
 
         yield self.pip_install()
+
+
+class RetroLabRepo(Repo, JupyterApplication, id="retrolab"):
+    """a class for the jupyterlab package from pypi"""
+
+    def tasks(self):
+        if "lumino" in self.parent.repos:
+            pass
+        if "jupyterlab" in self.parent.repos:
+            pass
+        yield from ()
 
 
 def get_name(id):
