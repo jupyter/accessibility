@@ -1,6 +1,6 @@
 from tempfile import mkdtemp
 
-c.ServerApp.port = 8888
+c.ServerApp.port = 8999
 c.ServerApp.port_retries = 0
 c.ServerApp.open_browser = False
 
