@@ -1,0 +1,13 @@
+image:
+  file: testing/tools/gitpod/Dockerfile
+ports:
+- port: 9323
+- port: 8888
+tasks:
+  - name: Install JupyterLab Node.js testing dependencies
+    before: |
+      cd testing/jupyterlab
+    init: |
+      yarn install
+    command: |
+      npx playwright install

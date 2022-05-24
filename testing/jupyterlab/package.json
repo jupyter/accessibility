@@ -1,0 +1,17 @@
+{
+  "name": "@jupyterlab/a11ytests",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Run automated accessibility checks against JupyterLab",
+  "license": "BSD-3-Clause",
+  "author": "Project Jupyter",
+  "scripts": {
+    "start": "jupyter lab --config ./jupyter_server_config.py",
+    "test": "playwright test",
+    "test:debug": "PWDEBUG=1 playwright test"
+  },
+  "dependencies": {
+    "@jupyterlab/galata": "4.0.2",
+    "expect-axe-playwright": "^2.2.0"
+  }
+}
