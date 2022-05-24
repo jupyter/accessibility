@@ -15,6 +15,7 @@ from typing import List, Union
 from .dodo import Base, Field, Tasks, do, mv, rmdir
 
 CI = environ.get("CI")
+GITPOD = "GITPOD_WORKSPACE_ID" in environ
 
 if (CI is True) or (CI == "true"):
     CI = True
@@ -338,7 +339,10 @@ class Repo(Common):
         return self.parent.repos[id]
 
 
+# documentation tests and unit tests would have different task specifications
 class PlayWrightTests:
+    """a mixin with playwright tests"""
+
     def tests(self):
         target = self.dir / AXE_TEMPLATE.name
         yield dict(
@@ -358,7 +362,11 @@ class PlayWrightTests:
             name="yarn",
             actions=[do(f"{self.conda} yarn install", cwd=target)],
         )
-        if CI:
+        if CI or GITPOD:
+            # i dont know how to measure the state of playwright browsers. this measure should go in the
+            # uptodate attribute of the task. currently, we're just using whatever logic. in theory, we could
+            # just run this and rely on whatever caching playwright does.
+            # why are there so many browsers?
             yield dict(
                 basename="test_setup",
                 name="playwright",
@@ -414,3 +422,7 @@ class RetroLabRepo(Repo, JupyterApplication, id="retrolab"):
 def get_name(id):
     """get the name of a thing from a the last bit of the url"""
     return id.rpartition("/")[2]
+
+
+class JupyterExtension:
+    """a placeholder class for jupyter extensions when we need to test them too."""
