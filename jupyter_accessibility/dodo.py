@@ -4,7 +4,7 @@ from shutil import copytree
 from pydantic import BaseModel, Field
 
 A11Y = Path().parent
-DOIT_CONFIG = dict(verbosity=2, list=dict(status=True, subtasks=True))
+DOIT_CONFIG = dict(verbosity=2, list=dict(status=True, subtasks=True), backend="json")
 
 
 def do(*args, cwd=A11Y, **kwargs):
