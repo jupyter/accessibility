@@ -1216,7 +1216,7 @@ Priority issues: https://github.com/jupyterlab/jupyterlab/issues/9399
 - Follow up about CodeMirror 6 (Isabela and Kevin)
 - Follow up about accessibility workshop [jupyter/accessibility #43](https://github.com/jupyter/accessibility/issues/43)
 
-## 06.16.21
+## 06.16.21 Meeting Minutes 
 ### Attendees
 - Oops! No one signed in.
 ### What are people working on?
@@ -1229,7 +1229,7 @@ Priority issues: https://github.com/jupyterlab/jupyterlab/issues/9399
 - Kevin and Cameron
     - Accessibility considerations in RTC commenting? 
 
-## 06.30.21
+## 06.30.21 Meeting Minutes 
 ### Attendees
 - Mike
 - Tony Fast - Quansight
@@ -1264,7 +1264,7 @@ Priority issues: https://github.com/jupyterlab/jupyterlab/issues/9399
 - Multiple skiplinks to different regions (Isabela to reach out to Jason)
 - Mike is going to look into color stuff? :)
 
-## 07.14.21
+## 07.14.21 Meeting Minutes 
 ### Attendees
 - Darian
 - Tony
@@ -1289,7 +1289,7 @@ Priority issues: https://github.com/jupyterlab/jupyterlab/issues/9399
 - Test documentation sprint on July 21 (Tony and Isabela) (and anyone else who wants to join!)
 - Review [jupyterlab #8832](https://github.com/jupyterlab/jupyterlab/issues/8832) and [jupyterlab #1008](https://github.com/jupyterlab/jupyterlab/issues/1008) for next steps on color contrast (Isabela)
 
-## 07.28.21
+## 07.28.21 Meeting Minutes 
 ### Attendees
 - Tony
 - Isabela
@@ -1320,7 +1320,7 @@ Priority issues: https://github.com/jupyterlab/jupyterlab/issues/9399
 - Review [jupyterlab #8832](https://github.com/jupyterlab/jupyterlab/issues/8832) and [jupyterlab #1008](https://github.com/jupyterlab/jupyterlab/issues/1008) for next steps on color contrast (Isabela)
 - Test documentation sprint with NumPy on July 28 (Tony and Isabela) (and anyone else who wants to join!)
 
-## 08.11.21
+## 08.11.21 Meeting Minutes 
 ### Attendees
 * Martha
 * Isabela
@@ -1351,7 +1351,7 @@ Priority issues: https://github.com/jupyterlab/jupyterlab/issues/9399
       - https://www.w3.org/TR/wai-aria-practices-1.1/#wai-aria-roles-states-and-properties-3
 ### Next steps
 
-## 08.25.21
+## 08.25.21 Meeting Minutes 
 ### Attendees
 - Nick
 - Martha
@@ -1385,7 +1385,7 @@ Priority issues: https://github.com/jupyterlab/jupyterlab/issues/9399
 - Ask Martha about explaining how accessibility needs to fit in to Jupyter (Isabela)
 - Follow up/finish alt text guide for workshop (Isabela)
 
-## 09.08.21
+## 09.08.21 Meeting Minutes 
 ### Attendees
 - Jason
 - Isabela
@@ -1405,7 +1405,8 @@ Priority issues: https://github.com/jupyterlab/jupyterlab/issues/9399
 - Formal announcement of accessibility workshops (Isabela and Tony)
 - Connect with other community workshop people (Isabela)
 
-## 09.22.21
+## 09.22.21 Meeting Minutes 
+
 ### Attendees
 - Martha
 - Mike
@@ -1430,7 +1431,8 @@ Priority issues: https://github.com/jupyterlab/jupyterlab/issues/9399
 ### Next Steps
 - Talk about CodeMirror 6 again at the beginning of October
 
-## 10.6.21
+## 10.6.21 Meeting Minutes 
+
 ### Attendees
 - Jason
 - Tony
@@ -1456,7 +1458,8 @@ Priority issues: https://github.com/jupyterlab/jupyterlab/issues/9399
     -  Kevin is interested in this and would like to work with others.
     -  Martha may also be able to help!
 
-## 10.20.21
+## 10.20.21 Meeting Minutes 
+
 ### Attendees
 - Tony
 - Jessica
@@ -1490,7 +1493,8 @@ Priority issues: https://github.com/jupyterlab/jupyterlab/issues/9399
 ### Next Steps
 - Follow up with Jenn about funding (Isabela+)
 
-## 11.03.21
+## 11.03.21 Meeting Minutes 
+
 ### Attendees
 - Jason
 - Martha
@@ -1543,7 +1547,7 @@ Priority issues: https://github.com/jupyterlab/jupyterlab/issues/9399
 - Frederic will check in with Johan about CodeMirror 6
 - Isabela will update the [JupyterLab accessibility project](https://github.com/orgs/jupyterlab/projects/1) to make sure it's ready for people to pick work off again.
 
-## 11.17.21
+## 11.17.21 Meeting Minutes 
 
 ### Attendees
 - Martha
@@ -1591,7 +1595,7 @@ Priority issues: https://github.com/jupyterlab/jupyterlab/issues/9399
         - Add another page "changelog" that lists what we have completed when things get moved off the roadmap.
         - Are there repository labels/tags that make sense to link to?
 
-## 12.01.21
+## 12.01.21 Meeting Minutes 
 
 ### Attendees
 
@@ -1629,7 +1633,7 @@ Priority issues: https://github.com/jupyterlab/jupyterlab/issues/9399
         - [sytlelint-scss/stylelint-scss  Rule idea: color-no-non-variables #4 ](https://github.com/stylelint-scss/stylelint-scss/issues/4)
         - [stylelint documentation's list of rules for color](https://stylelint.io/user-guide/rules/list/#color-1)
 
- ## 12.15.21
+## 12.15.21 Meeting Minutes 
 
 ### Attendees
 
@@ -1663,7 +1667,7 @@ Priority issues: https://github.com/jupyterlab/jupyterlab/issues/9399
     - [jupyterlab/jupyterlab PR #11658](https://github.com/jupyterlab/jupyterlab/pull/11658) is work on color contrast. I've gotten some review but there's lots to discuss.
     - Roadmap updates (for CZI grant reporting and community communication) based on all your feedback. You can review the PR [Quansight-Labs/jupyter-a11y-mgmt #60](https://github.com/Quansight-Labs/jupyter-a11y-mgmt/pull/60). When we get it cleaned up, it will go to jupyter/accessibility so it's more findable by the community.
 
-    ## 1.12.22
+## 1.12.22 Meeting Minutes 
 
 ### Attendees
 - tony
@@ -1708,7 +1712,7 @@ Some links in chat:
 - https://github.com/Zac-HD/hypothesis-jsonschema
 - https://testguild.com/python-automation-testing/
 
-## 1.26.22
+## 1.26.22 Meeting Minutes 
 
 ### Attendees
 - Isabela
@@ -1744,9 +1748,9 @@ Some links in chat:
 - Follow up on cross-community collaboration (Isabela, Jenn, Tony, Patrick)
 - Remove hardcoded css colors to improve the extensibility of the these (maybe Nick?)
 
-## 2.09.22
+## 2.09.22 Meeting Minutes 
 
-## Attendees
+### Attendees
 - Nick
 - Tony
 - Martha
@@ -1756,7 +1760,7 @@ Some links in chat:
 - Chadi
 - Isabela
 
-## What are people working on
+### What are people working on
 
 - Chadi
     - Interest in being assigned from existing issues
@@ -1787,9 +1791,9 @@ Some links in chat:
 - Isabela: Jupyter accessibility workshops in March!
     - Draft sprint topic is on auditing. Is there anything specific you'd all like to have covered? Are there any projects you'd like to propose we use for the sprint?
 
-## 2.23.22
+## 2.23.22 Meeting Minutes 
 
-## Attendees
+### Attendees
 - Tony
 - Ely
 - Gabriel
@@ -1797,7 +1801,7 @@ Some links in chat:
 - Nick
 - Jason
 
-## notes
+### notes
 
 * pdf accessibility https://www.section508.gov/create/pdfs/
 * stylelint-a11y https://github.com/YozhikM/stylelint-a11y
@@ -1806,15 +1810,15 @@ Some links in chat:
     * should we talk to people who are used to customizing colors?
     * an export button would be really good for someone who has spent a lot of time working on their own theme locally 
 
-## What are people working on
+### What are people working on
 
 * @tonyfast
     * reusable tasks for building jupyterlab, retrolab, lumino combinations.
     * turning [`jupyter/accessibility`](https://github.com/jupyter/accessibility) into a js/py packages
 
-## 3.9.22
+## 3.9.22 Meeting Minutes 
 
-## Attendees
+### Attendees
 - Martha
 - Tony
 - Jason W
@@ -1822,7 +1826,7 @@ Some links in chat:
 - Isabela
 - Gabriel
 
-## Agenda
+### Agenda
 - Gabriel
     - What do developers want/what would you all find helpful in the [jupyter/accessibility repo](https://github.com/jupyter/accessibility)
         - - People can give feedback and ideas later via issues (or PRs if you have something you want to contribute) on jupyter/accessibility.
@@ -1840,9 +1844,9 @@ Some links in chat:
 - Tony 
     - brings up discussion at [matplotlib/matplotlib #15971 Improve the accessibility of figures shown with `_repr_html_`](https://github.com/matplotlib/matplotlib/issues/15971#issuecomment-1062772917) around deprecation of `longdesc` and if there are ways this can be solved in a better experience and not only one-off tags.
 
-## 3.23.22
+## 3.23.22 Meeting Minutes 
 
-## Attendees
+### Attendees
 
 - Mike
 - Ely
@@ -1852,7 +1856,7 @@ Some links in chat:
 - Tania
 - Isabela
 
-## Agenda
+### Agenda
 
 Jupyter accessibility workshop resources! (First two events are up, but the last ones are pending. They will all link here.) [Jupyter accessibility workshops repo](https://github.com/Quansight-Labs/jupyter-accessibility-workshops/tree/main/events)
 
@@ -1873,14 +1877,14 @@ Jupyter governance and jupyter/accessibility. A discussion around what's happeni
     - Same but for continued vote/existence?
 - Pros and cons of each level. Summary is that it seems like there's more pros and no real cons on being a software project (long term). 
 
-## Next steps
+### Next steps
 
 - **TODO**: open an issue on jupyter/accessibility and use it as a RFD (request for discussion)/lazy voting and revisit in 2-4 weeks?
 - Isabela to follow up with Mike on asking the community for feedback on existing accessibility fixes.
 
-## 4.6.22
+## 4.6.22 Meeting Minutes 
 
-## Attendees
+### Attendees
 
 - Frederic
 - Nick
@@ -1896,7 +1900,7 @@ Jupyter governance and jupyter/accessibility. A discussion around what's happeni
 - Pooja
 - Isabela
 
-## What are people working on?
+### What are people working on?
 
 - Preston
     - Contributing guide questions https://github.com/jupyter/accessibility/issues/47
@@ -1927,21 +1931,21 @@ Jupyter governance and jupyter/accessibility. A discussion around what's happeni
     - tag people not necessarily accessibility involved if they know what's up
     - ask it in jupyterlab 
 
-## Next steps
+### Next steps
 
 - Follow up on accessibility fixes survey/feedback request (Isabela to Mike)
 - Follow up with Tania about last meeting's governance discussion (Isabela to Tania)
 - Three options for governance next steps and have people involved come to consensus (Isabela to create and tag people)
 
-## 4.20.22
+## 4.20.22 Meeting Minutes 
 
-## Attendees
+### Attendees
 
 - Gabriel F.
 - Nick
 - Isabela
 
-## What are people working on?
+### What are people working on?
 
 - Please vote on [jupyter/accessibility's status in the new Jupyter governance](https://github.com/jupyter/accessibility/issues/81) by midnight wherever you are today!
 
@@ -1975,15 +1979,15 @@ Jupyter governance and jupyter/accessibility. A discussion around what's happeni
 - https://github.com/jupyter-server/jupyter_releaser
 - https://pv.github.io/numpy-bench/
 
-## 5.04.22
+## 5.04.22 Meeting Minutes 
 
-## Attendees
+### Attendees
 
 - Martha
 - Isabela
 - Gabriel
 
-## What are people working on?
+### What are people working on?
 
 - Isabela
     - Governance follow up. We voted at [jupyter/accessibility #81](https://github.com/jupyter/accessibility/issues/81). Isabela needs to know how to move this forward.
@@ -1991,18 +1995,18 @@ Jupyter governance and jupyter/accessibility. A discussion around what's happeni
         - Feedback: documentation is the most valuable thing! 
         - Mentioned links: [Quansight-Labs/jupyter-a11y-mgmt #95 Scoping automated testing comment](https://github.com/Quansight-Labs/jupyter-a11y-mgmt/issues/95#issuecomment-1112427588) and [jupyter/accessibility #74 past draft PR for axe-core testing](https://github.com/jupyter/accessibility/pull/74).
 
-## Next steps
+### Next steps
 
 - The dream: updated galata documentation.😊
 - Follow up about governance status (Isabela)
 
-## 5.18.22
+## 5.18.22 Meeting Minutes 
 
-## Attendees
+### Attendees
 - Isabela
 - Martha
 
-## What are people working on?
+### What are people working on?
 - jupyter/accessibility is on its way to Subproject status! 🎉 PR is being voted on on [jupyter/governance #129](https://github.com/jupyter/governance/pull/129)
 - jupyter/accessibility automated testing has been updated! Changes are still being made, but there's a lot to show.
     - [jupyter/accessibility #83 Axe Gitpod JupyterLab](https://github.com/jupyter/accessibility/pull/83)
