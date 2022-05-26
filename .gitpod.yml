@@ -1,12 +1,13 @@
-image:
-  file: testing/tools/gitpod/Dockerfile
+image: quansight/jupyter-a11y:latest
 
 tasks:
   - name: Install JupyterLab Node.js testing dependencies
     init: |
       cd testing/jupyterlab
+      echo " 📦 Installing node dependencies "
       yarn install
       cd workspace/a11y
+      echo "🚀 All ready"
 
 # --------------------------------------------------------
 # exposing ports
