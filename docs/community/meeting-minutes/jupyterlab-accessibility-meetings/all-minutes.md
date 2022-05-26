@@ -1877,3 +1877,137 @@ Jupyter governance and jupyter/accessibility. A discussion around what's happeni
 
 - **TODO**: open an issue on jupyter/accessibility and use it as a RFD (request for discussion)/lazy voting and revisit in 2-4 weeks?
 - Isabela to follow up with Mike on asking the community for feedback on existing accessibility fixes.
+
+## 4.6.22
+
+## Attendees
+
+- Frederic
+- Nick
+- Jason
+- Darian
+- Martha
+- Ely
+- Gabriel
+- Mike
+- Preston
+- Tom
+- Rohit
+- Pooja
+- Isabela
+
+## What are people working on?
+
+- Preston
+    - Contributing guide questions https://github.com/jupyter/accessibility/issues/47
+    - Should this be specific to the repo (not general jupyter contrib)
+    - CI. what's the status (based on jupyterlab benchmarks repo)
+    - things that don't exist (another issue or what's happening?)
+    - Follow up on issue with some of these specifics.
+
+- Tom
+    - Has there been a date announced for when support for classic Notebook (as it is now) ends? This has to do with Notebook 7 release work.
+    - goal is to only support two versions simultaneously
+    - nbclassic package (notebook 6 ui written as jupyter server extension)
+    - https://github.com/jupyter/notebook-team-compass/issues/5#issuecomment-1085254000
+    - support for extension updates is a priority
+
+- Gabriel
+    - :tada: Not much to discuss, but I put up my first JupyterLab PR: [Add checkboxes to file browser #12299](https://github.com/jupyterlab/jupyterlab/pull/12299). 
+        - Small accessibility win; hopefully will lead to more
+
+- Darian
+    - Governance question re: [Working Group and Subproject brought up by Tania](https://github.com/jupyter/governance/issues/124)
+
+- Isabela
+    - Open question from me, what do you all want me to work on next?
+        - From notebook call: nbgrader importance; could use my attention
+        - "It just can't be worse than the existing nbgrader" :laughing: 
+    - If nothing else, can we go through the [JupyterLab accessibility project board?](https://github.com/orgs/jupyterlab/projects/1)
+    - tag people not necessarily accessibility involved if they know what's up
+    - ask it in jupyterlab 
+
+## Next steps
+
+- Follow up on accessibility fixes survey/feedback request (Isabela to Mike)
+- Follow up with Tania about last meeting's governance discussion (Isabela to Tania)
+- Three options for governance next steps and have people involved come to consensus (Isabela to create and tag people)
+
+## 4.20.22
+
+## Attendees
+
+- Gabriel F.
+- Nick
+- Isabela
+
+## What are people working on?
+
+- Please vote on [jupyter/accessibility's status in the new Jupyter governance](https://github.com/jupyter/accessibility/issues/81) by midnight wherever you are today!
+
+- Meeting this Friday, April 22: FAST-based JupyterLab UI toolkit. This is a discussion around [the proposal for a new JupyterLab UI toolkit](https://github.com/jupyterlab/team-compass/issues/143), which we've seen demo'ed for accessibility considerations. Show up or comment on the issue if you'd like to weigh in!
+
+- Isabela
+    - [isabela-pf/a11y-events Brainstorm list of event ideas](https://github.com/isabela-pf/a11y-events/issues/4)
+    - [Scoping automated testing steps](https://docs.google.com/spreadsheets/d/1mUmZevaEI1HwZQ0uF5Rjhb9mGEJ71RAkjj-Lxr3sLZw/edit?usp=sharing)
+
+- Gabriel
+    - A [plan for the next six weeks](https://github.com/Quansight-Labs/jupyter-a11y-mgmt/issues/97) that Quansight Labs is considering
+        - A number of learnings about **automated accessibility tests** has been rolled into that doc
+    - We are looking for pathways to contributions from other people - especially in this group
+
+- Nick
+    - [Model-based testing](https://en.wikipedia.org/wiki/Model-based_testing). Build a user model of somebody using the Jupyter test. A model is more interesting that a particular case because you get to weird error messages and corner cases that we need to test for.
+    - [A close example with stateful, property-based testing in Hypothesis](https://hypothesis.readthedocs.io/en/latest/stateful.html)
+    - Workflow is not to do this all thinking about it as a test, but more as a state and task combo (ie. I'm looking at a notebook and I want to )
+
+- on the subject of building up a language to create test plans (Isabela metaphor: magnetic fridge poetry)
+    - https://github.com/deathbeds/jupyterlab-outsource
+    - https://pypi.org/project/jupyterlite-robotkernel
+    - goal, action, goal, action, goal action (that's a human-readable way we can work with)
+    - https://github.com/robots-from-jupyter/robotframework-jupyterlibrary
+    - https://pypi.org/project/robot-axelibrary/
+    - https://github.com/ipython/traitlets/pull/705#issuecomment-1103958033
+
+- opt-in a11y checks - label on PR that goes into changelog
+
+- https://github.com/jupyterlab/maintainer-tools
+- https://github.com/jupyter-server/jupyter_releaser
+- https://pv.github.io/numpy-bench/
+
+## 5.04.22
+
+## Attendees
+
+- Martha
+- Isabela
+- Gabriel
+
+## What are people working on?
+
+- Isabela
+    - Governance follow up. We voted at [jupyter/accessibility #81](https://github.com/jupyter/accessibility/issues/81). Isabela needs to know how to move this forward.
+    - Testing updates! We're at the foundation level now, but thoughts on prioirities are welcome.
+        - Feedback: documentation is the most valuable thing! 
+        - Mentioned links: [Quansight-Labs/jupyter-a11y-mgmt #95 Scoping automated testing comment](https://github.com/Quansight-Labs/jupyter-a11y-mgmt/issues/95#issuecomment-1112427588) and [jupyter/accessibility #74 past draft PR for axe-core testing](https://github.com/jupyter/accessibility/pull/74).
+
+## Next steps
+
+- The dream: updated galata documentation.😊
+- Follow up about governance status (Isabela)
+
+## 5.18.22
+
+## Attendees
+- Isabela
+- Martha
+
+## What are people working on?
+- jupyter/accessibility is on its way to Subproject status! 🎉 PR is being voted on on [jupyter/governance #129](https://github.com/jupyter/governance/pull/129)
+- jupyter/accessibility automated testing has been updated! Changes are still being made, but there's a lot to show.
+    - [jupyter/accessibility #83 Axe Gitpod JupyterLab](https://github.com/jupyter/accessibility/pull/83)
+    - [jupyter/accessibility #84 Developer tooling for building/testing jupyter artifacts](https://github.com/jupyter/accessibility/pull/84)
+    - Isabela: Draft testing scripts (for new, task-style tests) on [a comment on quansight-labs/jupyter-a11y-mgmt #95](https://github.com/Quansight-Labs/jupyter-a11y-mgmt/issues/95#issuecomment-1118978913)
+    - [More info on axe-core tests]( https://github.com/dequelabs/axe-core/blob/develop/doc/rule-descriptions.md#wcag-21-level-a--aa-rules)
+- Isabela
+    - Learning and contributing event ideas to keep the community energy going. Rough draft agendas on [a series of comments on isabela-pf/a11y-events #4](https://github.com/isabela-pf/a11y-events/issues/4#issuecomment-1124536984) 
