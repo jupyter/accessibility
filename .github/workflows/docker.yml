@@ -9,7 +9,7 @@ on:
 
 jobs:
   build:
-    name: Build Gitpod Docker image 
+    name: Build Gitpod Docker image
     runs-on: ubuntu-latest
     environment: a11y-dev
     if: "github.repository_owner == 'Quansight-Labs' && !contains(github.event.head_commit.message, '[ci skip]') && !contains(github.event.head_commit.message, '[skip ci]') && !contains(github.event.head_commit.message, '[skip github]')"
@@ -21,8 +21,8 @@ jobs:
         uses: brpaz/hadolint-action@v1.2.1
         with:
           dockerfile: ./testing/tools/Dockerfile
-      
-      - name: Get refs 
+
+      - name: Get refs
         shell: bash
         run: |
           export raw_branch=${GITHUB_REF#refs/heads/}
@@ -30,7 +30,7 @@ jobs:
           echo "::set-output name=date::$(date +'%Y%m%d')"
           echo "::set-output name=sha8::$(echo ${GITHUB_SHA} | cut -c1-8)"
         id: getrefs
-      
+
       - name: Set up Docker Buildx 🐳
         uses: docker/setup-buildx-action@v2
 
@@ -53,6 +53,6 @@ jobs:
             quansight/jupyter-a11y:${{ steps.getrefs.outputs.date }}-${{ steps.getrefs.outputs.branch}}-${{ steps.getrefs.outputs.sha8 }}
             quansight/jupyter-a11y:latest
 
-      - name: Image digest
+      - name: Image digest 📖
         # Return details of the image build: sha and shell
         run: echo ${{ steps.docker_build.outputs.digest }}
