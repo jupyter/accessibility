@@ -11,28 +11,28 @@ tasks:
 # --------------------------------------------------------
 # exposing ports
 ports:
-- port: 9323
-- port: 8888
+  - port: 9323
+  - port: 8888
 
 # --------------------------------------------------------
-# using prebuilds for the container 
-# With this configuration the prebuild will happen on push to master 
+# using prebuilds for the container
+# With this configuration the prebuild will happen on push to master
 github:
   prebuilds:
     # enable for main/default branch
     master: true
-    # enable for other branches (defaults to false) 
-    branches: false 
-    # enable for pull requests coming from this repo (defaults to true) 
+    # enable for other branches (defaults to false)
+    branches: false
+    # enable for pull requests coming from this repo (defaults to true)
     # need to change
-    pullRequests: true
+    pullRequests: false
     # enable for pull requests coming from forks (defaults to false)
     pullRequestsFromForks: false
     # add a check to pull requests (defaults to true)
-    addCheck: false
+    addCheck: true
     # add a "Review in Gitpod" button as a comment to pull requests (defaults to false)
     # need to change
-    addComment: true
+    addComment: false
     # add a "Review in Gitpod" button to the pull request's description (defaults to false)
     addBadge: false
     # add a label once the prebuild is ready to pull requests (defaults to false)
