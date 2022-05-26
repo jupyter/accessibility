@@ -21,7 +21,7 @@
 FROM gitpod/workspace-base:2022-05-20-05-44-40
 
 # https://github.com/conda-forge/miniforge/releases
-ARG MAMBAFORGE_VERSION="4.12.0-0"
+ARG MAMBAFORGE_VERSION="4.10.0-0"
 ARG CONDA_ENV=a11y-tests
 # making this an argument for flexibility
 ARG JUPYTER_APP=jupyterlab
@@ -32,7 +32,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 ENV GITPOD_HOME=/home/gitpod \
     WORKSPACE=/workspace/a11y \
     USER=gitpod \
-    GITPOD_GIUD=3333
+    GITPOD_GIUD=33333
 
 ENV CONDA_DIR="${GITPOD_HOME}/mambaforge3" \
     SHELL=/bin/bash
@@ -99,7 +99,7 @@ RUN mamba env create -f /tmp/environment.yml && \
     rm -rf /tmp/*
 
 RUN fix_permissions "${CONDA_DIR}" && \ 
-    chown "${USER}:${GITPOD_GIUD}}" "${CONDA_DIR}" 
+    chown "${USER}:${GITPOD_GIUD}" "${CONDA_DIR}" 
 
 RUN conda activate ${CONDA_ENV} && \
     # Install node dependencies
