@@ -6,7 +6,7 @@
 
 What accessibility experience does this reference? This doesn't have to be WCAG. Update link to include reference.
 
-#### Proposed JupyterLab success criteria
+#### Proposed success criteria
 
 What needs to happen for it to be accessible? A 1–2 sentence statement describing the successful behavior.
 
