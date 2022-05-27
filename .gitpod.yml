@@ -7,14 +7,22 @@ tasks:
       echo " 📦 Installing node dependencies "
       yarn install
       npx playwright install
-      cd workspace/accessibility
-      echo "🚀 All ready"
+      echo "🚀 Dependencies installed "
+      cd /workspace/accessibility/
 
 # --------------------------------------------------------
 # exposing ports
 ports:
   - port: 9323
   - port: 8888
+
+# some useful extensions to have
+vscode:
+  extensions:
+    - eamodio.gitlens
+    - ms-python.python
+    - yzhang.markdown-all-in-one
+    - bungcip.better-toml
 
 # --------------------------------------------------------
 # using prebuilds for the container
@@ -36,6 +44,6 @@ github:
     # need to change
     addComment: false
     # add a "Review in Gitpod" button to the pull request's description (defaults to false)
-    addBadge: false
+    addBadge: true
     # add a label once the prebuild is ready to pull requests (defaults to false)
     addLabel: false
