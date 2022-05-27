@@ -6,7 +6,8 @@ tasks:
       cd testing/jupyterlab
       echo " 📦 Installing node dependencies "
       yarn install
-      cd workspace/a11y
+      npx playwright install
+      cd workspace/accessibility
       echo "🚀 All ready"
 
 # --------------------------------------------------------
