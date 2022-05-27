@@ -30,7 +30,6 @@ ARG JUPYTER_APP=jupyterlab
 # base HOME for all things in gitpod
 ENV DEBIAN_FRONTEND=noninteractive
 ENV GITPOD_HOME=/home/gitpod \
-    WORKSPACE=/workspace/a11y \
     USER=gitpod \
     GITPOD_GIUD=33333
 
