@@ -17,11 +17,13 @@ Jupyter accessibility contributors take the following measures to ensure accessi
 * Employ formal accessibility quality assurance methods.
 * Document changes, approaches, and improvements to the above methods and to JupyterLab itself.
 
+For more information on current efforts to improve JupyterLab's accessibility, visit the [JupyterLab accessibility grant roadmap](https://jupyter-a11y.netlify.app/roadmap/intro.html).
+
 ### Conformance status
 
 The [Web Content Accessibility Guidelines (WCAG)](https://www.w3.org/WAI/standards-guidelines/wcag) defines requirements for designers and developers to improve accessibility for people with disabilities. It defines three levels of conformance: Level A, Level AA, and Level AAA. JupyterLab is non conformant with WCAG 2.1 level AA. Non conformant means that the content does not meet the accessibility standard.
 
-[Picture accessibility compliance levels as mountains. The first peak to reach is AA. This includes both A and AA criteria. Behind it, in the mist, there is a larger peak, AAA. That one is not always completely reachable--Marie Guillaumet, Access42](https://stephaniewalter.design/wp-content/uploads/2022/05/stephaniewalter-sommets-de-l-accessibilite.jpg)
+![Picture accessibility compliance levels as mountains. The first peak to reach is AA. This includes both A and AA criteria. Behind it, in the mist, there is a larger peak, AAA. That one is not always completely reachable--Marie Guillaumet, Access42](https://stephaniewalter.design/wp-content/uploads/2022/05/stephaniewalter-sommets-de-l-accessibilite.jpg)
 
 *By [Stéphanie Walter](https://stephaniewalter.design) ([Source](https://stephaniewalter.design/blog/5-illustrations-to-understand-and-promote-accessibility/))*
 
@@ -33,6 +35,8 @@ We welcome your feedback and formal complaints on the accessibility status of Ju
 * [Write an issue on jupyterlab/jupyterlab](https://github.com/jupyterlab/jupyterlab/issues/new) and request it be labeled [tag:accessibility](https://github.com/jupyterlab/jupyterlab/labels/tag%3AAccessibility)
 
 At the time of writing, there is no non-public way to contact us for JupyterLab accessibility issues.
+
+Please note that JupyterLab is an open-source project and that Jupyter accessibility contributors are a group defined on a voluntary basis. Like many other open-source projects, we cannot guarantee how long it may take to respond to and resolve an issue, though we do make an effort to do it as quickly as is possible with our resources.
 
 ### Compatibility with browsers and assistive technology
 
@@ -82,4 +86,4 @@ User reports on JupyterLab's accessibility are available at:[the jupyterlab/jupy
 
 ### Date
 
-This statement was created on 16 May 2022 using the [W3C Accessibility Statement Generator Tool](https://www.w3.org/WAI/planning/statements/).
+This statement was created on 16 May 2022 using the [W3C Accessibility Statement Generator Tool](https://www.w3.org/WAI/planning/statements/) with additions and edits from the Jupyter accessibility contributors community.
