@@ -3,7 +3,7 @@
 ## Edited from the [W3C accessibility statement generator](https://www.w3.org/WAI/planning/statements/generator/#create)
 
 
-## ⚠️ Draft Accessibility Statement for JupyterLab
+## :construction: Draft Accessibility Statement for JupyterLab
 
 This is an accessibility statement from <span class="basic-information organization-name">Jupyter accessibility contributors</span>.
 
@@ -52,11 +52,11 @@ These technologies are relied upon for conformance with the accessibility standa
 
 Despite our best efforts to ensure accessibility of JupyterLab, there may be some limitations. Below is a description of known limitations, and potential solutions. Please contact us if you observe an issue not listed below.
 
-Known limitations for JupyterLab:
+**Known limitations for JupyterLab:**
 
-1. **Documents**: Documents writen by the community may not include accessible content because we do not and cannot review every document that can be opened in JupyterLab. To support accessible documents, we are drafting guidelines for accessible document content with an emphasis on Jupyter notebooks. Please report the issue to the author and [open an issue on jupyter/accessibility](https://github.com/jupyter/accessibility/issues/new) describing the problem and the behavior you expect so we may integrate it into our content guidelines.
+1. **Documents**: Documents written by the community may not include accessible content because we do not and cannot review every document that can be opened and edited in JupyterLab. To support accessible documents, we are drafting guidelines for accessible document content with an emphasis on Jupyter notebooks. Please report the issue to the author and [open an issue on jupyter/accessibility](https://github.com/jupyter/accessibility/issues/new) describing the problem and the behavior you expect so we may integrate it into our content guidelines.
     
-2. **JupyterLab extensions**: JupyterLab extensions writen by the community may not be accessible because JupyterLab extensions can be written by anyone in the community and have no required review process. We do not and can not review every JupyterLab extension. To support accessible extensions, we encourage extension authors to use existing, accessible JupyterLab components for their extension. We also  provide periodic opportunities for community education on accessibility. Please report the issue to the author and let them know the [jupyter/accessibility](https://github.com/jupyter/accessibility/) community may be able to provide guidance.
+2. **JupyterLab extensions**: JupyterLab extensions written by the community may not be accessible because JupyterLab extensions can be written by anyone in the community and have no standard review process. We do not and can not review every JupyterLab extension. To support accessible extensions, we encourage extension authors to use existing, accessible JupyterLab components for their extensions. We also provide periodic opportunities for community education on accessibility. Please report the issue to the author and let them know the [jupyter/accessibility](https://github.com/jupyter/accessibility/) community may be able to provide guidance.
 
 ### Assessment approach
 
@@ -64,13 +64,12 @@ Jupyter accessibility contributors assessed the accessibility of JupyterLab by t
 
 * Self-evaluation
 * Regular automated testing to monitor for regressions (can be found at [jupyter/accessibility](https://github.com/jupyter/accessibility)
-* User feedback</li>
+* User feedback
 
 ### Evaluation report
 
 An evaluation for JupyterLab is available at: [jupyterlab/jupyterlab/issues/9399](https://github.com/jupyterlab/jupyterlab/issues/9399).
 
-### Evaluation report
 
 User reports on JupyterLab's accessibility are available at:[the jupyterlab/jupyterlab label `tag:accessibility`](https://github.com/jupyterlab/jupyterlab/labels/tag%3AAccessibility).
 
