@@ -27,4 +27,4 @@ Where should this be tested? The second paragraph describes on what level of the
 | 9.  | | 
 | 10. | | 
 
-Scripts can have as many or as few steps as needed to complete the task. Some steps may not need expected behavior, but try to add expected behavior as consistently as possible.
+Scripts can have as many or as few steps as needed to complete the task. Some steps may not need expected behavior, but try to add expected behavior as it can help implementation.
