@@ -16,7 +16,7 @@ Where should this be tested? The second paragraph describes on what level of the
 
 | Step | Expected Behavior | 
 |-----|-----|
-| 1. What needs to happen to get from the beginning to the end? Steps are numbered | What happens if things go correctly? Expected behavior describes successful checkpoints for this step in the script.|
+| 1. What needs to happen to get from the beginning to the end? Steps are numbered. | What happens if things go correctly? Expected behavior describes successful checkpoints for this step in the script.|
 | 2.  | |
 | 3.  | | 
 | 4.  | |

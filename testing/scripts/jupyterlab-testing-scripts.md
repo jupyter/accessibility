@@ -22,7 +22,7 @@ This can be tested on the whole JupyterLab application.
 |-----|-----|
 | 1. Open default JupyterLab. | JupyterLab opens with unmodified workspace. |
 | 2. Set viewport orientation to portrait (And/or mobile viewport?). | JupyterLab accepts the orientation change and doesn't error out. |
-| 3. Check menu bar is in expected locatio.n |  Menu bar is at the top of the page and have all menu items visible (currently it has a scroll bar).| 
+| 3. Check menu bar is in expected location. |  Menu bar is at the top of the page and have all menu items visible (currently it has a scroll bar).| 
 | 4. Check left side bar is in expected location. | Left side bar is the leftmost part of the viewport . It stretches from the menu bar to status bar. All icons are visible. |
 | 5. Check document area is in expected location. | Document area is the center and majority of the viewport. |
 | 6. Check document area toolbar is in expected location. | The document area toolbar is at the top of the document area. All items are visible (currently it has a scroll bar).|
@@ -83,7 +83,7 @@ This can be tested on the whole JupyterLab application.
 
 #### Proposed JupyterLab success criteria
 
-In JupyterLab, a single task can be completed using mouse, keyboard, and touch screen inputs. This works even when completing a single continuous task.
+In JupyterLab, a single task can be completed using mouse, keyboard, and touch screen inputs. This works even when completing a single, continuous task.
 
 This can be tested on multiple regions of JupyterLab. For example, this script will test that JupyterLab can open a new notebook from the launcher with mouse, keyboard, and touch screen inputs.
 
