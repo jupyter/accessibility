@@ -2,6 +2,8 @@
 
 ## Template
 
+For examples of this template in use, please review the [JupyterLab Testing Scripts](jupyterlab-testing-scripts.md).
+
 ### [#.#.# - WCAG Title](https://www.w3.org/WAI/WCAG21/quickref/#)
 
 What accessibility experience does this reference? This doesn't have to be WCAG. Update link to include reference.

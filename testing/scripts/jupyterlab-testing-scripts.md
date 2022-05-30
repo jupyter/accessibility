@@ -6,6 +6,8 @@ Those unfamiliar with manual testing techniques may also find these scripts help
 
 Different scripts apply to different levels of JupyterLab (ie. the whole application versus a single extension). The ideal implementation of these tests is noted in their `Proposed JupyterLab success criteria` section.
 
+If you are writing a testing script, please review the [Testing Script Template](testing-script-template.md) for more information.
+
 ## Test proposals
 
 ### [1.3.4 - Orientation](https://www.w3.org/WAI/WCAG21/quickref/#orientation)
