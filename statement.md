@@ -3,7 +3,7 @@
 ## Edited from the [W3C accessibility statement generator](https://www.w3.org/WAI/planning/statements/generator/#create)
 
 
-## :construction: Draft Accessibility Statement for JupyterLab
+## 🚧 Draft Accessibility Statement for JupyterLab
 
 This is an accessibility statement from Jupyter accessibility contributors.
 
