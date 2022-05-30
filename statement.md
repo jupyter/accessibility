@@ -27,12 +27,15 @@ The [Web Content Accessibility Guidelines (WCAG)](https://www.w3.org/WAI/standar
 
 *By [Stéphanie Walter](https://stephaniewalter.design) ([Source](https://stephaniewalter.design/blog/5-illustrations-to-understand-and-promote-accessibility/))*
 
+JupyterLab's accessibility does not exist in isolation. JupyterLab inherits much from the many projects it is built upon and its accessibility conformance may impact projects built off of JupyterLab or its components. The accessibility of this ecosystem is interlinked, so conformance may need to be resolved at different levels in order to impact JupyterLab positively.
+
 ### Feedback and Formal complaints
 
 We welcome your feedback and formal complaints on the accessibility status of JupyterLab. Please let us know if you encounter accessibility barriers on JupyterLab:
 
 * [Write an issue on jupyter/accessibility](https://github.com/jupyter/accessibility/issues/new)
 * [Write an issue on jupyterlab/jupyterlab](https://github.com/jupyterlab/jupyterlab/issues/new) and request it be labeled [tag:accessibility](https://github.com/jupyterlab/jupyterlab/labels/tag%3AAccessibility)
+* If you are interested in being part of any potential research or organized feedback initiatives, please ___. Gauging community interest in user research participation helps us gain the support to make it happen.
 
 At the time of writing, there is no non-public way to contact us for JupyterLab accessibility issues.
 
