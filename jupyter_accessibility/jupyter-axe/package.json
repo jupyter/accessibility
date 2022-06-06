@@ -1,6 +1,6 @@
 {
   "name": "@retrolab/a11ytests",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "private": true,
   "description": "Run automated accessibility checks against RetroLab",
   "license": "BSD-3-Clause",
