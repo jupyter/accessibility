@@ -15,7 +15,7 @@ class BaseClass(BaseModel):
         # we were using dataclasses, but pydantic's better.
         getattr(self, "__post_init__", lambda: None)()
 
-Base = BaseClass
+Base = BaseClass # remove once transition is complere
 
 def do(*args, cwd=A11Y, **kwargs):
     """wrap a Action for consistency"""
@@ -131,8 +131,6 @@ class Tasks(Base):
 
 
 def prep_args(x):
-    if x is None:
-        return x
     if isinstance(x, str):
         from shlex import split
 
