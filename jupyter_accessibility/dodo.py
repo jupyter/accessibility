@@ -1,7 +1,7 @@
 from pathlib import Path
 from shutil import copytree
 
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 
 A11Y = Path().parent
 DOIT_CONFIG = dict(verbosity=2, list=dict(status=True, subtasks=True), backend="json")
