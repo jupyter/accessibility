@@ -12,7 +12,7 @@ from os import environ
 from pathlib import Path
 from typing import List, Union
 
-from .dodo import Base, Field, Tasks, do, mv, rmdir
+from .dodo import Base, Field, Tasks, do, move_directory, remove_directory
 
 CI = environ.get("CI")
 GITPOD = "GITPOD_WORKSPACE_ID" in environ
@@ -121,7 +121,7 @@ class Project(Tasks, Base):
                 do(f"{self.conda} python -m pip install pip --upgrade"),
             ],
             uptodate=[self.prefix.exists()],
-            clean=[(rmdir, [self.prefix])],
+            clean=[(remove_directory, [self.prefix])],
         ) or dict(name="conda", actions=None)
 
     def task_meta(self):
@@ -348,8 +348,8 @@ class PlayWrightTests:
         yield dict(
             basename="test_setup",
             name="copy-templates",
-            actions=[(mv, [AXE_TEMPLATE, target])],
-            clean=[(rmdir, [target])],
+            actions=[(move_directory, [AXE_TEMPLATE, target])],
+            clean=[(remove_directory, [target])],
             uptodate=[target.exists()],
         )
         yield dict(

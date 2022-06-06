@@ -1,11 +1,21 @@
 from pathlib import Path
 from shutil import copytree
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel
 
 A11Y = Path().parent
 DOIT_CONFIG = dict(verbosity=2, list=dict(status=True, subtasks=True), backend="json")
 
+
+# a pydantic basemodel that allows for dataclass-like post init conventions.
+class BaseClass(BaseModel):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        # add post init behavior because its a nice pattern and helps post initialize.
+        # we were using dataclasses, but pydantic's better.
+        getattr(self, "__post_init__", lambda: None)()
+
+Base = BaseClass
 
 def do(*args, cwd=A11Y, **kwargs):
     """wrap a Action for consistency"""
@@ -17,11 +27,11 @@ def do(*args, cwd=A11Y, **kwargs):
     if len(args) == 1:
         args = split(args[0])
     kwargs.setdefault("env", {})
-    kwargs["env"] = {**kwargs["env"], **environ}
+    kwargs["env"] = {**environ, **kwargs["env"]}
     return CmdAction(list(map(str, args)), shell=False, cwd=str(Path(cwd).resolve()), **kwargs)
 
 
-def rmdir(*dir):
+def remove_directory(*dir):
     """remove a directory during the clean stage"""
     from shutil import rmtree
 
@@ -30,20 +40,14 @@ def rmdir(*dir):
         print(f"removed directory: {dir}")
 
 
-def mv(src, target):
+def move_directory(src, target):
 
     copytree(src, target, dirs_exist_ok=True)
 
 
-class Base(BaseModel):
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        # add post init behavior because its a nice pattern and helps post initialize.
-        # we were using dataclasses, but pydantic's better.
-        getattr(self, "__post_init__", lambda: None)()
 
 
-class Main(Base):
+class Main(BaseClass):
     """Main orchestrates the building and testing of jupyter products.
 
     It initializes the project and invokes the primary doit application."""
