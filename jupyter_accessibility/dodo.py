@@ -67,7 +67,6 @@ class Main(BaseClass):
 
     def main(self, args=None, standalone=False):
         """invoke the doit application through an interactive api."""
-        self.setup_project()
         try:
             self.project.doit().run(prep_args(args))
         except standalone and SystemExit or () as e:
