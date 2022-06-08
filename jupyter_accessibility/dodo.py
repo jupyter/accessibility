@@ -4,7 +4,9 @@ from shutil import copytree
 from pydantic import BaseModel, Field
 
 A11Y = Path().parent
-DOIT_CONFIG = dict(verbosity=2, list=dict(status=True, subtasks=True), backend="json")
+DOIT_CONFIG = dict(
+    verbosity=2, list=dict(status=True, subtasks=True), backend="json", dep_file=".jp-tasks.json"
+)
 
 
 # a pydantic basemodel that allows for dataclass-like post init conventions.
@@ -15,7 +17,9 @@ class BaseClass(BaseModel):
         # we were using dataclasses, but pydantic's better.
         getattr(self, "__post_init__", lambda: None)()
 
-Base = BaseClass # remove once transition is complere
+
+Base = BaseClass  # remove once transition is complere
+
 
 def do(*args, cwd=A11Y, **kwargs):
     """wrap a Action for consistency"""
@@ -43,8 +47,6 @@ def remove_directory(*dir):
 def move_directory(src, target):
 
     copytree(src, target, dirs_exist_ok=True)
-
-
 
 
 class Main(BaseClass):
