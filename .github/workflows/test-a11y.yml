@@ -18,17 +18,20 @@ jobs:
         with:
           auto-activate-base: true
           activate-environment: ""
-      - name: Install dependencies
-        run: |
-          pwd
-          python -m pip install -e .
-          python -m jupyter_accessibility -i retrolab -- list
-          python -m jupyter_accessibility -i retrolab -- env
-          python -m jupyter_accessibility -i retrolab -- setup
-          python -m jupyter_accessibility -i retrolab -- test_setup
-          python -m jupyter_accessibility -i retrolab -- test
-
-      - name: Archive code coverage results
+      - name: install development dependencies
+        run: python -m pip install -e .
+      - name: list jupyter build tasks
+        run: python -m jupyter_accessibility -i jupyterlab -- list
+          
+      - name: establish the runtime systems for the builds
+        run: python -m jupyter_accessibility -i jupyterlab -- env
+      - name: setup the development content for building
+        run: python -m jupyter_accessibility -i jupyterlab -- setup
+      - name: setup the testing environments
+        run: python -m jupyter_accessibility -i jupyterlab -- test_setup
+      - name: run tests against the build
+        run: python -m jupyter_accessibility -i jupyterlab -- test
+      - name: upload testing results
         uses: actions/upload-artifact@v3
         with:
           name: a11y-test-results
