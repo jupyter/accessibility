@@ -101,16 +101,6 @@ class Main(BaseClass):
         parser = cls.get_parser()
         return parser.parse_known_args(args=prep_args(args))
 
-    def activate_extension(self):
-        from doit import load_ipython_extension
-        from IPython import get_ipython
-
-        shell = get_ipython()
-        ns = shell.user_ns
-        load_ipython_extension(shell)
-        ns.update((k, getattr(self, k)) for k in dir(self) if k.startswith("task_"))
-        ns.update(DOIT_CONFIG=DOIT_CONFIG)
-
 
 class Tasks(Base):
     def doit(self):
