@@ -90,7 +90,7 @@ class Main(BaseClass):
         from argparse import ArgumentParser
 
         parser = ArgumentParser("builder")
-        parser.add_argument("-i", "--ids", default=["retrolab"], help="repository ids", nargs="*")
+        parser.add_argument("-i", "--ids", default=["jupyterlab"], help="repository ids", nargs="*")
         parser.add_argument(
             "-d", "--dir", default=Path("jupyter-ally-build"), help="the build directory", type=Path
         )

@@ -1,21 +1,22 @@
+// playwright.config.ts
 import galataConfig from "@jupyterlab/galata/lib/playwright-config";
 import { PlaywrightTestConfig, devices } from "@playwright/test";
-// playwright.config.ts
-import { expect } from '@playwright/test'
-import { matchers } from 'expect-axe-playwright'
+import { expect } from "@playwright/test";
+import matchers from "expect-axe-playwright";
 
-expect.extend(matchers)
-// modified from https://github.com/MarcusFelling/demo.playwright/blob/main/accessibility/playwright.config.ts
+expect.extend(matchers);
+
 /**
+ * Modified from https://github.com/MarcusFelling/demo.playwright/blob/main/accessibility/playwright.config.ts
  * See https://playwright.dev/docs/test-configuration.
  */
 const config: PlaywrightTestConfig = {
   ...galataConfig,
 
-  testDir: "./test",
+  testDir: "./tests",
 
   /* Maximum time one test can run for. */
-  timeout: 60 * 1000,
+  timeout: 20 * 1000,
 
   expect: {
     /**
@@ -35,9 +36,7 @@ const config: PlaywrightTestConfig = {
   workers: process.env.CI ? 1 : undefined,
 
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: [
-    ['json', {  outputFile: 'main-test-results.json' }]
-  ],
+  reporter: "html",
 
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
@@ -45,17 +44,23 @@ const config: PlaywrightTestConfig = {
     actionTimeout: 0,
 
     /* Base URL to use in actions like `await page.goto('/')`. */
-    baseURL: "http://localhost:8999",
+    // baseURL: process.env.BASEURL,
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: "on",
 
     acceptDownloads: true,
 
-    // from RetroLab's playwright.config: https://github.com/jupyterlab/retrolab/blob/main/ui-tests/playwright.config.ts
-    appPath: "/retro",
-
     video: "retain-on-failure",
+
+    axeOptions: {
+      runOnly: {
+        type: "tag",
+        // all tags and standards listed here:
+        // https://www.deque.com/axe/core-documentation/api-documentation/#axe-core-tags
+        values: ["wcag2a", "best-practice"],
+      },
+    },
   },
 
   /* Configure projects for major browsers */
@@ -68,22 +73,9 @@ const config: PlaywrightTestConfig = {
         ...devices["Desktop Chrome"],
       },
     },
-
-    // {
-    //   name: "firefox",
-    //   use: {
-    //     ...devices["Desktop Firefox"],
-    //   },
-    // },
-
-    // {
-    //   name: "webkit",
-    //   use: {
-    //     ...devices["Desktop Safari"],
-    //   },
-    // },
   ],
 
+  /* Run a server. The tests will open urls to this server in the browser. */
   webServer: {
     command: "yarn start",
     port: 8999,

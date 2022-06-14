@@ -1,6 +1,6 @@
 {
   "name": "@jupyterlab/a11ytests",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "private": true,
   "description": "Run automated accessibility checks against JupyterLab",
   "license": "BSD-3-Clause",
@@ -12,6 +12,6 @@
   },
   "dependencies": {
     "@jupyterlab/galata": "4.0.2",
-    "expect-axe-playwright": "^2.2.0"
+    "expect-axe-playwright": "gabalafou/expect-axe-playwright"
   }
 }
