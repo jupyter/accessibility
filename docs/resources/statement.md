@@ -1,4 +1,4 @@
-# `jupyter` accessibility statement
+# `jupyter` accessibility statements
 
 
 ## `jupyter` audits
@@ -16,6 +16,10 @@ This is an accessibility statement from Jupyter accessibility contributors.
 
 ### The current state of JupyterLab
 
+Jupyter accessibility statements are living documents. This statement was created on 16 May 2022 using the [W3C Accessibility Statement Generator Tool](https://www.w3.org/WAI/planning/statements/) with additions and edits from the Jupyter accessibility contributors community.
+
+This statement was last updated 16 June 2022.
+
 #### Conformance status
 
 The [Web Content Accessibility Guidelines (WCAG)](https://www.w3.org/WAI/standards-guidelines/wcag) defines requirements for designers and developers to improve accessibility for people with disabilities. It defines three levels of conformance: Level A, Level AA, and Level AAA. JupyterLab is non conformant with WCAG 2.1 level AA. Non conformant means that the content does not meet the accessibility standard.
@@ -28,13 +32,40 @@ JupyterLab's accessibility does not exist in isolation. JupyterLab inherits much
 
 #### Compatibility with browsers and assistive technology
 
-JupyterLab is designed to be compatible with the following technologies:
+JupyterLab is designed to be compatible with the following
 
-* Windows, macOS, iOS, Android; Firefox, Chrome, Safari, Chromium browsers (mobile and desktop).
+Operating systems:
+
+* Windows 
+* macOS
+* Linux
+* iOS
+* Android
+
+Browsers (mobile and desktop):
+
+ * Firefox
+ * Chrome
+ * Safari
+ * Chromium browsers
 
 JupyterLab is not compatible with:
 
-* Internet Explorer, Edge; JAWS, NVDA, VoiceOver, Narrator, Orca screen readers; voice control technology.
+Operating systems:
+
+Browsers (mobile and desktop):
+
+* Internet Explorer
+* Edge
+
+Assistive technology:
+
+* JAWS
+* NVDA
+* VoiceOver
+* Narrator
+* Orca screen readers
+* voice control technology
 
 #### Technical specifications
 
@@ -96,10 +127,6 @@ We welcome your feedback and formal complaints on the accessibility status of Ju
 At the time of writing, there is no non-public way to contact us for JupyterLab accessibility issues.
 
 Please note that JupyterLab is an open-source project and that Jupyter accessibility contributors are a group defined on a voluntary basis. Like many other open-source projects, we cannot guarantee how long it may take to respond to and resolve an issue, though we do make an effort to do it as quickly as is possible with our resources.
-
-### Date
-
-This statement was created on 16 May 2022 using the [W3C Accessibility Statement Generator Tool](https://www.w3.org/WAI/planning/statements/) with additions and edits from the Jupyter accessibility contributors community.
 
 ## Accessibility Statement for Jupyter Notebook
 
