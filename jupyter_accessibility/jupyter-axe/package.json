@@ -12,6 +12,6 @@
   },
   "dependencies": {
     "@jupyterlab/galata": "4.0.2",
-    "expect-axe-playwright": "gabalafou/expect-axe-playwright"
+    "expect-axe-playwright": "gabalafou/expect-axe-playwright#f8af64b"
   }
 }
