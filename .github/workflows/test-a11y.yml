@@ -1,6 +1,6 @@
 name: a11y tests
 
-on: [push, pull_request]
+on: [workflow_dispatch, push, pull_request]
 
 jobs:
   build:
@@ -36,6 +36,8 @@ jobs:
         with:
           name: a11y-test-results
           path: |
+            jupyter-ally-build/jupyter-axe/test-results/*.html
+            jupyter-ally-build/jupyter-axe/test-results/**/*.html
             jupyter-ally-build/jupyter-axe/test-results/*.json
             jupyter-ally-build/jupyter-axe/test-results/**/*.json
 
