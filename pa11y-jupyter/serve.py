@@ -1,3 +1,6 @@
+# Copyright (c) Jupyter Development Team.
+# Distributed under the terms of the Modified BSD License.
+
 """ a minimal static server, primarily for performing audits
 
     ************************* DO NOT USE IN PRODUCTION *************************
@@ -11,7 +14,6 @@
     - `autoreload` is enabled for convenient modification of the test
       infrastructure, and to help verify in logs that the system-under-test is
       not changing.
-
     - `compress_response` is enabled to reduce false positives from auditing
       tools which expect "production" deployments, difficult to achieve and
       secure on a desktop computer.
@@ -21,9 +23,7 @@
 from tornado import ioloop, web, options
 
 options.define("port", default=8080, help="port to listen on")
-options.define(
-    "host", default="127.0.0.1", help="host interface to connect on (0.0.0.0 is all)"
-)
+options.define("host", default="127.0.0.1", help="host interface to connect on (0.0.0.0 is all)")
 options.define("path", help="the files to serve")
 
 SETTINGS = dict(
@@ -76,6 +76,4 @@ def main(path, port, host):
 
 if __name__ == "__main__":
     options.parse_command_line()
-    main(
-        path=options.options.path, port=options.options.port, host=options.options.host
-    )
+    main(path=options.options.path, port=options.options.port, host=options.options.host)

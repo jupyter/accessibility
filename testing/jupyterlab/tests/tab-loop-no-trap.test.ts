@@ -1,3 +1,6 @@
+// Copyright (c) Jupyter Development Team.
+// Distributed under the terms of the Modified BSD License.
+
 /**
  * This test checks whether a user, starting from the top and only pressing the
  * tab key, can tab through the entire app and return to where they started.

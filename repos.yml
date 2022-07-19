@@ -1,3 +1,6 @@
+# Copyright (c) Jupyter Development Team.
+# Distributed under the terms of the Modified BSD License.
+
 # these are some repos we want to check out and test against.
 # these aren't submodules, so that they can be easily updated from the web UI
 repos:
