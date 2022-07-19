@@ -1,0 +1,28 @@
+# pre-commit is a tool to perform a predefined set of tasks manually and/or
+# automatically before git commits are made.
+#
+# Config reference: https://pre-commit.com/#pre-commit-configyaml---top-level
+#
+# Common tasks
+#
+# - Run on all files:   pre-commit run --all-files
+# - Register git hooks: pre-commit install --install-hooks
+#
+repos:
+  # Autoformat: markdown, yaml to ensure that it doesn't need to be updated in other repos
+  - repo: https://github.com/pre-commit/mirrors-prettier
+    rev: v2.6.1
+    hooks:
+      - id: prettier
+
+  # Misc...
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.0.1
+    # ref: https://github.com/pre-commit/pre-commit-hooks#hooks-available
+    hooks:
+      # Autoformat: Makes sure files end in a newline and only a newline
+      - id: end-of-file-fixer
+
+      # Trims trailing whitespace.
+      - id: trailing-whitespace
+        args: [--markdown-linebreak-ext=md]
