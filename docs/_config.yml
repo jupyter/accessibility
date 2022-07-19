@@ -1,7 +1,8 @@
 title: Jupyter Accessibility
 copyright: 2021-2022, Jupyter Team
 author: Jupyter Team
-exclude_patterns: [.nox, source, meeting-minutes/jupyterlab-accessibility-meetings/20*.md]
+exclude_patterns:
+  [.nox, source, meeting-minutes/jupyterlab-accessibility-meetings/20*.md]
 only_build_toc_files: true
 logo: docs/_static/logo.png
 html:

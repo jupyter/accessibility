@@ -1,4 +1,4 @@
-name: a11y tests
+name: Run a11y tests
 
 on: [workflow_dispatch, push, pull_request]
 
@@ -6,32 +6,35 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2 
-        name: Fetch all history for all tags and branches
+      - name: Fetch all history for all tags and branches 🔔
+        uses: actions/checkout@v3
         with:
           fetch-depth: 0
-      - name: Set up Python
+      - name: Set up Python 🐍
         uses: actions/setup-python@v3
         with:
           python-version: 3.9
-      - uses: conda-incubator/setup-miniconda@v2
+      - name: Setup miniconda 🐍
+        uses: conda-incubator/setup-miniconda@v2
         with:
           auto-activate-base: true
           activate-environment: ""
-      - name: install development dependencies
+      - name: Install development dependencies 📦
         run: python -m pip install -e .
-      - name: list jupyter build tasks
+
+      # From here own we are using our testing package
+      - name: List jupyter build tasks 🔍
         run: python -m jupyter_accessibility -i jupyterlab -- list
-          
-      - name: establish the runtime systems for the builds
+      - name: Establish the runtime systems for the builds
         run: python -m jupyter_accessibility -i jupyterlab -- env
-      - name: setup the development content for building
+      - name: Setup the development content for building
         run: python -m jupyter_accessibility -i jupyterlab -- setup
-      - name: setup the testing environments
+      - name: Setup the testing environments
         run: python -m jupyter_accessibility -i jupyterlab -- test_setup
-      - name: run tests against the build
+      - name: Run tests against the build
         run: python -m jupyter_accessibility -i jupyterlab -- test
-      - name: upload testing results
+      # The defaul retention policy is 90 days so that should be enough for now
+      - name: Upload testing results
         uses: actions/upload-artifact@v3
         with:
           name: a11y-test-results
@@ -40,4 +43,3 @@ jobs:
             jupyter-ally-build/jupyter-axe/test-results/**/*.html
             jupyter-ally-build/jupyter-axe/test-results/*.json
             jupyter-ally-build/jupyter-axe/test-results/**/*.json
-

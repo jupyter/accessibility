@@ -97,8 +97,8 @@ RUN mamba env create -f /tmp/environment.yml && \
     conda clean --all -f -y && \
     rm -rf /tmp/*
 
-RUN fix_permissions "${CONDA_DIR}" && \ 
-    chown "${USER}:${GITPOD_GIUD}" "${CONDA_DIR}" 
+RUN fix_permissions "${CONDA_DIR}" && \
+    chown "${USER}:${GITPOD_GIUD}" "${CONDA_DIR}"
 
 RUN conda activate ${CONDA_ENV} && \
     # Install node dependencies

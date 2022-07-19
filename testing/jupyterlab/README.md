@@ -27,32 +27,32 @@ by modifying the [`playwright.config.ts`](testing/jupyterlab/playwright.config.t
 
 1. Make sure you are in the correct directory:
 
-    ```bash
-    cd testing/jupyterlab
-    ```
+   ```bash
+   cd testing/jupyterlab
+   ```
 
 2. Install the Python dependencies:
 
-    ```bash
-    # if using conda
-    conda env create -f environment.yml
+   ```bash
+   # if using conda
+   conda env create -f environment.yml
 
-    # if using mamba
-    mamba env create -f environment.yml
-    ```
+   # if using mamba
+   mamba env create -f environment.yml
+   ```
 
 3. Install the Node.js dependencies:
 
-    ```bash
-    yarn install
-    npx playwright install
-    ```
+   ```bash
+   yarn install
+   npx playwright install
+   ```
 
 4. Run the tests:
 
-    ```bash
-    yarn test
-    ```
+   ```bash
+   yarn test
+   ```
 
 Your console should output a local URL that you can open in your browser to see
 the test results: typically <http://127.0.0.1:9323>

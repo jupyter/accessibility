@@ -4,8 +4,8 @@ contact_links:
     url: https://github.com/orgs/jupyterlab/projects/1
     about: Keep up to date with the accessibility work within the Jupyter ecosystem
   - name: 💬  - A11y discussion in the broader community
-    url: https://discourse.jupyter.org/c/special-topics/accessibility 
+    url: https://discourse.jupyter.org/c/special-topics/accessibility
     about: Check out the accessibility section of the community forum for ongoing conversations and brainstorms around accessibility in the Jupyter ecosystem
-  - name: 💬  - Visit the repo's discussions 
+  - name: 💬  - Visit the repo's discussions
     url: https://github.com/jupyter/accessibility/discussions
     about: Ask questions about all things accesibility or help others asking questions

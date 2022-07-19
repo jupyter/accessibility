@@ -16,17 +16,17 @@ Where should this be tested? The second paragraph describes on what level of the
 
 #### Proposed testing script
 
-| Step | Expected Behavior | 
-|-----|-----|
-| 1. What needs to happen to get from the beginning to the end? Steps are numbered. | What happens if things go correctly? Expected behavior describes successful checkpoints for this step in the script.|
-| 2.  | |
-| 3.  | | 
-| 4.  | |
-| 5.  | |
-| 6.  | |
-| 7.  | |
-| 8.  | |
-| 9.  | | 
-| 10. | | 
+| Step                                                                              | Expected Behavior                                                                                                    |
+| --------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| 1. What needs to happen to get from the beginning to the end? Steps are numbered. | What happens if things go correctly? Expected behavior describes successful checkpoints for this step in the script. |
+| 2.                                                                                |                                                                                                                      |
+| 3.                                                                                |                                                                                                                      |
+| 4.                                                                                |                                                                                                                      |
+| 5.                                                                                |                                                                                                                      |
+| 6.                                                                                |                                                                                                                      |
+| 7.                                                                                |                                                                                                                      |
+| 8.                                                                                |                                                                                                                      |
+| 9.                                                                                |                                                                                                                      |
+| 10.                                                                               |                                                                                                                      |
 
 Scripts can have as many or as few steps as needed to complete the task. Some steps may not need expected behavior, but try to add expected behavior as it can help implementation.
