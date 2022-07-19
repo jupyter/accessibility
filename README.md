@@ -10,7 +10,9 @@ These core user-facing software include:
 - [JupyterLab](https://github.com/jupyterlab/jupyterlab)
 - [JupyterHub](https://github.com/jupyterhub/jupyterhub)
 
-**Important notice: as of March 2019 this software is not accessible.** Significant work will be required to reach that goal.
+> **Important notice**
+> As of March 2019 this software **is not accessible.**
+> Significant work will be required to reach that goal.
 
 If you are trying to use Jupyter tools with assistive technology now, you may be able to get basic support with the following:
 
@@ -47,3 +49,16 @@ One of our goals is to collect information about accessibility and create docume
 - [18F Accessibility Guide](https://accessibility.18f.gov/)
 - [The tota11y toolbar](https://khan.github.io/tota11y/) is a lightweight Javascript toolbar for quick a11y analysis.
 - [The WAVE tool](http://wave.webaim.org/report#/http://z2jh.jupyter.org/) is a web analyzer for page accessibility.
+
+## :broom: Pre-commit hooks
+
+This repository uses the `prettier` pre-commit hook to standardize our YAML and markdown structure.
+To install and run it, use these commands from the repository root:
+
+```bash
+# install the pre-commit hooks
+pre-commit install
+
+# run the pre-commit hooks
+pre-commit run --all-files
+```
