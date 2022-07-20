@@ -1,4 +1,4 @@
-# Jupyter Book 
+# Jupyter Book
 _build
 
 # Byte-compiled / optimized / DLL files
@@ -131,3 +131,6 @@ reports/
 
 # mac
 .DS_Store
+
+# editor
+.vscode
