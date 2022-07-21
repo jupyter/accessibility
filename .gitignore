@@ -122,13 +122,6 @@ logs/
 # reports
 reports/
 
-# nox
-**.nox/
-
-# playwright stuff
-**/playwright-*/
-**/test-results/
-
 # mac
 .DS_Store
 
