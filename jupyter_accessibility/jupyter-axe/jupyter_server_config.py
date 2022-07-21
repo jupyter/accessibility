@@ -1,3 +1,5 @@
+# Distributed under the terms of the Modified BSD License.
+
 from tempfile import mkdtemp
 
 # These settings modeled after https://github.com/jupyterlab/jupyterlab/blob/%40jupyterlab/galata%404.0.2/galata/jupyter_server_test_config.py

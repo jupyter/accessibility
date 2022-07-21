@@ -1,3 +1,6 @@
+// Copyright (c) Jupyter Development Team.
+// Distributed under the terms of the Modified BSD License.
+
 // playwright.config.ts
 import galataConfig from "@jupyterlab/galata/lib/playwright-config";
 import { PlaywrightTestConfig, devices } from "@playwright/test";

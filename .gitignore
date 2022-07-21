@@ -131,3 +131,6 @@ reports/
 
 # mac
 .DS_Store
+
+# editor
+.vscode

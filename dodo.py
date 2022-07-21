@@ -1,3 +1,6 @@
+# Copyright (c) Jupyter Development Team.
+# Distributed under the terms of the Modified BSD License.
+
 """doit for interactive testing of accessibility in Jupyter
 """
 import hashlib

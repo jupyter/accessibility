@@ -1,3 +1,6 @@
+// Copyright (c) Jupyter Development Team.
+// Distributed under the terms of the Modified BSD License.
+
 import { expect } from "@playwright/test";
 import { test } from "@jupyterlab/galata";
 import * as path from "path";
