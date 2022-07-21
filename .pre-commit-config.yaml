@@ -5,8 +5,8 @@
 #
 # Common tasks
 #
-# - Run on all files:   pre-commit run --all-files
 # - Register git hooks: pre-commit install --install-hooks
+# - Run on all files:   pre-commit run --all-files
 #
 repos:
   # Autoformat: markdown, yaml to ensure that it doesn't need to be updated in other repos

@@ -4,7 +4,7 @@
 from pathlib import Path
 from shutil import copytree
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel
 
 A11Y = Path().parent
 DOIT_CONFIG = dict(
