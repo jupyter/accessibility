@@ -13,7 +13,6 @@ Required reading for this document is the sequence of pages in the JupyterLab do
 beginning with [General Codebase
 Orientation](https://jupyterlab.readthedocs.io/en/latest/developer/repo.html).
 
-
 ### Source code versions
 
 This document contains a large number of links to specific lines of code.
@@ -96,9 +95,7 @@ to the JupyterLab interface.
 The rest of the document maps DOM nodes in the JupyterLab UI to related points
 of interest in the source code. Each section represents a single DOM node.
 
-
 ### Application shell
-
 
 The application shell is the entire user interface of the application. It
 includes the top, bottom, and side bars, as well as the main content area (and
@@ -113,11 +110,11 @@ Node-to-node CSS selector path for this node:
 
 Table of properties:
 
-| Name | Value |
-| ---- | ----- |
-| HTML tag  | div   |
-| HTML id   | [main](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/application/src/shell.ts#L262) |
-| CSS class | [jp-LabShell](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/application/src/shell.ts#L261) |
+| Name              | Value                                                                                                                                                                                                                 |
+| ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| HTML tag          | div                                                                                                                                                                                                                   |
+| HTML id           | [main](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/application/src/shell.ts#L262)                                                                                                                |
+| CSS class         | [jp-LabShell](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/application/src/shell.ts#L261)                                                                                                         |
 | Controlling class | [LabShell](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/application/src/shell.ts#L255) extends [Widget](https://github.com/jupyterlab/lumino/blob/v2021.12.13/packages/widgets/src/widget.ts#L38) |
 
 Steps to mount:
@@ -133,9 +130,7 @@ Steps to mount:
    In a default JupyterLab instance, the shell node will be appended to the end
    of the document body.
 
-
 ### Top container
-
 
 The top area includes the Jupyter logo and the main menu bar (File, Edit, View,
 etc).
@@ -149,14 +144,13 @@ Node-to-node CSS selector path for this node:
 
 Table of properties:
 
-| Name | Value |
-| ---- | ----- |
-| HTML tag  | div   |
-| HTML id   | [jp-top-panel](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/application/src/shell.ts#L303) |
-| HTML role | [banner](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/application/src/shell.ts#L283) |
+| Name              | Value                                                                                                                                                                                                                                               |
+| ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| HTML tag          | div                                                                                                                                                                                                                                                 |
+| HTML id           | [jp-top-panel](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/application/src/shell.ts#L303)                                                                                                                                      |
+| HTML role         | [banner](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/application/src/shell.ts#L283)                                                                                                                                            |
 | Controlling class | [PanelHandler](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/application/src/shell.ts#L1577), a private class that wraps [Lumino Panel](https://github.com/jupyterlab/lumino/blob/v2021.12.13/packages/widgets/src/panel.ts#L24) |
-| Shell area | [top](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/application/src/shell.ts#L770) |
-
+| Shell area        | [top](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/application/src/shell.ts#L770)                                                                                                                                               |
 
 Steps to mount:
 
@@ -181,9 +175,7 @@ Steps to mount:
 5. Assigning the layout [attaches the top panel to the
    DOM](https://github.com/jupyterlab/lumino/blob/v2021.12.13/packages/widgets/src/boxlayout.ts#L165)
 
-
 ### Middle container
-
 
 The middle node contains everything (nearly) between the top and the bottom
 areas: the left sidebar, the main document area, and the right sidebar. (Not
@@ -196,15 +188,13 @@ Node-to-node CSS selector path for this node:
 
     div#main > div#jp-main-content-panel
 
-
 Table of properties:
 
-| Name | Value |
-| ---- | ----- |
-| HTML tag  | div   |
-| HTML id   | [jp-main-content-panel](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/application/src/shell.ts#L305) |
-| Controlling class | [Lumino BoxPanel](https://github.com/jupyterlab/lumino/blob/v2021.12.13/packages/widgets/src/boxpanel.ts#L22) |
-
+| Name              | Value                                                                                                                   |
+| ----------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| HTML tag          | div                                                                                                                     |
+| HTML id           | [jp-main-content-panel](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/application/src/shell.ts#L305) |
+| Controlling class | [Lumino BoxPanel](https://github.com/jupyterlab/lumino/blob/v2021.12.13/packages/widgets/src/boxpanel.ts#L22)           |
 
 Steps to mount:
 
@@ -216,9 +206,7 @@ Steps to mount:
 The rest of the steps for mounting the middle container are like the steps in
 mounting the top container.
 
-
 ### Bottom container
-
 
 The bottom area contains the status bar.
 
@@ -231,14 +219,13 @@ Node-to-node CSS selector path for this node:
 
 Table of properties:
 
-| Name | Value |
-| ---- | ----- |
-| HTML tag  | div   |
-| HTML id   | [jp-bottom-panel](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/application/src/shell.ts#L304) |
-| HTML role | none |
-| Controlling class | [Lumino BoxPanel](https://github.com/jupyterlab/lumino/blob/v2021.12.13/packages/widgets/src/boxpanel.ts#L22) |
-| Shell area | [bottom](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/application/src/shell.ts#L756) |
-
+| Name              | Value                                                                                                             |
+| ----------------- | ----------------------------------------------------------------------------------------------------------------- |
+| HTML tag          | div                                                                                                               |
+| HTML id           | [jp-bottom-panel](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/application/src/shell.ts#L304) |
+| HTML role         | none                                                                                                              |
+| Controlling class | [Lumino BoxPanel](https://github.com/jupyterlab/lumino/blob/v2021.12.13/packages/widgets/src/boxpanel.ts#L22)     |
+| Shell area        | [bottom](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/application/src/shell.ts#L756)          |
 
 Steps to mount:
 
@@ -250,9 +237,7 @@ Steps to mount:
 The rest of the steps for mounting the bottom container are like the steps in
 mounting the top and middle containers.
 
-
 ### Logo
-
 
 The Jupyter logo appears in the top area.
 
@@ -264,12 +249,11 @@ Node-to-node CSS selector path for this node:
 
 Table of properties:
 
-| Name | Value |
-| ---- | ----- |
-| HTML tag  | div   |
-| HTML id   | [jp-MainLogo](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/application-extension/src/index.tsx#L1044) |
-| Controlling class | [Lumino Widget](https://github.com/jupyterlab/lumino/blob/v2021.12.13/packages/widgets/src/widget.ts#L38) |
-
+| Name              | Value                                                                                                                     |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| HTML tag          | div                                                                                                                       |
+| HTML id           | [jp-MainLogo](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/application-extension/src/index.tsx#L1044) |
+| Controlling class | [Lumino Widget](https://github.com/jupyterlab/lumino/blob/v2021.12.13/packages/widgets/src/widget.ts#L38)                 |
 
 Steps to mount:
 
@@ -284,9 +268,7 @@ Steps to mount:
 5. The panel layout [mounts the logo to the
    DOM](https://github.com/jupyterlab/lumino/blob/v2021.12.13/packages/widgets/src/panellayout.ts#L87)
 
-
 ### Top menu bar container
-
 
 The menu area contains the main menu bar (File, Edit, View, etc).
 
@@ -299,14 +281,14 @@ Node-to-node CSS selector path for this node:
 
 Table of properties:
 
-| Name | Value |
-| ---- | ----- |
-| HTML tag  | div   |
-| HTML id   | [jp-menu-panel](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/application/src/shell.ts#L302) |
-| HTML role | [navigation](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/application/src/shell.ts#L280) |
-| aria-label | [main](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/application/src/shell.ts#L281) |
+| Name              | Value                                                                                                                                                                                                                                               |
+| ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| HTML tag          | div                                                                                                                                                                                                                                                 |
+| HTML id           | [jp-menu-panel](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/application/src/shell.ts#L302)                                                                                                                                     |
+| HTML role         | [navigation](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/application/src/shell.ts#L280)                                                                                                                                        |
+| aria-label        | [main](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/application/src/shell.ts#L281)                                                                                                                                              |
 | Controlling class | [PanelHandler](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/application/src/shell.ts#L1577), a private class that wraps [Lumino Panel](https://github.com/jupyterlab/lumino/blob/v2021.12.13/packages/widgets/src/panel.ts#L24) |
-| Shell area | [menu](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/application/src/shell.ts#L766) |
+| Shell area        | [menu](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/application/src/shell.ts#L766)                                                                                                                                              |
 
 Steps to mount:
 
@@ -320,7 +302,6 @@ Steps to mount:
 The menu area handler is then mounted with the top handler (see steps for
 mounting top container, above).
 
-
 ### Left sidebar
 
 ![Screenshot on which the left sidebar is
@@ -333,15 +314,14 @@ Node-to-node CSS selector path for this node:
 
 Table of properties:
 
-| Name | Value |
-| ---- | ----- |
-| HTML tag  | div   |
-| HTML id   | none |
-| CSS classes | [jp-mod-left](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/application/src/shell.ts#L312) |
-| HTML role | [complementary](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/application/src/shell.ts#L321) |
-| aria-label | [main sidebar](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/application/src/shell.ts#L313) |
-| Controlling class | [Lumino TabBar](https://github.com/jupyterlab/lumino/blob/v2021.12.13/packages/widgets/src/tabbar.ts#L43) |
-
+| Name              | Value                                                                                                           |
+| ----------------- | --------------------------------------------------------------------------------------------------------------- |
+| HTML tag          | div                                                                                                             |
+| HTML id           | none                                                                                                            |
+| CSS classes       | [jp-mod-left](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/application/src/shell.ts#L312)   |
+| HTML role         | [complementary](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/application/src/shell.ts#L321) |
+| aria-label        | [main sidebar](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/application/src/shell.ts#L313)  |
+| Controlling class | [Lumino TabBar](https://github.com/jupyterlab/lumino/blob/v2021.12.13/packages/widgets/src/tabbar.ts#L43)       |
 
 Steps to mount:
 
@@ -355,9 +335,7 @@ Steps to mount:
 This node gets attached to the DOM with the middle container (see steps to mount
 the middle container, above).
 
-
 ### Main vertical split panel
-
 
 This node allows the area inside of the UI that is surrounded by top, bottom,
 and side bars to be divided into two top and bottom parts. This appears to be
@@ -373,12 +351,11 @@ Node-to-node CSS selector path for this node:
 
 Table of properties:
 
-| Name | Value |
-| ---- | ----- |
-| HTML tag  | div   |
-| HTML id   | [jp-main-vsplit-panel](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/application/src/shell.ts#L306) |
+| Name              | Value                                                                                                                                                                                                                                             |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| HTML tag          | div                                                                                                                                                                                                                                               |
+| HTML id           | [jp-main-vsplit-panel](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/application/src/shell.ts#L306)                                                                                                                            |
 | Controlling class | [RestorableSplitPanel](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/application/src/shell.ts#L2061) extends [Lumino SplitPanel](https://github.com/jupyterlab/lumino/blob/v2021.12.13/packages/widgets/src/splitpanel.ts#L30) |
-
 
 Steps to mount:
 
@@ -389,7 +366,6 @@ Steps to mount:
 
 This node gets attached to the DOM with the middle container (see steps to mount
 the middle container, above).
-
 
 ### Right sidebar
 
@@ -403,15 +379,14 @@ Node-to-node CSS selector path for this node:
 
 Table of properties:
 
-| Name | Value |
-| ---- | ----- |
-| HTML tag  | div   |
-| HTML id   | none |
-| CSS class | [jp-mod-right](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/application/src/shell.ts#L325) |
-| HTML role | [complementary](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/application/src/shell.ts#L334) |
-| aria-label | [alternate sidebar](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/application/src/shell.ts#L326) |
-| Controlling class | [Lumino TabBar](https://github.com/jupyterlab/lumino/blob/v2021.12.13/packages/widgets/src/tabbar.ts#L43) |
-
+| Name              | Value                                                                                                               |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------- |
+| HTML tag          | div                                                                                                                 |
+| HTML id           | none                                                                                                                |
+| CSS class         | [jp-mod-right](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/application/src/shell.ts#L325)      |
+| HTML role         | [complementary](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/application/src/shell.ts#L334)     |
+| aria-label        | [alternate sidebar](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/application/src/shell.ts#L326) |
+| Controlling class | [Lumino TabBar](https://github.com/jupyterlab/lumino/blob/v2021.12.13/packages/widgets/src/tabbar.ts#L43)           |
 
 Steps to mount:
 
@@ -425,7 +400,6 @@ Steps to mount:
 This node gets attached to the DOM with the middle container (see steps to mount
 the middle container, above).
 
-
 ### Status bar
 
 ![Screenshot on which the status bar is
@@ -437,12 +411,11 @@ Node-to-node CSS selector path for this node:
 
 Table of properties:
 
-| Name | Value |
-| ---- | ----- |
-| HTML tag  | div   |
-| HTML id   | [jp-main-statusbar](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/statusbar-extension/src/index.ts#L64) |
+| Name              | Value                                                                                                                              |
+| ----------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| HTML tag          | div                                                                                                                                |
+| HTML id           | [jp-main-statusbar](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/statusbar-extension/src/index.ts#L64)         |
 | Controlling class | [StatusBar](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/statusbar/src/statusbar.ts#L24) extends Lumino Widget |
-
 
 Steps to mount:
 
@@ -456,9 +429,7 @@ Steps to mount:
 This node then gets attached to the DOM with the bottom container (see steps to
 mount the bottom container, above).
 
-
 ### Main menu bar
-
 
 The main menu bar appears at the top and contains the menu items: File, Edit,
 View, etc.
@@ -472,12 +443,11 @@ Node-to-node CSS selector path for this node:
 
 Table of properties:
 
-| Name | Value |
-| ---- | ----- |
-| HTML tag  | div   |
-| HTML id   | [jp-MainMenu](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/mainmenu-extension/src/index.ts#L150) |
+| Name              | Value                                                                                                                                                                                                                         |
+| ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| HTML tag          | div                                                                                                                                                                                                                           |
+| HTML id           | [jp-MainMenu](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/mainmenu-extension/src/index.ts#L150)                                                                                                          |
 | Controlling class | [MainMenu](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/mainmenu/src/mainmenu.ts#L22) extends [Lumino MenuBar](https://github.com/jupyterlab/lumino/blob/v2021.12.13/packages/widgets/src/menubar.ts#L35) |
-
 
 Steps to mount:
 
@@ -497,9 +467,7 @@ Jupyter logo.)
 6. The panel layout [mounts the menu bar to the
    DOM](https://github.com/jupyterlab/lumino/blob/v2021.12.13/packages/widgets/src/panellayout.ts#L87)
 
-
 ### Main horizontal split panel
-
 
 The horizontal split panel contains the left area panel, the main area panel,
 and the right area panel.
@@ -514,12 +482,11 @@ Node-to-node CSS selector path for this node:
 
 Table of properties:
 
-| Name | Value |
-| ---- | ----- |
-| HTML tag  | div   |
-| HTML id   | [jp-main-split-panel](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/application/src/shell.ts#L308) |
+| Name              | Value                                                                                                                                                                                                                                             |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| HTML tag          | div                                                                                                                                                                                                                                               |
+| HTML id           | [jp-main-split-panel](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/application/src/shell.ts#L308)                                                                                                                             |
 | Controlling class | [RestorableSplitPanel](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/application/src/shell.ts#L2061) extends [Lumino SplitPanel](https://github.com/jupyterlab/lumino/blob/v2021.12.13/packages/widgets/src/splitpanel.ts#L30) |
-
 
 Steps to mount:
 
@@ -531,9 +498,7 @@ Steps to mount:
 This node gets attached to the DOM with the vertical split panel (see steps to
 mount the vertical split container, above).
 
-
 ### Status bar left panel
-
 
 The status bar has three sections: left, middle, and right. Here we cover the
 left section.
@@ -548,12 +513,11 @@ Node-to-node CSS selector path for this node:
 
 Table of properties:
 
-| Name | Value |
-| ---- | ----- |
-| HTML tag  | div  |
-| HTML id   | none |
+| Name              | Value                                                                                                   |
+| ----------------- | ------------------------------------------------------------------------------------------------------- |
+| HTML tag          | div                                                                                                     |
+| HTML id           | none                                                                                                    |
 | Controlling class | [Lumino Panel](https://github.com/jupyterlab/lumino/blob/v2021.12.13/packages/widgets/src/panel.ts#L24) |
-
 
 Steps to mount:
 
@@ -564,9 +528,7 @@ Steps to mount:
 
 This node will then get attached to the DOM when the status bar gets attached.
 
-
 ### Main menu bar item: "File"
-
 
 A menu item is a clickable area labeled with text. It belongs to either a menu
 or a menu bar. For example, the word "File" in menu bar is a menu item, and
@@ -583,15 +545,14 @@ Node-to-node CSS selector path for this node:
 
 Table of properties:
 
-| Name | Value |
-| ---- | ----- |
-| HTML tag  | li   |
-| HTML id   | none |
-| tabindex | [0](https://github.com/jupyterlab/lumino/blob/v2021.12.13/packages/widgets/src/menubar.ts#L785) |
-| HTML role | [menuitem](https://github.com/jupyterlab/lumino/blob/v2021.12.13/packages/widgets/src/menubar.ts#L875) |
-| aria-haspopup | [true](https://github.com/jupyterlab/lumino/blob/v2021.12.13/packages/widgets/src/menubar.ts#L875) |
+| Name              | Value                                                                                                         |
+| ----------------- | ------------------------------------------------------------------------------------------------------------- |
+| HTML tag          | li                                                                                                            |
+| HTML id           | none                                                                                                          |
+| tabindex          | [0](https://github.com/jupyterlab/lumino/blob/v2021.12.13/packages/widgets/src/menubar.ts#L785)               |
+| HTML role         | [menuitem](https://github.com/jupyterlab/lumino/blob/v2021.12.13/packages/widgets/src/menubar.ts#L875)        |
+| aria-haspopup     | [true](https://github.com/jupyterlab/lumino/blob/v2021.12.13/packages/widgets/src/menubar.ts#L875)            |
 | Controlling class | [VirtualElement](https://github.com/jupyterlab/lumino/blob/v2021.12.13/packages/virtualdom/src/index.ts#L756) |
-
 
 Steps to mount:
 
@@ -631,9 +592,7 @@ To make this concrete, we will follow the steps to mount the "File" menu item.
 When the menu bar gets attached to the DOM, the menu item will also get attached
 to the DOM.
 
-
 ### A tab in the left sidebar: file browser
-
 
 These are clickable icons in the sidebar that open a panel in the left area when
 clicked. By default these include: file browser, running terminal and kernels,
@@ -651,16 +610,15 @@ Node-to-node CSS selector path for this node:
 
 Table of properties:
 
-| Name | Value |
-| ---- | ----- |
-| HTML tag  | li   |
-| HTML id   | [tab-key-0](https://github.com/jupyterlab/lumino/blob/v2021.12.13/packages/widgets/src/tabbar.ts#L1646) (for example) |
-| HTML title | [File Browser (⇧ ⌘ F)](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/filebrowser-extension/src/index.ts#L184) (for example) |
-| tabindex | none |
-| HTML role | [tab](https://github.com/jupyterlab/lumino/blob/v2021.12.13/packages/widgets/src/tabbar.ts#L1712) |
-| aria-selected | [true/false](https://github.com/jupyterlab/lumino/blob/v2021.12.13/packages/widgets/src/tabbar.ts#L1712) |
-| Controlling class | [VirtualElement](https://github.com/jupyterlab/lumino/blob/v2021.12.13/packages/virtualdom/src/index.ts#L756) |
-
+| Name              | Value                                                                                                                                          |
+| ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| HTML tag          | li                                                                                                                                             |
+| HTML id           | [tab-key-0](https://github.com/jupyterlab/lumino/blob/v2021.12.13/packages/widgets/src/tabbar.ts#L1646) (for example)                          |
+| HTML title        | [File Browser (⇧ ⌘ F)](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/filebrowser-extension/src/index.ts#L184) (for example) |
+| tabindex          | none                                                                                                                                           |
+| HTML role         | [tab](https://github.com/jupyterlab/lumino/blob/v2021.12.13/packages/widgets/src/tabbar.ts#L1712)                                              |
+| aria-selected     | [true/false](https://github.com/jupyterlab/lumino/blob/v2021.12.13/packages/widgets/src/tabbar.ts#L1712)                                       |
+| Controlling class | [VirtualElement](https://github.com/jupyterlab/lumino/blob/v2021.12.13/packages/virtualdom/src/index.ts#L756)                                  |
 
 Steps to mount:
 
@@ -691,9 +649,7 @@ concrete example.
 When the tab bar gets attached to the dom with shell's left handler, this tab
 will also get mounted.
 
-
 ### Left tab panel container
-
 
 This is the point of attachment for tab panels that are opened and closed by the
 left sidebar.
@@ -710,13 +666,12 @@ Node-to-node CSS selector path for this node:
 
 Table of properties:
 
-| Name | Value |
-| ---- | ----- |
-| HTML tag  | div   |
-| HTML id   | [jp-left-stack](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/application/src/shell.ts#L322) |
+| Name              | Value                                                                                                                 |
+| ----------------- | --------------------------------------------------------------------------------------------------------------------- |
+| HTML tag          | div                                                                                                                   |
+| HTML id           | [jp-left-stack](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/application/src/shell.ts#L322)       |
 | Controlling class | [Lumino StackedPanel](https://github.com/jupyterlab/lumino/blob/v2021.12.13/packages/widgets/src/stackedpanel.ts#L24) |
-| Shell area | [left](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/application/src/shell.ts#L762) |
-
+| Shell area        | [left](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/application/src/shell.ts#L762)                |
 
 Steps to mount:
 
@@ -728,9 +683,7 @@ Steps to mount:
 This node gets attached to the DOM with the main horizontally split panel (see
 steps to mount the horizontally split container, above).
 
-
 ### Main document area
-
 
 The main document area is the area in which notebooks and other documents are
 shown. The main area can be split vertically and then again horizontally for a
@@ -749,14 +702,13 @@ Node-to-node CSS selector path for this node:
 
 Table of properties:
 
-| Name | Value |
-| ---- | ----- |
-| HTML tag  | div   |
-| HTML id   | [jp-main-dock-panel](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/application/src/shell.ts#L307) |
-| HTML role | [main](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/application/src/shell.ts#L337) |
+| Name              | Value                                                                                                                                                                                                                                                    |
+| ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| HTML tag          | div                                                                                                                                                                                                                                                      |
+| HTML id           | [jp-main-dock-panel](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/application/src/shell.ts#L307)                                                                                                                                     |
+| HTML role         | [main](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/application/src/shell.ts#L337)                                                                                                                                                   |
 | Controlling class | [DockPanelSvg](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/ui-components/src/icon/widgets/tabbarsvg.ts#L63) extends [Lumino DockPanel](https://github.com/jupyterlab/lumino/blob/v2021.12.13/packages/widgets/src/dockpanel.ts#L35) |
-| Shell area | [main](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/application/src/shell.ts#L764) |
-
+| Shell area        | [main](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/application/src/shell.ts#L764)                                                                                                                                                   |
 
 Steps to mount:
 
@@ -768,9 +720,7 @@ Steps to mount:
 This node gets attached to the DOM with the main horizontally split panel (see
 steps to mount the horizontally split container, above).
 
-
 ### Right tab panel container
-
 
 See left tab panel container. The information is essentially the same, but the
 HTML id is `jp-right-stack`.
@@ -785,9 +735,7 @@ Node-to-node CSS selector path for this node:
     div#jp-main-split-panel >
     div#jp-right-stack
 
-
 ### A tab in the right sidebar
-
 
 See left sidebar tab. The idea is basically the same.
 
@@ -798,9 +746,7 @@ Node-to-node CSS selector path for this node:
     ul[aria-label="alternate sidebar"] >
     li[role="tab"]
 
-
 ### The document mode switch in the status bar left panel
-
 
 This is the switch labeled "Simple" in the lower left of the UI, in the status
 bar.
@@ -816,12 +762,11 @@ Node-to-node CSS selector path for this node:
 
 Table of properties:
 
-| Name | Value |
-| ---- | ----- |
-| HTML tag  | div   |
-| HTML id   | [jp-single-document-mode](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/statusbar-extension/src/index.ts#L350) |
+| Name              | Value                                                                                                                                       |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| HTML tag          | div                                                                                                                                         |
+| HTML id           | [jp-single-document-mode](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/statusbar-extension/src/index.ts#L350)           |
 | Controlling class | [Switch](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/ui-components/src/components/switch.ts#L11) extends Lumino Widget |
-
 
 Steps to mount:
 
@@ -836,9 +781,7 @@ Steps to mount:
 The switch is now in the tree of the status bar node, so when the status bar
 node get attached to the DOM, so will this node.
 
-
 ### The file browser panel (in the left panel area)
-
 
 The file browser allows the user to interact with folders and files on their
 file system.
@@ -856,13 +799,13 @@ Node-to-node CSS selector path for this node:
 
 Table of properties:
 
-| Name | Value |
-| ---- | ----- |
-| HTML tag  | div   |
-| HTML id   | [filebrowser](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/filebrowser-extension/src/index.ts#L310) |
-| CSS class | [jp-FileBrowser](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/filebrowser/src/browser.ts#L67) |
-| HTML role | [region](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/filebrowser-extension/src/index.ts#L391) |
-| aria-label | [File Browser Section](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/filebrowser-extension/src/index.ts#L392) |
+| Name              | Value                                                                                                                                                                                                                            |
+| ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| HTML tag          | div                                                                                                                                                                                                                              |
+| HTML id           | [filebrowser](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/filebrowser-extension/src/index.ts#L310)                                                                                                          |
+| CSS class         | [jp-FileBrowser](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/filebrowser/src/browser.ts#L67)                                                                                                                |
+| HTML role         | [region](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/filebrowser-extension/src/index.ts#L391)                                                                                                               |
+| aria-label        | [File Browser Section](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/filebrowser-extension/src/index.ts#L392)                                                                                                 |
 | Controlling class | [FileBrowser](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/filebrowser/src/browser.ts#L59) extends [Lumino Widget](https://github.com/jupyterlab/lumino/blob/v2021.12.13/packages/widgets/src/widget.ts#L38) |
 
 Steps to mount:
@@ -888,9 +831,7 @@ Signal from the TabBar. When TabBar's currentIndex gets changed, it calls
 `this._currentChanged.emit`, which triggers
 [`shell._leftHandler._onCurrentChanged`](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/application/src/shell.ts#L1855).
 
-
 ### A tab bar of open documents in the main dock area
-
 
 A tab bar in the main area allows you switch between open documents within a
 particular split of the main dock panel.
@@ -908,15 +849,15 @@ Node-to-node CSS selector path for this node:
 
 Table of properties:
 
-| Name | Value |
-| ---- | ----- |
-| HTML tag  | div   |
-| HTML id   | none |
-| CSS class | [lm-DockPanel-tabBar](https://github.com/jupyterlab/lumino/blob/v2021.12.13/packages/widgets/src/dockpanel.ts#L1394) |
-| Controlling class | [Lumino TabBar](https://github.com/jupyterlab/lumino/blob/v2021.12.13/packages/widgets/src/tabbar.ts#L43) |
+| Name              | Value                                                                                                                |
+| ----------------- | -------------------------------------------------------------------------------------------------------------------- |
+| HTML tag          | div                                                                                                                  |
+| HTML id           | none                                                                                                                 |
+| CSS class         | [lm-DockPanel-tabBar](https://github.com/jupyterlab/lumino/blob/v2021.12.13/packages/widgets/src/dockpanel.ts#L1394) |
+| Controlling class | [Lumino TabBar](https://github.com/jupyterlab/lumino/blob/v2021.12.13/packages/widgets/src/tabbar.ts#L43)            |
 
 The tab bar is created by the main Lumino DockPanel instance via [its private
-_createTabBar
+\_createTabBar
 method](https://github.com/jupyterlab/lumino/blob/v2021.12.13/packages/widgets/src/dockpanel.ts#L922).
 The Lumino DockLayout [handles mounting the tab
 bar](https://github.com/jupyterlab/lumino/blob/v2021.12.13/packages/widgets/src/docklayout.ts#L1105)
@@ -927,9 +868,7 @@ the tab
 bar](https://github.com/jupyterlab/lumino/blob/v2021.12.13/packages/widgets/src/dockpanel.ts#L944),
 so that when the tab changes, it can change the corresponding tab panel.
 
-
 ### Notebook Panel
-
 
 A notebook panel is rendered into the main area. It contains a toolbar and the notebook body.
 
@@ -946,15 +885,14 @@ Node-to-node CSS selector path for this node:
 
 Table of properties:
 
-| Name | Value |
-| ---- | ----- |
-| HTML tag  | div   |
-| HTML id   | [a uuid](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/apputils/src/mainareawidget.ts#L36) |
-| CSS class | [jp-NotebookPanel](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/notebook/src/panel.ts#L55) |
-| HTML role | [tabpanel](https://github.com/jupyterlab/lumino/blob/v2021.12.13/packages/widgets/src/docklayout.ts#L2078) |
-| aria-labelledby | [tab-key-0](https://github.com/jupyterlab/lumino/blob/v2021.12.13/packages/widgets/src/docklayout.ts#L2086) (for example) |
+| Name              | Value                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| HTML tag          | div                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| HTML id           | [a uuid](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/apputils/src/mainareawidget.ts#L36)                                                                                                                                                                                                                                                                                                                                                                          |
+| CSS class         | [jp-NotebookPanel](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/notebook/src/panel.ts#L55)                                                                                                                                                                                                                                                                                                                                                                         |
+| HTML role         | [tabpanel](https://github.com/jupyterlab/lumino/blob/v2021.12.13/packages/widgets/src/docklayout.ts#L2078)                                                                                                                                                                                                                                                                                                                                                                             |
+| aria-labelledby   | [tab-key-0](https://github.com/jupyterlab/lumino/blob/v2021.12.13/packages/widgets/src/docklayout.ts#L2086) (for example)                                                                                                                                                                                                                                                                                                                                                              |
 | Controlling class | [NotebookPanel](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/notebook/src/panel.ts#L45) extends [DocumentWidget](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/docregistry/src/default.ts#L490) extends [MainAreaWidget](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/apputils/src/mainareawidget.ts#L20) extends [Lumino Widget](https://github.com/jupyterlab/lumino/blob/v2021.12.13/packages/widgets/src/widget.ts#L38) |
-
 
 Steps to mount:
 
@@ -980,9 +918,7 @@ file in the file browser extension.
    DOM](https://github.com/jupyterlab/lumino/blob/v2021.12.13/packages/widgets/src/docklayout.ts#L555),
    by appending it to the main area container node (#jp-main-dock-panel).
 
-
 ### Notebook toolbar
-
 
 The notebook toolbar is a strip of buttons rendered above the notebook to
 perform actions on the notebook, such as copy, paste, save, insert cell.
@@ -1001,15 +937,14 @@ Node-to-node CSS selector path for this node:
 
 Table of properties:
 
-| Name | Value |
-| ---- | ----- |
-| HTML tag  | div   |
-| HTML id   | none |
-| CSS class | [jp-NotebookPanel-toolbar](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/notebook/src/panel.ts#L56) |
-| HTML role | [navigation](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/apputils/src/mainareawidget.ts#L43) |
-| aria-label | [notebook actions](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/apputils/src/mainareawidget.ts#L44) |
+| Name              | Value                                                                                                                                                                                                                                                                                                                                                                                 |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| HTML tag          | div                                                                                                                                                                                                                                                                                                                                                                                   |
+| HTML id           | none                                                                                                                                                                                                                                                                                                                                                                                  |
+| CSS class         | [jp-NotebookPanel-toolbar](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/notebook/src/panel.ts#L56)                                                                                                                                                                                                                                                                |
+| HTML role         | [navigation](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/apputils/src/mainareawidget.ts#L43)                                                                                                                                                                                                                                                                     |
+| aria-label        | [notebook actions](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/apputils/src/mainareawidget.ts#L44)                                                                                                                                                                                                                                                               |
 | Controlling class | [ReactiveToolbar](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/ui-components/src/components/toolbar.tsx#L357) extends [Toolbar](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/ui-components/src/components/toolbar.tsx#L163) extends [Lumino Widget](https://github.com/jupyterlab/lumino/blob/v2021.12.13/packages/widgets/src/widget.ts#L38) |
-
 
 Steps to mount:
 
@@ -1020,9 +955,7 @@ Steps to mount:
    to its layout (BoxLayout), so that when it gets attached to the DOM, so will
    the toolbar.
 
-
 ### Notebook content
-
 
 The notebook content is where the actual document is rendered for display and
 editing.
@@ -1041,16 +974,15 @@ Node-to-node CSS selector path for this node:
 
 Table of properties:
 
-| Name | Value |
-| ---- | ----- |
-| HTML tag  | div   |
-| HTML id   | [a uuid if no id is provided](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/apputils/src/mainareawidget.ts#L62) |
-| CSS class | [jp-NotebookPanel-notebook](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/notebook/src/panel.ts#L57) |
-| HTML role | [region](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/apputils/src/mainareawidget.ts#L40) |
-| tabindex | [0](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/apputils/src/mainareawidget.ts#L64) |
-| aria-label | [notebook content](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/apputils/src/mainareawidget.ts#L41) |
+| Name              | Value                                                                                                                                                                                                                                                                                                                                              |
+| ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| HTML tag          | div                                                                                                                                                                                                                                                                                                                                                |
+| HTML id           | [a uuid if no id is provided](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/apputils/src/mainareawidget.ts#L62)                                                                                                                                                                                                                 |
+| CSS class         | [jp-NotebookPanel-notebook](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/notebook/src/panel.ts#L57)                                                                                                                                                                                                                            |
+| HTML role         | [region](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/apputils/src/mainareawidget.ts#L40)                                                                                                                                                                                                                                      |
+| tabindex          | [0](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/apputils/src/mainareawidget.ts#L64)                                                                                                                                                                                                                                           |
+| aria-label        | [notebook content](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/apputils/src/mainareawidget.ts#L41)                                                                                                                                                                                                                            |
 | Controlling class | [Notebook](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/notebook/src/widget.ts#L1124) extends [StaticNotebook](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/notebook/src/widget.ts#L190) extends [Lumino Widget](https://github.com/jupyterlab/lumino/blob/v2021.12.13/packages/widgets/src/widget.ts#L38) |
-
 
 Steps to mount:
 
@@ -1063,7 +995,6 @@ Steps to mount:
    layout](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/apputils/src/mainareawidget.ts#L59),
    just like the notebook toolbar, above, so when the notebook panel gets
    attached to the DOM so does the notebook body.
-
 
 ### Notebook toolbar item: save button
 
@@ -1082,13 +1013,12 @@ Node-to-node CSS selector path for this node:
 
 Table of properties:
 
-| Name | Value |
-| ---- | ----- |
-| HTML tag  | div   |
-| HTML id   | none |
-| CSS class | [jp-Toolbar-item](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/ui-components/src/components/toolbar.tsx#L226) |
+| Name              | Value                                                                                                                                                                                                                                                                                                                                                                                 |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| HTML tag          | div                                                                                                                                                                                                                                                                                                                                                                                   |
+| HTML id           | none                                                                                                                                                                                                                                                                                                                                                                                  |
+| CSS class         | [jp-Toolbar-item](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/ui-components/src/components/toolbar.tsx#L226)                                                                                                                                                                                                                                                     |
 | Controlling class | [ReactiveToolbar](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/ui-components/src/components/toolbar.tsx#L357) extends [Toolbar](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/ui-components/src/components/toolbar.tsx#L163) extends [Lumino Widget](https://github.com/jupyterlab/lumino/blob/v2021.12.13/packages/widgets/src/widget.ts#L38) |
-
 
 Steps to mount:
 

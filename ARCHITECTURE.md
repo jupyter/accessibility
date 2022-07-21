@@ -58,9 +58,9 @@ To build the documentation locally run the following command:
 
 ### `jupyter-book` configuration files
 
-* `docs/_toc.yml`: the table of contents. For more details on structuring docs using JupyterBook visit the
+- `docs/_toc.yml`: the table of contents. For more details on structuring docs using JupyterBook visit the
   [documentation for the table of contents](https://jupyterbook.org/customize/toc.html)
-* `docs/_config.yml`: documentation configuration file. To learn more about the configuration options on
+- `docs/_config.yml`: documentation configuration file. To learn more about the configuration options on
   [JupyterBook visit their configuration documentation page](https://jupyterbook.org/en/stable/customize/config.html)
 
 ### :ballot_box_with_check: [`/testing`](./testing)

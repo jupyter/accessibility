@@ -20,7 +20,7 @@
 
     ************ REALLY, DO NOT USE FOR ANYTHING OTHER THAN TESTING ************
 """
-from tornado import ioloop, web, options
+from tornado import ioloop, options, web
 
 options.define("port", default=8080, help="port to listen on")
 options.define("host", default="127.0.0.1", help="host interface to connect on (0.0.0.0 is all)")

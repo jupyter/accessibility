@@ -10,7 +10,7 @@ This roadmap is meant to communicate accessibility efforts funded by the [CZI EO
 
 Over the course of the two-year grant, we are aiming to transform the Jupyter ecosystem in four ways:
 
-1. Make JupyterLab accessible (with an emphasis on [Web Content Accessibility Guidelines](https://en.wikipedia.org/wiki/Web_Content_Accessibility_Guidelines)) 
+1. Make JupyterLab accessible (with an emphasis on [Web Content Accessibility Guidelines](https://en.wikipedia.org/wiki/Web_Content_Accessibility_Guidelines))
 2. Build automated accessibility tests that are compatible with Jupyter tools
 3. Document what we've learn/best practices for accessibility specific to Jupyter or the wider scientific Python ecosystem
 4. Share work with other projects and help them start implementing accessibility fixes when possible
@@ -40,9 +40,9 @@ For a list of work completed, refer to [Jupyter Accessibility Roadmap - Complete
 
 ### All roadmap items
 
-The above items show what we'll be working on in the near future, not everything on the roadmap. If you want to review the full scope of the two-year grant, all key items are listed on the [jupyter-a11y-mgmt repository's planning issues](https://github.com/orgs/Quansight-Labs/projects/5/views/1). 
+The above items show what we'll be working on in the near future, not everything on the roadmap. If you want to review the full scope of the two-year grant, all key items are listed on the [jupyter-a11y-mgmt repository's planning issues](https://github.com/orgs/Quansight-Labs/projects/5/views/1).
 
-This work will happen across Jupyter projects-- with a focus on JupyterLab in the first year-- and in wider projects from the scientific Python ecosystem where possible. A large effort will be changes to software, automated tests, and documentation. 
+This work will happen across Jupyter projects-- with a focus on JupyterLab in the first year-- and in wider projects from the scientific Python ecosystem where possible. A large effort will be changes to software, automated tests, and documentation.
 
 ---
 
@@ -51,8 +51,9 @@ This work will happen across Jupyter projects-- with a focus on JupyterLab in th
 Welcome! You've found your way to the public roadmap for Jupyter accessibility efforts that fall in scope of the [CZI EOSS grant Inclusive and Accessible Computing in the Jupyter Ecosystem](https://chanzuckerberg.com/eoss/proposals/inclusive-and-accessible-scientific-computing-in-the-jupyter-ecosystem/).
 
 This roadmap's content is derived from
+
 - [The original grant proposal](https://github.com/jupyter/accessibility/blob/master/grant-applications/Inclusive_and_Accessible_Scientific_Computing_in_Jupyter_Ecosystem_SUBMITTED_PROPOSAL.pdf)
-- The [jupyter-a11y-mgmt repository's planning issues](https://github.com/orgs/Quansight-Labs/projects/5/views/1) 
+- The [jupyter-a11y-mgmt repository's planning issues](https://github.com/orgs/Quansight-Labs/projects/5/views/1)
 - The [JupyterLab accessibility project board](https://github.com/orgs/Quansight-Labs/projects/5/views/1)
 - Feedback from community members working on accessibility
 
@@ -62,7 +63,7 @@ This roadmap's content is derived from
 
 Does one of the above items interest you? Do you have accessibility knowledge that you'd like to share? This work takes place across multiple open-source projects and repositories, so [jupyter-a11y-mgmt's contributing guide](https://github.com/Quansight-Labs/jupyter-a11y-mgmt/blob/main/CONTRIBUTING.md) might be a good place to start.
 
-### Stay up to date 
+### Stay up to date
 
 This roadmap will be updated periodically. Check back to find what's been completed and what's to be worked on next.
 

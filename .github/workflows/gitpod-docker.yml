@@ -12,7 +12,7 @@ jobs:
     environment: a11y-dev
     if: "github.repository_owner == 'jupyter' && !contains(github.event.head_commit.message, '[ci skip]') && !contains(github.event.head_commit.message, '[skip ci]') && !contains(github.event.head_commit.message, '[skip github]')"
     steps:
-      - name: Clone repository ⚡
+      - name: Clone repository 🔔
         uses: actions/checkout@v3
 
       - name: Lint Docker 🔍
@@ -20,7 +20,7 @@ jobs:
         with:
           dockerfile: ./testing/tools/Dockerfile
 
-      - name: Get refs
+      - name: Get refs 🏷
         shell: bash
         run: |
           export raw_branch=${GITHUB_REF#refs/heads/}

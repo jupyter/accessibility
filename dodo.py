@@ -16,11 +16,9 @@ import sys
 import time
 import urllib.request
 
-import toml
-
-import jsonschema
-
 import doit.tools
+import jsonschema
+import toml
 
 DOIT_CONFIG = {
     "backend": "sqlite3",
@@ -42,9 +40,7 @@ HERE = pathlib.Path(__file__).parent
 CI = HERE / ".github"
 PA11Y = HERE / "pa11y-jupyter"
 REPO_SCHEMA = PA11Y / "repos.schema.json"
-REPO_VALIDATOR = jsonschema.Draft7Validator(
-    json.loads(REPO_SCHEMA.read_text(encoding="utf-8"))
-)
+REPO_VALIDATOR = jsonschema.Draft7Validator(json.loads(REPO_SCHEMA.read_text(encoding="utf-8")))
 REPORTS = HERE / "reports"
 
 GITHUB = "https://github.com"
@@ -196,9 +192,7 @@ def task_setup():
         setup_py = path / "setup.py"
 
         if setup_py.exists():
-            py_deps = [head, setup_py] + (
-                yarn_integrity(path) if pkg_json.exists() else []
-            )
+            py_deps = [head, setup_py] + (yarn_integrity(path) if pkg_json.exists() else [])
             yield dict(
                 name=f"{name}:pip:install",
                 file_dep=py_deps,
@@ -222,11 +216,7 @@ def task_setup():
                 file_dep=yarn_integrity(path),
                 actions=[do(*YARN, "build", cwd=path)],
                 targets=list(path.glob("packages/*/lib/*.js")),
-                **(
-                    dict(task_dep=[f"setup:{name}:pip:install"])
-                    if setup_py.exists()
-                    else {}
-                ),
+                **(dict(task_dep=[f"setup:{name}:pip:install"]) if setup_py.exists() else {}),
             )
 
             if path == PATHS.get(REPO_LUMINO):
@@ -235,11 +225,7 @@ def task_setup():
                     file_dep=yarn_integrity(path),
                     actions=[do(*YARN, "minimize", cwd=path)],
                     targets=list(path.glob("packages/*/dist/index.min.js")),
-                    **(
-                        dict(task_dep=[f"setup:{name}:pip:install"])
-                        if setup_py.exists()
-                        else {}
-                    ),
+                    **(dict(task_dep=[f"setup:{name}:pip:install"]) if setup_py.exists() else {}),
                 )
 
 
@@ -270,11 +256,7 @@ def task_link():
             name=f"lab:{pkg_name}",
             uptodate=[
                 doit.tools.config_changed(
-                    {
-                        pkg_name: (
-                            in_link.exists() and in_link.resolve() == pkg_json.resolve()
-                        )
-                    }
+                    {pkg_name: (in_link.exists() and in_link.resolve() == pkg_json.resolve())}
                 )
             ],
             file_dep=[out_link],
@@ -627,9 +609,7 @@ def make_lab_cookie_url_stop(cwd=HERE):
 
     These gymastics are required to not pollute the generated URLs
     """
-    token = hashlib.sha1(
-        "-".join(["T", str(random.random()), "KEN"]).encode("utf-8")
-    ).hexdigest()
+    token = hashlib.sha1("-".join(["T", str(random.random()), "KEN"]).encode("utf-8")).hexdigest()
     lab_args = [
         "jupyter",
         "lab",

@@ -31,7 +31,7 @@ def task_docs():
     )
     yield dict(
         name="build",
-        actions=[f"sphinx-build . _build/html"],
+        actions=["sphinx-build . _build/html"],
         targets=["_build/html/index.html"],
         uptodate=[False],
     )
