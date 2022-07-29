@@ -2,3 +2,9 @@
 # Distributed under the terms of the Modified BSD License.
 
 jupyter-book
+sphinx-autobuild
+sphinx-copybutton
+
+# additional myst parsers
+# See https://myst-parser.readthedocs.io/en/latest/using/syntax-optional.html
+myst-parser[sphinx,linkify]
