@@ -2,18 +2,22 @@
 # Distributed under the terms of the Modified BSD License.
 
 format: jb-book
-root: README.md
-chapters:
-  - file: docs/statement.md
-  - file: docs/community/information.rst
-  - file: docs/funding/README.md
-  - file: docs/developer/README.md
-    sections:
-      - file: CONTRIBUTING.md
-      - file: ARCHITECTURE.md
-  - file: docs/resources/README.md
-    sections:
-      - file: docs/resources/team_guides.rst
-      - file: docs/resources/map-jupyterlab-frontend-architecture/README.md
-      - file: docs/community/meeting-minutes/lumino/walkthrough-phosphor-prs.md
-      - file: docs/community/meeting-minutes/2019-web4all-hackathon/hackathon-resources.md
+root: index
+parts:
+  - caption: About Jupyter Accessibility
+    chapters:
+      - file: community/README.md
+      - file: funding/README.md
+      - file: statement.md
+  - caption: Contribute
+    chapters:
+      - file: developer/README.md
+        sections:
+          - file: CONTRIBUTING.md
+          - file: ARCHITECTURE.md
+  - caption: Accessibility resources
+    chapters:
+      - file: resources/team_guides.rst
+      - file: resources/map-jupyterlab-frontend-architecture/README.md
+      - file: community/meeting-minutes/lumino/walkthrough-phosphor-prs.md
+      - file: community/meeting-minutes/2019-web4all-hackathon/hackathon-resources.md
