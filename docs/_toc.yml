@@ -7,16 +7,15 @@ parts:
   - caption: About Jupyter Accessibility
     chapters:
       - file: community/README.md
-      - file: statement.md
       - file: funding/README.md
       - file: funding/czi-grant-roadmap.md
       - file: funding/czi-grant-completed.md
+      - file: resources/statement.md
   - caption: Contribute
     chapters:
       - file: developer/README.md
-        sections:
-          - file: CONTRIBUTING.md
-          - file: ARCHITECTURE.md
+      - file: CONTRIBUTING.md
+      - file: ARCHITECTURE.md
   - caption: Accessibility resources
     chapters:
       - file: resources/team_guides.rst
