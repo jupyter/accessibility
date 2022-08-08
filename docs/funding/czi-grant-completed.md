@@ -1,8 +1,12 @@
 # Jupyter Accessibility Roadmap - Completed Items
 
-Created on: April 1, 2022
-
-Last updated on: April 1, 2022
+```{card}
+**Created on**: April 1, 2022
++++
+**Last updated on**: April 1, 2022
++++
+📃 Read the [full EOSS grant proposal][Jupyter - CZI proposal submitted]
+```
 
 ## Action items completed
 
