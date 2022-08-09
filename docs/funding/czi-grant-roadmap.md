@@ -1,4 +1,4 @@
-# Jupyter Accessibility Roadmap
+# Jupyter Accessibility Roadmap - CZI EOSS Cycle 4
 
 ```{card}
 **Created on**: November 11, 2021
@@ -10,18 +10,18 @@
 
 ## What is this?
 
-Welcome! You've found your way to the public roadmap for Jupyter accessibility efforts that fall in scope of the [CZI EOSS grant Inclusive and Accessible Computing in the Jupyter Ecosystem][Jupyter - CZI proposal submitted].
+Welcome! You've found your way to the public roadmap for Jupyter accessibility efforts that fall in scope of the [CZI EOSS grant Inclusive and Accessible Computing in the Jupyter Ecosystem][jupyter - czi proposal submitted].
 
-This roadmap's content is derived from
+This roadmap's content is derived from:
 
-- [The original grant proposal][Jupyter - CZI proposal submitted]
+- [The original grant proposal][jupyter - czi proposal submitted]
 - The [jupyter-a11y-mgmt repository's planning issues](https://github.com/orgs/Quansight-Labs/projects/5/views/1)
 - The [JupyterLab accessibility project board](https://github.com/orgs/Quansight-Labs/projects/5/views/1)
 - Feedback from community members working on accessibility-related matters
 
 ## Primary goals
 
-This roadmap is meant to communicate accessibility efforts funded by the [CZI EOSS grant Inclusive and Accessible Computing in the Jupyter Ecosystem][Jupyter - CZI proposal submitted], work previously discussed on this and more project-specific repositories.
+This roadmap is meant to communicate accessibility efforts funded by the [CZI EOSS grant Inclusive and Accessible Computing in the Jupyter Ecosystem][jupyter - czi proposal submitted], work previously discussed on this and more project-specific repositories.
 
 Over the course of the two-year grant, we are aiming to transform the Jupyter ecosystem in four ways:
 
@@ -64,21 +64,20 @@ This work will happen across Jupyter projects-- with a focus on JupyterLab in th
 
 ---
 
-## Join in
-
-### Contribute
+## Contribute
 
 Does one of the above items interest you? Do you have accessibility knowledge that you'd like to share? This work takes place across multiple open-source projects and repositories, so [jupyter-a11y-mgmt's contributing guide](https://github.com/Quansight-Labs/jupyter-a11y-mgmt/blob/main/CONTRIBUTING.md) might be a good place to start.
 
-### Stay up to date
+## Stay up to date
 
 This roadmap will be updated periodically. Check back to find what's been completed and what's to be worked on next.
 
-Tasks that have been completed will be listed on the changelog (🚧 coming soon!)
+Tasks that have been completed will be listed on the Changelog (🚧 coming soon!)
 
 ### Start learning about accessibility
 
 🚧 Coming soon!
 
 <!-- links -->
-[Jupyter - CZI proposal submitted]: https://chanzuckerberg.com/eoss/proposals/inclusive-and-accessible-scientific-computing-in-the-jupyter-ecosystem/
+
+[jupyter - czi proposal submitted]: https://chanzuckerberg.com/eoss/proposals/inclusive-and-accessible-scientific-computing-in-the-jupyter-ecosystem/

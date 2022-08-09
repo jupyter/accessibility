@@ -1,8 +1,8 @@
-# `jupyter` accessibility statements
+# Jupyter Accessibility Statements
 
-## `jupyter` audits
+## Jupyter audits
 
-This section includes audits from different stakeholders on `jupyter` products.
+This section includes audits from different stakeholders on Jupyter products.
 
 - [JupyterLab v2.2.6 WCAG 2.1](https://github.com/jupyterlab/jupyterlab/issues/9399)
 - [Jupyter Notebook WCAG 2.0](https://github.com/jupyter/accessibility/issues/7)
@@ -17,13 +17,15 @@ This is an accessibility statement from Jupyter accessibility contributors.
 
 Jupyter accessibility statements are living documents. This statement was created on 16 May 2022 using the [W3C Accessibility Statement Generator Tool](https://www.w3.org/WAI/planning/statements/) with additions and edits from the Jupyter accessibility contributors community.
 
+```{note}
 This statement was last updated 16 June 2022.
+```
 
 #### Conformance status
 
-The [Web Content Accessibility Guidelines (WCAG)](https://www.w3.org/WAI/standards-guidelines/wcag) defines requirements for designers and developers to improve accessibility for people with disabilities. It defines three levels of conformance: Level A, Level AA, and Level AAA. JupyterLab is non conformant with WCAG 2.1 level AA. Non conformant means that the content does not meet the accessibility standard.
+The [Web Content Accessibility Guidelines (WCAG)](https://www.w3.org/WAI/standards-guidelines/wcag) defines requirements for designers and developers to improve accessibility for people with disabilities. It defines three levels of conformance: Level A, Level AA, and Level AAA. JupyterLab is nonconforming with WCAG 2.1 level AA. Nonconforming means that the content does not meet the accessibility standard.
 
-![Picture accessibility compliance levels as mountains. The first peak to reach is AA. This includes both A and AA criteria. Behind it, in the mist, there is a larger peak, AAA. That one is not always completely reachable--Marie Guillaumet, Access42](https://stephaniewalter.design/wp-content/uploads/2022/05/stephaniewalter-sommets-de-l-accessibilite.jpg)
+![Picture accessibility compliance levels as mountains. The first peak to reach is AA. This includes both A and AA criteria. Behind it, in the mist, there is a larger peak, AAA. That one is not always completely reachable--Marie Guillaumet, Access42](../images/stephaniewalter-accessibility-compliance-levels-to-reach.jpeg)
 
 _By [Stéphanie Walter](https://stephaniewalter.design) ([Source](https://stephaniewalter.design/blog/5-illustrations-to-understand-and-promote-accessibility/))_
 
@@ -128,4 +130,4 @@ Please note that JupyterLab is an open-source project and that Jupyter accessibi
 
 ## Accessibility Statement for Jupyter Notebook
 
-Pending
+🚧 This item is under construction 🚧

@@ -1,4 +1,4 @@
-# Jupyter Accessibility Roadmap - Completed Items
+# Jupyter Accessibility Roadmap - CZI EOSS Cycle 4 - Completed Items
 
 ```{card}
 **Created on**: April 1, 2022
@@ -8,11 +8,11 @@
 📃 Read the [full EOSS grant proposal][Jupyter - CZI proposal submitted]
 ```
 
-## Action items completed
+## ✅ Action items completed
 
 - Update the [JupyterLab accessibility project board](https://github.com/orgs/jupyterlab/projects/1)
 
-## In the works
+## 🏗 In the works
 
 For items not yet completed, but next on the list, refer to the [Jupyter Accessibility Roadmap](czi-grant-roadmap.md)
 
