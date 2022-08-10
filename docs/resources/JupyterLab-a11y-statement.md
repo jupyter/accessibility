@@ -1,4 +1,4 @@
-# Jupyter Accessibility Statements
+# Jupyter Accessibility Statement
 
 ## Jupyter audits
 
@@ -127,6 +127,9 @@ Please let us know if you encounter accessibility barriers on JupyterLab:
 - [Write an issue on jupyterlab/jupyterlab](https://github.com/jupyterlab/jupyterlab/issues/new) and request it be labeled [`tag:Accessibility`](https://github.com/jupyterlab/jupyterlab/labels/tag%3AAccessibility)
 - If you are interested in being part of any potential research or organized feedback initiatives, please [send an email with the subject line `Jupyter Accessibility Feedback` here](mailto:ipresedo@quansight.com). Gauging community interest in user research participation helps us gain the support to make it happen.
 
+```{warning}
 At the time of writing, there is no non-public way to contact us for JupyterLab accessibility issues.
+```
 
 Please note that JupyterLab is an open-source project and that Jupyter accessibility contributors are a group defined on a voluntary basis. Like many other open-source projects, we cannot guarantee how long it may take to respond to and resolve an issue, though we do make an effort to do it as quickly as is possible with our resources.
+Thanks for your patience and understanding.

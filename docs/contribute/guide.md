@@ -1,4 +1,4 @@
-# Get started contributing
+# Getting started
 
 Jupyter Accessibility is an open community made up of people all over the world.
 We invite participation of all forms - whether that be contributing
@@ -7,8 +7,9 @@ design, code, advice, documentation, support, or joining our conversations!
 If you'd like to start getting involved with Jupyter Accessibility projects,
 here are a few resources to get you started.
 
-````{tip}
+```{tip}
 Make sure to check the [Joining the Jupyter Accessibility Community section](../community/index.md) in this compass to learn more about where the accessibility conversations are happening in our ecosystem.
+```
 
 ## Do I really have something to contribute to Jupyter Accessibility?
 
@@ -41,7 +42,7 @@ or as a [link][rick_roll] (`[link](https://github.com/jupyter/acce)`) to another
 ```{tip}
 GitHub has a helpful page on
 [getting started with writing and formatting Markdown on GitHub][writing_formatting_github].
-````
+```
 
 ## Find issues to work on
 

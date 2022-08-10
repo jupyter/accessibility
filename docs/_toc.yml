@@ -14,13 +14,13 @@ parts:
       - file: resources/JupyterLab-a11y-statement.md
   # ------------------------------------------------------
   # All things community
-  # TODO: https://jupyterhub-team-compass.readthedocs.io/en/latest/contribute/index.html
   - caption: Community
     chapters:
       - file: community/index.md
       # Ensure we build all the community files even if not in this TOC
+      # the meetings are added in the community index file
       - glob: community/meeting-minutes/jupyterlab-accessibility-meetings/*.md
-      # TODO: contributing and architecture need revisitng
+      # TODO: architecture need revisitng
       - file: contribute/index.md
       - file: ARCHITECTURE.md
   # ------------------------------------------------------

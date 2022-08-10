@@ -7,4 +7,6 @@ The sections below provide some resources to help you get started contributing t
 :maxdepth: 1
 
 guide
+skills
+this-repo
 ```
