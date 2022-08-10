@@ -11,8 +11,8 @@ The Jupyter Accessibility community follows the broader [Jupyter Community’s C
 
 ## Get Connected with the Community
 
-First off, get yourself connected with the Jupyter Accessibility community online. There
-are a few places where we have conversations and discussion.
+First off, get yourself connected with the Jupyter Accessibility community online.
+There are a few places where we have conversations and discussion.
 
 - [Accessibility section of the Community forum][discourse-accessibility] - ongoing conversations and brainstorms around accessibility in the Jupyter ecosystem.
 - [Jupyter Notebook Accessibility Issues][notebook-accessibility-issues] - all the `tag:Accessibility` issues in the Jupyter Notebook repository.
@@ -21,13 +21,13 @@ are a few places where we have conversations and discussion.
 - Review and join in contributing to [accessibility issues identified for the ongoing CZI EOSS grant](../funding/czi-grant-roadmap.md)
 
 ```{note}
-As a reminder, we expect all members of the Jupyter Accessibility community to adhere to the
-[Jupyter Code of Conduct][jupyter-coc] in these conversations.
+As a reminder, we expect all members of the Jupyter Accessibility community to adhere to the [Jupyter Code of Conduct][jupyter-coc] in these conversations.
 ```
 
 ## Team meetings and notes
 
-The Jupyter Accessibility meets every two weeks to discuss what we have been up to, discuss important issues, make decisions, share ideas, and enjoy one another’s company. These meetings are open to anyone, whether you are interested in discussing a topic or listening in.
+The Jupyter Accessibility meets every two weeks to discuss what we have been up to, discuss important issues, make decisions, share ideas, and enjoy one another’s company.
+These meetings are open to anyone, whether you are interested in discussing a topic or listening in.
 
 ```{card}
 **Bi-weekly accessibility meeting details**

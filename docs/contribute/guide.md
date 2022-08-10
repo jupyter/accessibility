@@ -4,8 +4,7 @@ Jupyter Accessibility is an open community made up of people all over the world.
 We invite participation of all forms - whether that be contributing
 design, code, advice, documentation, support, or joining our conversations!
 
-If you'd like to start getting involved with Jupyter Accessibility projects,
-here are a few resources to get you started.
+If you'd like to start getting involved with Jupyter Accessibility projects, here are a few resources to get you started.
 
 ```{tip}
 Make sure to check the [Joining the Jupyter Accessibility Community section](../community/index.md) in this compass to learn more about where the accessibility conversations are happening in our ecosystem.
@@ -51,8 +50,8 @@ be either contributing code, commenting on issues, reviewing pull requests, or i
 documentation), we recommend checking out the **issue tags** to find issues that
 are a good place to start.
 
-Practices across projects vary - but in general folks try to use tags to signal different _types_ of issues. Two that you
-might be interested in are **help wanted**, and **good first issue**.
+Practices across projects vary - but in general folks try to use tags to signal different _types_ of issues.
+Two of such tags that you might be interested in are **help wanted**, and **good first issue**.
 
 The [GitHub Issues Search](https://github.com/issues)
 can be used to quickly search across all the issues in a GitHub organization that match
@@ -64,25 +63,26 @@ one of these tags. Here are a few pointers of issues you might want to look for 
 
 ## Help by contributing to a specific repository
 
-Note that the Jupyter Accessibility team works across many kinds of technologies and projects. The kind of tech you'll
-use (as well as the set-up and skill needed to work on that tech) will depend on the
+Note that the Jupyter Accessibility team works across many kinds of technologies and projects.
+The kind of tech you'll use (as well as the set-up and skill needed to work on that tech) will depend on the
 repository that you're working with.
 
 For example, the [JupyterLab repository][jupyterlab] will touch on aspects of the UI itself and tools like Lumino and Galata.
 
 To get oriented with a specific repository's needs and process around making new
-contributions, look for a **repository-specific contributing guide**. This often
-comes in the form of a **`CONTRIBUTING.md`** file, or a section of the documentation.
+contributions, look for a **repository-specific contributing guide**.
+This often comes in the form of a **`CONTRIBUTING.md`** file, or a section of the documentation.
 For example, [here is the `CONTRIBUTING.md` file for JupyterLab][jupyterlab-contributing].
 
 ```{tip}
 You can also make use of the `contribute` slug in GitHub - for example to get a list of `good first issue` labelled issues and the link to the projects CONTRIBUTING guidelines you can append the `contributre` slug to the repository URL.
-So for the JupyterLab repository you's use <https://github.com/jupyterlab/jupyterlab/contribute>
+So for the JupyterLab repository you'd use <https://github.com/jupyterlab/jupyterlab/contribute>
 ```
 
-**Are the contributing docs unclear or misleading?** Then please let us know! We try to
-make this documentation as helpful as possible, but we often don't have the perspective of
-a new member to the community. Your input is extremely valuable in making it as smooth as possible for others
+**Are the contributing docs unclear or misleading?**
+Then please let us know!
+We try to make this documentation as helpful as possible, but we often don't have the perspective of a new member to the community.
+Your input is extremely valuable in making it as smooth as possible for others
 to join our ever-growing community!
 
 ## Thank you!

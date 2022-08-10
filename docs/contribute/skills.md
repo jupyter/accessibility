@@ -19,7 +19,8 @@ The bullets below present a non-exhaustive list of ways to help out with the Jup
 
 - Say hello in the [Jupyter Community Forum](https://discourse.jupyter.org/) and
   assist others with questions.
-- Look through the issues in a repository, and help respond to issues that haven't been addressed already. Many projects in the Jupyter ecosystem have `accessibility-related` tags - make sure to [check the Get started contributing section](guide.md) in this team compass for more details.
+- Look through the issues in a repository, and help respond to issues that haven't been addressed already.
+  Many projects in the Jupyter ecosystem have `accessibility-related` tags - make sure to [check the Get started contributing section](guide.md) in this team compass for more details.
 - Guide an issue's conversation to help form a clear, actionable next step to move the issue forward.
 - For general questions about using Jupyter Accessibility, assist the person and then improve the documentation
   so that the answer is easier to find.
@@ -32,14 +33,13 @@ The bullets below present a non-exhaustive list of ways to help out with the Jup
 
 ## Non-exhaustive list of skills needed
 
-This section provides a combination of "helpful skills to learn as a contributor"
-and "places to apply your skills".
+This section provides a combination of "helpful skills to learn as a contributor" and "places to apply your skills".
 
 ### UI/UX
 
 - **HTML, CSS**. HTML and CSS are used to generate user-facing pages throughout
   Jupyter Accessibility.
-- **JavaScript and TypeScript**. If you plan to contribute to JupyterLab or other interfaces, then Javascript and Typescript are helpful.
+- **JavaScript, TypeScript**. If you plan to contribute to JupyterLab or other interfaces, then JavaScript and Typescript are helpful.
 - **UX/UI knowledge**. Aside from specific _implementations_ of Jupyter interfaces, it is also helpful to know about the structure and design
   of user interfaces, and considering the user experience as part of the design and development process.
 
@@ -52,26 +52,20 @@ and "places to apply your skills".
 
 ### Community infrastructure
 
-- **Technical/documentation Writing**. Every tool in the Jupyter ecosystem is documented, and needs
-  clear, concise, well-structured information to help others. Any
-  contributions that improve documentation are appreciated.
-- **Issue guidance and triage**. Almost all enhancements to Jupyter tools begin with
-  an issue. They are the most common point of interaction with the broader community.
+- **Technical/documentation Writing**. Every tool in the Jupyter ecosystem is documented, and needs clear, concise, well-structured information to help others.
+  Any contributions that improve documentation are appreciated.
+- **Issue guidance and triage**. Almost all enhancements to Jupyter tools begin with an issue.
+  They are the most common point of interaction with the broader community.
   To improve the content of our issues and facilitate improvements in Jupyter, it is
   important to be a good listener, a respectful responder, and someone who encourages others to share their perspective.
-- **The Jupyter Community Forum**. The [Discourse forum](https://discourse.jupyter.org/)
-  is busy with questions and discussions about Jupyter. Support for deploying, configuring,
-  and generally using Jupyter Accessibility is primarily handled through this forum (as opposed
-  to using GitHub issues which are scoped for actionable bug reports and development).
-  Any help you can offer to other users is very welcome, and the forum is also a
-  great place to exchange knowledge.
+- **The Jupyter Community Forum**. The [Discourse forum](https://discourse.jupyter.org/) is busy with questions and discussions about Jupyter.
+  Support for deploying, configuring, and generally using Jupyter Accessibility is primarily handled through this forum (as opposed to using GitHub issues which are scoped for actionable bug reports and development).
+  Any help you can offer to other users is very welcome, and the forum is also a great place to exchange knowledge.
 
 ## A note on complexity of tasks
 
 Depth/expertise required for certain kinds of tasks can be hard to nail down and not always clear.
-If you'd like to make a contribution, and you're not sure where to start,
-a good rule of thumb is to open an issue or reach out to another team member to help
-you scope the work you'd like to do, and to set expectations.
+If you'd like to make a contribution, and you're not sure where to start, a good rule of thumb is to open an issue or reach out to another team member to help you scope the work you'd like to do, and to set expectations.
 
 _&mdash; Based on contributing guidelines from the [JupyterHub][jupyterhub-community] project._
 

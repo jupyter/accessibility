@@ -2,7 +2,8 @@
 
 Welcome to the Team Compass for the Jupyter Accessibility project.
 
-This group was formed in early 2019. Its goal is to gather stakeholders interested in working to make Jupyter's
+This group was formed in early 2019.
+Its goal is to gather stakeholders interested in working to make Jupyter's
 core user-facing software and related tooling accessible.
 
 These core user-facing software include:

@@ -7,11 +7,13 @@ To propose an edit directly from the documentation, click {fab}`github` -> {fas}
 
 ## Issues and labels
 
-Before you open a new issue, please check if any of our open issues cover your idea already. If you open a new issue, please follow our basic guidelines laid out in our issue templates.
+Before you open a new issue, please check if any of our open issues cover your idea already.
+If you open a new issue, please follow our basic guidelines laid out in our issue templates.
 
-We have a number of labels in the repository - this helps us orient ourselves around what type of contribution is needed as well as to signal the type of skills this might involve. You can see the full list of issue labels in our [`jupyter/accessibility` repository](https://github.com/jupyter/accessibility/labels).
+We have a number of labels in the repository - this helps us orient ourselves around what type of contribution is needed as well as to signal the type of skills this might involve.
+You can see the full list of issue labels in our [`jupyter/accessibility` repository](https://github.com/jupyter/accessibility/labels).
 
-## Making a change with a pull request
+## Making a Change with a Pull Request
 
 The following steps are a guide to help you contribute in a way that will be straightforward for everyone to review and move forward.
 
@@ -43,7 +45,9 @@ A member of `jupyter/accessibility` team will then review your changes to confir
 A review will probably consist of a few questions to help clarify the work you've done.
 Keep an eye on your GitHub notifications and be prepared to join in that conversation 🔔.
 
-## Making changes to the Team Compass
+## Making Changes to the Team Compass
+
+### Adding Content
 
 The source for the Team Compass content is located in the `docs` directory and is organized under the following chapters:
 
@@ -54,18 +58,18 @@ The source for the Team Compass content is located in the `docs` directory and i
 
 Additionally, the landing page is located in `docs/index.md`.
 
-### Adding a new chapter
+#### Adding a New Chapter
 
 1. Create a new directory under `docs/` and an `index.md` file, which will be the top page of the new section.
 2. Add a new `chapter` in the Table of contents `docs/_toc.yml`.
 3. As you add more sections in the new chapter, make sure to add the corresponding `file` entries in the Table of contents `docs/_toc.yml`.
 
-### Adding a new section to a chapter
+#### Adding a New Section to a Chapter
 
 1. Create a new `.md` file in the most suitable directory within `docs/`.
 2. Add the file path to the `file` entry in the Table of contents `docs/_toc.yml`.
 
-## Pre-commit hooks
+### Pre-commit Hooks
 
 This repository uses the `prettier` [pre-commit hook](https://pre-commit.com/) to standardize our YAML and markdown structure.
 
@@ -95,13 +99,13 @@ pre-commit run --all-files
 
 Once installed, the pre-commit hooks will run automatically when you make a commit in version control.
 
-## Building the Team Compass
+### Building the Team Compass
 
 The Team Compass is built with [the Jupyter Book documentation engine](https://jupyterbook.org/en/stable/index.html).
 
 Follow the instructions below to build the Team Compass on your local computer.
 
-### Automatically with `nox`
+#### Automatically with `nox`
 
 The easiest way to build the documentation in this repository is to use [the `nox` automation tool](https://nox.thea.codes/), a tool for quickly building environments and running commands within them.
 This ensures that your environment has all the dependencies needed to build the documentation.
@@ -154,7 +158,7 @@ If you wish to manually build the documentation, you can use `conda` to do so.
 This will generate the HTML for the documentation in the `docs/_build/html` folder.
 You may preview the documentation by opening any of the `.html` files inside.
 
-## Reference links
+## Reference Links
 
 - [Jupyter Book documentation](https://jupyterbook.org/en/stable)
 
