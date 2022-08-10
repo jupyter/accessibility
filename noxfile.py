@@ -38,7 +38,7 @@ def docs_live(session):
 
     install_deps(session)
 
-    session.run("jupyter-book", "config", "sphinx", "docs")
+    session.run("jupyter-book", "config", "sphinx", "docs/")
     cmd = ["sphinx-autobuild"]
 
     for path in ["*/_build/*", "*/tmp/*"]:
