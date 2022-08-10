@@ -16,11 +16,13 @@ build:
 
 python:
   install:
+    - requirements: docs/requirements.txt
     - method: pip
-      path: ./docs
+      path: .
       extra_requirements:
-        - sphinx
+        - docs
 
 sphinx:
   builder: html
   fail_on_warning: true
+  configuration: docs/conf.py
