@@ -1,8 +1,11 @@
 # Mapping JupyterLab's user interface to source code
 
-Author: Gabriel Fouasnon
-
-Last updated: January 18, 2022
+```{card}
++++
+**Last updated on**: January 18, 2022
++++
+**Author**: Gabriel Fouasnon
+```
 
 ## Introduction
 
@@ -19,20 +22,20 @@ This document contains a large number of links to specific lines of code.
 Because JupyterLab is constantly evolving and changing, it's important to peg
 the links to specific code versions.
 
-For JupyterLab code links, we use
-[v4.0.0a18](https://github.com/jupyterlab/jupyterlab/tree/v4.0.0a18) for this
-document.
+- For JupyterLab code links, we use
+  [v4.0.0a18](https://github.com/jupyterlab/jupyterlab/tree/v4.0.0a18) for this
+  document.
 
-For links to Lumino source, we use
-[v2021.12.13](https://github.com/jupyterlab/lumino/releases/tag/v2021.12.13).
+- For links to Lumino source, we use
+  [v2021.12.13](https://github.com/jupyterlab/lumino/releases/tag/v2021.12.13).
 
-Original source code for this document, including the .drawio file used to
-generate all of the images in this doc, can by found by going to
-https://github.com/gabalafou/map-jupyterlab-frontend-components.
+- Original source code for this document, including the `.drawio` file used to
+  generate all the images in this doc, can by found by going to
+  <https://github.com/gabalafou/map-jupyterlab-frontend-components>.
 
 ### Scope
 
-JupyterLab loads a large number of front-end components into its default user
+JupyterLab loads many front-end components into its default user
 interface. This document does not attempt to exhaustively map all parts of the
 interface to the source code. Rather it focuses on a subset of the UI.
 
@@ -45,7 +48,7 @@ beginning to end, the nodes become more and more deeply nested.
 ### Lumino and JupyterLab
 
 JupyterLab is built on top of Lumino. In other words, Lumino is a dependency of
-JupyterLab but JupyterLab is not a dependency of Lumino. Lumino provides a set
+JupyterLab, but JupyterLab is not a dependency of Lumino. Lumino provides a set
 of classes for creating common UI elements, such as tab bars, menus, panels, and
 more. Lumino also provides an architecture for plugins.
 
@@ -98,7 +101,7 @@ of interest in the source code. Each section represents a single DOM node.
 ### Application shell
 
 The application shell is the entire user interface of the application. It
-includes the top, bottom, and side bars, as well as the main content area (and
+includes the top, bottom, and sidebars, as well as the main content area (and
 other areas not covered by this document).
 
 ![Screenshot of the JupyterLab UI in which the entire UI is outlined because the
@@ -117,7 +120,7 @@ Table of properties:
 | CSS class         | [jp-LabShell](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/application/src/shell.ts#L261)                                                                                                         |
 | Controlling class | [LabShell](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/application/src/shell.ts#L255) extends [Widget](https://github.com/jupyterlab/lumino/blob/v2021.12.13/packages/widgets/src/widget.ts#L38) |
 
-Steps to mount:
+**Steps to mount:**
 
 1. [Create new app
    shell](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/application/src/lab.ts#L24)
@@ -152,7 +155,7 @@ Table of properties:
 | Controlling class | [PanelHandler](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/application/src/shell.ts#L1577), a private class that wraps [Lumino Panel](https://github.com/jupyterlab/lumino/blob/v2021.12.13/packages/widgets/src/panel.ts#L24) |
 | Shell area        | [top](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/application/src/shell.ts#L770)                                                                                                                                               |
 
-Steps to mount:
+**Steps to mount:**
 
 1. [Create handler for top
    panel](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/application/src/shell.ts#L282).
@@ -196,7 +199,7 @@ Table of properties:
 | HTML id           | [jp-main-content-panel](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/application/src/shell.ts#L305) |
 | Controlling class | [Lumino BoxPanel](https://github.com/jupyterlab/lumino/blob/v2021.12.13/packages/widgets/src/boxpanel.ts#L22)           |
 
-Steps to mount:
+**Steps to mount:**
 
 1. [Create new box
    panel](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/application/src/shell.ts#L286)
@@ -227,7 +230,7 @@ Table of properties:
 | Controlling class | [Lumino BoxPanel](https://github.com/jupyterlab/lumino/blob/v2021.12.13/packages/widgets/src/boxpanel.ts#L22)     |
 | Shell area        | [bottom](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/application/src/shell.ts#L756)          |
 
-Steps to mount:
+**Steps to mount:**
 
 1. [Create new box
    panel](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/application/src/shell.ts#L284)
@@ -255,7 +258,7 @@ Table of properties:
 | HTML id           | [jp-MainLogo](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/application-extension/src/index.tsx#L1044) |
 | Controlling class | [Lumino Widget](https://github.com/jupyterlab/lumino/blob/v2021.12.13/packages/widgets/src/widget.ts#L38)                 |
 
-Steps to mount:
+**Steps to mount:**
 
 1. [Ask shell to add logo to top
    area](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/application-extension/src/index.tsx#L1045)
@@ -323,7 +326,7 @@ Table of properties:
 | aria-label        | [main sidebar](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/application/src/shell.ts#L313)  |
 | Controlling class | [Lumino TabBar](https://github.com/jupyterlab/lumino/blob/v2021.12.13/packages/widgets/src/tabbar.ts#L43)       |
 
-Steps to mount:
+**Steps to mount:**
 
 1. [Create handler for left side
    bar](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/application/src/shell.ts#L297).
@@ -337,8 +340,8 @@ the middle container, above).
 
 ### Main vertical split panel
 
-This node allows the area inside of the UI that is surrounded by top, bottom,
-and side bars to be divided into two top and bottom parts. This appears to be
+This node allows the area inside the UI that is surrounded by top, bottom,
+and sidebars to be divided into two top and bottom parts. This appears to be
 primarily for providing a place to display the Log Console, which this document
 does not go into.
 
@@ -357,7 +360,7 @@ Table of properties:
 | HTML id           | [jp-main-vsplit-panel](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/application/src/shell.ts#L306)                                                                                                                            |
 | Controlling class | [RestorableSplitPanel](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/application/src/shell.ts#L2061) extends [Lumino SplitPanel](https://github.com/jupyterlab/lumino/blob/v2021.12.13/packages/widgets/src/splitpanel.ts#L30) |
 
-Steps to mount:
+**Steps to mount:**
 
 1. [Create vertically split
    panel](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/application/src/shell.ts#L287).
@@ -388,7 +391,7 @@ Table of properties:
 | aria-label        | [alternate sidebar](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/application/src/shell.ts#L326) |
 | Controlling class | [Lumino TabBar](https://github.com/jupyterlab/lumino/blob/v2021.12.13/packages/widgets/src/tabbar.ts#L43)           |
 
-Steps to mount:
+**Steps to mount:**
 
 1. [Create handler for right
    sidebar](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/application/src/shell.ts#L298).
@@ -417,7 +420,7 @@ Table of properties:
 | HTML id           | [jp-main-statusbar](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/statusbar-extension/src/index.ts#L64)         |
 | Controlling class | [StatusBar](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/statusbar/src/statusbar.ts#L24) extends Lumino Widget |
 
-Steps to mount:
+**Steps to mount:**
 
 1. [Create new status
    bar](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/statusbar-extension/src/index.ts#L63)
@@ -449,10 +452,12 @@ Table of properties:
 | HTML id           | [jp-MainMenu](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/mainmenu-extension/src/index.ts#L150)                                                                                                          |
 | Controlling class | [MainMenu](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/mainmenu/src/mainmenu.ts#L22) extends [Lumino MenuBar](https://github.com/jupyterlab/lumino/blob/v2021.12.13/packages/widgets/src/menubar.ts#L35) |
 
-Steps to mount:
+Author: Gabriel Fouasnon
 
-(Note: this set of steps is nearly identical to the set of steps to mount the
-Jupyter logo.)
+```{note}
+This set of steps is nearly identical to the set of steps to mount the
+Jupyter logo.
+```
 
 1. [Create new menu
    bar](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/mainmenu-extension/src/index.ts#L149)
@@ -488,7 +493,7 @@ Table of properties:
 | HTML id           | [jp-main-split-panel](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/application/src/shell.ts#L308)                                                                                                                             |
 | Controlling class | [RestorableSplitPanel](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/application/src/shell.ts#L2061) extends [Lumino SplitPanel](https://github.com/jupyterlab/lumino/blob/v2021.12.13/packages/widgets/src/splitpanel.ts#L30) |
 
-Steps to mount:
+**Steps to mount:**
 
 1. [Create split
    panel](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/application/src/shell.ts#L293).
@@ -519,7 +524,7 @@ Table of properties:
 | HTML id           | none                                                                                                    |
 | Controlling class | [Lumino Panel](https://github.com/jupyterlab/lumino/blob/v2021.12.13/packages/widgets/src/panel.ts#L24) |
 
-Steps to mount:
+**Steps to mount:**
 
 1. [Create the status bar left
    panel](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/statusbar/src/statusbar.ts#L31).
@@ -554,7 +559,7 @@ Table of properties:
 | aria-haspopup     | [true](https://github.com/jupyterlab/lumino/blob/v2021.12.13/packages/widgets/src/menubar.ts#L875)            |
 | Controlling class | [VirtualElement](https://github.com/jupyterlab/lumino/blob/v2021.12.13/packages/virtualdom/src/index.ts#L756) |
 
-Steps to mount:
+**Steps to mount:**
 
 To make this concrete, we will follow the steps to mount the "File" menu item.
 
@@ -620,7 +625,7 @@ Table of properties:
 | aria-selected     | [true/false](https://github.com/jupyterlab/lumino/blob/v2021.12.13/packages/widgets/src/tabbar.ts#L1712)                                       |
 | Controlling class | [VirtualElement](https://github.com/jupyterlab/lumino/blob/v2021.12.13/packages/virtualdom/src/index.ts#L756)                                  |
 
-Steps to mount:
+**Steps to mount:**
 
 Note that the steps to mount a tab in left sidebar are similar to the steps to
 mount a menu item in the main menu bar. We will use the file browser as a
@@ -673,7 +678,7 @@ Table of properties:
 | Controlling class | [Lumino StackedPanel](https://github.com/jupyterlab/lumino/blob/v2021.12.13/packages/widgets/src/stackedpanel.ts#L24) |
 | Shell area        | [left](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/application/src/shell.ts#L762)                |
 
-Steps to mount:
+**Steps to mount:**
 
 1. [Create stacked
    panel](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/application/src/shell.ts#L1653).
@@ -710,7 +715,7 @@ Table of properties:
 | Controlling class | [DockPanelSvg](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/ui-components/src/icon/widgets/tabbarsvg.ts#L63) extends [Lumino DockPanel](https://github.com/jupyterlab/lumino/blob/v2021.12.13/packages/widgets/src/dockpanel.ts#L35) |
 | Shell area        | [main](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/application/src/shell.ts#L764)                                                                                                                                                   |
 
-Steps to mount:
+**Steps to mount:**
 
 1. [Create main dock
    panel](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/application/src/shell.ts#L288).
@@ -737,7 +742,7 @@ Node-to-node CSS selector path for this node:
 
 ### A tab in the right sidebar
 
-See left sidebar tab. The idea is basically the same.
+See left sidebar tab. The idea is essentially the same.
 
 Node-to-node CSS selector path for this node:
 
@@ -768,7 +773,7 @@ Table of properties:
 | HTML id           | [jp-single-document-mode](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/statusbar-extension/src/index.ts#L350)           |
 | Controlling class | [Switch](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/ui-components/src/components/switch.ts#L11) extends Lumino Widget |
 
-Steps to mount:
+**Steps to mount:**
 
 1. [Create
    switch](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/statusbar-extension/src/index.ts#L349)
@@ -808,7 +813,7 @@ Table of properties:
 | aria-label        | [File Browser Section](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/filebrowser-extension/src/index.ts#L392)                                                                                                 |
 | Controlling class | [FileBrowser](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/filebrowser/src/browser.ts#L59) extends [Lumino Widget](https://github.com/jupyterlab/lumino/blob/v2021.12.13/packages/widgets/src/widget.ts#L38) |
 
-Steps to mount:
+**Steps to mount:**
 
 1. [Create file browser
    widget](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/filebrowser-extension/src/index.ts#L301)
@@ -856,14 +861,14 @@ Table of properties:
 | CSS class         | [lm-DockPanel-tabBar](https://github.com/jupyterlab/lumino/blob/v2021.12.13/packages/widgets/src/dockpanel.ts#L1394) |
 | Controlling class | [Lumino TabBar](https://github.com/jupyterlab/lumino/blob/v2021.12.13/packages/widgets/src/tabbar.ts#L43)            |
 
-The tab bar is created by the main Lumino DockPanel instance via [its private
-\_createTabBar
+The tab bar is created by the main Lumino `DockPanel` instance via [its private
+`\_createTabBar`
 method](https://github.com/jupyterlab/lumino/blob/v2021.12.13/packages/widgets/src/dockpanel.ts#L922).
-The Lumino DockLayout [handles mounting the tab
+The Lumino `DockLayout` [handles mounting the tab
 bar](https://github.com/jupyterlab/lumino/blob/v2021.12.13/packages/widgets/src/docklayout.ts#L1105)
 to the DOM.
 
-Like the shell's left sidebar handler, it [connects a currentChanged handler to
+Like the shell's left sidebar handler, it [connects a `currentChanged` handler to
 the tab
 bar](https://github.com/jupyterlab/lumino/blob/v2021.12.13/packages/widgets/src/dockpanel.ts#L944),
 so that when the tab changes, it can change the corresponding tab panel.
@@ -894,7 +899,7 @@ Table of properties:
 | aria-labelledby   | [tab-key-0](https://github.com/jupyterlab/lumino/blob/v2021.12.13/packages/widgets/src/docklayout.ts#L2086) (for example)                                                                                                                                                                                                                                                                                                                                                              |
 | Controlling class | [NotebookPanel](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/notebook/src/panel.ts#L45) extends [DocumentWidget](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/docregistry/src/default.ts#L490) extends [MainAreaWidget](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/apputils/src/mainareawidget.ts#L20) extends [Lumino Widget](https://github.com/jupyterlab/lumino/blob/v2021.12.13/packages/widgets/src/widget.ts#L38) |
 
-Steps to mount:
+**Steps to mount:**
 
 There are multiple code paths to mount a notebook into the DOM. For example,
 using the open command from the file menu versus double clicking on a notebook
@@ -946,7 +951,7 @@ Table of properties:
 | aria-label        | [notebook actions](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/apputils/src/mainareawidget.ts#L44)                                                                                                                                                                                                                                                               |
 | Controlling class | [ReactiveToolbar](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/ui-components/src/components/toolbar.tsx#L357) extends [Toolbar](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/ui-components/src/components/toolbar.tsx#L163) extends [Lumino Widget](https://github.com/jupyterlab/lumino/blob/v2021.12.13/packages/widgets/src/widget.ts#L38) |
 
-Steps to mount:
+**Steps to mount:**
 
 1. When the NotebookPanel widget is created (see above), it [creates its own
    toolbar](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/apputils/src/mainareawidget.ts#L42).
@@ -984,13 +989,13 @@ Table of properties:
 | aria-label        | [notebook content](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/apputils/src/mainareawidget.ts#L41)                                                                                                                                                                                                                            |
 | Controlling class | [Notebook](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/notebook/src/widget.ts#L1124) extends [StaticNotebook](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/notebook/src/widget.ts#L190) extends [Lumino Widget](https://github.com/jupyterlab/lumino/blob/v2021.12.13/packages/widgets/src/widget.ts#L38) |
 
-Steps to mount:
+**Steps to mount:**
 
 1. When the doc manager uses the notebook widget factory to create a new
    notebook panel, it [passes in a notebook
    instance](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/notebook/src/widgetfactory.ts#L102)
    to the notebook panel constructor.
-2. The notebook panel constructor (through the MainAreaWidget parent class)
+2. The notebook panel constructor (through the `MainAreaWidget` parent class)
    [adds the notebook widget to its
    layout](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/apputils/src/mainareawidget.ts#L59),
    just like the notebook toolbar, above, so when the notebook panel gets
@@ -1020,7 +1025,7 @@ Table of properties:
 | CSS class         | [jp-Toolbar-item](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/ui-components/src/components/toolbar.tsx#L226)                                                                                                                                                                                                                                                     |
 | Controlling class | [ReactiveToolbar](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/ui-components/src/components/toolbar.tsx#L357) extends [Toolbar](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/ui-components/src/components/toolbar.tsx#L163) extends [Lumino Widget](https://github.com/jupyterlab/lumino/blob/v2021.12.13/packages/widgets/src/widget.ts#L38) |
 
-Steps to mount:
+**Steps to mount:**
 
 1. The doc manager [uses a factory to create a new notebook
    panel](https://github.com/jupyterlab/jupyterlab/blob/v4.0.0a18/packages/docmanager/src/manager.ts#L590)
