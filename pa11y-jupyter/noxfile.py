@@ -1,4 +1,4 @@
-# Copyright (c) Jupyter Development Team.
+# Copyright (c) Jupyter Accessibility Teamam.
 # Distributed under the terms of the Modified BSD License.
 
 from contextlib import suppress

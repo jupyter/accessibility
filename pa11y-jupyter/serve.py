@@ -1,4 +1,4 @@
-# Copyright (c) Jupyter Development Team.
+# Copyright (c) Jupyter Accessibility Team.
 # Distributed under the terms of the Modified BSD License.
 
 """ a minimal static server, primarily for performing audits
@@ -23,7 +23,9 @@
 from tornado import ioloop, options, web
 
 options.define("port", default=8080, help="port to listen on")
-options.define("host", default="127.0.0.1", help="host interface to connect on (0.0.0.0 is all)")
+options.define(
+    "host", default="127.0.0.1", help="host interface to connect on (0.0.0.0 is all)"
+)
 options.define("path", help="the files to serve")
 
 SETTINGS = dict(
@@ -76,4 +78,6 @@ def main(path, port, host):
 
 if __name__ == "__main__":
     options.parse_command_line()
-    main(path=options.options.path, port=options.options.port, host=options.options.host)
+    main(
+        path=options.options.path, port=options.options.port, host=options.options.host
+    )

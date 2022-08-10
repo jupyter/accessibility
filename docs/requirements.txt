@@ -1,4 +1,4 @@
-# Copyright (c) Jupyter Development Team.
+# Copyright (c) Jupyter Accessibility Team.
 # Distributed under the terms of the Modified BSD License.
 
 jupyter-book
@@ -6,6 +6,7 @@ pyyaml
 sphinx-autobuild
 sphinx-copybutton
 pydata-sphinx-theme
+
 
 # additional myst parsers
 # See https://myst-parser.readthedocs.io/en/latest/using/syntax-optional.html

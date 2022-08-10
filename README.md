@@ -12,7 +12,7 @@ These core user-facing software include:
 
 > **Important notice**
 > As of March 2022 this software **is not accessible.**
-> Significant work will be required to reach that goal.
+> Significant work will be required to reach that goal. In the meantime, you can track the progress and initiatives in our [Jupyter Accessibility Team Compass](https://jupyter-accessibility.readthedocs.io)
 
 If you are trying to use Jupyter tools with assistive technology now, you may be able to get basic support with the following:
 

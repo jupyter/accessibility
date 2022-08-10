@@ -1,24 +1,38 @@
-# Copyright (c) Jupyter Development Team.
+# Copyright (c) Jupyter Accessibility Team.
 # Distributed under the terms of the Modified BSD License.
 
 format: jb-book
 root: index
 parts:
-  - caption: About Jupyter Accessibility
+  # ------------------------------------------------------
+  # Top view efforts
+  - caption: Accessibility efforts
     chapters:
-      - file: community/README.md
       - file: funding/README.md
       - file: funding/czi-grant-roadmap.md
       - file: funding/czi-grant-completed.md
       - file: resources/statement.md
-  - caption: Contribute
+  # ------------------------------------------------------
+  # All things community
+  # TODO: https://jupyterhub-team-compass.readthedocs.io/en/latest/contribute/index.html
+  - caption: Community
     chapters:
-      - file: developer/README.md
+      - file: community/README.md
+      # Ensure we build all the community files even if not in this TOC
+      - glob: community/meeting-minutes/jupyterlab-accessibility-meetings/*.md
+      # TODO: contributing and architecture need revisitng
       - file: CONTRIBUTING.md
       - file: ARCHITECTURE.md
+  # ------------------------------------------------------
+  # Governance and team guides
+  # TODO: governance work https://jupyterhub-team-compass.readthedocs.io/en/latest/index-team_governance.html
+  # TODO: add something like https://jupyterhub-team-compass.readthedocs.io/en/latest/index-team_guides.html
+  # - caption: Team guides
+  #   chapters:
+  #     - file: team-guides/README.md
+  # ------------------------------------------------------
+  # Sharing knowledge
   - caption: Accessibility resources
     chapters:
-      - file: resources/team_guides.rst
+      - file: resources/useful-resources.md
       - file: resources/map-jupyterlab-frontend-architecture/README.md
-      - file: community/meeting-minutes/lumino/walkthrough-phosphor-prs.md
-      - file: community/meeting-minutes/2019-web4all-hackathon/hackathon-resources.md

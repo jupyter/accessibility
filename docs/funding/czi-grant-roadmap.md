@@ -5,16 +5,16 @@
 +++
 **Last updated on**: April 1, 2022
 +++
-📃 Read the [full EOSS grant proposal][Jupyter - CZI proposal submitted]
+📃 [Read more about the CZI-EOSS grant][Jupyter - CZI grant]
 ```
 
 ## What is this?
 
-Welcome! You've found your way to the public roadmap for Jupyter accessibility efforts that fall in scope of the [CZI EOSS grant Inclusive and Accessible Computing in the Jupyter Ecosystem][jupyter - czi proposal submitted].
+Welcome! You've found your way to the public roadmap for Jupyter accessibility efforts that fall in scope of the [CZI EOSS grant Inclusive and Accessible Computing in the Jupyter Ecosystem][jupyter - czi grant].
 
 This roadmap's content is derived from:
 
-- [The original grant proposal][jupyter - czi proposal submitted]
+- [The original grant proposal][jupyter - czi grant]
 - The [jupyter-a11y-mgmt repository's planning issues](https://github.com/orgs/Quansight-Labs/projects/5/views/1)
 - The [JupyterLab accessibility project board](https://github.com/orgs/Quansight-Labs/projects/5/views/1)
 - Feedback from community members working on accessibility-related matters
@@ -80,4 +80,4 @@ Tasks that have been completed will be listed on the Changelog (🚧 coming soon
 
 <!-- links -->
 
-[jupyter - czi proposal submitted]: https://chanzuckerberg.com/eoss/proposals/inclusive-and-accessible-scientific-computing-in-the-jupyter-ecosystem/
+[jupyter - czi grant]: https://chanzuckerberg.com/eoss/proposals/inclusive-and-accessible-scientific-computing-in-the-jupyter-ecosystem/

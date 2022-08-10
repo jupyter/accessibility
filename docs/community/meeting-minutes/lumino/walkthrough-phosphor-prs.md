@@ -1,8 +1,8 @@
 _These notes are from a supplementary meeting to the regular and more general JupyterLab accessibility meetings we've been holding. It was lead by @jasongrout._
 
-## Walkthrough Phosphor Accessibility PRs Meeting Notes (10.26.2020)
+# Walkthrough Phosphor Accessibility PRs Meeting Notes - 2020
 
-### Attendees
+## Attendees
 
 - Jason Grout @jasongrout
 - Martha @marthacryan
@@ -12,7 +12,7 @@ _These notes are from a supplementary meeting to the regular and more general Ju
 - Gonzalo @goanpeca
 - Isabela @isabela-pf
 
-### Context
+## Context
 
 This is related to the [Web4All Hackathon](http://www.w4a.info/2019/hackathon/)
 on Jupyter from 2019 at the [LightHouse SF](https://lighthouse-sf.org/).
@@ -49,7 +49,7 @@ architectural decisions that interfere accessibility higher up.
   - Figuring out what has not been found as an issue yet.
     Exploring other problems.
 
-### WIP Repos
+## WIP Repos
 
 Where a lot of this work lives. Closed issues were pulled upstream.
 Open issues hold discussions and work that still needs to be done.
@@ -58,7 +58,7 @@ Open issues hold discussions and work that still needs to be done.
 - https://github.com/diagram-codesprint/jupyterlab
 - https://github.com/diagram-codesprint/phosphor
 
-### Relevant PRs and Issues
+## Relevant PRs and Issues
 
 - https://github.com/phosphorjs/phosphor/pull/404
 - https://github.com/phosphorjs/phosphor/pull/405
@@ -71,7 +71,7 @@ Open issues hold discussions and work that still needs to be done.
 - https://github.com/jupyter/accessibility
 - https://github.com/phosphorjs/phosphor/pull/392
 
-### Miscellaneous Notes
+## Miscellaneous Notes
 
 - Lumino needs to be really stable, so will probably need to
   collect changes for a big release to make changes there.
@@ -91,7 +91,7 @@ Open issues hold discussions and work that still needs to be done.
   around the structure. We don't know where this discussion is
   right now.
 
-### Next steps?
+## Next steps?
 
 - Split existing PRs between people so that we can make progress
   on problems we already know we have - Get these to be merged or at a state where they could be

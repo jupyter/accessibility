@@ -127,7 +127,3 @@ We welcome your feedback and formal complaints on the accessibility status of Ju
 At the time of writing, there is no non-public way to contact us for JupyterLab accessibility issues.
 
 Please note that JupyterLab is an open-source project and that Jupyter accessibility contributors are a group defined on a voluntary basis. Like many other open-source projects, we cannot guarantee how long it may take to respond to and resolve an issue, though we do make an effort to do it as quickly as is possible with our resources.
-
-## Accessibility Statement for Jupyter Notebook
-
-🚧 This item is under construction 🚧

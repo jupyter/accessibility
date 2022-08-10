@@ -1,4 +1,4 @@
-# Jupyter accessibility workshops
+# Jupyter accessibility workshops - 2022
 
 Jupyter accessibility workshops were a series of [Jupyter community workshops](https://blog.jupyter.org/jupyter-community-workshops-cbd34ac82549)
 in January and March 2022 focused on learning and practicing foundational

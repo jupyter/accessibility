@@ -1,4 +1,4 @@
-# Copyright (c) Jupyter Development Team.
+# Copyright (c) Jupyter Accessibility Team.
 # Distributed under the terms of the Modified BSD License.
 
 # Book settings
@@ -10,7 +10,8 @@ author: The Jupyter Accesibility Team
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
-exclude_patterns: [".nox", "source", "_build", "Thumbs.db", ".DS_Store"]
+exclude_patterns:
+  [".nox", "source", "_build", "Thumbs.db", ".DS_Store", ".git", ".github"]
 
 # autoexclude files not in the toc
 only_build_toc_files: false
@@ -38,3 +39,5 @@ parse:
 sphinx:
   config:
     language: en
+  extensions:
+    - "sphinx_design"
