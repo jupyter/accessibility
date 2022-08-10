@@ -4,7 +4,7 @@ Our project depends on contributions from volunteers across the world who are in
 The sections below provide some resources to help you get started contributing to our community.
 
 ```{toctree}
-:maxdepth: 2
+:maxdepth: 1
 
 guide
 ```

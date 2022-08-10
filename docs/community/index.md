@@ -9,15 +9,21 @@ We are currently working on our governance and decision making, please bear with
 
 The Jupyter Accessibility community follows the broader [Jupyter Community’s Code of Conduct](https://github.com/jupyter/governance/blob/master/conduct/code_of_conduct.md).
 
-## Accessibility in the Jupyter Ecosystem
+## Get Connected with the Community
 
-Most accessibility-related conversations in the Jupyter ecosystem happen in the following channels:
+First off, get yourself connected with the Jupyter Accessibility community online. There
+are a few places where we have conversations and discussion.
 
 - [Accessibility section of the Community forum][discourse-accessibility] - ongoing conversations and brainstorms around accessibility in the Jupyter ecosystem.
 - [Jupyter Notebook Accessibility Issues][notebook-accessibility-issues] - all the `tag:Accessibility` issues in the Jupyter Notebook repository.
 - [JupyterHub Accessibility Issues][jupyterhub-accessibility-issues] - all the `label:Accessibility` issues in the JupyterHub repository.
 - [JupyterLab Accessibility Issues][jupyerlab-accessibility-issues] - all the `tag:Accessibility` issues in the JupyterLab repository.
 - Review and join in contributing to [accessibility issues identified for the ongoing CZI EOSS grant](../funding/czi-grant-roadmap.md)
+
+```{note}
+As a reminder, we expect all members of the Jupyter Accessibility community to adhere to the
+[Jupyter Code of Conduct][jupyter-coc] in these conversations.
+```
 
 ## Team meetings and notes
 
@@ -36,7 +42,7 @@ The Jupyter Accessibility meets every two weeks to discuss what we have been up 
 <!-- Add accessibility meeting notes -->
 
 ```{toctree}
-:maxdepth: 2
+:maxdepth: 1
 
 meeting-minutes/jupyterlab-accessibility-meetings/index
 ```

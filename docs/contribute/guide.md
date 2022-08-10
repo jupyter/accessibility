@@ -7,6 +7,9 @@ design, code, advice, documentation, support, or joining our conversations!
 If you'd like to start getting involved with Jupyter Accessibility projects,
 here are a few resources to get you started.
 
+````{tip}
+Make sure to check the [Joining the Jupyter Accessibility Community section](../community/index.md) in this compass to learn more about where the accessibility conversations are happening in our ecosystem.
+
 ## Do I really have something to contribute to Jupyter Accessibility?
 
 Absolutely ✅. There are always ways to contribute to this community!
@@ -21,24 +24,8 @@ If you are new accessibility practices, then **contributing to Jupyter Accessibi
 The Jupyter Accessibility community works hard to share its knowledge of both Jupyter tools and the
 general problems that they try to solve, and we'd be happy to help you out.
 
-If you're not sure where to start, look for the [![Shield badge -Good First Issue in our accessibility repository](https://img.shields.io/badge/-good%20first%20issue-blueviolet.svg)][link_goodfirstissue]
+If you're not sure where to start, look for the [![Shield badge -Good First Issue in our accessibility repository](https://img.shields.io/badge/-good%20first%20issue-blueviolet.svg)][a11y-goodfirstissue]
 tag to begin your journey learning about accessibility within the Jupyter ecosystem.
-
-## Get connected
-
-First off, get yourself connected with the Jupyter Accessibility community online. There
-are a few places where we have conversations and discussion.
-
-- [Accessibility section of the Community forum][discourse-accessibility] - ongoing conversations and brainstorms around accessibility in the Jupyter ecosystem.
-- [Jupyter Notebook Accessibility Issues][notebook-accessibility-issues] - all the `tag:Accessibility` issues in the Jupyter Notebook repository.
-- [JupyterHub Accessibility Issues][jupyterhub-accessibility-issues] - all the `label:Accessibility` issues in the JupyterHub repository.
-- [JupyterLab Accessibility Issues][jupyerlab-accessibility-issues] - all the `tag:Accessibility` issues in the JupyterLab repository.
-- Review and join in contributing to [accessibility issues identified for the ongoing CZI EOSS grant](../funding/czi-grant-roadmap.md)
-
-```{note}
-As a reminder, we expect all members of the Jupyter Accessibility community to adhere to the
-[Jupyter Code of Conduct][jupyter-coc] in these conversations.
-```
 
 ## Contributing through GitHub
 
@@ -54,7 +41,7 @@ or as a [link][rick_roll] (`[link](https://github.com/jupyter/acce)`) to another
 ```{tip}
 GitHub has a helpful page on
 [getting started with writing and formatting Markdown on GitHub][writing_formatting_github].
-```
+````
 
 ## Find issues to work on
 
@@ -68,50 +55,66 @@ might be interested in are **help wanted**, and **good first issue**.
 
 The [GitHub Issues Search](https://github.com/issues)
 can be used to quickly search across all the issues in a GitHub organization that match
-one of these tags. Here are a few links below to help you get started:
+one of these tags. Here are a few pointers of issues you might want to look for to help you get started:
 
-- [![Badge - issue tag Help Wanted](https://img.shields.io/badge/-help%20wanted-159818.svg)][link_helpwanted]: _These issues contain a task that a member of the team has determined we need additional help with._
+- ![Badge - issue tag Help Wanted](https://img.shields.io/badge/-help%20wanted-159818.svg): _These issues contain a task that a member of the team has determined we need additional help with._
 
-- [![Badge - issue tag Good First Issue](https://img.shields.io/badge/-good%20first%20issue-blueviolet.svg)][link_goodfirstissue]: _These issues contain a task that a member of the team thinks could be a good entry point to the project._
+- ![Badge - issue tag Good First Issue](https://img.shields.io/badge/-good%20first%20issue-blueviolet.svg): _These issues contain a task that a member of the team thinks could be a good entry point to the project._
 
 ## Help by contributing to a specific repository
 
-Note that Jupyter Accessibility works on many kinds of technology. The kind of tech you'll
+Note that the Jupyter Accessibility team works across many kinds of technologies and projects. The kind of tech you'll
 use (as well as the set-up and skill needed to work on that tech) will depend on the
 repository that you're working with.
 
-For example, the [Zero to Jupyter Accessibility for Kubernetes](https://github.com/Jupyter Accessibility/zero-to-Jupyter Accessibility-k8s)
-repository will touch on aspects of dev-ops and cloud infrastructure.
+For example, the [JupyterLab repository][jupyterlab] will touch on aspects of the UI itself and tools like Lumino and Galata.
 
 To get oriented with a specific repository's needs and process around making new
 contributions, look for a **repository-specific contributing guide**. This often
 comes in the form of a **`CONTRIBUTING.md`** file, or a section of the documentation.
+For example, [here is the `CONTRIBUTING.md` file for JupyterLab][jupyterlab-contributing].
 
-For example, [here is the `CONTRIBUTING.md` file for Zero to Jupyter Accessibility](https://github.com/Jupyter Accessibility/zero-to-Jupyter Accessibility-k8s/blob/master/CONTRIBUTING.md).
-Note that it covers some of the tools you'll need for testing and developing the code,
-which are not necessarily needed for the _other_ Jupyter Accessibility repositories.
+```{tip}
+You can also make use of the `contribute` slug in GitHub - for example to get a list of `good first issue` labelled issues and the link to the projects CONTRIBUTING guidelines you can append the `contributre` slug to the repository URL.
+So for the JupyterLab repository you's use <https://github.com/jupyterlab/jupyterlab/contribute>
+```
 
 **Are the contributing docs unclear or misleading?** Then please let us know! We try to
 make this documentation as helpful as possible, but we often don't have the perspective of
-a new member to the community. Your input is extremely valuable in making it easy for others
-to join the Jupyter Accessibility community!
+a new member to the community. Your input is extremely valuable in making it as smooth as possible for others
+to join our ever-growing community!
 
 ## Thank you!
 
-You're awesome. 👋🏻😊🦄
+You're awesome 👋🏻😊 .
 
 <br>
 
-_&mdash; Based on contributing guidelines from the [STEMMRoleModels][link_stemmrolemodels] project._
+_&mdash; Based on contributing guidelines from the [STEMMRoleModels][link_stemmrolemodels] and [JupyterHub][jupyterhub-community] projects._
 
-<!-- links -->
+<!-- Accessibility links -->
 
 [discourse-accessibility]: https://discourse.jupyter.org/c/special-topics/accessibility
 [jupyterhub-accessibility-issues]: https://github.com/jupyter/notebook/issues?q=is%3Aopen+is%3Aissue+label%3Atag%3AAccessibility
+[a11y-goodfirstissue]: https://github.com/jupyter/accessibility/issues?q=is%3Aopen+label%3A%22good+first+issue%22+sort%3Aupdated-desc
+
+<!-- lab -->
+
+[jupyterlab]: https://github.com/jupyterlab/jupyterlab
 [jupyerlab-accessibility-issues]: https://github.com/jupyterhub/jupyterhub/issues?q=is%3Aopen+is%3Aissue+label%3Aaccessibility
+[jupyterlab-contributing]: https://github.com/jupyterlab/jupyterlab/blob/adafbabcef3315bc706381d533d229115c07b5a6/CONTRIBUTING.md
+
+<!-- notebook -->
+
 [notebook-accessibility-issues]: https://github.com/jupyter/notebook/issues?q=is%3Aopen+is%3Aissue+label%3Atag%3AAccessibility
+
+<!-- jupyter-wide -->
+
 [jupyter-coc]: https://github.com/jupyter/governance/blob/master/conduct/code_of_conduct.md
-[link_goodfirstissue]: https://github.com/jupyter/accessibility/issues?q=is%3Aopen+label%3A%22good+first+issue%22+sort%3Aupdated-desc
+
+<!-- hub -->
+
+[jupyterhub-community]: https://jupyterhub-team-compass.readthedocs.io/en/latest/contribute/guide.html
 
 <!-- general git links -->
 
