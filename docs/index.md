@@ -11,10 +11,14 @@ These core user-facing software include:
 - [JupyterLab](https://github.com/jupyterlab/jupyterlab)
 - [JupyterHub](https://github.com/jupyterhub/jupyterhub)
 
+## Accessibility Status for Jupyter tools
+
 ```{warning}
 As of March 2022 this software **is not accessible**.
 Significant work will be required to reach that goal.
 ```
+
+In the meantime, you can read the JupyterLab accessibility statement to get a better understanding of its state and limitations:
 
 ````{grid}
 ```{grid-item-card}

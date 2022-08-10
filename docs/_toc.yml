@@ -5,13 +5,13 @@ format: jb-book
 root: index
 parts:
   # ------------------------------------------------------
-  # Top view efforts
+  # Top view efforts and initiatives
   - caption: Accessibility efforts
     chapters:
       - file: funding/README.md
       - file: funding/czi-grant-roadmap.md
       - file: funding/czi-grant-completed.md
-      - file: resources/statement.md
+      - file: resources/JupyterLab-a11y-statement.md
   # ------------------------------------------------------
   # All things community
   # TODO: https://jupyterhub-team-compass.readthedocs.io/en/latest/contribute/index.html

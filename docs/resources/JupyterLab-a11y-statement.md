@@ -114,15 +114,18 @@ Jupyter accessibility contributors take the following measures to ensure accessi
 - Employ formal accessibility quality assurance methods.
 - Document changes, approaches, and improvements to the above methods and to JupyterLab itself.
 
-For more information on current efforts to improve JupyterLab's accessibility, visit the [JupyterLab accessibility grant roadmap](https://jupyter-a11y.netlify.app/roadmap/intro.html).
+```{tip}
+For more information on current efforts to improve JupyterLab's accessibility, visit the [CZI - JupyterLab accessibility grant roadmap](https://jupyter-a11y.netlify.app/roadmap/intro.html).
+```
 
 ### Feedback and Formal complaints
 
-We welcome your feedback and formal complaints on the accessibility status of JupyterLab. Please let us know if you encounter accessibility barriers on JupyterLab:
+We welcome your feedback and formal complaints on the accessibility status of JupyterLab.
+Please let us know if you encounter accessibility barriers on JupyterLab:
 
 - [Write an issue on jupyter/accessibility](https://github.com/jupyter/accessibility/issues/new)
-- [Write an issue on jupyterlab/jupyterlab](https://github.com/jupyterlab/jupyterlab/issues/new) and request it be labeled [tag:accessibility](https://github.com/jupyterlab/jupyterlab/labels/tag%3AAccessibility)
-- If you are interested in being part of any potential research or organized feedback initiatives, please [send an email with the subject line `Jupyter Accessibility Feedback` here](ipresedo@quansight.com). Gauging community interest in user research participation helps us gain the support to make it happen.
+- [Write an issue on jupyterlab/jupyterlab](https://github.com/jupyterlab/jupyterlab/issues/new) and request it be labeled [`tag:Accessibility`](https://github.com/jupyterlab/jupyterlab/labels/tag%3AAccessibility)
+- If you are interested in being part of any potential research or organized feedback initiatives, please [send an email with the subject line `Jupyter Accessibility Feedback` here](mailto:ipresedo@quansight.com). Gauging community interest in user research participation helps us gain the support to make it happen.
 
 At the time of writing, there is no non-public way to contact us for JupyterLab accessibility issues.
 

@@ -2,7 +2,8 @@
 
 ```{note}
 Sustained funding is critical to maintaining Jupyter's accessibility.
-Please [contact us on GitHub](https://github.com/jupyter/accessibility/) if you want to explore funding in Project Jupyter.
+Please [contact us on GitHub](https://github.com/jupyter/accessibility/) if you want to explore funding or collaborations aimed at
+improving the accessibility of the Project Jupyter.
 ```
 
 ## Past and ongoing funding
