@@ -8,21 +8,19 @@ parts:
   # Top view efforts and initiatives
   - caption: Accessibility efforts
     chapters:
-      - file: funding/index.md
-      - file: funding/czi-grant-roadmap.md
-      - file: funding/czi-grant-completed.md
       - file: resources/JupyterLab-a11y-statement.md
   # ------------------------------------------------------
   # All things community
   - caption: Community
     chapters:
-      - file: community/index.md
+      - file: contribute/index.md
+        title: Contribute to Jupyter Accessibility
       # Ensure we build all the community files even if not in this TOC
       # the meetings are added in the community index file
+      - file: community/index.md
       - glob: community/meeting-minutes/jupyterlab-accessibility-meetings/*.md
       # TODO: architecture need revisitng
-      - file: contribute/index.md
-      - file: ARCHITECTURE.md
+      # - file: ARCHITECTURE.md
   # ------------------------------------------------------
   # Governance and team guides
   # TODO: governance work https://jupyterhub-team-compass.readthedocs.io/en/latest/index-team_governance.html
@@ -36,3 +34,10 @@ parts:
     chapters:
       - file: resources/useful-resources.md
       - file: resources/map-jupyterlab-frontend-architecture/README.md
+  # ------------------------------------------------------
+  # funded projects
+  - caption: Funded accessibility work
+    chapters:
+      - file: funding/index.md
+      - file: funding/czi-grant-roadmap.md
+      - file: funding/czi-grant-completed.md

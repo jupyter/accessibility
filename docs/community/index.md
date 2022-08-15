@@ -1,14 +1,9 @@
-# Joining the Jupyter Accessibility Community
+# Community Calls and Events
 
-```{note}
+````{note}
 The Jupyter Accessibility project was recently converted into an [official Jupyter Software Subproject](https://jupyter.org/governance/software_subprojects.html).
 We are currently working on our governance and decision making, please bear with us while we get this sorted.
-```
-
-## Code of Conduct
-
-The Jupyter Accessibility community follows the broader [Jupyter Community’s Code of Conduct](https://github.com/jupyter/governance/blob/master/conduct/code_of_conduct.md).
-
+``
 ## Get Connected with the Community
 
 First off, get yourself connected with the Jupyter Accessibility community online.
@@ -22,7 +17,7 @@ There are a few places where we have conversations and discussion.
 
 ```{note}
 As a reminder, we expect all members of the Jupyter Accessibility community to adhere to the [Jupyter Code of Conduct][jupyter-coc] in these conversations.
-```
+````
 
 ## Team meetings and notes
 

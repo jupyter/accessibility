@@ -3,7 +3,7 @@
 This Team Compass is a guide for team members of `jupyter/accessibility` and the broader community to navigate the project and keep track of the accessibility-related initiatives in the Jupyter ecosystem.
 
 If you see information that is out of date, propose an edit in the [`jupyter/accessibility` repository](https://github.com/jupyter/accessibility).
-To propose an edit directly from the documentation, click {fab}`github` -> {fas}`pencil-alt`.
+To propose an edit directly from the documentation, click on the `GitHub icon` on the top of any page {fab}`github` and then on the {fas}`pencil-alt` `Suggest an edit` menu item.
 
 ## Issues and labels
 
@@ -51,10 +51,11 @@ Keep an eye on your GitHub notifications and be prepared to join in that convers
 
 The source for the Team Compass content is located in the `docs` directory and is organized under the following chapters:
 
-- Community - located in `docs/community`
-- Contribute - located in `docs/contribute`
-- Accessibility efforts - content is located in `docs/funding` and `docs/resources`
+- Accessibility Efforts - content is located in `docs/resources`
+- Community - Community Meetings and Events - located in `docs/community`
+- Community - Contribute to Jupyter Accessibility - located in `docs/contribute`
 - Accessibility resources - located in `docs/resources`
+- Funded Accessibility Work - located in `docs/funding`
 
 Additionally, the landing page is located in `docs/index.md`.
 
