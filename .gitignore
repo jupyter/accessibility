@@ -127,3 +127,6 @@ reports/
 
 # editor
 .vscode
+
+# nox stuff
+.nox/

@@ -1,12 +1,43 @@
-# Copyright (c) Jupyter Development Team.
+# Copyright (c) Jupyter Accessibility Team.
 # Distributed under the terms of the Modified BSD License.
 
-title: Jupyter Accessibility
-copyright: 2021-2022, Jupyter Team
-author: Jupyter Team
+# Book settings
+title: Jupyter Accessibility - Team Compass
+logo: _static/logos/JupAccessColor.svg
+copyright: 2019-2022, Jupyter Accessibility Team
+author: The Jupyter Accesibility Team
+
+# List of patterns, relative to source directory, that match files and
+# directories to ignore when looking for source files.
+# This pattern also affects html_static_path and html_extra_path.
 exclude_patterns:
-  [.nox, source, meeting-minutes/jupyterlab-accessibility-meetings/20*.md]
-only_build_toc_files: true
-logo: docs/_static/logo.png
+  [".nox", "source", "_build", "Thumbs.db", ".DS_Store", ".git", ".github"]
+
+# autoexclude files not in the toc
+only_build_toc_files: false
+
 html:
-  favicon: docs/_static/favicon.ico
+  favicon: _static/favicon.ico
+  use_edit_page_button: true
+  use_repository_button: true
+  use_issues_button: true
+  use_multitoc_numbering: true
+  extra_navbar: Powered by <a href="https://jupyterbook.org">Jupyter Book</a> # Will be displayed underneath the left navbar.
+
+repository:
+  url: https://github.com/jupyter/accessibility
+  branch: main
+  path_to_book: docs
+
+parse:
+  myst_enable_extensions: # default extensions to enable in the myst parser.
+    # See https://myst-parser.readthedocs.io/en/latest/using/syntax-optional.html
+    - linkify
+  # URI schemes that will be recognised as external URLs in Markdown links
+  myst_url_schemes: [mailto, http, https]
+
+sphinx:
+  config:
+    language: en
+  extensions:
+    - "sphinx_design"
