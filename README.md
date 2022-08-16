@@ -21,9 +21,9 @@ If you are trying to use Jupyter tools with assistive technology now, you may be
 - [Jupyter Notebook a11y toolbar](https://github.com/uclixnjupyternbaccessibility/jupyter_contrib_nbextensions/tree/master/src/jupyter_contrib_nbextensions/nbextensions/accessibility_toolbar) (from Microsoft research - ⚠️ note this has not been maintained since 2019)
 - Make cells editable with a screen reader using the [NVDA Browser Nav add-on](https://addons.nvda-project.org/addons/browsernav.en.html#:~:text=BrowserNav%20addon%20for%20NVDA,comments%20or%20malformed%20HTML%20tables.”)
 
-## ✋ Getting involved
+## Getting involved 🙌🏼
 
-### 💬 Join the conversation
+### Join the conversation 💬
 
 - [Check out the accessibility section of the community forum](https://discourse.jupyter.org/c/special-topics/accessibility) for ongoing conversations and brainstorms around accessibility in the Jupyter ecosystem.
 - [Jupyter Notebook Accessibility Issues](https://github.com/jupyter/notebook/issues?q=is%3Aopen+is%3Aissue+label%3Atag%3AAccessibility)
@@ -32,7 +32,7 @@ If you are trying to use Jupyter tools with assistive technology now, you may be
 - Review and join in contributing to [accessibility issues identified for the ongoing CZI EOSS grant](docs/funding/czi-grant-roadmap.md)
 - If you find something that you think should be labeled for accessibility, feel free to label it or add a comment.
 
-### 🤝 Join our JupyterLab accessibility meetings
+### Join our JupyterLab accessibility meetings 🤝
 
 Anyone is welcome to attend, if they would like to discuss a topic or to listen in.
 
@@ -42,7 +42,7 @@ Anyone is welcome to attend, if they would like to discuss a topic or to listen 
 
 We also have a [public archive of all the previous meeting notes](https://readthedocs.org/projects/jupyter-accessibility/community/meeting-minutes/README).
 
-## 🔗 Links to accessibility standards and resources
+## Links to accessibility standards and resources 🔗
 
 One of our goals is to collect information about accessibility and create documentation to empower the Jupyter community to help us make our software accessible. Please use this section to begin to aggregate relevant third party standards, guides, and documentation related to this:
 
@@ -54,7 +54,7 @@ One of our goals is to collect information about accessibility and create docume
 
 ## Contributing to this repo
 
-### 🧹 Pre-commit hooks
+### Pre-commit hooks 🧹
 
 This repository uses the `prettier` [pre-commit hook](https://pre-commit.com/) to standardize our YAML and markdown structure.
 
@@ -84,11 +84,11 @@ This repository uses the `prettier` [pre-commit hook](https://pre-commit.com/) t
 
 Once installed, the pre-commit hooks will run automatically when you make a commit in version control.
 
-### 📖 Building the documentation
+### Building the documentation 📖
 
 The documentation is built with [the Jupyter Book documentation engine](https://jupyterbook.org/en/stable/index.html).
 
-Follow the instructions below to build the documenation.
+Follow the instructions below to build the documentation.
 
 #### Automatically with `nox`
 
@@ -99,22 +99,22 @@ To do so, follow these steps:
 
 1. Install `nox`
 
-   ```console
-   $ pip install nox
+   ```bash
+   pip install nox
    ```
 
 2. Build the documentation:
 
-   ```console
-   $ nox -s docs
+   ```bash
+   nox -s docs
    ```
 
 This should create a local environment in a `.nox` folder, build the documentation (as specified in the `noxfile.py` configuration), and the output will be in `docs/_build/html`.
 
 To build live documentation that updates when you update local files, run the following command:
 
-```console
-$ nox -s docs-live
+```bash
+nox -s docs-live
 ```
 
 #### Manually with `conda`
@@ -136,7 +136,7 @@ If you wish to manually build the documentation, you can use `conda` to do so.
 
 3. Build the documentation:
 
-   ```console
+   ```bash
    jupyterbook build docs
    ```
 
