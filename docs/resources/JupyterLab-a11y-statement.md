@@ -6,7 +6,7 @@ This section includes audits from different stakeholders on Jupyter products.
 
 - [JupyterLab v2.2.6 WCAG 2.1](https://github.com/jupyterlab/jupyterlab/issues/9399)
 - [Jupyter Notebook WCAG 2.0](https://github.com/jupyter/accessibility/issues/7)
-- [JupyterLab v3.4.5 Zoom Audit](https://github.com/Quansight-Labs/jupyterlab-accessible-themes/issues/34)
+- [JupyterLab v3.4.5 400% Zoom Audit](https://github.com/Quansight-Labs/jupyterlab-accessible-themes/issues/34)
 
 ## Accessibility Statement for JupyterLab
 
