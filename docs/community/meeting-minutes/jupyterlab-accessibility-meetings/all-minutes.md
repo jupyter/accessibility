@@ -2170,7 +2170,7 @@ Jupyter governance and jupyter/accessibility. A discussion around what's happeni
 - Isabela
   - Learning and contributing event ideas to keep the community energy going. Rough draft agendas on [a series of comments on isabela-pf/a11y-events #4](https://github.com/isabela-pf/a11y-events/issues/4#issuecomment-1124536984)
 
-## 6.1.22
+## 6.1.22 Meeting Minutes
 
 ### Attendees
 
@@ -2201,7 +2201,7 @@ Jupyter governance and jupyter/accessibility. A discussion around what's happeni
 
 ### Next steps
 
-## 6.15.22
+## 6.15.22 Meeting Minutes
 
 ### Attendees
 
@@ -2225,7 +2225,7 @@ Jupyter governance and jupyter/accessibility. A discussion around what's happeni
 
 - Follow up on subproject set up (Isabela)
 
-## 6.29.22
+## 6.29.22 Meeting Minutes
 
 ### Attendees
 
@@ -2271,7 +2271,7 @@ Jupyter governance and jupyter/accessibility. A discussion around what's happeni
 - Update on static website testing set up (Gabriel)
 - Watch the jupyter-lab-voice demo when it's on YouTube!
 
-## 7.13.22
+## 7.13.22 Meeting Minutes
 
 ### Attendees
 
@@ -2310,7 +2310,7 @@ Jupyter governance and jupyter/accessibility. A discussion around what's happeni
 - Follow up on subproject next steps (Isabela)
   - (+1 Nikhil - would love to learn more!)
 
-  ## 8.10.22
+  ## 8.10.22 Meeting Minutes
 
 ### Attendees
 
@@ -2353,7 +2353,7 @@ Jupyter governance and jupyter/accessibility. A discussion around what's happeni
 - from Ryan "should there be a github issue in lab to measure/describe a11y issues with it’s current use of canvas?" Yes! (Isabela)
 - Review DataGrid specifically to understand the work that would be needed to make it more accessible (start with a complicated component)
 
-## 8.24.22
+## 8.24.22 Meeting Minutes
 
 ### Attendees
 
@@ -2385,7 +2385,7 @@ Jupyter governance and jupyter/accessibility. A discussion around what's happeni
 
 - Review Notebook 7 for accessibility as means of identifying Lumino changes and more. (Isabela + anyone interested) ([most recent review is](https://github.com/jupyter/accessibility/issues/7))
 
-## 9.07.22
+## 9.07.22 Meeting Minutes
 
 ### Attendees
 
