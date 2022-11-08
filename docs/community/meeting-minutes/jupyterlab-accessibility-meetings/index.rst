@@ -11,14 +11,25 @@ The Jupyter accessibility meetings are open, fortnightly video calls where commu
    All meeting minutes <all-minutes.md>
 
    .. 2022
-   March 23 2022 <2022-03-23.md>
+   September 7, 2022 <2022-09-07.md>
+   August 24, 2022 <2022-08-24.md>
+   August 10, 2022 <2022-08-22.md>
+   July 13, 2022 <2022-07-13.md>
+   June 29, 2022 <2022-06-29.md>
+   June 15, 2022 <2022-06-15.md>
+   June 1, 2022 <2022-06-01.md>
+   May 18, 2022 <2022-05-18.md>
+   May 4, 2022 <2022-05-04.md>
+   April 20, 2022 <2022-04-20.md>
+   April 6, 2022 <2022-04-06.md>
+   March 23, 2022 <2022-03-23.md>
    March 9, 2022 <2022-03-09.md>
    February 23, 2022 <2022-02-23.md>
    February 9, 2022 <2022-02-09.md>
    January 26, 2022 <2022-01-26.md>
    January 12, 2022 <2022-01-12.md>
 
-   .. 2022
+   .. 2021
    December 15, 2021 <2021-12-15.md>
    December 1, 2021 <2021-12-01.md>
    November 17, 2021 <2021-11-17.md>
