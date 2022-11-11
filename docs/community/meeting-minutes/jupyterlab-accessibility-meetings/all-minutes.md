@@ -2169,3 +2169,252 @@ Jupyter governance and jupyter/accessibility. A discussion around what's happeni
   - [More info on axe-core tests](https://github.com/dequelabs/axe-core/blob/develop/doc/rule-descriptions.md#wcag-21-level-a--aa-rules)
 - Isabela
   - Learning and contributing event ideas to keep the community energy going. Rough draft agendas on [a series of comments on isabela-pf/a11y-events #4](https://github.com/isabela-pf/a11y-events/issues/4#issuecomment-1124536984)
+
+## 6.1.22 Meeting Minutes
+
+### Attendees
+
+- Tony
+- Mike
+- Ely
+- Gabriela
+- Isabela
+- Nikhil
+
+### What are people working on?
+
+- Intros for newcomers!
+- Tony
+    - [jupyter/accessibility #90](https://github.com/jupyter/accessibility/pull/90) automated accessibility testing efforts
+        - [axe-core](https://github.com/dequelabs/axe-core/) test suite
+        - Run axe-core tests against JupyterLab in GitHub Actions
+        - Will help support user stories for testing in [quansight-Labs/jupyter-a11y-mgmt/discussions/122](https://github.com/Quansight-Labs/jupyter-a11y-mgmt/discussions/122)
+    - Automated testing is known to catch only a percentage of known accessibility problems (usually WCAG, which is the minimum itself). How/are there plans to include disabled user testing?
+        - Because of open source we need solutions that aren't only tied to people (espcially individuals). But we also agree we need this input. It's been a combo of getting funding (to pay people for their expertise) and some parts of JupyterLab are so inaccessible that we need to fix areas before we can get good feedback.
+        - How does this fit with the extension-cookiecutter?
+- Voice navigation in JupyterLab?
+    - Where to start? Has there been existing work? Not as far as anyone here knows.
+    - Having semantic HTML is probably the start, though, because it would allow other tools to hook into JupyterLab well.
+    - Some resources on how this work might need to behave: [Browsing with assistive tech - Tetralogical](https://tetralogical.com/blog/2021/12/24/browsing-with-assistive-technology-videos)
+- Workshops mentioned in Lab call?
+    - There's no current plan from anyone here to submit for the next Community Workshop proposal cycle.
+
+### Next steps
+
+## 6.15.22 Meeting Minutes
+
+### Attendees
+
+- Tony
+- Gabriel
+- Mike
+- Adam
+- Martha
+- Isabela
+
+### What are people working on
+
+- Tony
+    - Help using the extension cookiecutter
+- Isabela
+    - [Jupyter accessibility's governance status has changed](https://github.com/jupyter/governance/pull/129). Hooray and thanks for y'all's help! We're a subproject!
+    - Testing updates. I want to share the [manual testing script work and template for feedback](https://github.com/jupyter/accessibility/pull/95).
+    - [JupyterLab accessibility statement](https://github.com/Quansight-Labs/accessibility/pull/3). I'd like to go over and request feedback on this proposal statement. It'd also be good to think about how we propose this to JupyterLab.
+
+### Next steps
+
+- Follow up on subproject set up (Isabela)
+
+## 6.29.22 Meeting Minutes
+
+### Attendees
+
+- Gabriel
+- Tony
+- Darian
+- Sylvain
+- Martha
+- Nikhil
+- Mike
+- Tania
+
+### What are people working on?
+
+- Sylvain
+    - [Codemirror 6 migration](https://github.com/jupyterlab/jupyterlab/pull/11638) is ready for testing, accessibility perspective and otherwise.
+    - Please test it with the binder link in the PR! Feedback is extremely welcome! Please note CM6's accessibility doesn't seem to be clearly documented.
+    - Known issues we will not be addressing: LaTeX syntax highlighting does not yet exist
+
+- Isabela
+    - JupyterLab accessibility statement approach
+    - I'm going to be working on theming soon. What are your dream themes? (ie. ideal accessible themes)
+    - :bulb: colour-blind friendly - as many as possible?!, selective contrast, address [Irlen syndrome needs](https://www.autism.org.uk/advice-and-guidance/professional-practice/irlen-syndrome), monochrome
+
+- Gabriel
+    - I haven't been doing much Jupyter-related accessibility work lately, but I have been trying to implement accessibility-related CI/CD for the upcoming new Quansight website (quansight.com and labs.quansight.org), and I have been a bit surprised (but not surprised) that some of this stuff isn't more plug-and-play. 
+    - Quansight's new website is statically generated with Vercel. You might think that there would be some ready drop-in solution to run [pa11y-ci](https://github.com/pa11y/pa11y-ci) or [axe-core](https://github.com/dequelabs/axe-core) against the pages in your site, but so far I haven't found it.
+
+- Nikhil
+    - Haven't been working on Jupyter-specific accessibility tickets (although I would like to dive in), but have been working on data viz accessibility! Continuing some prior research I worked on during school (w/ Doug Schepers, Frank Elavsky) on auto-generating summaries using NLPfor complex/reactive charts/graphs and also diving more into sonification ([Highcharts](https://www.highcharts.com/docs/accessibility/accessibility-module)).
+    - One of our research benchmarks: [Chart2Text: Generating Natural Language Explanations for Charts by Adapting the Transformer Model](https://github.com/JasonObeid/Chart2Text)
+    - From @gabalafou: here's a [Colab using some sonification](https://colab.research.google.com/github/hassaku/colab-a11y-utils/blob/master/colab_a11y_util_example.ipynb)
+     - https://allosphere.ucsb.edu/
+     - https://astronify.readthedocs.io/en/latest/
+
+- Mike
+   - https://github.com/krassowski/jupyterlab-voice-control is now a thing, was demoed on previous JupyterLab meeting
+
+### Next steps
+
+- Collect requests for notebook and visualization standards in JupyterLab to figure out where that info may be best stored (Isabela)
+- Create a list for requested JupyterLab accessible themes with status (Isabela)
+- Update on static website testing set up (Gabriel)
+- Watch the jupyter-lab-voice demo when it's on YouTube!
+
+## 7.13.22 Meeting Minutes
+
+### Attendees
+
+- Tony - QLabs
+- Balaji - Berkeley
+- Ryan - Berkeley
+- Allison - Berkeley
+- Paul - Berkeley
+- Sean - Berkeley
+- Tania - QLabs
+- Gabriel - QLabs
+- Richard - Berkeley
+- Isabela - QLabs
+
+### What are people working on?
+
+- Quick updates
+    - Circle back on next steps for our subproject status: probably a council
+    - Theming status - JLab 3.4.3 under review based on [this draft criteria](https://github.com/Quansight-Labs/accessibility/pull/9/files#diff-ae9e4a46a307e3234480f0684742137952fb1d181184643f8c52753f5f8579e1)
+- Questions about JupyterLab accessibility status for use at UC Berkeley.
+    - JupyterLab as a part of DataHub, needs to be accessible.
+    - Interest in WCAG 2.0 AA alignment and figuring out how to collaborate.
+    - If we do an audit now, can we show by [timeline is unclear]
+    - Short term: classes deploying this before the end of the year
+    - Long term: how do we sustain this work and these changes to avoid regression and ensure a solid experience.
+    - [New campus committee will focus on digital accessibility - Berkeley News](https://news.berkeley.edu/2022/07/11/new-campus-committee-will-focus-on-digital-accessibility/)
+    - [About Accessibility in Learning Tools - Berkeley Research, Teaching, and Learning](https://rtl.berkeley.edu)
+    - [ARC Toolkit - TPGi](https://www.tpgi.com/arc-platform/arc-toolkit/)
+    - [Tenon](https://tenon.io/)
+    - [berkeley-dsep-infra/datahub image requirements](https://github.com/berkeley-dsep-infra/datahub/blob/staging/deployments/datahub/images/default/requirements.txt)
+
+### Next steps
+
+- Update meeting notes in jupyter/accessibility (Isabela)
+- Bring up statement work with main JupyterLab team (Isabela)
+- Follow up on subproject next steps (Isabela)
+  - (+1 Nikhil - would love to learn more!)
+
+  ## 8.10.22 Meeting Minutes
+
+### Attendees
+
+- Gabriel F. - Quansight Labs
+- Ely - Bloomberg
+- Ryan
+- Martha
+- Balaji - UC Berkeley
+- Mike
+- Richard
+- Isabela
+- Darian
+
+### Agenda
+
+- [Identify accessibility targets for Lumino 2 #341](https://github.com/jupyterlab/lumino/issues/341)
+   - Mike: `silentNotifications` support - there is a stale PR which has an accessibility related utility function for announcing changes, maybe worth pulling into in lumino https://github.com/jupyterlab/jupyterlab/pull/9031 it looks like a similar effort was attempted years ago for: https://github.com/jupyterlab/jupyterlab/pull/6583
+   - Changing divs to buttons? (+1 from Isabela on this)
+   - Isabela: Does the labelling issue in [jupyterlab/jupyterlab #6581 Input fields in dialogs need to be labeled](https://github.com/jupyterlab/jupyterlab/issues/6581) have roots in Lumino?
+   - [name=gabriel] is DataGrid used in JupyterLab? Darian: CSV viewer, variables viewer(?), pandas dataframes - basically anywhere you see the "spreadsheet" component
+   - question from Ely about accessibility of canvas (because datagrid uses canvas)
+       - Isabela mentions/asks about Google Docs and Canvas. Link from Mike: https://workspaceupdates.googleblog.com/2021/05/Google-Docs-Canvas-Based-Rendering-Update.html
+   - [name=gabriel] what counts as API change beyond method names/signatures? 
+       - response from Darian: for example, CSS is considered API because we don't make it private
+- Circle back on next steps for our subproject status: probably a council
+- Theming status - [JLab 3.2.0 partial (non-color) draft review](https://github.com/Quansight-Labs/accessibility/pull/9#issuecomment-1184017454). There's also been more indepth review on zoom behavior at [quansight-labs/jupyterlab-accessible-themes](https://github.com/Quansight-Labs/jupyterlab-accessible-themes/issues).
+- Convention to support alt text in notebooks - [github issue](https://github.com/jupyter/accessibility/issues/98)
+    - Mike would like the ways that metadata gets used by tools like nbconvert for things like alt text to be standardized
+    - Realted issue at [jupyter/accessibility #37](https://github.com/jupyter/accessibility/issues/37)
+    - Some questions. Should this be a change done on a tool by tool level, or overall? If it is overall, what is the path?
+        - Possibly a [Jupyter Enhancement Proposal](https://jupyter.org/enhancement-proposals/) to bring this into nbformat. Possibly the Jupyter Standards group. These will both be slower. There may be faster and just as good changes in nbconvert level.
+        - What happens when you work on the individual output level versus the cell level (which may have multiple outputs).
+        - Mike: IPython mimebundle adds `alt` to output metadata: https://github.com/ipython/ipython/blob/9ed8ecd64be967335ce7f098f67aa602a3f3383b/IPython/core/display.py#L1015-L1050
+        - Mike: R  IRKernel does not add alt to image output metadata: https://github.com/IRkernel/IRdisplay/blob/master/R/display_images.r
+        - Mike: width and height metadata are "codified": https://nbformat.readthedocs.io/en/latest/format_description.html#display-data
+          - Darian: but not formally in https://github.com/jupyter/nbformat/blob/main/nbformat/v4/nbformat.v4.schema.json (which does not prevent the use of `width`, `height` nor `alt`)
+
+### Next steps
+- Circle back on next steps for our subproject status: start a council (Isabela)
+- from Ryan "should there be a github issue in lab to measure/describe a11y issues with it’s current use of canvas?" Yes! (Isabela)
+- Review DataGrid specifically to understand the work that would be needed to make it more accessible (start with a complicated component)
+
+## 8.24.22 Meeting Minutes
+
+### Attendees
+
+- Darian
+- Tony
+- Gabriel
+- Ryan
+- Martha
+- Isabela
+- Allison
+
+### Agenda
+
+- Rendered notebook user testing has started! You can track that work-in-progress on the [iota-school/notebooks-for-all repo](https://github.com/Iota-School/notebooks-for-all)
+- Lumino 2.0 accessibility 
+    - Relevant links [lumino #341](https://github.com/jupyterlab/lumino/issues/341) and [jupyterlab #12992](https://github.com/jupyterlab/jupyterlab/pull/12992) and [lumino examples](https://lumino.readthedocs.io/en/latest/examples.html) and [Section 508](https://www.section508.gov/)
+    - This is in alpha release at this point.
+    - Lumino provides the top level menus, the command palette and search, the keyboard shortcut system, the dock panel (sidebars), and Widgets (a lot like react components but with different life cycle; more like building UI in Qt).
+    - Some changes are low-level changes, like making sure that keyboard navigation is not inhibited. Lumino doesn't have a concept of the content in these widgets, so some changes that are content-specific do not belong there.
+    - What's the status of where we are in evaluating any API-breaking changes or other issues?
+        - DataGrids still seems the most potentially suspect. It does impact certain cell outputs, too, so this could be critical.
+            - Probably the most sure-fire choice would be to provide an option to turn this off and render as a table. 
+            - Maybe it's easier to review on Notebook and then we find those issues and then can evaluate wheter or not they are Lumino.
+        - Where do ARIA labels or similar tags align with this work?
+- Gabriel
+    - A win! [lumino #373](https://github.com/jupyterlab/lumino/pull/373)
+
+### Next steps
+
+- Review Notebook 7 for accessibility as means of identifying Lumino changes and more. (Isabela + anyone interested) ([most recent review is](https://github.com/jupyter/accessibility/issues/7))
+
+## 9.07.22 Meeting Minutes
+
+### Attendees
+
+- Darian
+- Ryan
+- Gabriel
+- Martha
+- Isabela
+- Ely
+
+### Agenda
+
+- How do we want to set up the council? Background: the [governance bootstrapping docs](https://jupyter.org/governance/bootstrapping_decision_making.html) don't account for the fact that we became a software project later and did not have existing steering council members to start our council process. We also need to have a council soon to nominate our representative to the new SSC soon.
+    - Some options to create the starter group:
+        - Add who has already voted in our most recent votes as the starter group.
+        - Add whoever is in the GitHub organization as the starter group.
+        - Add meeting attendees over a certain list of recent months as the starter group.
+            - Maybe a number of regular attendance? But this shouldn't be the only thing because there are many valuable asynch contributions.
+        - Darian: "has attended x number of times out of y number last meetings OR has voted in https://github.com/jupyter/accessibility/issues/81"
+    - More setting up council to dos:
+        - Council team compass
+        - Github team
+        - Mailing list (if wanted)
+        - SSC representative
+        - two-factor authentication
+- Isabela
+    - Reflow and Lumino?
+
+### Next steps
+- Isabela to set up starter group list for the council. Reach out to list of individuals.
+- Isabela to post an issue about how we determine this starter group for transparency.
+- Add PR to jupyter/accessibility when this starter group is formed. Then we can have the discussion about where things go without blocking this process.
