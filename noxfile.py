@@ -31,6 +31,17 @@ def docs(session):
     session.run("sphinx-build", *BUILD_COMMAND)
 
 
+@nox.session(name="check-links", venv_backend="conda")
+def check_links(session):
+    """Install the necessary dependencies and build the docs.
+    This will also check for broken links during build time."""
+
+    install_deps(session)
+    session.run(
+        "sphinx-build", *BUILD_COMMAND, "-b", "linkcheck", "-w", "linkcheck.txt"
+    )
+
+
 @nox.session(name="docs-live", venv_backend="conda")
 def docs_live(session):
     """Install necessary dependencies, buid the docs and use livereload.
