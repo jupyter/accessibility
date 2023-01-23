@@ -1,0 +1,70 @@
+:root {
+    --pst-color-text-base: #24292f;
+    --pst-color-text-muted: #6e7781;
+    --pst-color-link: #0969da;
+    --pst-color-inline-code: #bf3989;
+}
+
+/* links */
+a,
+.prev-next-area a p.prev-next-title {
+    text-decoration: underline;
+    text-underline-offset: 25%;
+    color: var(--pst-color-link) !important;
+}
+
+a:hover,
+.prev-next-area a p.prev-next-title:hover {
+    text-decoration: none;
+}
+
+div.navbar-brand-box a.navbar-brand {
+    text-decoration: none;
+}
+
+.bd-sidebar .nav li > a,
+#site-navigation nav ul.nav li a,
+#site-navigation nav ul.nav ul li a {
+    text-decoration: none;
+    color: var(--pst-color-text-muted);
+    padding-left: 0.25rem;
+}
+
+.bd-toc .toc-entry a {
+    text-decoration: none;
+    color: var(--pst-color-text-muted);
+}
+
+.bd-sidebar .nav li > a:hover {
+    border-left: solid 2px var(--pst-color-link);
+    color: var(--pst-color-text-base);
+    padding-left: 0.25rem;
+}
+
+.bd-toc .toc-entry a:hover {
+    border-left: solid 2px var(--pst-color-link);
+    color: var(--pst-color-text-base);
+}
+
+.bd-sidebar .nav li > a.active,
+#site-navigation nav ul.nav li.active > a,
+.bd-toc nav li.active > a.active {
+    text-decoration: none;
+    border-left: 4px solid var(--pst-color-link);
+}
+
+/* headings */
+.heading-style,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 500;
+}
+
+/* code */
+code {
+    color: var(--pst-color-inline-code);
+}
