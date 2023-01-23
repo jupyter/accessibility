@@ -15,7 +15,7 @@ These core user-facing software include:
 ## Accessibility Status for Jupyter tools
 
 ```{warning}
-As of August 2022 this software **is not accessible**.
+As of January 2023 this software **is not accessible**.
 Significant work will be required to reach that goal.
 ```
 
@@ -38,5 +38,7 @@ Jupyter notebook Accessibility Statement
 
 If you are trying to use Jupyter tools with assistive technology now, you may be able to get basic support with the following:
 
-- [Jupyter Notebook a11y toolbar](https://github.com/uclixnjupyternbaccessibility/jupyter_contrib_nbextensions/tree/master/src/jupyter_contrib_nbextensions/nbextensions/accessibility_toolbar) (from Microsoft research)
 - Make cells editable with a screen reader using the [NVDA Browser Nav add-on](https://addons.nvda-project.org/addons/browsernav.en.html#:~:text=BrowserNav%20addon%20for%20NVDA,comments%20or%20malformed%20HTML%20tables.”)
+
+No longer maintained community projects:
+- [Jupyter Notebook a11y toolbar](https://github.com/uclixnjupyternbaccessibility/accessibility_toolbar) (part of an UCL Master's project)
