@@ -7,7 +7,8 @@ design, code, advice, documentation, support, or joining our conversations!
 If you'd like to start getting involved with Jupyter Accessibility projects, here are a few resources to get you started.
 
 ```{tip}
-Make sure to check the [Joining the Jupyter Accessibility Community section](../community/index.md) in this compass to learn more about where the accessibility conversations are happening in our ecosystem.
+Make sure to check the [Joining the Jupyter Accessibility Community section](../community/index.md)
+in this compass to learn more about where the accessibility conversations are happening in our ecosystem.
 ```
 
 ## Do I really have something to contribute to Jupyter Accessibility?
@@ -15,7 +16,7 @@ Make sure to check the [Joining the Jupyter Accessibility Community section](../
 Absolutely ✅. There are always ways to contribute to this community!
 
 Access-centered practices require many skills, which means there are many ways in which you can help out.
-Some examples include: providing feedback in issues, participating in the [Jupyter Accessibility Discourse](https://discourse.jupyter.org),
+Some examples include: providing feedback in issues, participating in the [Jupyter Accessibility Discourse][discourse-accessibility],
 sharing your experience with Jupyter tools and their accessibility and usability features in an issue, improving documentation,
 helping others with their problems, telling others about Jupyter Accessibility tools, and
 coming to our community meetings.
@@ -57,9 +58,11 @@ The [GitHub Issues Search](https://github.com/issues)
 can be used to quickly search across all the issues in a GitHub organization that match
 one of these tags. Here are a few pointers of issues you might want to look for to help you get started:
 
-- ![Badge - issue tag Help Wanted](https://img.shields.io/badge/-help%20wanted-159818.svg): _These issues contain a task that a member of the team has determined we need additional help with._
+- ![Badge - issue tag Help Wanted](https://img.shields.io/badge/-help%20wanted-159818.svg):
+  _These issues contain a task that a member of the team has determined we need additional help with._
 
-- ![Badge - issue tag Good First Issue](https://img.shields.io/badge/-good%20first%20issue-blueviolet.svg): _These issues contain a task that a member of the team thinks could be a good entry point to the project._
+- ![Badge - issue tag Good First Issue](https://img.shields.io/badge/-good%20first%20issue-blueviolet.svg):
+  _These issues contain a task that a member of the team thinks could be a good entry point to the project._
 
 ## Help by contributing to a specific repository
 
@@ -67,7 +70,7 @@ Note that the Jupyter Accessibility team works across many kinds of technologies
 The kind of tech you'll use (as well as the set-up and skill needed to work on that tech) will depend on the
 repository that you're working with.
 
-For example, the [JupyterLab repository][jupyterlab] will touch on aspects of the UI itself and tools like Lumino and Galata.
+For example, the [JupyterLab repository][jupyterlab-accessibility-issues] will touch on aspects of the UI itself and tools like Lumino and Galata.
 
 To get oriented with a specific repository's needs and process around making new
 contributions, look for a **repository-specific contributing guide**.
@@ -75,10 +78,15 @@ This often comes in the form of a **`CONTRIBUTING.md`** file, or a section of th
 For example, [here is the `CONTRIBUTING.md` file for JupyterLab][jupyterlab-contributing].
 
 ```{tip}
-You can also make use of the `contribute` slug in GitHub - for example to get a list of `good first issue` labelled issues and the link to the projects CONTRIBUTING guidelines you can append the `contributre` slug to the repository URL.
+You can also make use of the `contribute` slug in GitHub - for example to get a list of `good first issue` labelled issues
+and the link to the projects CONTRIBUTING guidelines you can append the `contributre` slug to the repository URL.
 So for the JupyterLab repository you'd use <https://github.com/jupyterlab/jupyterlab/contribute>
 ```
 
+- [JupyterLab accessibility issues][jupyterlab-accessibility-issues]
+- [Jupyter notebook accessibility issues][notebook-accessibility-issues]
+- [JupyterHub accessibility issues][jupyterhub-accessibility-issues]
+  
 **Are the contributing docs unclear or misleading?**
 Then please let us know!
 We try to make this documentation as helpful as possible, but we often don't have the perspective of a new member to the community.
@@ -87,7 +95,7 @@ to join our ever-growing community!
 
 ## Thank you!
 
-You're awesome 👋🏻😊 .
+You're awesome 👋🏻😊.
 
 <br>
 
@@ -96,13 +104,12 @@ _&mdash; Based on contributing guidelines from the [STEMMRoleModels][link_stemmr
 <!-- Accessibility links -->
 
 [discourse-accessibility]: https://discourse.jupyter.org/c/special-topics/accessibility
-[jupyterhub-accessibility-issues]: https://github.com/jupyter/notebook/issues?q=is%3Aopen+is%3Aissue+label%3Atag%3AAccessibility
+[notebook-accessibility-issues]: https://github.com/jupyter/notebook/issues?q=is%3Aopen+is%3Aissue+label%3Atag%3AAccessibility
 [a11y-goodfirstissue]: https://github.com/jupyter/accessibility/issues?q=is%3Aopen+label%3A%22good+first+issue%22+sort%3Aupdated-desc
 
 <!-- lab -->
 
-[jupyterlab]: https://github.com/jupyterlab/jupyterlab
-[jupyerlab-accessibility-issues]: https://github.com/jupyterhub/jupyterhub/issues?q=is%3Aopen+is%3Aissue+label%3Aaccessibility
+[jupyterlab-accessibility-issues]: https://github.com/jupyterhub/jupyterhub/issues?q=is%3Aopen+is%3Aissue+label%3Aaccessibility
 [jupyterlab-contributing]: https://github.com/jupyterlab/jupyterlab/blob/adafbabcef3315bc706381d533d229115c07b5a6/CONTRIBUTING.md
 
 <!-- notebook -->
@@ -116,6 +123,7 @@ _&mdash; Based on contributing guidelines from the [STEMMRoleModels][link_stemmr
 <!-- hub -->
 
 [jupyterhub-community]: https://jupyterhub-team-compass.readthedocs.io/en/latest/contribute/guide.html
+[jupyterhub-accessibility-issues]: https://github.com/jupyterhub/jupyterhub/issues?q=is%3Aopen+is%3Aissue+label%3Aaccessibility
 
 <!-- general git links -->
 

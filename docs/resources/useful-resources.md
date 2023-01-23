@@ -14,7 +14,7 @@ guides, and documentation related to this:
 
 ## Jupyter a11y tech
 
-[Jupyter Notebook a11y toolbar](https://github.com/uclixnjupyternbaccessibility/jupyter_contrib_nbextensions/tree/master/src/jupyter_contrib_nbextensions/nbextensions/accessibility_toolbar) (from Microsoft research)
+- [Jupyter Notebook a11y toolbar](https://github.com/uclixnjupyternbaccessibility/jupyter_contrib_nbextensions/tree/master/src/jupyter_contrib_nbextensions/nbextensions/accessibility_toolbar) (part of a UCL master's project - note as of 2023 this project is no longer maintained).
 
 ## Accessibility-related issues
 
