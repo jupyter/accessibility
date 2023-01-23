@@ -86,7 +86,7 @@ So for the JupyterLab repository you'd use <https://github.com/jupyterlab/jupyte
 - [JupyterLab accessibility issues][jupyterlab-accessibility-issues]
 - [Jupyter notebook accessibility issues][notebook-accessibility-issues]
 - [JupyterHub accessibility issues][jupyterhub-accessibility-issues]
-  
+
 **Are the contributing docs unclear or misleading?**
 Then please let us know!
 We try to make this documentation as helpful as possible, but we often don't have the perspective of a new member to the community.

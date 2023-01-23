@@ -41,4 +41,5 @@ If you are trying to use Jupyter tools with assistive technology now, you may be
 - Make cells editable with a screen reader using the [NVDA Browser Nav add-on](https://addons.nvda-project.org/addons/browsernav.en.html#:~:text=BrowserNav%20addon%20for%20NVDA,comments%20or%20malformed%20HTML%20tables.”)
 
 No longer maintained community projects:
+
 - [Jupyter Notebook a11y toolbar](https://github.com/uclixnjupyternbaccessibility/accessibility_toolbar) (part of an UCL Master's project)
