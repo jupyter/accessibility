@@ -1,0 +1,24 @@
+name: Test documentation for broken links
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  check-links:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkoutv@3
+      - name: Setup Python
+        uses: actions/setup-pythonv@4
+        with:
+          python: "3.9"
+          cache: "pip"
+      - name: "Install dependencies"
+        run: pip install -r "docs/requirements.txt"
+      # By using `-q` linkcheck will treat broken links + missing refs as warnings
+      # warnings.txt will have text only if there are errors
+      - name: Build the documentation and check links
+        continue-on-error: true
+        run: |
+          sphinx-build docs docs/_build -q -N -b linkcheck
