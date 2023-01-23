@@ -15,6 +15,7 @@ extensions = ['sphinx_togglebutton', 'sphinx_copybutton', 'myst_nb', 'jupyter_bo
 external_toc_exclude_missing = False
 external_toc_path = '_toc.yml'
 html_baseurl = ''
+html_css_files = ['custom.css']
 html_favicon = '_static/favicon.ico'
 html_logo = '_static/logos/JupAccessColor.svg'
 html_sourcelink_suffix = ''
