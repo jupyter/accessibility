@@ -1749,7 +1749,7 @@ Priority issues: https://github.com/jupyterlab/jupyterlab/issues/9399
 - Gabriel (Quansight Labs)
   - Automated accessibility testing
   - Quansight Labs [tracks my work on Jupyter](https://github.com/Quansight-Labs/jupyter-a11y-mgmt/issues/assigned/gabalafou) in a public GitHub repo
-  - Feel free to reach out to me on [gitter](https://gitter.im/gabalafou) or email me gfouasnon@quansight.com
+  - Feel free to reach out to me on [Gitter](https://app.gitter.im/) at @gabalafou or email me gfouasnon@quansight.com
 - Isabela
 
   - I'm back working on [#8832](https://github.com/jupyterlab/jupyterlab/issues/8832) as promised. I have some questions on search/filter boxes this week.
