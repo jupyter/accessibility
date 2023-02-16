@@ -111,7 +111,7 @@ _&mdash; Based on contributing guidelines from the [STEMMRoleModels][link_stemmr
 
 <!-- jupyter-wide -->
 
-[jupyter-coc]: https://github.com/jupyter/governance/blob/master/conduct/code_of_conduct.md
+[jupyter-coc]: https://github.com/jupyter/governance/blob/main/conduct/code_of_conduct.md
 
 <!-- hub -->
 
@@ -120,7 +120,7 @@ _&mdash; Based on contributing guidelines from the [STEMMRoleModels][link_stemmr
 <!-- general git links -->
 
 [link_git]: https://git-scm.com
-[link_github]: https://github.com/https://github.com/jupyter/governance/blob/master/conduct/code_of_conduct.md
+[link_github]: https://github.com/https://github.com/jupyter/governance/blob/main/conduct/code_of_conduct.md
 [link_signupinstructions]: https://help.github.com/articles/signing-up-for-a-new-github-account
 [link_stemmrolemodels]: https://github.com/KirstieJane/STEMMRoleModels
 [markdown]: https://daringfireball.net/projects/markdown
