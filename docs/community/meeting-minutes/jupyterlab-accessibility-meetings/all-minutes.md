@@ -106,7 +106,7 @@ this meeting?
         ```
 
       - seems convoluted, can we just use
-        [`aria-label`](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-label_attribute)
+        [`aria-label`](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-label)
         (this is exactly what it's for)? [Opinions seem mixed](https://developer.paciellogroup.com/blog/2017/04/what-is-an-accessible-name/)
 
   - I need resources to finish hashing out the styling system for the
@@ -2397,7 +2397,7 @@ Jupyter governance and jupyter/accessibility. A discussion around what's happeni
 
 ### Agenda
 
-- How do we want to set up the council? Background: the [governance bootstrapping docs](https://jupyter.org/governance/bootstrapping_decision_making.html) don't account for the fact that we became a software project later and did not have existing steering council members to start our council process. We also need to have a council soon to nominate our representative to the new SSC soon.
+- How do we want to set up the council? Background: the [governance bootstrapping docs](https://jupyter.org/governance/decision_making.html) don't account for the fact that we became a software project later and did not have existing steering council members to start our council process. We also need to have a council soon to nominate our representative to the new SSC soon.
     - Some options to create the starter group:
         - Add who has already voted in our most recent votes as the starter group.
         - Add whoever is in the GitHub organization as the starter group.
