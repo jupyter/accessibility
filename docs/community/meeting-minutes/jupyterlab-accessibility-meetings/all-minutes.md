@@ -1709,7 +1709,7 @@ Priority issues: https://github.com/jupyterlab/jupyterlab/issues/9399
   - Nick mentions wanting resources that help accessibility be a part of development as a focus of the repo. Should we be testing things like [Lorenz notebook](https://github.com/jupyterlab/jupyterlab-demo/blob/master/notebooks/Lorenz.ipynb) in accessibility tests?
 - Jason W
   - Resources for working on jupyterlab, retrolab, other packages simultaneously?
-    - [doit automation file](https://pydoit.org/task_args.html) https://github.com/jupyter/accessibility/blob/master/dodo.py
+    - [doit automation file](https://pydoit.org/task_args.html) https://github.com/jupyter/accessibility/blob/main/pa11y-jupyter/dodo.py
     - [Linking/Unlinking Packages to JupyterLab documentation](https://jupyterlab.readthedocs.io/en/stable/developer/contributing.html#linking-unlinking-packages-to-jupyterlab)
     - [An example of testing such things in jupyter/accessibility](https://github.com/jupyter/accessibility/pull/35)
     - [Verdaccio](https://verdaccio.org/)
