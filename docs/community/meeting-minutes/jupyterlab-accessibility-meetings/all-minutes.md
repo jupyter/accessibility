@@ -1665,7 +1665,7 @@ Priority issues: https://github.com/jupyterlab/jupyterlab/issues/9399
 
 - Isabela
   - Is anyone in contact/know status of Johan's work on the [CodeMirror6 migration](https://github.com/jupyterlab/jupyterlab/issues/10370#issuecomment-942048940)?
-    - Work is in progress ([there](https://github.com/JohanMabille/jupyterlab/tree/codemirror)). CodeMirror6 introduces a completly new API that brings some challenge. So Johan is focusing on having a first draft PR without carry too much about styles/modes and extensions. So people can start to test it and we will be able to evaluate what work is remaining (in particular if some CodeMirror extensions needs to be ported from 5 to 6).
+    - Work is in progress ([there](https://github.com/jupyterlab/jupyterlab/pull/11638)). CodeMirror6 introduces a completly new API that brings some challenge. So Johan is focusing on having a first draft PR without carry too much about styles/modes and extensions. So people can start to test it and we will be able to evaluate what work is remaining (in particular if some CodeMirror extensions needs to be ported from 5 to 6).
 - Frederic
   - I will test [Fast Design components](https://www.fast.design/) from Microsoft and report here.
 
