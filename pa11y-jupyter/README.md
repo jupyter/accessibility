@@ -9,7 +9,7 @@ This folder contains:
 
 ## Future Goals
 
-- extract _tasks_ from [`dodo.py`](../dodo.py) into more configurable, reusable
+- extract _tasks_ from [`dodo.py`](./dodo.py) into more configurable, reusable
   components in this folder
 
 - create macros for `pa11y` [actions] for common Jupyter tasks

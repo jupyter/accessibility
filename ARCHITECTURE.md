@@ -18,8 +18,7 @@ In this repository, you will find the following:
 1. The [Binder configuration files](./.binder)
 2. [GitHub workflows and issues templates](./.github)
 3. [Sphinx documentation](./docs) for the accessibility project
-4. [Accessibility testing tools](./testing) for the user-facing core Jupyter software
-5. The [`ja11y` python module](./pa11y-jupyter)
+4. The [`ja11y` python module](./pa11y-jupyter)
 
 ## Code Map
 

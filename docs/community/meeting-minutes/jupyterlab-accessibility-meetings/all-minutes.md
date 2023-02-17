@@ -106,7 +106,7 @@ this meeting?
         ```
 
       - seems convoluted, can we just use
-        [`aria-label`](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-label_attribute)
+        [`aria-label`](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-label)
         (this is exactly what it's for)? [Opinions seem mixed](https://developer.paciellogroup.com/blog/2017/04/what-is-an-accessible-name/)
 
   - I need resources to finish hashing out the styling system for the
@@ -465,8 +465,7 @@ too)
     help and resources for screen reader users.
 - Adding CI or relevant accessibility tests to the JupyterLab
   contributing workflow ensure accessibility remains a priority - Referenced pydata-sphinx-theme [#292](https://github.com/pandas-dev/pydata-sphinx-theme/issues/292)
-  and https://github.com/pandas-dev/pydata-sphinx-theme/runs/1507397117?check_suite_focus=true - nteract has some kind of accessibility CI they use
-  (probably focused on react)
+  - nteract has some kind of accessibility CI they use (probably focused on react)
 
 #### JupyterLab Code Editor
 
@@ -1408,7 +1407,7 @@ Priority issues: https://github.com/jupyterlab/jupyterlab/issues/9399
 - Carlos
   - Curious about what is happening here!
   - We talked about testing some. Maybe recording and comparing videos might help for tracking interactions and avoiding accessibility regressions.
-  - Playwright? [blog post](https://www.yunier.dev/2021-03-13-accessibility-testing-with-playwright/)
+  - Playwright? [blog post](https://www.yunier.dev/post/2021/accessibility-testing-with-playwright/)
   - How can we support projects
 - Isabela
   - and Tony: Jupyter accessibility workshop. You can [track the work here](https://github.com/Quansight-Labs/jupyter-accessibility-workshops).
@@ -1665,7 +1664,7 @@ Priority issues: https://github.com/jupyterlab/jupyterlab/issues/9399
 
 - Isabela
   - Is anyone in contact/know status of Johan's work on the [CodeMirror6 migration](https://github.com/jupyterlab/jupyterlab/issues/10370#issuecomment-942048940)?
-    - Work is in progress ([there](https://github.com/JohanMabille/jupyterlab/tree/codemirror)). CodeMirror6 introduces a completly new API that brings some challenge. So Johan is focusing on having a first draft PR without carry too much about styles/modes and extensions. So people can start to test it and we will be able to evaluate what work is remaining (in particular if some CodeMirror extensions needs to be ported from 5 to 6).
+    - Work is in progress ([there](https://github.com/jupyterlab/jupyterlab/pull/11638)). CodeMirror6 introduces a completly new API that brings some challenge. So Johan is focusing on having a first draft PR without carry too much about styles/modes and extensions. So people can start to test it and we will be able to evaluate what work is remaining (in particular if some CodeMirror extensions needs to be ported from 5 to 6).
 - Frederic
   - I will test [Fast Design components](https://www.fast.design/) from Microsoft and report here.
 
@@ -1710,7 +1709,7 @@ Priority issues: https://github.com/jupyterlab/jupyterlab/issues/9399
   - Nick mentions wanting resources that help accessibility be a part of development as a focus of the repo. Should we be testing things like [Lorenz notebook](https://github.com/jupyterlab/jupyterlab-demo/blob/master/notebooks/Lorenz.ipynb) in accessibility tests?
 - Jason W
   - Resources for working on jupyterlab, retrolab, other packages simultaneously?
-    - [doit automation file](https://pydoit.org/task_args.html) https://github.com/jupyter/accessibility/blob/master/dodo.py
+    - [doit automation file](https://pydoit.org/task_args.html) https://github.com/jupyter/accessibility/blob/main/pa11y-jupyter/dodo.py
     - [Linking/Unlinking Packages to JupyterLab documentation](https://jupyterlab.readthedocs.io/en/stable/developer/contributing.html#linking-unlinking-packages-to-jupyterlab)
     - [An example of testing such things in jupyter/accessibility](https://github.com/jupyter/accessibility/pull/35)
     - [Verdaccio](https://verdaccio.org/)
@@ -1750,7 +1749,7 @@ Priority issues: https://github.com/jupyterlab/jupyterlab/issues/9399
 - Gabriel (Quansight Labs)
   - Automated accessibility testing
   - Quansight Labs [tracks my work on Jupyter](https://github.com/Quansight-Labs/jupyter-a11y-mgmt/issues/assigned/gabalafou) in a public GitHub repo
-  - Feel free to reach out to me on [gitter](https://gitter.im/gabalafou) or email me gfouasnon@quansight.com
+  - Feel free to reach out to me on [Gitter](https://app.gitter.im/) at @gabalafou or email me gfouasnon@quansight.com
 - Isabela
 
   - I'm back working on [#8832](https://github.com/jupyterlab/jupyterlab/issues/8832) as promised. I have some questions on search/filter boxes this week.
@@ -2398,7 +2397,7 @@ Jupyter governance and jupyter/accessibility. A discussion around what's happeni
 
 ### Agenda
 
-- How do we want to set up the council? Background: the [governance bootstrapping docs](https://jupyter.org/governance/bootstrapping_decision_making.html) don't account for the fact that we became a software project later and did not have existing steering council members to start our council process. We also need to have a council soon to nominate our representative to the new SSC soon.
+- How do we want to set up the council? Background: the [governance bootstrapping docs](https://jupyter.org/governance/decision_making.html) don't account for the fact that we became a software project later and did not have existing steering council members to start our council process. We also need to have a council soon to nominate our representative to the new SSC soon.
     - Some options to create the starter group:
         - Add who has already voted in our most recent votes as the starter group.
         - Add whoever is in the GitHub organization as the starter group.

@@ -121,7 +121,7 @@ workflows.
 [doit]: https://pydoit.org/
 [binder]: https://mybinder.org
 [github actions]: https://github.com/features/actions
-[jupyter code of conduct]: https://github.com/jupyter/governance/blob/master/conduct/code_of_conduct.md
+[jupyter code of conduct]: https://github.com/jupyter/governance/blob/main/conduct/code_of_conduct.md
 [jupyter kernel messaging]: https://jupyter-client.readthedocs.io/en/stable/messaging.html
 [jupyter notebook format]: https://nbformat.readthedocs.io/en/stable/
 [miniforge]: https://github.com/conda-forge/miniforge/releases
