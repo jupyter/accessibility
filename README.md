@@ -40,7 +40,7 @@ Anyone is welcome to attend, if they would like to discuss a topic or to listen 
 - **Where**: [`jovyan` Zoom](https://zoom.us/my/jovyan?pwd=c0JZTHlNdS9Sek9vdzR3aTJ4SzFTQT09)
 - **What**: [current agenda](https://hackmd.io/WnaWXboXSiGoqWvev_fAvA). Feel free to add items to the upcoming event's agenda 🎉
 
-We also have a [public archive of all the previous meeting notes](https://readthedocs.org/projects/jupyter-accessibility/community/meeting-minutes/README).
+We also have a [public archive of all the previous meeting notes](https://jupyter-accessibility.readthedocs.io/en/latest/community/meeting-minutes/jupyterlab-accessibility-meetings/index.html).
 
 ## Links to accessibility standards and resources 🔗
 
