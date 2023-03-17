@@ -1,15 +1,17 @@
 :root {
     --pst-color-text-base: #24292f;
     --pst-color-text-muted: #6e7781;
+    /* Ensure colours meet WCAG AA contrast criteria */
     --pst-color-link: #0969da;
     --pst-color-inline-code: #bf3989;
 }
 
 /* links */
 a,
+.content-container a,
 .prev-next-area a p.prev-next-title {
     text-decoration: underline;
-    text-underline-offset: 25%;
+    text-underline-offset: 10%;
     color: var(--pst-color-link) !important;
 }
 
@@ -26,7 +28,7 @@ div.navbar-brand-box a.navbar-brand {
 #site-navigation nav ul.nav li a,
 #site-navigation nav ul.nav ul li a {
     text-decoration: none;
-    color: var(--pst-color-text-muted);
+    color: var(--pst-color-text-muted) !important;
     padding-left: 0.25rem;
 }
 

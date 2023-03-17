@@ -3,7 +3,7 @@
 This Team Compass is a guide for team members of `jupyter/accessibility` and the broader community to navigate the project
 and keep track of the accessibility-related initiatives in the Jupyter ecosystem.
 
-If you see information that is out of date, propose an edit in the [`jupyter/accessibility` repository](https://github.com/jupyter/accessibility).
+If you see information that is out of date, propose an edit in the [`jupyter/accessibility` repository][accessibility-repo].
 To propose an edit directly from the documentation, click on the `GitHub icon` on the top of any page {fab}`github`
 and then on the {fas}`pencil-alt` `Suggest an edit` menu item.
 
@@ -64,7 +64,7 @@ Additionally, the landing page is located in `docs/index.md`.
 
 #### Adding a New Chapter
 
-1. Create a new directory under `docs/` and an `index.md` file, which will be the top page of the new section.
+1. Create a new directory under `docs/` and a `index.md` file, which will be the top page of the new section.
 2. Add a new `chapter` in the Table of contents `docs/_toc.yml`.
 3. As you add more sections in the new chapter, make sure to add the corresponding `file` entries in the Table of contents `docs/_toc.yml`.
 
