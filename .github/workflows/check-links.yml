@@ -1,24 +1,16 @@
-name: Test documentation for broken links
+name: Check Links
 
 on:
+  push:
+    branches: ["main"]
   pull_request:
-  workflow_dispatch:
 
 jobs:
-  check-links:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkoutv@3
-      - name: Setup Python
-        uses: actions/setup-pythonv@4
+      - uses: actions/checkout@v2
+      - uses: jupyterlab/maintainer-tools/.github/actions/base-setup@v1
+      - uses: jupyterlab/maintainer-tools/.github/actions/check-links@v1
         with:
-          python: "3.9"
-          cache: "pip"
-      - name: "Install dependencies"
-        run: pip install -r "docs/requirements.txt"
-      # By using `-q` linkcheck will treat broken links + missing refs as warnings
-      # warnings.txt will have text only if there are errors
-      - name: Build the documentation and check links
-        continue-on-error: true
-        run: |
-          sphinx-build docs docs/_build -q -N -b linkcheck
+          ignore_links: "https://github.com/issues https://accessible.canada.ca/advancing-accessibility-standards-research/funding"
