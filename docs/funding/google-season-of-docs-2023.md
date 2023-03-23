@@ -128,3 +128,7 @@ JupyterLab’s documentation is written in Markdown and reStructuredText, and is
 - Latest JupyterLab accessibility docs: https://jupyter-accessibility.readthedocs.io/en/latest/index.html
 - Jupyter project website: https://jupyter.org/
 - JupyterLab Github repository: https://github.com/JupyterLab/JupyterLab
+
+## Contact information
+
+If you are a technical writer interested in working in this project please reach out to Stephannie Jimenez at `sgacha@quansight.com`.
