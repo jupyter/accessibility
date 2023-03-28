@@ -4,7 +4,7 @@
 Your proposal title should be short and specific. “Update ORGNAME Contributor Guide” is a good proposal title. “Documentation Improvements” is too vague; “Update Sections 5,7,23,99 of Contributor Guide, Create FAQ, and Create Style Guide” is too long.
 -->
 
-Create foundational accessibility documentation for JupyterLab
+Create foundational user-focused accessibility documentation for JupyterLab
 
 # About your organization
 
@@ -14,7 +14,7 @@ In this section, tell us about your organization or project in a few short parag
 
 JupyterLab is an extensible environment for interactive and reproducible computing based on the Jupyter Notebook. It allows scientists, researchers, engineers, journalists, students, and many other users to configure and arrange workflows combining code development, visualization and text inside a single web-based interface. Characterized by its powerful execution engine, Jupyter supports over 40 programming languages, including Python, Julia, R and Scala.
 
-JupyterLab is a user interface offering notebook manipulation, text editor, file browser, and terminal, among other development tools. It has a seamless integration with the most common scientific packages and it is included in multiple downstream applications as a dependency. Moreover, JupyterLab is flexible, powerful and extensible by third-party and official extensions distributed via PyPi, conda and other package managers.
+JupyterLab is a user interface comprising notebook manipulation, text editor, file browser, and terminal, among other development tools. It has a seamless integration with the most common scientific packages and is included in multiple downstream applications as a dependency. Moreover, JupyterLab is flexible, robust, and extensible by third-party and official extensions distributed via PyPi, conda, and other package managers.
 
 Since its first release in 2018, JupyterLab has grown as an open source project, offering more features than just the Notebook interface. It is used by many applications and it has served as a reference for multiple web-based interfaces like Google Codespaces, Google Collab and Coursera, among others.
 
@@ -28,9 +28,9 @@ One part of that story of growth, adoption, and inclusivity that was overlooked 
 Tell us about the problem your project will help solve. Why is it important to your organization or project to solve this problem?
 -->
 
-The JupyterLab accessibility team has been concentrating its efforts on accessibility remediation through work on interface audits, testing events, improvements to UI/UX and automated testing. Due to the limited number of resources and the prioritization of such remediation work, documenting accessibility features has been a secondary priority. As more accessibility-focused improvements are added, it is becoming increasingly necessary that we provide a dedicated focus on adding user accessibility documentation for JupyterLab.
+The JupyterLab accessibility team has been concentrating its efforts on accessibility remediation through work on interface audits, testing events, improvements to UI/UX and automated testing. Due to the limited resources and the prioritization of such remediation work, documenting accessibility features has been a secondary priority. As more accessibility-focused improvements are added, it is becoming increasingly necessary that we provide a dedicated focus on adding user accessibility documentation for JupyterLab.
 
-Through this project, we aim to create documentation primarily targeted at anyone with a temporary, situational, or permanent disability that wants or needs to use JupyterLab. We want to provide the JupyterLab community with a comprehensive guide about the accessibility features present in the application. For example, developing documentation that answers the questions “What can and can’t I do in JupyterLab with accessibility accommodations?” and “How can I adjust JupyterLab to work better for me with assistive technology?”
+Through this project, we aim to create documentation primarily targeted at anyone with a temporary, situational, or permanent disability that wants or needs to use JupyterLab. We want to provide the JupyterLab community with a comprehensive guide about the accessibility features present in the application. For example, developing documentation that answers questions such as “What can and can’t I do in JupyterLab with accessibility accommodations?” and “How can I adjust JupyterLab to work better for me with assistive technology?”
 
 ## Your project’s scope
 
@@ -40,8 +40,8 @@ Tell us about what documentation your organization will create, update, or impro
 
 This project includes:
 
-- Creation of an accessibility section in JupyterLab documentation containing default accessibility settings and customizations inspired by https://code.visualstudio.com/docs/editor/accessibility
-- Create user-focused documentation that summarizes the state of JupyterLab areas that have been audited for accessibility.  This includes an approachable report on keyboard navigation and 400% zoom audits results.
+- Creation of an accessibility section in JupyterLab documentation containing default accessibility settings and customizations inspired by VSCode's documentation https://code.visualstudio.com/docs/editor/accessibility
+- Create user-focused documentation that summarizes the state of JupyterLab areas that have been audited for accessibility. This includes an approachable report on keyboard navigation and 400% zoom audit results.
 
 As a stretch goal, we would like to include:
 
@@ -63,9 +63,9 @@ We estimate that this project will be completed by one technical writer working 
 How will you know that your new documentation has helped solve your problem? What metrics will you use, and how will you track them?
 -->
 
-Even though JupyterLab users vary in their experience, knowledge and confidence of the application, there’s an overall unfamiliarity about the accessibility features available within it. This is mostly a result of the lack of a reliable and official documentation that can guide users through different situations like adjusting theming, keyboard support and assistive technologies support. There have been numerous questions raised about accessibility features in the issue tracker of the project and in general, the community wants to move to a more inclusive access to the information given that JupyterLab is one of the most common tools used in education, research and scientific development.
+Even though JupyterLab users vary in their experience, knowledge and confidence of the application, there’s an overall unfamiliarity about the accessibility features available within it. This is primarily a result of the lack of reliable and official documentation that can guide users through different situations like adjusting theming, keyboard and assistive technologies support. There have been numerous questions raised about accessibility features in the issue tracker of the project, and in general, the community wants to move to more inclusive access to the information given that JupyterLab is one of the most common tools used in education, research and scientific development.
 
-We will track three metrics to measure this documentation project's success. The first is the number of accessibility features documented; the second is the number of pages added regarding the audits for keyboard navigation and 400% zoom.
+We will track two metrics to measure this documentation project's success. The first is the number of accessibility features documented; the second is the number of pages added regarding the audits for keyboard navigation and 400% zoom.
 
 We would consider the project successful if, after finalizing this project:
 
