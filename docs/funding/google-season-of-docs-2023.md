@@ -12,11 +12,11 @@ Create foundational user-focused accessibility documentation for JupyterLab
 In this section, tell us about your organization or project in a few short paragraphs. What problem does your project solve? Who are your users and contributors? How long has your organization or project been in existence? Give some context to help us understand why funding your proposal would create a positive impact in open source and the world.
 -->
 
-JupyterLab is an extensible environment for interactive and reproducible computing based on the Jupyter Notebook. It allows scientists, researchers, engineers, journalists, students, and many other users to configure and arrange workflows combining code development, visualization and text inside a single web-based interface. Characterized by its powerful execution engine, Jupyter supports over 40 programming languages, including Python, Julia, R and Scala.
+[JupyterLab](https://jupyter.org/) is an extensible environment for interactive and reproducible computing based on the Jupyter Notebook. It allows scientists, researchers, engineers, journalists, students, and many other users to configure and arrange workflows combining code development, visualization and text inside a single web-based interface. Characterized by its powerful execution engine, Jupyter supports over 40 programming languages, including Python, Julia, R and Scala.
 
 JupyterLab is a user interface comprising notebook manipulation, text editor, file browser, and terminal, among other development tools. It has a seamless integration with the most common scientific packages and is included in multiple downstream applications as a dependency. Moreover, JupyterLab is flexible, robust, and extensible by third-party and official extensions distributed via PyPi, conda, and other package managers.
 
-Since its first release in 2018, JupyterLab has grown as an open source project, offering more features than just the Notebook interface. It is used by many applications and it has served as a reference for multiple web-based interfaces like Google Codespaces, Google Collab and Coursera, among others.
+Since its first release in 2018, JupyterLab has grown as an open source project, offering more features than just the Notebook interface. It is used by many applications and it has served as a reference for multiple web-based interfaces like [Google Codespaces](https://github.com/features/codespaces), [Google Colab](https://colab.research.google.com/) and [Coursera](https://coursera.org/), among others.
 
 One part of that story of growth, adoption, and inclusivity that was overlooked for too long was the inclusion of disabled users and the implementation of accessibility best practices. That’s why during the past years, the Jupyter Accessibility team has been leading efforts to make the JupyterLab interface more accessible and usable by disabled users. There’s still much to do, but it’s vitally important—not just for JupyterLab but for the wider ecosystem of data science and open source—that this work continues.
 
@@ -28,7 +28,7 @@ One part of that story of growth, adoption, and inclusivity that was overlooked 
 Tell us about the problem your project will help solve. Why is it important to your organization or project to solve this problem?
 -->
 
-The JupyterLab accessibility team has been concentrating its efforts on accessibility remediation through work on interface audits, testing events, improvements to UI/UX and automated testing. Due to the limited resources and the prioritization of such remediation work, documenting accessibility features has been a secondary priority. As more accessibility-focused improvements are added, it is becoming increasingly necessary that we provide a dedicated focus on adding user accessibility documentation for JupyterLab.
+[The JupyterLab accessibility team](https://jupyter-accessibility.readthedocs.io/en/latest/index.html) has been concentrating its efforts on accessibility remediation through work on interface audits, testing events, improvements to UI/UX and automated testing. Due to the limited resources and the prioritization of such remediation work, documenting accessibility features has been a secondary priority. As more accessibility-focused improvements are added, it is becoming increasingly necessary that we provide a dedicated focus on adding user accessibility documentation for JupyterLab.
 
 Through this project, we aim to create documentation primarily targeted at anyone with a temporary, situational, or permanent disability that wants or needs to use JupyterLab. We want to provide the JupyterLab community with a comprehensive guide about the accessibility features present in the application. For example, developing documentation that answers questions such as “What can and can’t I do in JupyterLab with accessibility accommodations?” and “How can I adjust JupyterLab to work better for me with assistive technology?”
 
@@ -41,7 +41,7 @@ Tell us about what documentation your organization will create, update, or impro
 This project includes:
 
 - Creation of an accessibility section in JupyterLab documentation containing default accessibility settings and customizations inspired by VSCode's documentation https://code.visualstudio.com/docs/editor/accessibility
-- Create user-focused documentation that summarizes the state of JupyterLab areas that have been audited for accessibility. This includes an approachable report on keyboard navigation and 400% zoom audit results.
+- Create user-focused documentation that summarizes the state of JupyterLab areas that have been audited for accessibility. This includes an approachable report on [keyboard navigation](https://github.com/jupyterlab/jupyterlab/issues/9399) and [400% zoom audit](https://github.com/Quansight-Labs/jupyterlab-accessible-themes/issues/34) results.
 
 As a stretch goal, we would like to include:
 
@@ -104,7 +104,7 @@ Include other budget items as needed, along with justification for the amount so
 
 | Budget item | Amount | Running Total | Notes/Justifications |
 | :--:    |      :---:   | :--:    |      :---:   |
-| Technical writer that will update, test and publish new accessibility documentation |$10000 |$10000 |The mentors’ time will be provided as in-kind donation by Quansight Labs so the budget will be used in full for the technical writer’s compensation. |
+| Technical writer that will update, test and publish new accessibility documentation |$10000 |$10000 |The mentors’ time will be provided as in-kind donation by [Quansight Labs](https://labs.quansight.org/) so the budget will be used in full for the technical writer’s compensation. |
 
 # Additional information
 
