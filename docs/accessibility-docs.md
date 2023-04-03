@@ -16,7 +16,8 @@ But we want and hope to change that.
 There are no JupyterLab accessibility docs yet. In the meantime, if you're
 trying to get a sense of whether or not you will be able to use JupyterLab, you
 may find the
-[JupyterLab Accessibility Statement](./resources/JupyterLab-a11y-statement.md) helpful in making an evaluation.
+[JupyterLab Accessibility Statement](./resources/JupyterLab-a11y-statement.md)
+helpful in making an evaluation.
 
 Side note: adding accessibility docs to JupyterLab is on the
 [roadmap](https://jupyter-accessibility.readthedocs.io/en/latest/funding/czi-grant-roadmap.html),
