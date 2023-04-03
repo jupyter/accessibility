@@ -25,7 +25,6 @@ In the meantime, you can read the JupyterLab accessibility statement to get a be
 ```{grid-item-card}
 [JupyterLab Accessibility Statement](../resources/JupyterLab-a11y-statement.md)
 ^^^
-**Last updated**: 09 August 2022
 ```
 
 ```{grid-item-card}
