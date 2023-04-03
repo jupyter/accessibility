@@ -1,5 +1,7 @@
 # Useful Jupyter Accessibility Resources
 
+Looking for [accessibility docs?](https://jupyter-accessibility.readthedocs.io/en/latest/accessibility-docs)
+
 ## Standards and resources
 
 One of our goals is to collect information about accessibility and create documentation to empower the Jupyter community
@@ -12,9 +14,6 @@ guides, and documentation related to this:
 - [The tota11y toolbar](https://khan.github.io/tota11y/) is a lightweight javascript toolbar for quick a11y analysis.
 - [The WAVE tool](http://wave.webaim.org/report#/http://z2jh.jupyter.org/) is a web analyzer for page accessibility.
 
-## Jupyter a11y tech
-
-[Jupyter Notebook a11y toolbar](https://github.com/uclixnjupyternbaccessibility/jupyter_contrib_nbextensions/tree/master/src/jupyter_contrib_nbextensions/nbextensions/accessibility_toolbar) (from Microsoft research)
 
 ## Accessibility-related issues
 

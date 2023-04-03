@@ -1,5 +1,11 @@
 # Jupyter Accessibility
 
+## Accessibility docs
+
+Looking for [accessibility docs?](https://jupyter-accessibility.readthedocs.io/en/latest/accessibility-docs)
+
+## Intro
+
 Welcome to the Team Compass for the Jupyter Accessibility project.
 
 This group was formed in early 2019.
