@@ -1,6 +1,6 @@
 # Useful Jupyter Accessibility Resources
 
-Looking for [accessibility docs?](../accessibility-docs)
+🔔 Looking for [accessibility docs?](../accessibility-docs)
 
 ## Standards and resources
 

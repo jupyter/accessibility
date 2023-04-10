@@ -1,10 +1,6 @@
 # Jupyter Accessibility
 
-## Accessibility docs
-
-Looking for [accessibility docs?](accessibility-docs)
-
-## Intro
+🔔 Looking for [accessibility docs?](accessibility-docs)
 
 Welcome to the Team Compass for the Jupyter Accessibility project.
 
@@ -25,16 +21,6 @@ As of August 2022 this software **is not accessible**.
 Significant work will be required to reach that goal.
 ```
 
-In the meantime, you can read the JupyterLab accessibility statement to get a better understanding of its state and limitations:
-
-````{grid}
-```{grid-item-card}
-[JupyterLab Accessibility Statement](../resources/JupyterLab-a11y-statement.md)
-^^^
-```
-
-```{grid-item-card}
-Jupyter notebook Accessibility Statement
-^^^
-**Coming soon**
-````
+In the meantime, you can read the
+[JupyterLab accessibility statement](../resources/JupyterLab-a11y-statement.md)
+to get a better understanding of its state and limitations.

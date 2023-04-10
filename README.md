@@ -1,10 +1,6 @@
 # Jupyter Accessibility
 
-## Accessibility Docs
-
-Looking for [accessibility docs?](https://jupyter-accessibility.readthedocs.io/en/latest/accessibility-docs)
-
-## Intro
+🔔 Looking for [accessibility docs?](https://jupyter-accessibility.readthedocs.io/en/latest/accessibility-docs)
 
 Welcome to the GitHub repository for the [Jupyter](https://jupyter.org/) Accessibility Project.
 This group was formed in early 2019. Its goal is to gather stakeholders interested in working to make Jupyter's
