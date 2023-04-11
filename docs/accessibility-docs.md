@@ -1,6 +1,6 @@
 # Accessibility Docs
 
-If you are looking for accessibility docs[^1] for
+If you are looking for accessibility docs for
 [JupyterLab](https://jupyterlab.readthedocs.io/en/stable/), [Jupyter
 Notebook](https://jupyter-notebook.readthedocs.io/en/stable/), or
 [JupyterHub](https://jupyterhub.readthedocs.io/en/stable/), they don't exist
