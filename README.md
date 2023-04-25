@@ -1,5 +1,7 @@
 # Jupyter Accessibility
 
+🔔 Looking for [accessibility docs?](https://jupyter-accessibility.readthedocs.io/en/latest/accessibility-docs.html)
+
 Welcome to the GitHub repository for the [Jupyter](https://jupyter.org/) Accessibility Project.
 This group was formed in early 2019. Its goal is to gather stakeholders interested in working to make Jupyter's
 core user-facing software and related tooling accessible.
@@ -14,12 +16,6 @@ These core user-facing software include:
 > As of August 2022 this software **is not accessible.**
 > Significant work will be required to reach that goal. In the meantime, you can track the progress and initiatives in our [Jupyter Accessibility Team Compass](https://jupyter-accessibility.readthedocs.io)
 
-## Using Jupyter tools with assistive technology
-
-If you are trying to use Jupyter tools with assistive technology now, you may be able to get basic support with the following:
-
-- [Jupyter Notebook a11y toolbar](https://github.com/uclixnjupyternbaccessibility/jupyter_contrib_nbextensions/tree/master/src/jupyter_contrib_nbextensions/nbextensions/accessibility_toolbar) (from Microsoft research - ⚠️ note this has not been maintained since 2019)
-- Make cells editable with a screen reader using the [NVDA Browser Nav add-on](https://addons.nvda-project.org/addons/browsernav.en.html#:~:text=BrowserNav%20addon%20for%20NVDA,comments%20or%20malformed%20HTML%20tables.”)
 
 ## Getting involved 🙌🏼
 
@@ -124,13 +120,13 @@ If you wish to manually build the documentation, you can use `conda` to do so.
 1. Create a `conda` environment to build the documentation.
 
    ```bash
-   conda env create -n accessibility-docs python=3.9
+   conda env create -n a11y-team-compass-docs python=3.9
    ```
 
 2. Activate the new environment and install the rest of the dependencies:
 
    ```bash
-   conda activate accessibility-docs
+   conda activate a11y-team-compass-docs
    conda install -f docs/requirements.txt -c conda-forge
    ```
 
