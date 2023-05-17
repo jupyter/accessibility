@@ -11,7 +11,7 @@ These core user-facing software include:
 - [JupyterHub](https://github.com/jupyterhub/jupyterhub)
 
 > **Important notice**
-> As of January 2023 this software **is not accessible.**
+> As of August 2022 this software **is not accessible.**
 > Significant work will be required to reach that goal. In the meantime, you can track the progress and initiatives in our [Jupyter Accessibility Team Compass](https://jupyter-accessibility.readthedocs.io)
 
 ## Using Jupyter tools with assistive technology
