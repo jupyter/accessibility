@@ -17,7 +17,7 @@ These core user-facing software include:
 ## Accessibility Status for Jupyter tools
 
 ```{warning}
-As of August 2022 this software **is not accessible**.
+As of January 2023 this software **is not accessible**.
 Significant work will be required to reach that goal.
 ```
 

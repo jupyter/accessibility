@@ -1,9 +1,11 @@
 # Contributing to `jupyter/accessibility`
 
-This Team Compass is a guide for team members of `jupyter/accessibility` and the broader community to navigate the project and keep track of the accessibility-related initiatives in the Jupyter ecosystem.
+This Team Compass is a guide for team members of `jupyter/accessibility` and the broader community to navigate the project
+and keep track of the accessibility-related initiatives in the Jupyter ecosystem.
 
-If you see information that is out of date, propose an edit in the [`jupyter/accessibility` repository](https://github.com/jupyter/accessibility).
-To propose an edit directly from the documentation, click on the `GitHub icon` on the top of any page {fab}`github` and then on the {fas}`pencil-alt` `Suggest an edit` menu item.
+If you see information that is out of date, propose an edit in the [`jupyter/accessibility` repository][accessibility-repo].
+To propose an edit directly from the documentation, click on the `GitHub icon` on the top of any page {fab}`github`
+and then on the {fas}`pencil-alt` `Suggest an edit` menu item.
 
 ## Issues and labels
 
@@ -19,7 +21,8 @@ The following steps are a guide to help you contribute in a way that will be str
 
 1. Comment on an [existing issue][accessibility-issues ] or open a new issue referencing your addition
 
-   This allows other members of team to confirm that you aren't overlapping with work that's currently underway and that everyone is on the same page with the goal of the work you're going to carry out or proposing.
+   This allows other members of team to confirm that you aren't overlapping with work that's currently underway
+   and that everyone is on the same page with the goal of the work you're going to carry out or proposing.
 
 2. Fork the [`jupyter/accessibility` repository][accessibility-repo]
 
@@ -61,7 +64,7 @@ Additionally, the landing page is located in `docs/index.md`.
 
 #### Adding a New Chapter
 
-1. Create a new directory under `docs/` and an `index.md` file, which will be the top page of the new section.
+1. Create a new directory under `docs/` and a `index.md` file, which will be the top page of the new section.
 2. Add a new `chapter` in the Table of contents `docs/_toc.yml`.
 3. As you add more sections in the new chapter, make sure to add the corresponding `file` entries in the Table of contents `docs/_toc.yml`.
 

@@ -1,12 +1,14 @@
-# Jupyter Accessibility Statement
+# JupyterLab Accessibility Statement
 
 ## Jupyter audits
 
 This section includes audits from different stakeholders on Jupyter products.
 
-- [JupyterLab v2.2.6 WCAG 2.1](https://github.com/jupyterlab/jupyterlab/issues/9399)
-- [Jupyter Notebook WCAG 2.0](https://github.com/jupyter/accessibility/issues/7)
-- [JupyterLab v3.4.5 400% Zoom Audit](https://github.com/Quansight-Labs/jupyterlab-accessible-themes/issues/34)
+- [JupyterLab v3.4.5 400% Zoom Audit](https://github.com/Quansight-Labs/jupyterlab-accessible-themes/issues/34) - conducted in 2022
+- [JupyterLab v2.2.6 WCAG 2.1](https://github.com/jupyterlab/jupyterlab/issues/9399) - conducted in 2020
+- [Jupyter Notebook WCAG 2.0](https://github.com/jupyter/accessibility/issues/7) - conducted in 2019
+
+Many of the issues identified in these audits can be tracked in this [GitHub project within the JupyterLab organization](https://github.com/orgs/jupyterlab/projects/1)
 
 ## Accessibility Statement for JupyterLab
 
@@ -19,7 +21,7 @@ This is an accessibility statement from Jupyter accessibility contributors.
 Jupyter accessibility statements are living documents. This statement was created on 16 May 2022 using the [W3C Accessibility Statement Generator Tool](https://www.w3.org/WAI/planning/statements/) with additions and edits from the Jupyter accessibility contributors community.
 
 ```{note}
-This statement was last updated 16 June 2022.
+This statement was last updated on the 09 of August 2022.
 ```
 
 #### Conformance status
@@ -34,9 +36,9 @@ JupyterLab's accessibility does not exist in isolation. JupyterLab inherits much
 
 #### Compatibility with browsers and assistive technology
 
-JupyterLab is designed to be compatible with the following
+##### JupyterLab is designed to be compatible with the following
 
-Operating systems:
+**Operating systems:**
 
 - Windows
 - macOS
@@ -44,27 +46,27 @@ Operating systems:
 - iOS
 - Android
 
-Browsers (mobile and desktop):
+**Browsers (mobile and desktop):**
 
 - Firefox
 - Chrome
 - Safari
 - Chromium browsers
 
-JupyterLab is not compatible with:
+##### JupyterLab is not compatible with
 
-Operating systems:
+**Operating systems:**
 
-Browsers (mobile and desktop):
+**Browsers (mobile and desktop):**
 
 - Internet Explorer
 - Edge
 
-Assistive technology:
+**Assistive technology:**
 
-- JAWS
-- NVDA
-- VoiceOver
+- [JAWS](https://www.freedomscientific.com/products/software/jaws/)
+- [NVDA](https://assistivlabs.com/assistive-tech/screen-readers/nvda)
+- [VoiceOver](https://www.apple.com/accessibility/vision/)
 - Narrator
 - Orca screen readers
 - voice control technology
@@ -86,22 +88,30 @@ Despite our best efforts to ensure accessibility of JupyterLab, there may be som
 
 **Known limitations for JupyterLab:**
 
-1. **Documents**: Documents written by the community may not include accessible content because we do not and cannot review every document that can be opened and edited in JupyterLab. To support accessible documents, we are drafting guidelines for accessible document content with an emphasis on Jupyter notebooks. Please report the issue to the author and [open an issue on jupyter/accessibility](https://github.com/jupyter/accessibility/issues/new) describing the problem and the behavior you expect so we may integrate it into our content guidelines.
-2. **JupyterLab extensions**: JupyterLab extensions written by the community may not be accessible because JupyterLab extensions can be written by anyone in the community and have no standard review process. We do not and can not review every JupyterLab extension. To support accessible extensions, we encourage extension authors to use existing, accessible JupyterLab components for their extensions. We also provide periodic opportunities for community education on accessibility. Please report the issue to the author and let them know the [jupyter/accessibility](https://github.com/jupyter/accessibility/) community may be able to provide guidance.
+1. **Documents**: Documents written by the community may not include accessible content because we do not and cannot review every document that can be opened and edited in JupyterLab.
+   To support accessible documents, we are drafting guidelines for accessible document content with an emphasis on Jupyter notebooks.
+   Please report the issue to the author and [open an issue on jupyter/accessibility](https://github.com/jupyter/accessibility/issues/new)
+   describing the problem and the behavior you expect, so we may integrate it into our content guidelines.
+2. **JupyterLab extensions**: JupyterLab extensions written by the community may not be accessible
+   because JupyterLab extensions can be written by anyone in the community and have no standard review process.
+   We do not and can not review every JupyterLab extension. To support accessible extensions,
+   we encourage extension authors to use existing, accessible JupyterLab components for their extensions.
+   We also provide periodic opportunities for community education on accessibility.
+   Please report the issue to the author and let them know the [jupyter/accessibility](https://github.com/jupyter/accessibility/) community may be able to provide guidance.
 
 #### Assessment approach
 
 Jupyter accessibility contributors assessed the accessibility of JupyterLab by the following approaches:
 
 - Self-evaluation
-- Regular automated testing to monitor for regressions (can be found at [jupyter/accessibility](https://github.com/jupyter/accessibility)
+- Regular automated testing to monitor for regressions (can be found at [the jupyter-a11y-testing repository](https://github.com/Quansight-Labs/jupyter-a11y-testing)).
 - User feedback
 
 #### Evaluation report
 
-An evaluation for JupyterLab is available at: [jupyterlab/jupyterlab/issues/9399](https://github.com/jupyterlab/jupyterlab/issues/9399).
+- An evaluation for JupyterLab is available at: [jupyterlab/jupyterlab/issues/9399](https://github.com/jupyterlab/jupyterlab/issues/9399).
 
-User reports on JupyterLab's accessibility are available at:[the jupyterlab/jupyterlab label `tag:accessibility`](https://github.com/jupyterlab/jupyterlab/labels/tag%3AAccessibility).
+- User reports on JupyterLab's accessibility are available at:[the jupyterlab/jupyterlab label `tag:accessibility`](https://github.com/jupyterlab/jupyterlab/labels/tag%3AAccessibility).
 
 ### What the community is doing
 
@@ -124,8 +134,8 @@ For more information on current efforts to improve JupyterLab's accessibility, v
 We welcome your feedback and formal complaints on the accessibility status of JupyterLab.
 Please let us know if you encounter accessibility barriers on JupyterLab:
 
-- [Write an issue on jupyter/accessibility](https://github.com/jupyter/accessibility/issues/new)
-- [Write an issue on jupyterlab/jupyterlab](https://github.com/jupyterlab/jupyterlab/issues/new) and request it be labeled [`tag:Accessibility`](https://github.com/jupyterlab/jupyterlab/labels/tag%3AAccessibility)
+- [Write an issue on jupyter/accessibility][jupyter-accessibility-repo-issues]
+- [Write an issue on jupyterlab/jupyterlab][jupyterlab-repo-issues] and request it be labeled [`tag:Accessibility`](https://github.com/jupyterlab/jupyterlab/labels/tag%3AAccessibility)
 - If you are interested in being part of any potential research or organized feedback initiatives, please [send an email with the subject line `Jupyter Accessibility Feedback` here](mailto:ipresedo@quansight.com). Gauging community interest in user research participation helps us gain the support to make it happen.
 
 ```{warning}
@@ -134,3 +144,9 @@ At the time of writing, there is no non-public way to contact us for JupyterLab 
 
 Please note that JupyterLab is an open-source project and that Jupyter accessibility contributors are a group defined on a voluntary basis. Like many other open-source projects, we cannot guarantee how long it may take to respond to and resolve an issue, though we do make an effort to do it as quickly as is possible with our resources.
 Thanks for your patience and understanding.
+
+<!-- links -->
+
+[jupyter-accessibility-repo]: https://github.com/jupyter/accessibility
+[jupyter-accessibility-repo-issues]: https://github.com/jupyter/accessibility/issues/new
+[jupyterlab-repo-issues]: https://github.com/jupyterlab/jupyterlab/issues/new

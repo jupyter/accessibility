@@ -17,6 +17,10 @@ These core user-facing software include:
 > Significant work will be required to reach that goal. In the meantime, you can track the progress and initiatives in our [Jupyter Accessibility Team Compass](https://jupyter-accessibility.readthedocs.io)
 
 
+No longer maintained community projects (not recommended):
+
+- [Jupyter Notebook a11y toolbar](https://github.com/uclixnjupyternbaccessibility/jupyter_contrib_nbextensions/tree/master/src/jupyter_contrib_nbextensions/nbextensions/accessibility_toolbar) (part of a UCL master's project).
+
 ## Getting involved 🙌🏼
 
 ### Join the conversation 💬

@@ -11,13 +11,13 @@
 repos:
   # Autoformat: markdown, yaml to ensure that it doesn't need to be updated in other repos
   - repo: https://github.com/pre-commit/mirrors-prettier
-    rev: v2.6.1
+    rev: v3.0.0-alpha.6
     hooks:
       - id: prettier
 
   # Autoformat: Python code - sort imports
   - repo: https://github.com/pycqa/isort
-    rev: 5.10.1
+    rev: 5.12.0
     hooks:
       - id: isort
         name: isort
@@ -25,19 +25,19 @@ repos:
 
   # Autoformat: Python code
   - repo: https://github.com/psf/black
-    rev: 22.3.0
+    rev: 23.1.0
     hooks:
       - id: black
 
   # Lint: Python code
   - repo: https://github.com/pycqa/flake8
-    rev: 3.8.4
+    rev: 6.0.0
     hooks:
       - id: flake8
 
   # Misc...
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.0.1
+    rev: v4.4.0
     # ref: https://github.com/pre-commit/pre-commit-hooks#hooks-available
     hooks:
       # Autoformat: Makes sure files end in a newline and only a newline
