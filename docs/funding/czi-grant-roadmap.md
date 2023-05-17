@@ -14,7 +14,7 @@ Welcome! You've found your way to the public roadmap for Jupyter accessibility e
 
 This roadmap's content is derived from:
 
-- [The original grant proposal][https://github.com/jupyter/accessibility/blob/da6db43da092255c205ce1603d0d10b1f51c131b/docs/funding/inclusive_and_accessible_scientific_computing_in_jupyter_ecosystem_submitted_proposal.pdf]
+- [The original grant proposal](https://github.com/jupyter/accessibility/blob/da6db43da092255c205ce1603d0d10b1f51c131b/docs/funding/Inclusive_and_Accessible_Scientific_Computing_in_Jupyter_Ecosystem_SUBMITTED_PROPOSAL.pdf)
 - The [jupyter-a11y-mgmt repository's planning issues](https://github.com/orgs/Quansight-Labs/projects/5/views/1)
 - The [JupyterLab accessibility project board](https://github.com/orgs/Quansight-Labs/projects/5/views/1)
 - Feedback from community members working on accessibility-related matters
