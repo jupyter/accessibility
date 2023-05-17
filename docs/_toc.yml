@@ -5,6 +5,13 @@ format: jb-book
 root: index
 parts:
   # ------------------------------------------------------
+  # Accessibility Docs pointer
+  #
+  # For people who might land on the site because they are searching for docs,
+  # put this high up in the table of contents for visibility.
+  - chapters:
+    - file: accessibility-docs.md
+  # ------------------------------------------------------
   # Top view efforts and initiatives
   - caption: Accessibility efforts
     chapters:
