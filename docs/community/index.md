@@ -18,7 +18,7 @@ There are a few places where we have conversations and discussion.
 
 ```{important}
 As a reminder, we expect all members of the Jupyter Accessibility community to adhere to the [Jupyter Code of Conduct][jupyter-coc] in these conversations.
-````
+```
 
 ## Team meetings and notes
 

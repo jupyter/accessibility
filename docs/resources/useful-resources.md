@@ -12,7 +12,7 @@ guides, and documentation related to this:
 - [The A11y Project](https://a11yproject.com/)
 - [18F Accessibility Guide](https://accessibility.18f.gov/)
 - [The tota11y toolbar](https://khan.github.io/tota11y/) is a lightweight javascript toolbar for quick a11y analysis.
-- [The WAVE tool](http://wave.webaim.org/report#/http://z2jh.jupyter.org/) is a web analyzer for page accessibility.
+- [The WAVE tool](http://wave.webaim.org/repor) is a web analyzer for page accessibility.
 
 
 ## Accessibility-related issues

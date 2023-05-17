@@ -2,460 +2,174 @@
 
 This file collects all the separate note files into one place to make it easier to skim the notes or search for topics. It is organized oldest to newest.
 
-## 09.30.20 Meeting Minutes
+## 2020
 
-### Attendees
+```{include} 2020/2020-09-30.md
 
-- Martha (@marthacryan )
-- Max (@telamonian )
-- Karla (@karlaspuldaro)
-- Alek
-- tony (@tonyfast)
-- Alex (@ajbozarth)
-- Isabela (@isabela-pf)
+```
 
-### Notes
+```{include} 2020/2020-10-21.md
 
-#### Say hello!
+```
 
-Introduce yourself however you like. What do you want to get from
-this meeting?
+```{include} 2020/2020-11-04.md
 
-- Our group has limited experience with accessibility work previously.
-  We are all learning. Hooray!
-- No one here uses a screen reader or other assistive software.
-- Should we do outreach to have people involved who use this?
-  Probably. Find a way how.
+```
 
-#### Why this meeting? Why now?
+```{include} 2020/2020-11-18.md
 
-- Multiple JupyterLab team meetings where we discuss people's
-  interest in making JupyterLab accessible, but those interested
-  don't know where to start (both in learning about accessibility
-  and wrangling JupyterLab).
-- Let's be resources for each other! Share skills, knowledge,
-  and morale.
-- 3.0 release plans to have a lot of added features, 4.0 might
-  be a good time to push for improving what is already there.
-  - yes definitely, no way is this getting in 3.0
+```
 
-#### What goals do we have?
+```{include} 2020/2020-12-02.md
 
-- WCAG specifications. Let's review them and figure out how to
-  implement them. - https://en.wikipedia.org/wiki/Web_Content_Accessibility_Guidelines - We reviewed this document to start getting on the same page.
-- Get different people involved. Get people who actually use
-  accessibility features/ screen readers/ assistive software. - Avoid single point of failure problems. Community engagement
-  needs to be done together.
-- Are consoles a good place to start? Some older consoles are
-  established and already have accessible affordances for us to
-  start working with.
-- - Another resource exploring what a typically inacessible
-    experience (web comics) can be like with affordances.https://comica11y.humaan.com/
-    (comics use cells too… :eyes:)
-- https://design.chicago.gov/accessibility/tools/
-- Need a plan to reviewing/getting feedback on JupyterLab as is and
-  the changes we make. Can't just rely on accessing disability
-  communities because it's our responsibility to fix it.
+```
 
-#### What are people working on?
+```{include} 2020/2020-12-16.md
 
-- Max
+```
 
-  - accesible slider Widget
-    - PR: https://github.com/jupyterlab/jupyterlab/pull/9104
-    - probably a one-off, not really reusable in current form
-  - `LabButton`
+```{include} 2020/2020-12-30.md
 
-    - fully accesible replacement for current blueprint-based
-      `Button` in @jupyterlab/ui-components
-    - working on PR, hopefully have an initial stab done by the
-      meeting
-    - based on
-      - https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/button_role
-      - https://www.w3.org/TR/wai-aria-practices-1.1/examples/button/button.html
-      - https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#Accessibility_concerns
-    - tricky part: the button text
+```
 
-      - the reccommendation: always use an HTML button element,
-        always label like <button>text</button>
-      - for icon buttons (eg all of our toolbar buttons), the
-        suggestion is to hide the text using CSS
-      - [example CSS](https://css-tricks.com/places-its-tempting-to-use-display-none-but-dont/)
+## 2021
 
-        ```css
-        .hide {
-          position: absolute !important;
-          top: -9999px !important;
-          left: -9999px !important;
-        }
-        ```
+```{include} 2021/2021-01-13.md
 
-        or
+```
 
-        ```css
-        .visuallyhidden {
-          position: absolute;
-          overflow: hidden;
-          clip: rect(0 0 0 0);
-          height: 1px;
-          width: 1px;
-          margin: -1px;
-          padding: 0;
-          border: 0;
-        }
-        ```
+```{include} 2021/2021-01-27.md
 
       - seems convoluted, can we just use
         [`aria-label`](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-label)
         (this is exactly what it's for)? [Opinions seem mixed](https://developer.paciellogroup.com/blog/2017/04/what-is-an-accessible-name/)
 
-  - I need resources to finish hashing out the styling system for the
-    `LabFoo` components
-  - bigger picture: as concrete problems arise (like the text vs
-    aria-label thing for LabButton), we should use them as a jumping
-    off point to seek outside expert opinion/help
+```{include} 2021/2021-02-10.md
 
-- Isabela (and tony, Gonzalo, Eric)
-  - Color contrast https://github.com/jupyterlab/jupyterlab/issues/8832
+```
 
-#### Next steps
+```{include} 2021/2021-02-24.md
 
-- Do we want to share these notes somewhere (team-compass)?
-- Martha and Max working on UI components (LabButton?)
-  - Alek might help too!
-- Spend an hour introducing everyone to JupyterLab UI so we
-  understand what we are working with and start identifying places
-  to work with it. (Do this later when people have done some
-  exploration first)
-- Removing UI components based on blueprint
-- Reach out to Chris Holgraf, Tania Allard, and Jason Grout about
-  contacts we've made in this area already (tony)
-- Find and share resources (everyone)
-- Settings UI (Alex). Will start after JupyterCon. Needs
-  accessibility reveiw for the design.
-- Meet every other week (twice a month).
+```
 
-## 10.21.20 Meeting Minutes
+```{include} 2021/2021-03-10.md
 
-### Attendees
+```
 
-- Max @telamonian
-- Isabela @isabela-pf
-- Martha @marthacryan
-- Alex @ajbozarth
-- Jason Grout @jasongrout
+```{include} 2021/2021-04-07.md
 
-### Notes
+```
 
-#### Logistic check in
+```{include} 2021/2021-04-21.md
 
-- Does this time seem like it will keep working? Yes.
-- If so I’d rather schedule it further out and add it somewhere
-  more public so people can drop in. I can bring this up in JLab
-  team meeting too, if so.
+```
 
-#### Proposed Goals
+```{include} 2021/2021-05-05.md
 
-We'd like to propose concrete accessibility goals would be so that
-we can organize it into JupyterLab's release cycle and encourage
-people to focus on them. These are some ideas of where to start.
+```
 
-- Max brought up screen readers. Find most common and start from
-  that paradigm.
-  - discussion on github: https://github.com/jupyter/accessibility/issues/14
-- Keyboard accessibility.
-- Closing accessibility issues that already exist. There's already
-  been work pointing out some of the issues (like here
-  https://github.com/jupyterlab/jupyterlab/issues?q=is%3Aissue+is%3Aopen+web4all)
-- Can we produce guidelines/docs/resources (or something similar)?
-  This might help other people get involved and make the effort more
-  sustainable.
-- Creating an actionable plan and possibly getting some grant
-  money/full time help
+```{include} 2021/2021-05-19.md
 
-#### What are people working on?
+```
 
-Isabela
+```{include} 2021/2021-06-02.md
 
-- Reached out to Tania Allard and Chris Holdgraf. They made point
-  to keep all discussions online, so there shouldn’t be anything we
-  are missing. Haven’t heard from Tania. This just means I’m trying
-  to collect and understand what has already happened so we don’t
-  redo or overlook existing work.
-- Here’s some common places these discussions live (in Jupyter):
-  - Jupyter Discourse accessibility Category https://discourse.jupyter.org/c/special-topics/accessibility/29
-  - Jupyter accessibility repo https://github.com/jupyter/accessibility
-  - JupyterLab accessibility issue label https://github.com/jupyterlab/jupyterlab/issues?q=is%3Aopen+is%3Aissue+label%3Atag%3AAccessibility
-  - Jupyter Notebook accessibility issue label https://github.com/jupyter/notebook/labels/tag%3AAccessibility
-  - JupyterHub accessibility issue label https://github.com/jupyterhub/jupyterhub/labels/accessibility
-- Accessibility resource doc. WIP. Please feel free to add so we can
-  help each other learn. Don’t let it get in the way of doing other
-  work, but add as you find useful things. https://docs.google.com/document/d/12cusZV0j91yZTty_BQndorwTIgRloKR7WEWP2aGNp5A/edit?usp=sharing
+```
 
-#### Next steps
+```{include} 2021/2021-06-16.md
 
-- Install NVDA or JAWS and gain familiarity with screen readers
-  in general as well as JupyterLab
-- Isabela needs to triage existing JupyterLab issues so we can
-  assign/move forward with them
-- Try and reconvene hackathon group to make sure we are understanding
-  the same issues and have proper context to move forward and not
-  repeat work that's already been started.
-- Explore Phosphor and Lumino accessibility issues and PRs. This
-  might be the metaphorical root of a lot of our problems. - Big PRs in the DOM and menu system that started but did not
-  get finished
-- Look for grants for funding a full-time accessibility dev
-- Schedule meeting with Jason catching us up on work that's been
-  done in Phosphor
-- Explore Firefox accessibility tools. They've been recommended
-  as a good starting point.
+```
 
-## 11.04.20 Meeting Minutes
+```{include} 2021/2021-07-14.md
 
-### Attendees
+```
 
-- Martha @marthacryan
-- Max @telamonian
-- Alex @ajbozarth
-- Jason @jasongrout
-- Isabela @isabela-pf
+```{include} 2021/2021-07-28.md
 
-### Notes
+```
 
-If needed, recap/point to the notes and resources for our Phosphor
-PR meeting last Monday for people who weren't able to make it.
+```{include} 2021/2021-08-11.md
 
-- Covered what decisions were made and our current goals (transfer
-  the problems we already know about in Phosphor to Lumino and finish
-  off what was originally Hack4All work).
+```
 
-Are these meetings something we'd want to have on the Jupyter
-community calendar?
+```{include} 2021/2021-08-25.md
 
-- Yes! It will be brought up in next week's JupyterLab team meeting
-  for approval/necessary steps.
+```
 
-- Need to see if we can find or get data on what developers who use
-  screen readers use in terms of OS
+```{include} 2021/2021-09-08.md
 
-#### What are people working on?
+```
 
-- Martha: [#129](https://github.com/jupyterlab/lumino/pull/129) -
-  Moved PR from phosphor to lumino, reviewers?
-- Gonzalo: Following up on Phosphor tutorial videos. Confirmed we
-  can repost them, but need to get license. - Also need a PR for Lumino docs once the videos get set up.
+```{include} 2021/2021-09-22.md
 
-#### Next Steps
+```
 
-- Alex: Review [#129](https://github.com/jupyterlab/lumino/pull/129)
-  Add isToggleable command state.
-- Gonzalo: Get final info about reposting Phosphot tutorial videos
-  for Lumino docs
-- Isabela: Move Phosphor issues to Lumino. Also consolidate issues
-  from other repos where relevant so we don't have to look for issues
-  across as many repos anymore.
-- Goal
-  - Once those three Phosphor PRs are fully up and ready to be
-    reviewed/merged, then we can reach out to experts to talk more.
-  - Potentially asking for a meeting where we watch experts
-    test PRs so we can learn how to better test too (and not just
-    rely on them).
+```{include} 2021/2021-10-06.md
 
-## 11.18.20 Meeting Minutes
+```
 
-### Attendees
+```{include} 2021/2021-10-20.md
 
-- Martha @marthacryan
-- Karla @karlaspuldaro
-- Alex @ajbozarth
-- Max @telamonian
-- Jason @jasongrout
-- Thomas @manfromjupyter
-- Isabela @isabela-pf
+```
 
-### Notes
+```{include} 2021/2021-11-03.md
 
-- Welcome Thomas!
+```
 
-#### What are people working on?
+```{include} 2021/2021-11-17.md
 
-- Martha
+```
 
-  - PRs [jupyterlab/lumino#129](https://github.com/jupyterlab/lumino/pull/129)
-    and [jupyterlab/lumino#131](https://github.com/jupyterlab/lumino/pull/131) merged!
-    -Hooray for Martha! Great job getting that done!
+```{include} 2021/2021-12-01.md
 
-- Max
+```
 
-  - Requesting review on [jupyterlab/lumino#132](https://github.com/jupyterlab/lumino/pull/132)
-    rebasing for lumino.
+```{include} 2021/2021-12-15.md
 
-- Isabela
-  - PR for JupyterLab color contrast updates at
-    [#9335](https://github.com/jupyterlab/jupyterlab/pull/9335).
-    This means it has a binder to test. Original issue is
-    [#8832](https://github.com/jupyterlab/jupyterlab/issues/8832)
-  - Started sorting through the web of repos where accessibility
-    work was started as issues (based on Phosphor Walkthrough
-    meeting notes). Nothing to show yet.
+```
 
-#### Next Steps
+## 2022
 
-- Martha will test her PRs with NVDA.
-- Martha will make an issue for isToggleable additions to
-  [#9365](https://github.com/jupyterlab/jupyterlab/issues/9365).
-  Will also start working on it.
-- Max will update [jupyterlab/lumino#132](https://github.com/jupyterlab/lumino/pull/132)
-  with the items on the checklist. - Also create a binder.
-- Thomas will review JupyterLab and perform an audit of all/most of
-  the accessibility issues needing to be addressed to ensure an
-  optimal user experience for all users with visual, auditory,
-  ambulatory, or cognitive handicaps. Goal will be to uncover all
-  that is needed to become fully WCAG 2.1 compliant. Will be using
-  JAWS for the screenreader when a screenreader is necessary, but
-  reported issues will be for all of them, not screenreader specific. - Setup following https://jupyterlab.readthedocs.io/en/latest/developer/contributing.html - maybe `pip install —pre jupyterlab` - Post issues to [jupyterlab repo](https://github.com/jupyterlab/jupyterlab)
-  with [accessibility label](https://github.com/jupyterlab/jupyterlab/issues?q=is%3Aissue+is%3Aopen+label%3Atag%3AAccessibility).
-- Isabela will consolidate the accessibility issues across repos
-  where appropriate (probably [jupyterlab](https://github.com/jupyterlab/jupyterlab)
-  or [lumino](https://github.com/jupyterlab/lumino)). Will bring the
-  new issues for the next meeting so we can keep moving forward with
-  the problems we already know about.
+```{include} 2022/2022-01-12.md
 
-## 12.02.20 Meeting Minutes
+```
 
-### Attendees
+````{include} 2022/2022-01-26.md
 
-- Tony @tonyfast
-- Max @telamonian
-- Jason @jasongrout
-- Alex @ajbozarth
-- Karla @karlaspuldaro
-- Gonzalo @goanpeca
-- Martha @marthacryan
-- Thomas @manfromjupyter
-- Darian @afshin
-- Isabela @isabela-pf
+```{include} 2022/2022-02-09.md
 
-### Notes
+```{include} 2022/2022-02-23.md
 
-- There are overlap in infrastructure needs for an accessible
-  JupyterLab and mobile/tablet support for JupyterLab. Maybe this
-  is an opportunity to get more people involved in this work since
-  there have been a lot of requests for mobile/tablet support.
+```{include} 2022/2022-03-09.md
 
-Triage of existing accessibility issues
-**This will be cross-referenced, updated with #9399, and stored
-in this [project](https://github.com/orgs/jupyterlab/projects/1)
-from here on out.**
+```{include} 2022/2022-03-23.md
+````
 
-- Reviewed from [diagram-codesprint/phosphor](https://github.com/diagram-codesprint/phosphor),
-  [diagram-codesprint/jupyterlab](https://github.com/diagram-codesprint/jupyterlab),
-  [phosphorjs/phosphor](https://github.com/phosphorjs/phosphor/),
-  [jupyterlab/lumino](https://github.com/jupyterlab/lumino/), and
-  [jupyterlab/jupyterlab](https://github.com/jupyterlab/jupyterlab/labels/tag%3AAccessibility)
-  ([jupyter/accessibility](https://github.com/jupyter/accessibility/issues) has been more organizing focused).
-- Isabela proposes continuing to focus on what was found in Hack4All first.
-  - [#6577](https://github.com/jupyterlab/jupyterlab/issues/6577)
-  - [#6578](https://github.com/jupyterlab/jupyterlab/issues/6578)
-  - [#6579](https://github.com/jupyterlab/jupyterlab/issues/6579)
-  - [#6580](https://github.com/jupyterlab/jupyterlab/issues/6580)
-  - [#6581](https://github.com/jupyterlab/jupyterlab/issues/6581)
-  - [#6582](https://github.com/jupyterlab/jupyterlab/issues/6582)
-  - [#9365](https://github.com/jupyterlab/jupyterlab/issues/9365) Follow up for jupyterlab/lumino #129 that applies isToggleable to JLab now that it is possible with Lumino (Martha started this!)
-- Issues Isabela wants to look into more
+```{include} 2022/2022-04-06.md
 
-  - JLab [#6575](https://github.com/jupyterlab/jupyterlab/issues/6575)
-    (update of diagram-codesprint/jupyterlab #8) Has merged PR #6359, but
-    didn’t close the issue.
-  - JLab [#6576](https://github.com/jupyterlab/jupyterlab/issues/6576)
-    (update of diagram-codesprint/jupyterlab #9) and [#6404](https://github.com/jupyterlab/jupyterlab/issues/6404) Looks like a reference for UX of these accessibility changes and proposed solutions.
-  - JLab [#1095](https://github.com/jupyterlab/jupyterlab/issues/1095)
-    Visual/additional/any cues for running commands (this was to be put
-    to phosphor, review if it was already done or not)
-  - JLab [#911](https://github.com/jupyterlab/jupyterlab/issues/911)
-    An audit issue about what seems to be the first JLab
-    accessibility review. I need to check if they are or need to be
-    represented in other issues.
-  - diagram-codesprint/phosphor [#2](https://github.com/diagram-codesprint/phosphor/pull/2)
-    and [#3](https://github.com/diagram-codesprint/phosphor/pull/3)
-    status. Did they get merged into Phosphor ever?
-  - diagram-codesprint/jupyterlab [#4](https://github.com/diagram-codesprint/jupyterlab/pull/4)
-    and [#11](https://github.com/diagram-codesprint/jupyterlab/pull/11) status.
-    Did they ever get merged into JupyterLab?
+```
 
-- Other issues
-  - [#6573](https://github.com/jupyterlab/jupyterlab/issues/6573)
-    NVDA tests on JLab. (Not explicitly tied to Hack4All, but seems
-    like it was part of it.)
-  - [#4878](https://github.com/jupyterlab/jupyterlab/issues/4878)
-    Older screen reader evaluation with good discussion. Has been
-    mentioned in a few issues and PRs so it would probably be good
-    to brush up on.
+```{include} 2022/2022-04-20.md
 
-#### What are people working on?
+```
 
-- Max and Jason
-  - [jupyterlab/lumino#132](https://github.com/jupyterlab/lumino/pull/132)
-    still needs review.
-- Thomas
-  - Opened [#9399](https://github.com/jupyterlab/jupyterlab/issues/9399)
-  - This is a full review of JupyterLab accessibility, can be
-    broken up into other issues as we go.
-  - Evaluation is on JLab v.2.26 This should catch a lot of
-    what holds over to 3.0, but we will be facing new problems
-    with virtual notebook.
-  - We started discussing how we pull this apart to tackle it
-    - Tabs/tab order are the blockers that prevent further
-      evaluation, so they should be high up on our list
-    - Order top to bottom should work in order of what are
-      most critical and/or rely on one another
-  - This is a great review! Thank you so much!
-- Isabela
-  - Collecting and triaging existing issues as listed above.
+```{include} 2022/2022-05-04.md
 
-#### Next Steps
+```
 
-- Max created a project to track JupyterLab accessibility work
-  https://github.com/orgs/jupyterlab/projects/1. This will be how
-  we organize and keep track of work in the future.
-- Isabela and Tony will compare and consolidate #9399 with
-  pre-existing issues. - Isabela also needs to check for duplicate issues and
-  close/update as needed. - Triage marking by WCAG standard and maybe level of complexity?
-- Martha #9365 applying isToggleable to JLab now that it is
-  possible in Lumino is still happening. This will be her next step.
-- Time to reach out to experts and say we want to meet in the
-  future (also gives us a deadline for some of the commitments)
+```{include} 2022/2022-06-01.md
 
-## 12.16.20 Meeting Minutes
+```
 
-### Attendees
+```{include} 2022/2022-06-15.md
 
-- Tony Fast @tonyfast
-- Jason Grout @jasongrout
-- Gonzalo Peña-Castellanos @goanpeca
-- Martha Cryan @marthacryan
-- Sam Kacer @SamKacer
-- Thomas @manfromjupyter
-- Alex @ajbozarth
-- Max @telamonian
-- Isabela @isabela-pf
+```
 
-### Notes
+```{include} 2022/2022-06-29.md
 
-- This is the [project for tracking accessibility
-  work](https://github.com/orgs/jupyterlab/projects/1). We are still
-  figuring out permissions, and this is a work in progress pulling
-  over the past triaging work. When 3.0 is out, we want to convert
-  the cards into a concrete road map.
-- Recommended resource [WAI ARIA authoring practices](https://www.w3.org/TR/wai-aria-practices-1.1/)
-- Thomas thinks there are a magic few lines of code that would be
-  easy to get in JupyterLab before 3.0 and could make a big difference.
-  Posted (and linked above) at [#9491](https://github.com/jupyterlab/jupyterlab/issues/9491)
-  (formerly team-compass #114).
+```
 
-These discussions have identified four main accessibility needs
-for JupyterLab (can probably be extended to other Jupyter projects
-too)
+```{include} 2022/2022-07-13.md
 
 - Making JupyterLab accessible for a read-only type experience
   - This is the focus of the report on [#9399](https://github.com/jupyterlab/jupyterlab/issues/9399)
@@ -467,35 +181,17 @@ too)
   contributing workflow ensure accessibility remains a priority - Referenced pydata-sphinx-theme [#292](https://github.com/pandas-dev/pydata-sphinx-theme/issues/292)
   - nteract has some kind of accessibility CI they use (probably focused on react)
 
-#### JupyterLab Code Editor
+```{include} 2022/2022-08-10.md
 
-Our main focus today is the accessibility of JupyterLab's code
-editor as discussed in [#4878](https://github.com/jupyterlab/jupyterlab/issues/4878)
-and the comments of [#9399](https://github.com/jupyterlab/jupyterlab/issues/9399).
+```
 
-- What steps do we want to take?
+```{include} 2022/2022-08-24.md
 
-  - We will be shipping jupyterlab 3 before the end of the year.
-    Changing the default editor would be difficult before 4.0
-    because of the number of things that have started to rely on
-    CodeMirror.
-  - Start with an extension based approach. To take action now
-    and eventually fit it in to the release cycle as a part of core.
-  - What editor should we start working with?
-    - Sam confirms codemirror 6 is working better so far,
-      especially better than we have now.
-    - Based on the [JupyterLab Monaco Plugin](https://github.com/jupyterlab/jupyterlab-monaco),
-      is it possible/relatively simple thing to bring that up to
-      date and test how it would work with the editor now.
-    - Sam still prefers monaco based on current usage.
+```
 
-- Where does this fit on our priority list/who can work on this?
-  One potential path: 1. Get monaco editor extension up to date. 2. Review how that works with screen readers in JLab now. 3. Set up a way to quickly and easily install the extension
-  (link for screen readers at top of JupyterLab?) and immediately
-  use it to test screen reader accessibility in JupyterLab. 4. Prepare the extension to be a part of core JupyterLab for
-  the next release.
+```{include} 2022/2022-09-07.md
 
-- Sam's next priority (after editor) would be the toolbar
+```
 
   - Needs to conform to what user expect for menu bar interactions
     - Examples: alt focuses menu bar, move between top items
