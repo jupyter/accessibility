@@ -2,7 +2,7 @@
 
 🔔 Looking for [accessibility docs?](accessibility-docs)
 
-Welcome to the Team Compass for the Jupyter Accessibility project.
+Welcome to the Team Compass for the Jupyter Accessibility [working group](https://jupyter.org/governance/standing_committees_and_working_groups.html).
 
 This group was formed in early 2019.
 Its goal is to gather stakeholders interested in working to make Jupyter's
