@@ -34,6 +34,7 @@ parts:
     chapters:
       - file: resources/useful-resources.md
       - file: resources/map-jupyterlab-frontend-architecture/README.md
+      - file: resources/notebook-authoring-guide.md
   # ------------------------------------------------------
   # funded projects
   - caption: Funded accessibility work
