@@ -3,7 +3,7 @@
 🔔 Looking for [accessibility docs?](https://jupyter-accessibility.readthedocs.io/en/latest/accessibility-docs.html)
 
 Welcome to the GitHub repository for the [Jupyter](https://jupyter.org/) Accessibility Project.
-This [working group](https://jupyter.org/governance/standing_committees_and_working_groups.html) was formed in early 2019. Its goal is to gather stakeholders interested in working to make Jupyter's
+This [software subproject](https://jupyter.org/governance/software_subprojects.html) was formed in early 2019. Its goal is to gather stakeholders interested in working to make Jupyter's
 core user-facing software and related tooling accessible.
 
 These core user-facing software include:
