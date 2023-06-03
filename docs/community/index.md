@@ -55,7 +55,7 @@ meeting-minutes/2019-web4all-hackathon/hackathon-resources.md
 <!-- links -->
 
 [discourse-accessibility]: https://discourse.jupyter.org/c/special-topics/accessibility
-[jupyterhub-accessibility-issues]: https://github.com/jupyter/notebook/issues?q=is%3Aopen+is%3Aissue+label%3Atag%3AAccessibility
-[jupyerlab-accessibility-issues]: https://github.com/jupyterhub/jupyterhub/issues?q=is%3Aopen+is%3Aissue+label%3Aaccessibility
+[jupyterhub-accessibility-issues]: https://github.com/jupyterhub/jupyterhub/issues?q=is%3Aopen+is%3Aissue+label%3Aaccessibility
+[jupyerlab-accessibility-issues]: https://github.com/jupyterlab/jupyterlab/issues?q=is%3Aopen+label%3Atag%3AAccessibility+is%3Aissue
 [notebook-accessibility-issues]: https://github.com/jupyter/notebook/issues?q=is%3Aopen+is%3Aissue+label%3Atag%3AAccessibility
 [jupyter-coc]: https://github.com/jupyter/governance/blob/main/conduct/code_of_conduct.md
