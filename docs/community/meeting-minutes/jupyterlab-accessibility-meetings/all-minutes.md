@@ -614,7 +614,7 @@ work we know we need to do.
 - Isabela
   - Should I mention people for feedback on the [meeting minutes PR](https://github.com/jupyter/accessibility/pull/17)? It isn't urgent, but I don't know who would be good to ask.
 - Tony
-  - codemirror 6 talk about accessebility: http://bofh.nikhef.nl/events/FOSDEM/2021/D.javascript/codemirror.webm
+  - codemirror 6 talk about accessebility:  https://ftp.heanet.ie/mirrors/fosdem-video/2021/D.javascript/codemirror.webm 
   - tabindex was not that hard, but the rest is hard.
   - working on https://github.com/jupyterlab/jupyterlab/issues/9686 i am having a hard time understanding what happens to the focus on the sidebar.
     - look at https://github.com/jupyterlab/jupyterlab/pull/9622
@@ -1038,7 +1038,7 @@ Priority issues: https://github.com/jupyterlab/jupyterlab/issues/9399
 - Chloe
   - What are some things to think about with commenting/chat and RTC that aren't just visual?
   - Think about how to make sure content is marked up in a way that it can be accessed. How does all the info on a page
-  - Tony shares https://technica11y.org/designing-and-coding-for-low-vision and https://www.w3.org/WAI/tutorials/page-structure/content/
+  - Tony shares and https://www.w3.org/WAI/tutorials/page-structure/content/
 - Isabela
   - The full multi-skiplink is back on the table if people want to work on that. I went to pick it up and it is beyond my current knowledge level (though I'd love to be a fly on the wall of someone working on this).
     - Needs implementation fix based on [#10268](https://github.com/jupyterlab/jupyterlab/issues/10268)
