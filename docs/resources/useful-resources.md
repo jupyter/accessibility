@@ -10,9 +10,9 @@ The World Wide Web Consortium (W3C) publishes a number of international recogniz
 
 ### Accessible Rich Internet Applications (WAI-ARIA)
 
-[WAI-ARIA](https://www.w3.org/WAI/standards-guidelines/aria/) provides a route to make Web content and applications more accessible, it specifically targets dynamic content and advanced user interface controls that are normally developed in JavaScript, HTML and other related technologies. A website that doesn't implement this guideline will not be accessible to some users with disabilities, specially the ones that rely on a screen reader or cannot use the mouse.
+[WAI-ARIA](https://www.w3.org/WAI/standards-guidelines/aria/) provides a route to make web content and applications more accessible, it specifically targets dynamic content and advanced user interface controls that are normally developed in JavaScript, HTML and other related technologies. A website that doesn't implement this guideline will not be accessible to some users with disabilities, specially the ones that rely on a screen reader or cannot use the mouse.
 
-Is important to remember that links, buttons and form elements are the only elements that can receive focus in HTML. Meaning that lists, paragraphs, `div` or `span`, will never get focus from the keyboard making them not accessible to users that are not using a mouse. This is where WAI-ARIA provides Web developers with techniques to enable keyboard users have a structure, making their websites more navigable. This guideline also include modules for Graphics and Digital Publishing.
+Is important to remember that links, buttons and form elements are the only elements that can receive focus in HTML. Meaning that lists, paragraphs, `div` or `span`, will never get focus from the keyboard making them not accessible to users that are not using a mouse. This is where WAI-ARIA provides web developers with techniques to enable keyboard users have a structure, making their websites more navigable. This guideline also include modules for Graphics and Digital Publishing.
 
 ARIA is an additional layer to web content, not a required layer. Though ARIA is powerful, it is important to remember that misused ARIA can make a worse experience for assistive tech users, especially screen reader users. It is often warned that "[No ARIA is better than Bad ARIA](https://www.w3.org/WAI/ARIA/apg/practices/read-me-first/)." Doing relevant research before using ARIA and testing results with screen readers is especially wise here.
 
@@ -43,9 +43,9 @@ More info:
 
 ## Accessibility Legislature
 
-Many countries have laws that specify the ways in which they expect digital content to be accessible. Some of these laws require that software meet their accessibility guidelines to be used in specific places, like schools. For example, [Section 508](https://www.section508.gov/about-us/) compliance is important in the U.S. 
+Many countries have laws that specify the ways in which they expect digital content to be accessible. Some of these laws require that software meet their accessibility guidelines to be used in specific places, like schools. For example, [Section 508](https://www.section508.gov/about-us/) compliance is important in the U.S.
 
-Depending on the project and where in the world it is intended for use, there may be more specific accessibility resources.It's worth noting that several digital accessibility laws globally do draw on the work of the W3C including WCAG. 
+Depending on the project and where in the world it is intended for use, there may be more specific accessibility resources.It's worth noting that several digital accessibility laws globally do draw on the work of the W3C including WCAG.
 - [18F Accessibility Guide](https://accessibility.18f.gov/)
 - [The tota11y toolbar](https://khan.github.io/tota11y/) is a lightweight javascript toolbar for quick a11y analysis.
 - [The WAVE tool](http://wave.webaim.org/report#/http://z2jh.jupyter.org/) is a web analyzer for page accessibility.
