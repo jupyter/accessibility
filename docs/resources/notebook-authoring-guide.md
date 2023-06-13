@@ -1,6 +1,6 @@
 # Notebook Authoring Accessibility Guide
 
-Writing notebooks is an art, depending on what as an author you want to share to the world the way that the writing and publishing techniques can vary widely. There are some writing and publishing techniques that you can use to ensure your notebooks' content is more accessible.
+Writing notebooks is an art, depending on what as an author you want to share to the world the way that the writing and publishing techniques can vary widely. No matter what interface a notebook is opened in, writing a notebook with good structure and content that can be accessed multiple ways will increase the accessibility of your work.
 
 In this section, we will introduce some guidelines to make edits to your notebooks for accessibility. It is an excellent step you can take to make our communities more inclusive!
 
@@ -23,7 +23,7 @@ All the information presented is based on the [draft authoring tips](https://git
 
 Sighted users are able to perceive structure and relationship using different visual cues. We want to ensure that **information and relationships** are perceivable to all. In order to accomplish this goal, we as content authors need to provide access to the information in different modalities.
 
-We will discuss in this section some recommendations for the most common elements in the structure of your notebooks.
+At the time of writing, notebooks gain most of their structure from their content and content headings (like `<h1>`, `<h2>`, etc. or the Markdown equivalents `#`, `##`, etc.). Making sure to use headings and other markdown as intended is one of the most important things an author can do to make an approachable and navigable notebook. 
 
 ### The First Cell
 
@@ -36,12 +36,12 @@ We will discuss in this section some recommendations for the most common element
 - [ ] A link to the notebook's source(s) (if relevant).
 - [ ] A table of contents in an [ordered list](https://www.markdownguide.org/basic-syntax/#ordered-lists) (`1., 2.,` etc. in Markdown).
 
-### The Rest of the Cells
+### Other cells
 
-- [ ] There is only one H1 (`#` in Markdown) used in the notebook.
-- [ ] The notebook uses other [heading tags](https://www.markdownguide.org/basic-syntax/#headings) in order without skipping numbers.
+- [ ] There should be only one H1 (`#` in Markdown) used in the notebook; it should not appear in other cells.
+- [ ] The notebook uses other [heading tags](https://www.markdownguide.org/basic-syntax/#headings) in order throughout. This creates a table of contents that supports the whole notebook.
 
-## Text <a name="text"></a>
+## Text (Markdown cells)<a name="text"></a>
 
 - [ ] All link text is descriptive. It tells users where they will be taken if they open the link.
 - [ ] Use plain language wherever possible.
@@ -50,7 +50,7 @@ We will discuss in this section some recommendations for the most common element
 - [ ] Text is broken into paragraphs and/or cells where relevant.
 - [ ] Text is in complete sentences where relevant.
 
-## Code <a name="code"></a>
+## Code (code cells) <a name="code"></a>
 
 - [ ] Code sections are introduced and explained before they appear in the notebook. This can be fulfilled with a heading in a prior Markdown cell, a sentence preceding it, or a code comment in the code section.
 - [ ] Code has explanatory comments (if relevant). This is most important for long sections of code.
@@ -74,6 +74,7 @@ This category include images, visualizations, videos and interactive widgets. If
     - [ ] If no other options will work, the image is described in surrounding paragraphs.
 
 - [ ] Any [text present in images](https://www.w3.org/WAI/WCAG21/Understanding/images-of-text.html) exists in a text form outside of the image (this can be alt text, captions, or surrounding text.)
+- [ ] Content in images [have enough contrast](https://www.w3.org/TR/WCAG22/#contrast-minimum) for its type.
 
 ### Visualizations <a name="visualizations"></a>
 
