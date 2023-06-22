@@ -24,7 +24,7 @@ More info:
 
 ### Web Content Accessibility Guidelines (WCAG)
 
-The WCAG is a technical standard that takes care of the information that is in the website. This includes natural information, like text, images and sounds, and code or markup that specify structure and presentation.
+The WCAG is a technical standard that takes care of the information that is in the website. This includes information like text, images and sounds, and code or markup that specify structure and presentation.
 
 This standard is stable and does not change after it is published. The latest draft, [WCAG 2.2](https://www.w3.org/TR/WCAG22/), has 13 guidelines organized under four principles: perceivable, operable, understandable, and robust. Each guideline has a testable success criteria for conformance that can vary from A, AA, and AAA. Until WCAG 2.2 formally becomes a standards document, [WCAG 2.1](https://www.w3.org/TR/WCAG21/) remains the most up to date standard.
 
