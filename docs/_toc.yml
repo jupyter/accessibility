@@ -48,3 +48,9 @@ parts:
       - file: funding/index.md
       - file: funding/czi-grant-roadmap.md
       - file: funding/czi-grant-completed.md
+  # ------------------------------------------------------
+  # Accessibility audits and improvement strategies
+  - caption: Accessibility audits
+    chapters:
+      - file: audits/index.md
+      - glob: audits/*.md
