@@ -22,5 +22,4 @@ An overarching goal of this work is to improve usability for disabled users.
 ## Notebook Audits
 
 - [Notebook v7.0.0 for WCAG 2.1 audit (March 2023)](https://github.com/jupyter/notebook/issues/6800)
-- [Notebook 7 keyboard navigation review (October 2022)](https://github.com/isabela-pf/a11y-events/pull/10/files)
 - [Notebook 7 prerelease keyboard navigation review (October 2022)](https://github.com/jupyter/notebook/issues/6595)
