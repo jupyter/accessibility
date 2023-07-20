@@ -42,6 +42,11 @@ parts:
       - file: resources/useful-resources.md
       - file: resources/map-jupyterlab-frontend-architecture/README.md
   # ------------------------------------------------------
+  # Accessibility audits and improvement strategies
+  - caption: Accessibility audits
+    chapters:
+      - file: audits/index.md
+  # ------------------------------------------------------
   # funded projects
   - caption: Funded accessibility work
     chapters:
