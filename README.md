@@ -36,7 +36,7 @@ No longer maintained community projects (not recommended):
 
 Anyone is welcome to attend, if they would like to discuss a topic or to listen in.
 
-- **When**: every other Wednesday (check the [community calendar](https://jupyter.readthedocs.io/en/latest/community/content-community.html#jupyter-community-meetings)) at [10:15 AM Pacific Time](https://dateful.com/convert/san-francisco-california?t=1015am)
+- **When**: every other Thursday (check the [community calendar](https://jupyter.readthedocs.io/en/latest/community/content-community.html#jupyter-community-meetings)) at [9:00 AM Pacific Time](https://dateful.com/convert/san-francisco-california?t=900am)
 - **Where**: [`jovyan` Zoom](https://zoom.us/my/jovyan?pwd=c0JZTHlNdS9Sek9vdzR3aTJ4SzFTQT09)
 - **What**: [current agenda](https://hackmd.io/WnaWXboXSiGoqWvev_fAvA). Feel free to add items to the upcoming event's agenda 🎉
 
