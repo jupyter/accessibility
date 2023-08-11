@@ -23,5 +23,5 @@ This section lists past and ongoing funding for Jupyter Accessibility.
 * - [Astronomy Notebooks For All - Space Telescope Science Institute (STScI)](https://github.com/Iota-School/notebooks-for-all#astronomy-notebooks-for-all)
   - Internal grant at STScI
   - 2022-2023
-  - [Submitted proposal](https://github.com/Iota-School/notebooks-for-all/blob/main/resources/proposal-astronomy-notebooks-for-all.md) (minus personal information)
+  - [Submitted proposal](https://github.com/Iota-School/notebooks-for-all/blob/0c06d4fb037544fa96d3f90a1bb6efe7570a59a8/resources/proposal-astronomy-notebooks-for-all.md) (minus personal information)
 ```
