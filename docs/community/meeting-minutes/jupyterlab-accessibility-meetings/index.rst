@@ -13,3 +13,4 @@ The Jupyter accessibility meetings are open, fortnightly video calls where commu
    2020 Meetings archive <2020/index>
    2021 Meetings archive <2021/index>
    2022 Meetings archive <2022/index>
+   2023 Meetings archive <2023/index>
