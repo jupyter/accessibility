@@ -2113,3 +2113,915 @@ Jupyter governance and jupyter/accessibility. A discussion around what's happeni
 - Isabela to set up starter group list for the council. Reach out to list of individuals.
 - Isabela to post an issue about how we determine this starter group for transparency.
 - Add PR to jupyter/accessibility when this starter group is formed. Then we can have the discussion about where things go without blocking this process.
+
+## 9.21.22
+
+### Attendees
+
+- Darian
+- Tania
+- Gabriel
+- Ryan
+- Ely
+
+### Agenda
+
+- Discussing depth-levels in JupyterLab/lumino codebases
+    - Example that sparked this conversation https://github.com/jupyterlab/jupyterlab/pull/13109
+- Most recent Zoom audit in JupyterLab and findings https://github.com/Quansight-Labs/jupyterlab-accessible-themes/issues/34
+- Examples of manual-testing scripts we are working on https://github.com/Quansight-Labs/jupyter-a11y-testing/tree/main/testing/scripts
+- Darian: is happy to offer office hours to help folks orient around the codebase
+    - Ely: had plenty support from Jason when walking this path 
+    - Ely: some helpful information was around panel, CSS, historical context (from Jason), panels needed for a particular situation
+    - Provide examples of extensions with the panels/layout explanations (maybe in the readme in Lumino)
+    - Tania: could we look at codetours for example? https://github.com/microsoft/codetour
+- Adjacent: Tania proposed this docs reorg (JupyterLab) https://github.com/jupyterlab/jupyterlab/issues/7387
+- Darian: proposal -> use some of these calls to do "BBQ bonanza/triage" -> find where the issue resides to help fixing this
+
+## October 5 2022
+
+### Attendees
+
+- Jeremy (might not be able to attend)
+- Frederic
+- Mike
+- Gabriel
+- Isabela
+- Allison
+- Darian
+- Frederic
+- Martha
+- Detroit
+- Balaji
+- Ryan
+
+### Agenda
+
+- Mike:
+    - Shadow DOM
+- Jeremy:
+    - A new pre-release of Notebook 7 is available: https://github.com/jupyter/notebook/releases/tag/v7.0.0a6
+    - Discourse topic: https://discourse.jupyter.org/t/notebook-7-pre-releases-are-available/16063
+    - It includes the switch to **CodeMirror 6** that landed in JupyterLab: https://github.com/jupyterlab/jupyterlab/pull/11638
+    - Closed the old issue on the RetroLab repo that was about doing an accessibility audit on the RetroLab UI: https://github.com/jupyterlab/retrolab/issues/80. Now that the CodeMirror 6 update is available in a Notebook 7 pre-release it should be possible to make this audit with a document-oriented notebook UI.
+    - There is no development happening in `jupyterlab/retrolab` anymore, improvements and fixes should be done in JupyterLab and Notebook 7.
+    - Happy to help in the `jupyter/notebook` or `jupyter/accessibility`. Please report any issue if you find any, thanks!
+    - Try it on Binder with this gist: https://gist.github.com/jtpio/d368ab89cee5123ecee60683115e15f3
+
+- Frederic
+    - [Improvements of tab panel labelledby](https://github.com/jupyterlab/lumino/pull/407) - will be part of 3.5.0
+    - Some related work with consistency of CSS variables between background color and text color:
+        - [Link background colors and ui font colors in the style](https://github.com/jupyterlab/jupyterlab/pull/13173)  
+        This was seen when working on a [JupyterLab theme editor](https://github.com/HaudinFlorence/jupyterlab-theme-editor)
+
+- Mike v2:
+  - low hanging fruit good first issue for new contributors https://github.com/jupyterlab/jupyterlab/issues/13045
+
+- Isabela
+    - Office hours follow up (from last meeting)?
+    - Council updates?
+    - [Browser zoom support](https://www.w3.org/WAI/WCAG21/Understanding/reflow.html)— [(early) ideas for JupyterLab?](https://github.com/Quansight-Labs/jupyterlab-accessible-themes/issues/34#issuecomment-1228911639)
+
+- Gabriel
+    - If we have time for office hours, can we chat about tab focus indicators and/or tab traps in code cells?
+
+### Next steps
+- Shadow DOM needs more research and/or a binder to test it in
+- Explore [Notebook 7](https://gist.github.com/jtpio/d368ab89cee5123ecee60683115e15f3). [Report Notebook 7 issues](https://github.com/jupyter/notebook/issues).
+- Add "office hours" help for under agenda and make a queue of issues to pull from
+
+## October 19 2022
+
+### Attendees
+
+- Mike
+- Isabela
+- Gabriel
+- Stephannie
+- Martha
+- Gérard
+- Tania
+- Ryan
+- Balaji
+- Kseniya
+- Israel
+
+### Agenda
+
+- Isabela 
+    - Discussion on directions for high browser zoom and JupyterLab at [jupyterlab/jupyterlab #10004](https://github.com/jupyterlab/jupyterlab/issues/10004#issuecomment-1276957564). Please weigh in! 
+        - Mike: Another approach would be to have UI and document zoom approached separately since it is possible they are different use cases.
+        - Mike: "A datapoint for previous discussion: in VScode the default is to zoom everything and user needs to enable document zooming manually though they divide ctrl + scroll as it seems."
+    - For anyone curious, here is what we did [on the collaborative keyboard navigation review for the Notebook 7 prerelease](https://github.com/isabela-pf/a11y-events/pull/10). It will become an issue elsewhere.
+
+- Gabriel
+    - Sneak peek on some of the work I'm doing. tl;dr-- Run accessibility regression tests via GitHub Actions against a JupyterLab PR, showing if it breaks (or fixes) any regression tests.
+
+- Copy this to next meeting's agenda: For the remainining meeting time, can we open up and dig into CodeMirror? -Gabriel
+[name=Tania] I am interested in this, mostly how can we "test" for the newly introduced accessibility features 
+
+## November 2 2022
+
+### Attendees
+
+- Darian
+- Gabriel
+- Stephannie
+- Isabela
+- Martha
+- Ely
+- Ryan
+- Mike
+- Kseniya
+- Balaji
+- Tania
+
+### Agenda
+- Isabela
+    - Update on Space Telescope user testing results. This [resources PR](https://github.com/Iota-School/notebooks-for-all/pull/26) provides all info used to plan the tests so far and script, notebook used, and takeaways from the first round of tests.
+- Mike
+   - nbdime? Keep an eye out for any PRs here because this could relate to the inaccessibility of the space. We should review any PRs with this in mind.
+- Darian
+    - Rick mentioned someone from UC Berkeley might contact us re: accessibility for Jupyter tools deployed there
+    - Jupyter Executive Council election
+- For the remainining meeting time, can we open up and dig into CodeMirror? -Gabriel
+[name=Tania] I am interested in this, mostly how can we "test" for the newly introduced accessibility features 
+    - https://github.com/berkeley-dsep-infra/datahub/issues/3885
+    https://playwright.dev/docs/accessibility-testing
+
+## November 16 2022
+    
+### Attendees
+
+- Darian
+- Gabriel
+- Stephannie
+- Isabela
+- Tania
+- Mark
+- Detroit
+- Ryan
+- tf
+- Sylvain
+- Ely
+
+### Agenda
+
+- Special guest appearance: Katie
+[name=Tania]- Since Darian mentioned an audit (potential) it would be definitely good to keep in sync and find a way to standardise our auditing processes in Jupyter-world
+
+- Isabela
+    - Update on Space Telescope [user testing results](https://github.com/Iota-School/notebooks-for-all/blob/main/user-tests/1-navigation/results.md). We have more complete takeaways from the first round of tests. If there's any interest in me sharing the results or answering questions, let me know!
+    - For desired reflow in JupyterLab, please feel free to weigh in on [jupyterlab/jupyterlab #10004](https://github.com/jupyterlab/jupyterlab/issues/10004#issuecomment-1276957564). I'm trying to keep this moving forward and would like if we can get to a decided direction.
+    - Regarding reflow Darian/Sylvain does any of you have ideas/suggestions on moving this forward and help land on a decision/path forward
+        - [name=Gabriel] In response to this question, there was discussion and questions around Notebook 7 vs JupyterLab
+- Sylvain
+    - Notebook v7 audit by Balaji at UC Berkeley
+
+## November 30 2022
+
+### Attendees
+
+- Mark
+- Martha
+- Gabriel
+- JooYoung
+- Tony
+- Stephannie
+- Mike
+- Tania
+
+### Agenda
+
+- Gabriel
+    - Discuss: "Jupyter Accessibility": 
+        1. Group exercise: open your favorite search engine, type "Jupyter Accessibility"... where does it take you? what is the first thing you see? 
+        2. Are we happy with this?
+        3. If not, what do we need to do?
+[name=Tania] - we need docs like https://code.visualstudio.com/docs/editor/accessibility for Lab and friends
+[name=Mike] - Collect a list of extensions and themes for accessibility features see https://jupyter-accessibility.readthedocs.io/en/latest/#using-jupyter-software-with-assistive-technology
+Comments included that we don't have user-focused documentation to point to. Even if they live on a per project basis, it makes sense to also have them here.
+    - Some take-aways:
+        1. Keep jupyter/accessibility as one repo. Don’t split into two repos (one for user-facing docs, one for team compass)
+        2. Put sign posts for end users in jupyter/accessibility repo and website.
+        3. Try to add accessibility docs to jupyter.org and/or JupyterLab ReadTheDocs
+        4. Push forward the work done on the Accessibility statement, with an eye to providing useful info for disabled users.
+        5. Think about restructuring current docs so that they address different users: contributors, end users, maintainers, and such.
+        6. Repos that use the keyword accessibility but are incomplete or works in progress sohuld probably have some kind of WIP label and preamble.
+    - Links:
+        - [name=Mike] I opened a [PR to add link to accessibility docs on docs.jupyter.org](https://github.com/jupyter/jupyter/pull/665)
+        - [name=Tania] [Point accessibility.jupyter.org to these docs?](https://github.com/jupyter/accessibility/discussions/109)
+
+- Isabela
+    - Summary of  Space Telescope user testing results for test 1: navigation. [Results slides](https://docs.google.com/presentation/d/1rSrPlK-dW49h0LorSTMEMpLRfOkR2aUak4HAHKAPjK8/edit?usp=sharing). [Full results](https://github.com/Iota-School/notebooks-for-all/blob/main/user-tests/1-navigation/results.md).
+    - Want to fix the broken link to our old meeting notes? Help with [jupyter/accessibility #113](https://github.com/jupyter/accessibility/issues/113) is welcome!
+    - I want to review and (if needed) update the [accessibility project board](https://github.com/orgs/jupyterlab/projects/1) soon. Is anyone interested in giving this a review as well? We can split issues up to save time.
+
+## December 14 2022
+
+### Attendees
+
+- Min
+- Darian
+- Ryan
+- tonyfast
+- Blessing Ogoh
+- Gabriel
+- Isabela
+
+## Agenda 
+
+- Isabela
+    - Calendar check. Is this our last meeting of the year?
+        - [name=Gabriel] FYI, the JupyterLab team meeting on Dec 28 that precedes this one was cancelled.
+    - Want to fix the broken link to our old meeting notes? Help with [jupyter/accessibility #113](https://github.com/jupyter/accessibility/issues/113) is welcome!
+        - [name=Min] my first accessibility PR! https://github.com/jupyter/accessibility/pull/115
+    - I want to review and (if needed) update the [accessibility project board](https://github.com/orgs/jupyterlab/projects/1) soon. Is anyone interested in giving this a review as well? We can split issues up to save time.
+
+- Gabriel
+    - In the meeting before this one, Florence from QuantStack demo'd a JupyterLab extension to edit the look and feel of JupyterLab.
+    - [name=Ryan] Sounds like it could lead to accessible themes or maybe more accessible defaults
+    - [name=Gabriel] Yes! but for me the key thing that interests me here in terms of accessibility for end users is empowering end users to customize the UI to their particular accessibility needs (high contrast, color blindness, large font, etc.)
+
+- Min
+    - Connecting Blessing, Outreachy intern working on accessibility in JupyterHub
+    - Authentication, Spawning, Admin pages
+    - Wave exposing existing color/contrast issues
+        - How to make intentional design decisions 
+
+- Darian
+    - Wanted to open a PR against @steff456's [Lumino PR for collapsing menus](https://github.com/jupyterlab/lumino/pull/489)
+
+- tony
+    - Progress on navigating static notebooks after a recent round of tests.
+
+## January 11, 2023
+
+### Attendees
+
+- Tony
+- Gabriel
+- Darian
+- Isabela
+- Mike
+- Ryan
+- Ely
+
+## Agenda 
+
+- Accessible tables with pandas output https://tonyfast.github.io/tonyfast/xxiii/2023-01-02-accessible-dataframes-basic-indexes.html
+
+- Darian: I am reviewing [Stephannie's menubar collapsing PR](https://github.com/jupyterlab/lumino/pull/489)
+    - darian is review this week.
+    - it is hard to know the size of something before it is rendered
+    - completer that measure width https://github.com/jupyterlab/jupyterlab/pull/13663  
+- Mike:
+  - should we try to turn on `screenReaderMode` in terminal (xterm.js) or is it fine to keep it off by default
+  - does anyone has time to provide a review for https://github.com/jupyterlab/lumino/pull/477?
+- [jupyterlab # 13704 cell role](https://github.com/jupyterlab/jupyterlab/issues/13704)
+    - related reading: [aria-label is a code smell](https://ericwbailey.website/published/aria-label-is-a-code-smell/)
+
+## Non-agenda
+- What Gabriel is currently working on
+    - JupyterLab PR: [Make file browser respond to focused elements #13577](https://github.com/jupyterlab/jupyterlab/pull/13577)
+    - [Tab trap in JupyterLab notebook code cell](https://github.com/Quansight-Labs/jupyter-a11y-mgmt/issues/168)
+ - post meeting: I believe Darian asked during the meeting if someone had done some a11y testing of Google Colab. I found out later that Balaji Alwar did this, using a public notebook. Result is at https://user-images.githubusercontent.com/2306166/197913587-bbae1601-d0f4-436b-bd83-6d2ea8892753.png.
+
+## January 25, 2023
+
+### Attendees
+
+| Name | Affiliation | GitHub | Favorite html tag |
+| ------------------ | ----------- | ------------- | ------------------------------ |
+| tony fast |  | @tonyfast | details |
+| Tania Allard | Quansight Labs | @trallard | `<abbr>`|
+| Stephannie Jimenez Gacha | Quansight Labs | @steff456 | |
+| Martha Cryan | IBM | @marthacryan | |
+| Gabriel Fouasnon | Quansight Labs | @gabalafou | `<script>` but doing this exercise, I learned about the `<progress>` tag |
+| Michal Krassowski | Quansight | @krassowski | |
+| Isabela Presedo-Floyd | Quansight Labs | @isabela-pf | `<p>` |
+| | | | |
+
+## Agenda 
+
+* progress on testing static notebooks. [notebooks for all testing content](https://iota-school.github.io/notebooks-for-all/)
+    * how we parameterize notebooks with the jupyter configs. 
+* [rendering dataframes for screen readers with pandas](https://tonyfast.github.io/tonyfast/xxiii/2023-01-02-accessible-dataframes-basic-indexes.html)
+    * https://adrianroselli.com/2017/11/a-responsive-accessible-table.html
+
+## February 8, 2023
+
+### Attendees
+
+| Name | Affiliation | GitHub | Favorite aria role |
+| ------------------ | ----------- | ------------- | ------------------------------ |
+| tony fast |  | @tonyfast | [feed](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/feed_role) |
+|william stein | SageMath, Inc | @williamstein | |
+| a. t. darian | `quantstack` | @afshin | `complementary` |
+| Gabriel Fouasnon | Quansight Labs | @gabalafou |  |
+| Stephannie Jimenez Gacha | Quansight labs | @steff456 | |
+| R Ely | Bloomberg | @ohrely | Olympia (Les Contes d'Hoffmann) |
+
+## Agenda 
+
+* [name=Gabriel] Possible office hours question: keyboard shortcuts registered via the JupyterLab command registry are handled on the capture phase, but I have always worked in apps that use bubbling. 
+    * Why are keyboard shortcuts implemented how they are?
+        * chord shortcuts were applied. it is a emacs feature. helps entice emacs users in jupyter.
+        * support chords
+        * css specificity
+        * people implement their own keyboard action when it is not a command. 
+            * use case: a mini list to make up down l r work.
+    * How are keyboard shortcuts handled?
+        * keyboard shortcuts are composed and executed by the command registry.
+        * this happens at the lumino application layer.
+        * [specificity versus matchability](https://github.com/jupyterlab/jupyterlab/blob/b7c241483ec8562eb2a836ebc86086d04597aa4a/packages/shortcuts-extension/src/index.ts#L51-L79)
+* [name=william] A little motivated by Darian's comment last hour: I'm curious about the accessibility implications of being able to move buttons around in toolbars, reorder menus, etc.   It can be confusing because customization has a scope with web apps that is a lot different than say "photoshop".
+* [name=tonyfast] semantic tags for notebooks and cells
+    * Could a [rendered notebook (static HTML page) be described by aria role=feed](https://iota-school.github.io/notebooks-for-all/exports/Imaging_Sky_Background_Estimation-form-based.html)?
+
+## February 22, 2023
+
+### Attendees
+
+| Name | Affiliation | GitHub | Favorite css property |
+| ------------------ | ----------- | ------------- | ------------------------------ |
+| tony fast |  | @tonyfast | font-size |
+| Ryan Lovett | UC Berkeley | @ryanlovett | color |
+| Sylvain Corlay | QuantStack | @SylvainCorlay| border-radius |
+| Isabela Presedo-Floyd | | | |
+| Martha Cryan | | | |
+| William Stein | SageMath, Inc| @williamstein| box-shadow d|
+| Kseniya Usovich | | | 
+| R Ely | Bloomberg | @ohrely | all |
+| Stephannie Jimenez Gacha | Quansight labs | @steff456 | |
+
+### Agenda
+
+- Isabela
+    - Update on Space Telescope [user testing](https://github.com/Iota-School/notebooks-for-all/tree/main/user-tests#test-2-content-types). Results for test 2 are a work in progress.
+    - I am also in the process of lining up JupyterLab-specific user testing. Stay tuned for that!
+- Sylvain
+    - Axe audit announcement & post.
+    - Draft blog post: https://docs.google.com/document/d/1XpRuWqZVlPRHQzNzfP5K8G2fp6QQS288jP4vjSoWnOU/edit?usp=sharing
+- Tony
+    - UI conventions for error vs warning, etc.
+    - What if a single Jupyter notebook cell were a form?  Motivation: there's a LOT of thought about accessibility of forms...
+
+## March 8, 2023
+
+### Attendees
+
+| Name | Affiliation | GitHub |
+| ---- | ----------- | ------ |
+| tony fast |  | @tonyfast |
+| Isabela Presedo-Floyd | | |
+| William Stein | SageMath | @williamstein |
+| Stephannie Jimenez Gacha| Quansight Labs | @steff456 |
+| Gabriel Fouasnon | Quansight Labs | @gabalafou |
+| R Ely | Bloomberg | @ohrely |
+| Blessing Ogoh| |@bl-aire |
+| Mike | | @krassowski |
+
+### Agenda
+
+- William: I'm curious if you have any thoughts about what happens when the cursor is at the top (or bottom) of a markdown cell and you hit the up (or down) arrow.  It goes to the previous cell instead of "staying in that form element".  Is this bad from an accessibility point of view?  A user complained today about this behavior to me, prompting [this issue](https://github.com/sagemathinc/cocalc/issues/6526).   Same question makes sense for code cells.    (Context: could there be a general "accessibility mode" for Jupyter notebook where the entire approach to navigation is much more standard and accessible, but maybe more awkward for experts?)
+   - User: "I expect arrow keys to only move the cursor in the current form that is being edited."
+    - [codepen](https://codepen.io/tonyfast/pen/NWLpdrB)
+    - [WAI](https://www.w3.org/WAI/ARIA/apg/patterns/)
+    - Where to put accessibility configuration:
+      - https://github.com/mozilla/readability
+- Ely (if time): takeaways from Jupyter for Education Workshop
+    * what format do professors provide students?
+    * teaching and sharing formats are often not the same
+    * export to html is common practice
+    extensions help and cause problems
+    * can fix things, but provide more code to be vulnerable to accessibility failings
+    "slides in latex easier to read"
+    * used to students saying "give me the source"
+    * the need for alt text is there, but writing it is hard.
+    * jupyter is the medium for teaching
+- Isabela: Updates on JupyterLab accessibility user research. I'm still in the scheduling phase.
+
+## March 22, 2023
+
+### Attendees
+
+| Name | Affiliation | GitHub |
+| ---- | ----------- | ------ |
+| tony fast |  | @tonyfast |
+| Ryan Lovett | UC Berkeley | @ryanlovett |
+| William Stein | SageMath | @williamstein |
+| Stephannie Jimenez| Quansight Labs | @steff456 |
+| Gabriel Fouasnon | Quansight Labs | @gabalafou |
+| Martha Cryan | IBM | @marthacryan |
+| Isabela Presedo-Floyd | Quansight Labs | @isabela-pf |
+| Michal Krassowski | | @krassowski |
+| Sylvain Corlay | QuantStack | @SylvainCorlay |
+| Afshin T. Darian | QuantStack | @afshin |
+| Balaji Alwar | UC Berkeley | @balajialg |
+
+### Agenda
+
+- Isabela: Updates!
+    -  JupyterLab accessibility user research. I'm still in the scheduling phase.
+    -  Notebook authoring recommendations.
+    -  STScI test two: content write up is on the horizon.
+- Gabriel updates
+    - [Adding automated Axe-core + Playwright testing to PyData Sphinx Theme](https://github.com/pydata/pydata-sphinx-theme/pull/1260)
+    - The other big thing I'm working on is trying to find UX bugs in a somewhat high-risk PR I made against JupyterLab to [remove tab traps from the Notebook area](https://github.com/jupyterlab/jupyterlab/pull/14115).
+        - One big functional change is that browser focus goes on cell wrappers rather than the notebook node itself. This functional change is reflected in a visual change: there is now a bold outline around the notebook cells as you move focus from cell to cell.
+- [name=Tony Fast]
+    - crash course of links of i presented at pycascades https://tonyfast.github.io/tonyfast/xxiii/2023-03-18-pycascades-ally-talk.html
+    - axecon last week:
+        - ibm equal access checker ci and extension https://github.com/IBMa/equal-access
+            - combines multiple web and national standards
+        - https://www.deque.com/axe-con/sessions/the-accessibility-to-burnout-pipeline/
+- thoughts about jupyter accessibility
+    - cells as forms in lumino
+- Sylvain
+    - More contributions upcoming
+    - What is a good way to collect the work that's been previously done to stop it from getting lost and to help prioritize?
+        - Having all the things that have been done collected is too large for the scope of the work coming up.
+        - Just being responsive should be enough. (Isabela worries about sustaining this but okay.)
+- Mike
+   - [GitHub Copilot X](https://github.blog/2023-03-22-github-copilot-x-the-ai-powered-developer-experience/) (just dropped) got voice control; should I move [jupyterlab-voice-control](https://github.com/krassowski/jupyterlab-voice-control) to jupyterlab-contrib? enabling control via via more modalities would be neat
+
+## April 5, 2023
+
+### Attendees
+
+| Name | Affiliation | GitHub |
+| ---- | ----------- | ------ |
+| A. T. Darian | QuantStack | @afshin |
+| Ryan Lovett| UC Berkeley | @ryanlovett |
+| Gabriel | Quansight | @gabalafou |
+| Ely | Bloomberg | @ohrely |
+| Stephannie Jimenez | Quansight | @steff456 |
+| Tania | Quansight Labs | @trallard |
+| Isabela Presedo-Floyd | Quansight Labs | @isabela-pf |
+
+### Agenda
+
+- Tony: https://github.com/Iota-School/notebooks-for-all/pull/49 shows progress on a semantic html5 structure for notebook webpages. in this approach, we treat the rendered version of the notebook as an entire interactive web page.
+    - please leave feedback on comments in the pull request
+    - in this structure
+        - the notebook occupies the `main` tag
+            - the each cell is a row in a `table`
+                - the cell is represented by form components
+    -  this approach surfaces interactive elements like links, forms, and overflowing elements to drive focus. it gives a more meaningful navigation experience of rendered notebooks zoomed in, on a screen, and navigated with tabs.
+    -  this representation could serve as a starting point for the proper roles and aria for interactive implementations to improve their accessible experience. 
+- Isabela
+    - Recruiting usability study pariticpants. More information and sign ups at [the Jupyter Discourse topic](https://discourse.jupyter.org/t/participate-in-a-jupyterlab-accessibility-study/18786). Please feel free to share it around.
+    - [Space Telescope Day of Accessibility registration here](https://iota-school.github.io/day_accessibility/). This is a mostly in-person event with some virtual options.
+- Gabriel's updates
+    - [pydata-sphinx-theme #1260](https://github.com/pydata/pydata-sphinx-theme/pull/1260) - my PR to test PST with Playwright and Axe-core is in final rounds of review, should be close to merging. 
+        - Next steps: expand tests to touch more parts of the theme, fix issues found, integrate with CI 
+    - Hope to close my JupyterLab PRs before next accessibility meeting:
+        - [jupyterlab #13577](https://github.com/jupyterlab/jupyterlab/pull/13577)
+        - [jupyterlab #14115](https://github.com/jupyterlab/jupyterlab/pull/14115)
+- P
+    - [GCHQ in UK](https://www.gchq.gov.uk/). Working on accessibility here now! Wahoo! (Isabela wrote the Wahoo!)
+    - Check out the PR at [jupyterlab/jupyterlab #14320](https://github.com/jupyterlab/jupyterlab/pull/14320).
+    - ARIA work upcoming
+- nick
+    - [Encouraging Research on Open Knowledge Networks - NSF](https://beta.nsf.gov/funding/opportunities/encouraging-research-open-knowledge-networks)
+
+## April 19, 2023
+
+### Attendees
+
+| Name | Affiliation | GitHub |
+| ---- | ----------- | ------ |
+| A. T. Darian | QuantStack | @afshin |
+| Ely R | Bloomberg | @ohrely |
+| Stephannie Jimenez Gacha| Quansight Labs | @steff456 |
+| Michal Krassowski | | @krassowski |
+| Tania | Quansight Labs | @trallard |
+| Ryan Lovett | UC Berkeley | @ryanlovett |
+| tonyfast |  | @tonyfast |
+| G. Vidal | ENS de Lyon| @g-vidal|
+| Isabela Presedo-Floyd | Quansight Labs | @isabela-pf | 
+| Balaji Alwar | UC Berkeley | @balajialg |
+
+### Agenda
+
+* turns out there are more guidelines beyond WCAG for authoring tools. <a href="https://www.w3.org/WAI/standards-guidelines/atag/"><abbr title="Authoring Tool Accessibility Guidelines">ATAG</abbr></a> are guidelines specific for accessible authoring experiences. ATAG is part of series of guidelines including WCAG and <a href="https://www.w3.org/WAI/standards-guidelines/uaag/"><abbr title="User Agent Accessibility Guidelines">UAAG</abbr></a>.
+    * [We haven't talked about these since 2021!](https://github.com/jupyter/accessibility/blob/main/docs/community/meeting-minutes/jupyterlab-accessibility-meetings/all-minutes.md#061621-meeting-minutes)
+* Chartability for ensuring that data visualizations, systems, and interfaces are accessible.  https://github.com/Chartability/POUR-CAF
+* [Do No Harm Guide: Applying Equity Awareness in Data Visualization](https://www.urban.org/research/publication/do-no-harm-guide-applying-equity-awareness-data-visualization)
+* Request for a place where we can track/compare different recommendations. Venn diagram-style?
+* Interest in having a list of the status of different guidelines. ie. number out of total number guideline compliance per set.
+* Isabela was working on a JupyterLab accessibility statement - think keeping that updated to report on effort would be a good step
+* Isabela
+    * Still recruiting usability study participants. More information and sign ups at [the Jupyter Discourse topic](https://discourse.jupyter.org/t/participate-in-a-jupyterlab-accessibility-study/18786). Please feel free to share it around.
+    * [Draft: notebook authoring checklist](https://github.com/Iota-School/notebooks-for-all/blob/main/resources/event-hackathon/notebook-authoring-checklist.md). This will eventually be submitted to be linked in Jupyter repos as well.
+* Gabriel
+    * Merged :tada: [jupyterlab PR Make file browser respond to focussed elements #13577](https://github.com/jupyterlab/jupyterlab/pull/13577)
+    * Merged :tada: [pydata-sphinx-theme PR Accessibility test Kitchen Sink with Playwright #1260](https://github.com/pydata/pydata-sphinx-theme/pull/1260)
+        * follow ups: fixes, expand tests, better reporting
+    * Not merged but working on today and getting close to taking out of draft mode: [jupyterlab PR Fix tab trap notebook cells #14115](https://github.com/jupyterlab/jupyterlab/pull/14115)
+    * Preparing for [talk at JupyterCon about automated accessibility testing](https://cfp.jupytercon.com/2023/speaker/YW7ZDA/)
+* Stephannie
+    * Organizing [accessibility docs plan](https://github.com/Quansight-Labs/jupyter-a11y-mgmt/issues/196) - happy to hear thoughts about them
+    * [Jupyter accessible themes](https://github.com/Quansight-Labs/jupyterlab-accessible-themes)
+* Mike
+  * Long-term planning: idea for [Accessible (and higher-performance) icons #14402](https://github.com/jupyterlab/jupyterlab/issues/14402)
+  * Good-first issue: [Styled input checkbox focus state is not visible on Ubuntu/Firefox #14354](https://github.com/jupyterlab/jupyterlab/issues/14354)
+* Nick
+    * [NVDA (screen reader) uses robot testing](https://github.com/nvaccess/nvda/blob/master/tests/system/robot/chromeTests.robot). We might benefit from following their lead.
+
+## May 3, 2023
+
+### Attendees
+
+| Name | Affiliation | GitHub |
+| ---- | ----------- | ------ |
+|  tonyfast |  |  @tonyfast |
+|  Ryan Lovett | UC Berkeley | @ryanlovett |
+| Ely | Bloomberg  | @ohrely |
+| Gabriel | Quansight | @gabalafou |
+| Stephannie Jimenez Gacha |  Quansight Labs | @steff456 |
+| Gérard Vidal |  ENS de Lyon| @g-vidal |
+
+### Agenda
+
+* SSC + EC update contents (Ely)
+    * Quanstack worked toward accessibility testing compliance https://blog.jupyter.org/improving-the-accessibility-of-jupyter-6c695db518d3
+    * Quansight developed a theming extension with varying accessible themes  https://github.com/Quansight-Labs/jupyterlab-accessible-themes - Defines a set of JupyterLab themes compliant to WCAG color standards. Currently we have color blindness friendly themes!
+    * 400% Zoom audit - some fixes had already been included in both JupyterLab and Lumino 
+    * Notebook 7 audit 
+    * Notebooks for all is a collaboration with the Space Telescope Science Institute that  in including disabled people in the testing of Jupyter notebooks and improvements in notebooks accessibility. https://github.com/Iota-School/notebooks-for-all
+    * [Gabriel] At Quansight Labs, we had an intern working on JupyterLab and accessibility and she wrote a [blog post about her internship](https://labs.quansight.org/blog/zoom-a11y-jupyterlab)
+    * [Gabriel] Added some accessibility regression tests (tab traps, focus visible), working on making easy-to-use GitHub actions to run accessibility tests,  incubating at [Quansight-Labs/jupyter-a11y-testing](https://github.com/Quansight-Labs/jupyter-a11y-testing)
+    * What is our group's purpose?
+        * Consistency, fostering advocacy
+    * What we want to say
+        * Put accessibility concerns earlier (a11y in the planning phase)
+            * and consider at every phase of development
+        * We recognize that this is not simple to scope, but neither is security
+        * Funding for events to teach developers about accessibility 
+        * What happens if Jupyter fails to close accessibility gaps and ed institutions are forced to not use it?
+* Gabriel's update:
+    * Took a PR out of draft mode that [removes tab traps from the Notebook widget](https://github.com/jupyterlab/jupyterlab/pull/14115)
+        * On the PR there is a [discussion about how to style focus indicators on the code cell](https://github.com/jupyterlab/jupyterlab/pull/14115#pullrequestreview-1409130132)
+        * [Tony] https://www.sarasoueidan.com/blog/focus-indicators/
+## May 17, 2023
+
+### Attendees
+
+| Name | Affiliation | GitHub |
+| ---- | ----------- | ------ |
+|  tonyfast |  |  @tonyfast |
+| stephannie Jimenez Gacha | Quansight | @steff456 |
+|  nick bollweg |  Georgia Tech |  @bollwyvl |
+| Afshin T. Darian | QuantStack | @afshin |
+| Ryan Lovett | UC Berkeley | @ryanlovett |
+| T | GCHQ | @t03857785 |
+| Michal Krassowski | Quansight | @krassowski |
+
+### Agenda
+
+add any agenda items or topics in the list below.
+
+* Jupytercon executive council meeting
+  * a cool experience. 6 executive members and software steering council members in a hot room.
+  * 4 minute update about the project progress we collectively discussed last meeting.
+  * darian: There is a positive feeling on this subproject and the things we want to deliver
+  * meaningful amount of funding
+    
+    put your ideas in the list below. use the community workshop submission structure.
+    
+    * Review of accessibility issues reported and if they are still live how to replicate
+    * Pay for topics or audits for specific components
+    * Use money to solve problems start to finish
+    * Community building workshops
+    * Fix some 400% zoom issues! We already have an audit with some tasks that can be done.
+    * Documentation on accessible features in both the user and developer side.
+* Stephannie
+    * Notebook authoring guide docs - https://github.com/jupyter/accessibility/pull/127
+    * WCAG & ARIA intro - https://github.com/jupyter/accessibility/pull/126
+* t03857785
+    * Added PR 14560 to add HTML dialog and 14561 to improve text spacing on home page
+       * [summary of the discussion on `dialog` tag and targetting the PR](https://github.com/jupyterlab/jupyterlab/pull/14560/files#r1196880141)
+    * Not able to work on the [notebooks for all project](https://github.com/Iota-School/notebooks-for-all) but will work on supporting elements if possible
+    * https://github.com/jupyterlab/jupyterlab/pull/14560
+      * has long term impact because of the base class it effects.
+      * PR can be modified to remove the dialog base class for the moment if useful
+    * https://github.com/jupyterlab/jupyterlab/pull/14561
+    * Next issues on list are 400% zoom and keyboard navigation of menus with good aria prompts
+* nick
+  * informing the jupyterlab5/notebook8 roadmap
+  * POUR CAF https://github.com/Chartability/POUR-CAF
+
+tf: What does accessibility mean to you all?
+  * Use of Microsoft Narrator. Close eyes and follow along and see if it makes sense.
+  * tf: would be good to know what screen reader / assistive device is being used. tag in issues?
+
+tf:
+  - https://www.asha.org/public/speech/disorders/aac/
+
+## May 31, 2023
+
+### Attendees
+
+| Name | Affiliation | GitHub |
+| ---- | ----------- | ------ |
+|  tonyfast |  |  @tonyfast |
+| T & P | GCHQ | @t03857785 |
+| Isabela | Quansight Labs | @isabela-pf |
+| Gabriel | Quansight Labs | @gabalafou |
+| Ryan | UC Berkeley | @ryanlovett |
+| Blessing | | @bl-aire|
+| Mike | Quansight | @krassowski |
+| Tania | Quansight | @trallard |
+| Andrii | AWS | @andrii-i |
+
+### Agenda
+
+* t03857785
+    * We are continuing to work on full keyboard access and 400% zoom then will move onto aria labelling and contrast to support additional requirements
+    * Tania: dropping the link to the Zoom audit findings and suggested fixes from a few months back https://github.com/Quansight-Labs/jupyterlab-accessible-themes/issues/34
+    * Fix skiplink and add placeholder for additional skiplinks https://github.com/jupyterlab/jupyterlab/pull/14597
+    * elements respond to enter or spacebar https://github.com/jupyterlab/lumino/pull/590/
+    * Added "tabindex=0" for sidebar accessibility https://github.com/jupyterlab/lumino/pull/583
+    * changing focus is needed for skip links 
+      * how do i focus the left/right panel? Make something active (or choose active element) then focus
+      * setting active is seperate from focus and current, active does not update focus. Changing focus is a two step process.
+* Isabela
+    * [JupyterLab accessibility study](https://discourse.jupyter.org/t/participate-in-a-jupyterlab-accessibility-study/18786) has been run. I'm handling logistics and working on a wrap up.
+    * Space Telescope and rendered notebooks accessibility [most recent study results are up as a PR](https://github.com/Iota-School/notebooks-for-all/pull/56).
+* Gabriel
+    * Updates since last meeting I attended:
+        * Gave a [talk at JupyterCon about accessibility testing](https://cfp.jupytercon.com/2023/talk/8N3PZX/)
+        * Created new [JupyterLab test for focus visible](https://github.com/Quansight-Labs/jupyter-a11y-testing/pull/33)
+        * As part of getting test in #33 (above) to pass, I've been working on some focus issues with the Lumino MenuBar.
+    * I have found a document titled [Developing a Keyboard Interface
+](https://www.w3.org/WAI/ARIA/apg/practices/keyboard-interface/) from the ARIA Authoring Pratices Guide (APG) to be useful.
+* cell semantics - https://github.com/Iota-School/notebooks-for-all/pull/63
+* Link from Nick: [1EdTech Guidelines for Developing Accessible Learning Applications](https://www.imsglobal.org/accessibility/accessiblevers/sec3.html)
+* Andrii
+    * Notebook 7 is close to release, there are still 14 open accessibility problems in issue #6800 (https://github.com/jupyter/notebook/issues/6800). We need to identify which one of them (if any) should be release blockers. During the notebook call we defined release blockers as problems that prevent people from using major features of the Notebook. 
+
+Links to open accessibility PRs that we discussed during call (overtime):
+* https://github.com/jupyterlab/jupyterlab/pull/14597
+* https://github.com/jupyterlab/jupyterlab/pull/14400
+* https://github.com/jupyterlab/jupyterlab/pull/14561
+* https://github.com/jupyterlab/lumino/pull/590
+* https://github.com/jupyterlab/lumino/pull/477
+
+Note (Gabriel): I think we will want to stick as close to the UI/UX patterns defined in the [ARIA Authoring Practices Guide (APG) Patterns](https://www.w3.org/WAI/ARIA/apg/patterns/) when making changes to Lumino or JupyterLab
+
+## June 14, 2023
+
+### Attendees
+
+| Name | Affiliation | GitHub |
+| ---- | ----------- | ------ |
+|  tonyfast |  |  @tonyfast |
+| T & P | GCHQ | @t03857785 |
+| Gabriel | Quansight Labs | @gabalafou |
+| Ely | Bloomberg | @ohrely |
+| Andrii | AWS | @andrii-i |
+| Afshin T. Darian | QuantStack | @afshin |
+| Stephannie Jimenez Gacha | Quansight | @steff456
+| Mike | Quansight | @krassowski | |
+| Tania Allard | Quansight Labs | @trallard | 
+| Balaji| UC Berkeley | @balajialg |
+
+### Agenda
+
+* Andrii
+    * Thank you everyone for the feedback on https://github.com/jupyter/notebook/issues/6800, really appreciated, helps us prioritize work
+        * Next step would be splitting 6800 into separate issues. If someone has bandwidth, help would be much appreciated
+        * (Gab) I pretty much volunteered myself to do this in yesterday's triage meeting
+* t03857785
+    * Thanks for feedback on PRs @fcollonval really helpful, looking at moving [skiplinks](https://github.com/jupyterlab/jupyterlab/pull/14597) to a dialog so it takes it out of widget layout any tips concerns would be useful
+    * We are going to review and resubmit a couple of our outstanding PRs following some lessons learnt any idea when 4.0.x will be released as we want to do a pass of everything together to find the gaps
+    * Initial [400% zoom changes](https://github.com/jupyterlab/jupyterlab/pull/14626) are in PR any feedback welcome
+      * Tania - we should be able to share some findings on keyboard navigation from some paid user testing sessions Isabela led (with disabled folks) in the upcoming couple of months. Repo with our user-testing env https://github.com/Quansight-Labs/JupyterLab-user-testing
+
+* Gabriel's updates since May 31
+    * Reviewed many (but not all) open PRs tagged with accessibility
+    * Watched a bunch of [videos to better understand Lumino architecture](https://youtu.be/GCp4lxOblxg)
+    * Engaged in discussion with Tony and Darian yesterday during the Rethinking Notebook Cells meeting about making the HTML output of the JupyterLab notebook widget (also used by Notebook 7) more semantic and accessible
+
+Discussion: how do we make a better experience for newcomers?
+
+* (Ely suggestion) A scripted intro to the meeting
+  * More structure to the meetings
+* (t03857785 feedback) Spending more time creating accessibility issues and marking them as "good first issues"
+* (t03857785 feedback) It would be helpful to know how to navigating the code base and knowing what a good change looks like
+* add links to beginner resources (and issues) at top of HackMD
+  * Link to issues filtered by "accessibility" and "good first issue", rather than maintaining a list
+* Exemplary issues - 
+  * dialog issue is a good example
+* (Tania elaboration) responding to G&T's feeback about navigating the codebase. This has been the hardest and longest part of onboarding developers. Not sure 
+* (Ely) drawing attention to comment left by Mike in chat: "Good first issues in lab usually have a link to codebase e.g. https://github.com/jupyterlab/jupyterlab/issues/14354"
+  * Something for us to keep in mind: maybe we don't need to solve the a11y issue in front of us, but to give enough context for somebody else to solve it, and then we move on to work on other, harder issues
+  * On context and issues (Mike): this is >relatively< easy to fix for new "good first issues" by modifying triage docs saying that triage team should add the links and context before labelling as "good first issue"
+* Discussion around having quarterly workshops
+  * Ely suggests making the logistics as automateable as possible, so for example have it be the first Wednesday of each quarter, so that sending out announcements and the like can be automated
+  * (Gab) Keep in mind the difference between "recruiting" versus "onboarding" (workshops may address issue of recruiting more than onboarding)
+* (Tania) raises point that HackMD is bad for screen reader users. (P&T) echoes point. 
+  * Sounds like Google Docs may be better alternative?
+  * Tania - I hear Etherpad is a good alternative 
+* Meet next week to begin a community proposal for accessibility. 
+  * Add an event to the calendar 
+  * Announce in the lab meeting
+* https://github.com/jupyterlab/team-compass/issues/199
+
+## June 21, 2023
+
+### Attendees
+
+| Name | Affiliation | GitHub |
+| ---- | ----------- | ------ |
+|  tonyfast |  |  @tonyfast |
+| Blessing Ogoh | | @bl-aire |
+
+### Agenda
+
+* https://github.com/jupyter/notebook/issues/6800
+* screen reader workshop https://www.youtube.com/watch?v=F189lurxSbs&list=PLCPZgcYzVpj_WHHCTUpec8THYEMzXZnR1&index=6
+* Sylvain 
+  * funding for keyboard navigation
+  * keyboard navigation issues below
+    * https://github.com/jupyter/notebook/issues/6935
+    * https://github.com/jupyter/notebook/issues/6931
+    * https://github.com/jupyter/notebook/issues/6928
+    * https://github.com/jupyter/notebook/issues/6925
+* a goal is to figure out community events
+  * GCHQ - accessibility means different things to different people
+    * concern is that things can go backwards.
+      * https://jupyter-accessibility.readthedocs.io/en/latest/
+      * https://www.w3.org/WAI/people-use-web/user-stories/
+  * bug bash would be supported
+  * like a security policy, what is the accessibility 
+  * [What does accessibility mean in jupyter?](https://docs.google.com/document/d/1m5-fiqWVdlqOuKjp4auakG0MMaTii7JdCVyjwKU7uQU/edit#heading=h.w3dl0bbc0ba5)
+  * [Day of Accessibility Proposal] w iota school
+
+## June 28, 2023
+
+### Attendees
+
+| Name | Affiliation | GitHub |
+| ---- | ----------- | ------ |
+|  tonyfast |  |  @tonyfast |
+| Gabriel | Quansight | @gabalafou |
+| Stephannie Jimenez Gacha | Quansight | @steff456 |
+| T & P | GCHQ | @t03857785 |
+| Ryan Lovett | UC Berkeley | @ryanlovett |
+| Isabela Presedo-Floyd | Quansight Labs | @isabela-pf |
+| A. T. Darian | QuantStack | @afshin |
+|Tania Allard | Quansight Labs | @trallard |
+
+### Agenda
+
+* tony 
+  * proto issue for notebook v7 remediations to improve the quality of the annotation object model https://tonyfast.github.io/tonyfast/xxiii/2023-06-21-v7-aom.html
+* jupyterlite will be helpful in testing the screen reader experience.
+  * maybe a prerelease before notebook release
+  * this is not a blocker, but a really nice to have.
+* Gabriel's updates
+    * I have had discussions on how to move forward my [PR #14115 to fix tab traps in the notebook widget](https://github.com/jupyterlab/jupyterlab/pull/14115)
+    * I have been in [conversations with Tony and Darian on how to instrument research findings](https://github.com/jupyterlab/team-compass/issues/182) from Notebooks for All to JupyterLab and Notebook 7.
+      * An issue to [optionally build Jupyter Notebook off of JupyterLab PRs](https://github.com/jupyterlab/jupyterlab/issues/14767)
+    * Result of those discussions: @afshin and @gabalafou (me) will be working on [Implement ARIA recommendations from Notebooks for All #14765](https://github.com/jupyterlab/jupyterlab/issues/14765)
+    * Question: where should the branch/PR for the above issue live? I started a [tiny bit of notebook ARIA code](https://github.com/jupyterlab/jupyterlab/compare/main...gabalafou:jupyterlab:notebook-aria?expand=1)
+        * Answer: [Improve Notebook ARIA #14768](https://github.com/jupyterlab/jupyterlab/pull/14768) based off my 
+    * Opened a [PR to apply @fcollonval's suggestions](https://github.com/t03857785/jupyterlab/pull/1) to fix @t03857785's JupyterLab PR #14597: [Fix skiplink and add placeholder for additional skiplinks ](https://github.com/jupyterlab/jupyterlab/pull/14597)
+    * Spent a lot of time thinking about and wrote up my thoughts about [the past, present, and future of the skiplink in JupyterLab](https://github.com/jupyterlab/jupyterlab/pull/14597#pullrequestreview-1490421505) 
+ * t0385778
+     * Thanks to @gabalafou for the PR approved and merged
+     * Need consideration on how to move skiplinks forward command palatte seems a good approach to build on
+     * 400% zoom https://github.com/jupyterlab/jupyterlab/pull/14766 created as https://github.com/jupyterlab/jupyterlab/pull/14626 broke when syncing should be ready for merging once approved
+     * Keyboard navigation https://github.com/jupyterlab/lumino/pull/590 is complete apart from running "yarn run api" 
+ * open an issue about building notebook v7 on jupyterlab prs
+   * this will help testing changes in notebook through lab
+   * Tania volunteered to help with this -> Darian will tag Tony and Tania on the issue
+
+## July 12, 2023
+
+### Attendees
+
+| Name | Affiliation | GitHub |
+| ---- | ----------- | ------ |
+| T & P | GCHQ | @t03857785 |
+| Afshin T. Darian | QuantStack | @afshin |
+| Stephannie Jimenez Gacha | Quansight | @steff456 |
+| R Ely | Bloomberg | @ohrely |
+
+### Agenda
+
+* t0385778
+    * Following PRs are open it would be great to get these merged as well as tht latest version of lumino into Jupyterlab asin combination they cover a significant amount of keyboard and zoom accessibility
+        * [400% Zoom screen usability enhancements - Updated](https://github.com/jupyterlab/jupyterlab/pull/14766/)
+        * [Keyboard navigation right sidebar shortcut command](https://github.com/jupyterlab/jupyterlab/pull/14799)
+        * [elements respond to enter or spacebar](https://github.com/jupyterlab/lumino/pull/590)
+        * [Fix skiplink and add placeholder for additional skiplinks](https://github.com/jupyterlab/jupyterlab/pull/14597)
+        * [Alt text and marking elements decorative](https://github.com/jupyterlab/jupyterlab/pull/14819)
+    * We are working on 
+        * Status bar keyboard accessibility and usability at high zoom
+        * Screen reader compatibility with keyboard navigation 
+        * Aria announcements for command palette executions
+* [Community events](https://docs.google.com/document/d/1m5-fiqWVdlqOuKjp4auakG0MMaTii7JdCVyjwKU7uQU/edit?usp=sharing)
+* What Gabriel has been up to:
+    * [Improving focus handling in Lumino menu bar](https://github.com/jupyterlab/lumino/pull/607)
+    * [Fixing tab traps](https://github.com/Quansight-Labs/jupyter-a11y-mgmt/issues/134)
+    * Reviewing [JupyterLab accessible themes](https://github.com/Quansight-Labs/jupyterlab-accessible-themes) by Stephannie
+    * Reviewing [JupyterLab user testing results](https://github.com/Quansight-Labs/JupyterLab-user-testing/pull/10) by Isabela
+* Action item: [Notebook v7 announcement](https://github.com/jupyter/notebook-team-compass/issues/24) - everyone please take a look at it for messaging around accessibility and weigh in if you have thoughts
+
+## July 26, 2023
+
+### Attendees
+
+| Name | Affiliation | GitHub |
+| ---- | ----------- | ------ |
+| Gabriel | Quansight Labs | @gabalafou |
+| T & P | GCHQ | @t03857785 |
+| tonyfast | | @tonyfast |
+| Isabela Presedo-Floyd | Quansight Labs | @isabela-pf |
+| A. T. Darian | QuantStack | @afshin |
+| R Ely | Bloomberg | @ohrely |
+
+### Agenda
+
+* Gabriel's update: finishing up deliverables for [CZI JupyterLab accessibility grant](https://jupyter-accessibility.readthedocs.io/en/latest/funding/czi-grant-roadmap.html), which is coming to an end. This includes pushing forward on [fixing tab traps](https://github.com/Quansight-Labs/jupyter-a11y-mgmt/issues/134), [fixing focus management](https://github.com/jupyterlab/lumino/pull/607) in the Lumino menubar, finishing up a [focus visible regression test](https://github.com/Quansight-Labs/jupyter-a11y-testing/pull/33), and [creating accessibility docs](https://github.com/jupyterlab/jupyterlab/pull/14426).
+* Isabela
+    * [JupyterLab user testing results are up for review.](https://github.com/Quansight-Labs/JupyterLab-user-testing/pull/10). Once merged I'll pass a PR over to [jupyter/surveys](https://github.com/jupyter/surveys) as well for continuity.
+    * [Notebooks for all (STScI) user testing results have a PR to add to jupyter/surveys](https://github.com/jupyter/surveys/pull/26). 
+    * I'm working on getting the Notebooks for all (STScI) proposal document into jupyter/accessibility's proposal directory so we keep building references for funding accessibility work in Jupyter.
+    * I spoke about accessibile notebook authoring recommendations at SciPy (conference). The recording is supposed to be up shortly. You can have [the slides](https://docs.google.com/presentation/d/1LBcEOGhZfLXCaGAWUaGl4c6O5AXBBXzfoA9dV0W-5Pc/edit?usp=sharing).
+    * [JupyterLab accessibility statement PR](https://github.com/jupyterlab/jupyterlab/pull/14856)
+* T & P and Tony
+    * Community event updates
+    * Looking for review on [What does accessibility mean for Jupyter?
+A Jupyter Community Event proposal
+](https://docs.google.com/document/d/1m5-fiqWVdlqOuKjp4auakG0MMaTii7JdCVyjwKU7uQU/edit#heading=h.ksli8dqlx0ec)
+* T & P
+    * Following PRs are open it would be great to get these merged as well as tht latest version of lumino into Jupyterlab asin combination they cover a significant amount of keyboard and zoom accessibility
+        * [400% Zoom screen usability enhancements - Updated](https://github.com/jupyterlab/jupyterlab/pull/14766/)
+        * [Keyboard navigation right sidebar shortcut command](https://github.com/jupyterlab/jupyterlab/pull/14799)
+        * [Fix skiplink and add placeholder for additional skiplinks](https://github.com/jupyterlab/jupyterlab/pull/14597)
+        * [Alt text and marking elements decorative](https://github.com/jupyterlab/jupyterlab/pull/14819)
+		* [Made Status bar accessible at 400% zoom](https://github.com/jupyterlab/jupyterlab/pull/14854)
+    * We are working on 
+        * Screen reader compatibility with keyboard navigation 
+        * Aria announcements for command palette executions
+    * Note
+        * [CSS Style Validator](https://github.com/jupyterlab/jupyterlab/pull/14795) may cause some issues with complex CSS for accessibility notes in ticket on a workaround
+* Ely
+    * (Special?) meeting time that works for Gabriela
+        * Perhaps we can move this meeting to 9am Pacific on Thursdays every other week (and alternating with Jupyter Server contributing hour), Darian will raise this issue at tomorrow's Jupyter Server and Kernels call
+* blog post
+  * testing is ill defined. we need to work on our definitions
+  * [Gab] trying to integrate feedback from Isabela, I'm guessing that probably the blog post needs messaging around the idea that, okay, here we are down the line, we've closed a bunch of accessibility-labeled PRs in a Notebook 7 milestone that came out of auditing the software, but that does not ladder up to certainty that the software is for sure more accessible (without user feedback and user testing)
+
+## August 10, 2023
+
+### Attendees
+
+| Name | Affiliation | GitHub |
+| ---- | ----------- | ------ |
+| Afshin T. Darian | QuantStack | @afshin |
+| Blessing || @bl-aire |
+| Mike | Quansight | @krassowski | |
+|Stephannie Jimenez| Quansight |@steff456|
+| R Ely | Bloomberg | @ohrely |
+| T & P | GCHQ | @t03857785 |
+|Johnson|Qaunsight|@dannyjohnson2050|
+| Gabriel | Quansight Labs | @gabalafou |
+| Isabela Presedo-Floyd | Quansight Labs | @isabela-pf |
+
+### Agenda
+
+* Ely
+    * Open Studio Day!
+        * https://go.bloomberg.com/attend/invite/jupyter-open-studio-day-august2023/
+* Isabela
+    * If we have time, I'd like to ask for a little more info on the motivation behind [the draft event proposal](https://docs.google.com/document/d/1m5-fiqWVdlqOuKjp4auakG0MMaTii7JdCVyjwKU7uQU/edit?usp=sharing).
+        * Tania (not attending, this time is challenging for me): I reviewed this. First thank you for working on this. I'd also appreciate knowing more about the motivation as I do not have clarity and that reflects on the comments.
+    * [JupyterLab user testing results are up for review in jupyter/surveys.](https://github.com/jupyter/surveys/pull/27) Looking for review and merge.
+    * 🎉[Notebooks for all (STScI) user testing results have been merged to jupyter/surveys](https://github.com/jupyter/surveys/pull/26). 
+    * 🎉The [Notebooks for all (STScI) proposal document is public](https://github.com/Iota-School/notebooks-for-all/blob/main/resources/proposal-astronomy-notebooks-for-all.md). I have a [PR open to add it to jupyter/accessibility's proposal directory](https://github.com/jupyter/accessibility/pull/136). Looking for review and merge.
+    * 🎉[JupyterLab accessibility statement has been merged](https://github.com/jupyterlab/jupyterlab/pull/14856).
+* Gabriel
+    * I've cleared my plate of required deliverables from my job, so I should have a little more self-directed time over the next few weeks.
+    * JupyterLab keyboard brainstorming 
+        * Seeking input on organizing a group video chat
+    * Some stuff I've been working on:
+        * Adding a [dev-focussed accessibility page to the JupyterLab docs](https://github.com/jupyterlab/jupyterlab/pull/14426)
+        * Moving along [Lumino menu bar focus/hover PR](https://github.com/jupyterlab/lumino/pull/607)
+        * Testing above PR against a focus visible test so took the [focus-visible test PR](https://github.com/Quansight-Labs/jupyter-a11y-testing/pull/33) out of draft mode
+* [notably inaccessible](https://arxiv.org/abs/2308.03241)
+* **T & P**
+    * PRs remain open be great to get some more merged
+    * Looking at adding tests for
+        * 400% zoom
+        * keyboard navigation
+        * high contrast visibility 
+* **Johnson** 
+    * I wanted to make mention on the work I've done on the ["accessibility section in the user JupyterLab documentation"](https://github.com/jupyterlab/jupyterlab/issues/14396) and the progress myself and Stephannie are making on the project.
+* Mike
+    * Should JupyterLab have "accessibility" settings plugin for things we do not want as default?
