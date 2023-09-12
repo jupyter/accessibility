@@ -2665,6 +2665,7 @@ Comments included that we don't have user-focused documentation to point to. Eve
     * Took a PR out of draft mode that [removes tab traps from the Notebook widget](https://github.com/jupyterlab/jupyterlab/pull/14115)
         * On the PR there is a [discussion about how to style focus indicators on the code cell](https://github.com/jupyterlab/jupyterlab/pull/14115#pullrequestreview-1409130132)
         * [Tony] https://www.sarasoueidan.com/blog/focus-indicators/
+
 ## May 17, 2023
 
 ### Attendees
