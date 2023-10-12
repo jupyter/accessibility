@@ -2,7 +2,7 @@
 
 ```{note}
 The Jupyter Accessibility project was recently converted into an official Jupyter Software Subproject.
-Learn more on [our governance documentation]](governance.md)
+Learn more on [our governance documentation](governance.md)
 ```
 
 ## Get Connected with the Community

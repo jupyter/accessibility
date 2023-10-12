@@ -10,7 +10,7 @@ The Jupyter Accessibility subproject follows the [Project Jupyter Software Subpr
 
 ### Software Steering Council representative
 
-As a Software Subproject, the Jupyter Accessibility council elect one council member to be the project's representative to the [Project Jupyter Software Steering Council (SSC)](https://jupyter.org/governance/software_steering_council.html).
+As a Software Subproject, the Jupyter Accessibility council elects one council member to be the project's representative to the [Project Jupyter Software Steering Council (SSC)](https://jupyter.org/governance/software_steering_council.html).
 
 - The term length for a Jupyter Accessibility SSC representative is one year. Elections are to be run within the council annually.
 - There is no cap on number of terms served by a Jupyter Accessibility SSC representative. There is no limit on consecutive terms served.
