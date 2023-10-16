@@ -1,8 +1,8 @@
 # Community Calls and Events
 
 ```{note}
-The Jupyter Accessibility project was recently converted into an [official Jupyter Software Subproject](https://jupyter.org/governance/software_subprojects.html).
-We are currently working on our governance and decision making, please bear with us while we get this sorted.
+The Jupyter Accessibility project was recently converted into an official Jupyter Software Subproject.
+Learn more on [our governance documentation](governance.md)
 ```
 
 ## Get Connected with the Community
