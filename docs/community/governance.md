@@ -14,3 +14,18 @@ As a Software Subproject, the Jupyter Accessibility council elects one council m
 
 - The term length for a Jupyter Accessibility SSC representative is one year. Elections are to be run within the council annually.
 - There is no cap on number of terms served by a Jupyter Accessibility SSC representative. There is no limit on consecutive terms served.
+
+### Jupyter Accessibility Council members
+
+Last updated 8 December, 2023
+
+- [Tania Allard (@trallard)](https://github.com/trallard)
+- [Alex Bozarth (@ajbozarth)](https://github.com/ajbozarth)
+- [Frédéric Collonval (@fcollonval)](https://github.com/fcollonval)
+- [Martha Cryan (@marthacryan)](https://github.com/marthacryan)
+- [Afshin T. Darian (@afshin)](https://github.com/afshin)
+- [R Ely (@ohrely)](https://github.com/ohrely)
+- [Tony Fast (@tonyfast)](https://github.com/tonyfast)
+- [Gabriel Fouasnon (@gabalafou)](https://github.com/gabalafou) - SSC representative as of October 2023
+- [Michał Krassowski (@krassowski)](https://github.com/krassowski)
+- [Isabela Presedo-Floyd (@isabela-pf)](https://github.com/isabela-pf)
