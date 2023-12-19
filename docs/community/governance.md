@@ -25,7 +25,6 @@ Last updated 8 December, 2023
 - [Martha Cryan (@marthacryan)](https://github.com/marthacryan)
 - [Afshin T. Darian (@afshin)](https://github.com/afshin)
 - [R Ely (@ohrely)](https://github.com/ohrely)
-- [Tony Fast (@tonyfast)](https://github.com/tonyfast)
 - [Gabriel Fouasnon (@gabalafou)](https://github.com/gabalafou) - SSC representative as of October 2023
 - [Michał Krassowski (@krassowski)](https://github.com/krassowski)
 - [Isabela Presedo-Floyd (@isabela-pf)](https://github.com/isabela-pf)
