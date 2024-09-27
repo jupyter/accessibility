@@ -16,6 +16,9 @@ These core user-facing software include:
 > As of August 2022 this software **is not accessible.**
 > Significant work will be required to reach that goal. In the meantime, you can track the progress and initiatives in our [Jupyter Accessibility Team Compass](https://jupyter-accessibility.readthedocs.io)
 
+Community projects:
+
+- [jupyterlab-a11y-checker](https://github.com/berkeley-dsep-infra/jupyterlab-a11y-checker)
 
 No longer maintained community projects (not recommended):
 
