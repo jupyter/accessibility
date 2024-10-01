@@ -1,10 +1,5 @@
 # Community Calls and Events
 
-```{note}
-The Jupyter Accessibility project was recently converted into an official Jupyter Software Subproject.
-Learn more on [our governance documentation](governance.md)
-```
-
 ## Get Connected with the Community
 
 First off, get yourself connected with the Jupyter Accessibility community online.
@@ -20,17 +15,19 @@ There are a few places where we have conversations and discussion.
 As a reminder, we expect all members of the Jupyter Accessibility community to adhere to the [Jupyter Code of Conduct][jupyter-coc] in these conversations.
 ```
 
-## Team meetings and notes
+## Meetings
 
-The Jupyter Accessibility meets every two weeks to discuss what we have been up to, discuss important issues, make decisions, share ideas, and enjoy one another’s company.
+The Jupyter Accessibility and [Jupyter Frontends](https://github.com/jupyterlab/frontends-team-compass) subprojects meet together on Zoom once a week. 
+Please bring your accessibility-related updates, ideas, issues, concerns, and questions to that call. 
+Members of the Jupyter Accessibility subproject will make a particular effort to attend the first meeting of each calendar month.
 These meetings are open to anyone, whether you are interested in discussing a topic or listening in.
 
 ```{card}
-**Bi-weekly accessibility meeting details**
+**Meeting details**
 ^^^
-* **When**: every other Thursday [9:00 AM Pacific Time](https://www.thetimezoneconverter.com/?t=9%3A00%20am&tz=San%20Francisco&)
-* **Where**: [jovyan Zoom](https://zoom.us/my/jovyan?pwd=c0JZTHlNdS9Sek9vdzR3aTJ4SzFTQT09)
-* **What**: [Meeting agenda](https://hackmd.io/WnaWXboXSiGoqWvev_fAvA)
+* **When**: every Wednesday at [9:00 AM Pacific Time](https://www.thetimezoneconverter.com/?t=9%3A00%20am&tz=San%20Francisco&)
+* **Where**: [Jovyan Zoom](https://zoom.us/my/jovyan?pwd=c0JZTHlNdS9Sek9vdzR3aTJ4SzFTQT09)
+* **What**: [Meeting agenda](https://hackmd.io/Y7fBMQPSQ1C08SDGI-fwtg) 
 * [Jupyter Community Calls Calendar](https://calendar.google.com/calendar/u/0/r?cid=dgpd36f43et9grabn6tdin6pmc@group.calendar.google.com&cid=m3hek69dag7381umt8kcjd75u4@group.calendar.google.com&cid=aqpkui5q7oi32pk9tcp53hnssc@group.calendar.google.com&cid=d1874ur6fdhuj0snjnilac2nlc@group.calendar.google.com&cid=piahinejjr6ssvi8ikmjjop6ro@group.calendar.google.com)
 ```
 
