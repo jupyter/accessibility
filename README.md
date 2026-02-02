@@ -35,13 +35,13 @@ No longer maintained community projects (not recommended):
 - Review and join in contributing to [accessibility issues identified for the ongoing CZI EOSS grant](docs/funding/czi-grant-roadmap.md)
 - If you find something that you think should be labeled for accessibility, feel free to label it or add a comment.
 
-### Join our JupyterLab accessibility meetings 🤝
+### Join our accessibility meetings 🤝
 
 Anyone is welcome to attend, if they would like to discuss a topic or to listen in.
 
-- **When**: every other Thursday (check the [community calendar](https://jupyter.readthedocs.io/en/latest/community/content-community.html#jupyter-community-meetings)) at [9:00 AM Pacific Time](https://dateful.com/convert/san-francisco-california?t=900am)
-- **Where**: [`jovyan` Zoom](https://zoom.us/my/jovyan?pwd=c0JZTHlNdS9Sek9vdzR3aTJ4SzFTQT09)
-- **What**: [current agenda](https://hackmd.io/WnaWXboXSiGoqWvev_fAvA). Feel free to add items to the upcoming event's agenda 🎉
+- **When**: Jupyter Contributor Meeting every Wednesday (check the [community calendar](https://jupyter.readthedocs.io/en/latest/community/content-community.html#jupyter-community-meetings)) at [9:00 AM Pacific Time](https://dateful.com/convert/san-francisco-california?t=900am).  Accessibility topics are especially encouraged during the first meeting of each month.
+- **Where**: [`jovyan` Zoom](https://zoom.us/j/95228013874?pwd=Ep7HIk8t9JP6VToxt1Wj4P7K5PshC0.1).
+- **What**: [current agenda](https://hackmd.io/Y7fBMQPSQ1C08SDGI-fwtg?both). Feel free to add items to the upcoming event's agenda 🎉
 
 We also have a [public archive of all the previous meeting notes](https://jupyter-accessibility.readthedocs.io/en/latest/community/meeting-minutes/jupyterlab-accessibility-meetings/index.html).
 
