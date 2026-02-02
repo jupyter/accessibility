@@ -26,7 +26,7 @@ These meetings are open to anyone, whether you are interested in discussing a to
 **Meeting details**
 ^^^
 * **When**: every Wednesday at [9:00 AM Pacific Time](https://www.thetimezoneconverter.com/?t=9%3A00%20am&tz=San%20Francisco&)
-* **Where**: [Jovyan Zoom](https://zoom.us/my/jovyan?pwd=c0JZTHlNdS9Sek9vdzR3aTJ4SzFTQT09)
+* **Where**: [Jovyan Zoom](https://zoom.us/j/95228013874?pwd=Ep7HIk8t9JP6VToxt1Wj4P7K5PshC0.1)
 * **What**: [Meeting agenda](https://hackmd.io/Y7fBMQPSQ1C08SDGI-fwtg) 
 * [Jupyter Community Calls Calendar](https://calendar.google.com/calendar/u/0/r?cid=dgpd36f43et9grabn6tdin6pmc@group.calendar.google.com&cid=m3hek69dag7381umt8kcjd75u4@group.calendar.google.com&cid=aqpkui5q7oi32pk9tcp53hnssc@group.calendar.google.com&cid=d1874ur6fdhuj0snjnilac2nlc@group.calendar.google.com&cid=piahinejjr6ssvi8ikmjjop6ro@group.calendar.google.com)
 ```
