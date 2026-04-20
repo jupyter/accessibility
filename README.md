@@ -35,13 +35,19 @@ No longer maintained community projects (not recommended):
 - Review and join in contributing to [accessibility issues identified for the ongoing CZI EOSS grant](docs/funding/czi-grant-roadmap.md)
 - If you find something that you think should be labeled for accessibility, feel free to label it or add a comment.
 
-### Join our JupyterLab accessibility meetings 🤝
+### Join our accessibility meetings 🤝
 
-Anyone is welcome to attend, if they would like to discuss a topic or to listen in.
+The Jupyter Accessibility and [Jupyter Frontends](https://github.com/jupyterlab/frontends-team-compass) subprojects meet together on Zoom once a week.
 
-- **When**: every other Thursday (check the [community calendar](https://jupyter.readthedocs.io/en/latest/community/content-community.html#jupyter-community-meetings)) at [9:00 AM Pacific Time](https://dateful.com/convert/san-francisco-california?t=900am)
-- **Where**: [`jovyan` Zoom](https://zoom.us/my/jovyan?pwd=c0JZTHlNdS9Sek9vdzR3aTJ4SzFTQT09)
-- **What**: [current agenda](https://hackmd.io/WnaWXboXSiGoqWvev_fAvA). Feel free to add items to the upcoming event's agenda 🎉
+Please bring your accessibility-related updates, ideas, issues, concerns, and questions to that call. 
+Members of the Jupyter Accessibility subproject will make a particular effort to attend the first meeting of each calendar month.
+
+Anyone is welcome to attend, with a topic to discuss or just to listen in.
+
+* **When**: every Wednesday at [9:00 AM Pacific Time](https://www.thetimezoneconverter.com/?t=9%3A00%20am&tz=San%20Francisco&)
+* **Where**: [Jovyan Zoom](https://zoom.us/j/95228013874?pwd=Ep7HIk8t9JP6VToxt1Wj4P7K5PshC0.1)
+* **What**: [Meeting agenda](https://hackmd.io/Y7fBMQPSQ1C08SDGI-fwtg) 
+* See the [Jupyter Community Calls Calendar](https://calendar.google.com/calendar/u/0/r?cid=dgpd36f43et9grabn6tdin6pmc@group.calendar.google.com&cid=m3hek69dag7381umt8kcjd75u4@group.calendar.google.com&cid=aqpkui5q7oi32pk9tcp53hnssc@group.calendar.google.com&cid=d1874ur6fdhuj0snjnilac2nlc@group.calendar.google.com&cid=piahinejjr6ssvi8ikmjjop6ro@group.calendar.google.com) for the most up-to-date meeting information.
 
 We also have a [public archive of all the previous meeting notes](https://jupyter-accessibility.readthedocs.io/en/latest/community/meeting-minutes/jupyterlab-accessibility-meetings/index.html).
 
