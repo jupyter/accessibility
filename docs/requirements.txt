@@ -5,6 +5,7 @@ jupyter-book
 pyyaml
 sphinx-autobuild
 sphinx-copybutton
+lxml_html_clean
 
 # additional myst parsers
 # See https://myst-parser.readthedocs.io/en/latest/using/syntax-optional.html
