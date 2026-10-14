@@ -8,7 +8,7 @@ import nox
 
 # ensure we reuse environments instead of creating new ones each time
 nox.options.reuse_existing_virtualenvs = True
-nox.options.default_venv_backend = "conda"
+nox.options.default_venv_backend = "conda|micromamba"
 
 DOCS_BUILD_DIR = "docs/_build/html"
 BUILD_COMMAND = ["-b", "html", "docs", DOCS_BUILD_DIR]
@@ -22,7 +22,7 @@ def install_deps(session):
     session.conda_install("--file", "docs/requirements.txt")
 
 
-@nox.session(venv_backend="conda")
+@nox.session(venv_backend="conda|micromamba")
 def docs(session):
     """Install the necessary dependencies and build the docs.
     Recommended for CI - or if you do not need a realtime preview of the docs."""
@@ -31,7 +31,7 @@ def docs(session):
     session.run("sphinx-build", *BUILD_COMMAND)
 
 
-@nox.session(name="check-links", venv_backend="conda")
+@nox.session(name="check-links", venv_backend="conda|micromamba")
 def check_links(session):
     """Install the necessary dependencies and build the docs.
     This will also check for broken links during build time."""
@@ -42,7 +42,7 @@ def check_links(session):
     )
 
 
-@nox.session(name="docs-live", venv_backend="conda")
+@nox.session(name="docs-live", venv_backend="conda|micromamba")
 def docs_live(session):
     """Install necessary dependencies, buid the docs and use livereload.
     Recommended for local development - livereload allows you to see the changes in real-time."""
