@@ -18,7 +18,7 @@ def install_deps(session):
     """Install dependencies for the project - using conda. Leveraging conda inside nox so that we can reuse the environment."""
 
     # https://nox.thea.codes/en/stable/tutorial.html#testing-with-conda
-    session.conda_install("--channel=conda-forge", "python=3.9")
+    session.conda_install("--channel=conda-forge", "python=3.14")
     session.conda_install("--file", "docs/requirements.txt")
 
 
