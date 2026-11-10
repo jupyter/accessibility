@@ -133,7 +133,7 @@ If you wish to manually build the documentation, you can use `conda` to do so.
 1. Create a `conda` environment to build the documentation.
 
    ```bash
-   conda env create -n a11y-team-compass-docs python=3.9
+   conda env create -n a11y-team-compass-docs python
    ```
 
 2. Activate the new environment and install the rest of the dependencies:

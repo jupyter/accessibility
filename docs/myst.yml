@@ -1,0 +1,47 @@
+version: 1
+project:
+  title: Jupyter Accessibility - Team Compass
+  authors:
+    - name: The Jupyter Accessibility Team
+  copyright: 2019-2026, Jupyter Accessibility Team
+  exclude:
+    - .nox
+    - source
+    - _build
+    - Thumbs.db
+    - .DS_Store
+    - .git
+    - .github
+  github: jupyter/accessibility
+  toc:
+    - file: index.md
+    - title: Subtree 0
+      children:
+        - file: accessibility-docs.md
+    - title: Accessibility efforts
+      children:
+        - file: resources/JupyterLab-a11y-statement.md
+    - title: Community
+      children:
+        - file: contribute/index.md
+          title: Contribute to Jupyter Accessibility
+        - file: community/index.md
+        - pattern: community/meeting-minutes/jupyterlab-accessibility-meetings/*.md
+    - title: Accessibility resources
+      children:
+        - file: resources/useful-resources.md
+        - file: resources/map-jupyterlab-frontend-architecture/README.md
+    - title: Accessibility audits
+      children:
+        - file: audits/index.md
+    - title: Funded accessibility work
+      children:
+        - file: funding/index.md
+        - file: funding/czi-grant-roadmap.md
+        - file: funding/czi-grant-completed.md
+site:
+  options:
+    logo: _static/logos/JupAccessColor.svg
+    favicon: _static/favicon.ico
+    folders: true
+  template: book-theme

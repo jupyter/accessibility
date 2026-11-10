@@ -17,14 +17,15 @@ As a Software Subproject, the Jupyter Accessibility council elects one council m
 
 ### Jupyter Accessibility Council members
 
-Last updated 8 December, 2023
+Last updated 14 October, 2026
 
+- [Isabel Paredes (@IsabelParedes)](https://github.com/IsabelParedes) - SSC representative as of October 2026
 - [Tania Allard (@trallard)](https://github.com/trallard)
 - [Alex Bozarth (@ajbozarth)](https://github.com/ajbozarth)
 - [Frédéric Collonval (@fcollonval)](https://github.com/fcollonval)
 - [Martha Cryan (@marthacryan)](https://github.com/marthacryan)
 - [Afshin T. Darian (@afshin)](https://github.com/afshin)
 - [R Ely (@ohrely)](https://github.com/ohrely)
-- [Gabriel Fouasnon (@gabalafou)](https://github.com/gabalafou) - SSC representative as of October 2023
+- [Gabriel Fouasnon (@gabalafou)](https://github.com/gabalafou)
 - [Michał Krassowski (@krassowski)](https://github.com/krassowski)
 - [Isabela Presedo-Floyd (@isabela-pf)](https://github.com/isabela-pf)
