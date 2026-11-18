@@ -16,11 +16,4 @@ These core user-facing software include:
 
 ## Accessibility Status for Jupyter tools
 
-```{warning}
-As of January 2023 this software **is not accessible**.
-Significant work will be required to reach that goal.
-```
-
-In the meantime, you can read the
-[JupyterLab accessibility statement](../resources/JupyterLab-a11y-statement.md)
-to get a better understanding of its state and limitations.
+- [JupyterLab/Notebook Accessibility Statement](https://jupyterlab.readthedocs.io/en/latest/getting_started/accessibility.html)

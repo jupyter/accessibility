@@ -12,11 +12,6 @@ parts:
   - chapters:
     - file: accessibility-docs.md
   # ------------------------------------------------------
-  # Top view efforts and initiatives
-  - caption: Accessibility efforts
-    chapters:
-      - file: resources/JupyterLab-a11y-statement.md
-  # ------------------------------------------------------
   # All things community
   - caption: Community
     chapters:
